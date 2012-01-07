@@ -1,5 +1,4 @@
 #import "TestHelper.h"
-#import "Specta.h"
 #import <objc/runtime.h>
 
 @interface SequenceTestHelper : NSObject

@@ -1,5 +1,4 @@
 #import "TestHelper.h"
-#import "Specta.h"
 
 static int
   example1Ran

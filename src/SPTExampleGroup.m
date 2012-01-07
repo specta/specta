@@ -1,6 +1,5 @@
 #import "SPTExampleGroup.h"
 #import "SPTExample.h"
-#import "SPTTestCase.h"
 #import <objc/runtime.h>
 
 @interface SPTExampleGroup ()
