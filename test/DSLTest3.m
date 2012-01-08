@@ -15,7 +15,7 @@ SpecEnd
 @implementation DSLTest3
 
 - (void)testNestedExampleGroups {
-  SPTExampleGroup *rootGroup = [_DSLTest3Spec rootGroup];
+  SPTExampleGroup *rootGroup = [_DSLTest3Spec SPT_spec].rootGroup;
   expect([rootGroup.children count]).toEqual(2);
 
   SPTExampleGroup *group1 = [rootGroup.children objectAtIndex:0];
@@ -45,4 +45,3 @@ SpecEnd
 }
 
 @end
-

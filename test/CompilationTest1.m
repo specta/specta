@@ -18,10 +18,9 @@ SpecEnd
 - (void)testSingleExample {
   example1Ran = 0;
 
-  RunTestSuite(_CompilationTest1Spec);
+  RunSpec(_CompilationTest1Spec);
 
   expect(example1Ran).toEqual(1);
 }
 
 @end
-

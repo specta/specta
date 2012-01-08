@@ -51,7 +51,7 @@ SpecEnd
 - (void)testMultipleBeforeAllAndAfterAllHooks {
   beforeAllRan = afterAllRan = example1RanCorrectly = example2RanCorrectly = beforeAll2Ran = afterAll2Ran = 0;
 
-  RunTestSuite(_CompilationTest7Spec);
+  RunSpec(_CompilationTest7Spec);
 
   expect(example1RanCorrectly).toEqual(1);
   expect(example2RanCorrectly).toEqual(1);
@@ -63,4 +63,3 @@ SpecEnd
 }
 
 @end
-

@@ -24,7 +24,7 @@ SpecEnd
 @implementation DSLTest5
 
 - (void)testNestedExamples {
-  SPTExampleGroup *rootGroup = [_DSLTest5Spec rootGroup];
+  SPTExampleGroup *rootGroup = [_DSLTest5Spec SPT_spec].rootGroup;
 
   SPTExampleGroup *group1 = [rootGroup.children objectAtIndex:0];
   expect(group1.name).toEqual(@"group 1");
@@ -52,4 +52,3 @@ SpecEnd
 }
 
 @end
-

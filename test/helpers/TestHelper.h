@@ -4,6 +4,6 @@
 #define EXP_SHORTHAND
 #import "Expecta.h"
 
-#define RunTestSuite(TestClass) \
-[(SenTestSuite *)[SenTestSuite testSuiteForTestCaseClass:[TestClass class]] run]
+#define RunSpec(TestClass) RunSpecClass([TestClass class])
 
+SenTestRun *RunSpecClass(Class testClass);

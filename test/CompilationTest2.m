@@ -35,7 +35,7 @@ SpecEnd
 - (void)testMultipleExamples {
   example1Ran = example2Ran = example3Ran = example4Ran = 0;
 
-  RunTestSuite(_CompilationTest2Spec);
+  RunSpec(_CompilationTest2Spec);
 
   expect(example1Ran).toEqual(1);
   expect(example2Ran).toEqual(1);
@@ -44,4 +44,3 @@ SpecEnd
 }
 
 @end
-

@@ -21,7 +21,7 @@
 
 SpecBegin(_SequenceTest)
 
-describe(@"/", ^{
+describe(@"root", ^{
   NSMutableArray *sequence = [SequenceTestHelper array];
 
   beforeAll(^{ [sequence addObject:@"/beforeAll"]; });
@@ -79,7 +79,7 @@ SpecEnd
   NSMutableArray *sequence = [SequenceTestHelper array];
   [sequence removeAllObjects];
 
-  RunTestSuite(_SequenceTestSpec);
+  RunSpec(_SequenceTestSpec);
 
   expect([sequence count]).Not.toEqual(0);
   int i = 0;
@@ -156,4 +156,3 @@ SpecEnd
 }
 
 @end
-

@@ -51,7 +51,7 @@ SpecEnd
 - (void)testMultipleBeforeEachAndAfterEachHooks {
   beforeEachRan = afterEachRan = beforeEach2Ran = afterEach2Ran = example1RanCorrectly = example2RanCorrectly = 0;
 
-  RunTestSuite(_CompilationTest5Spec);
+  RunSpec(_CompilationTest5Spec);
 
   expect(example1RanCorrectly).toEqual(1);
   expect(example2RanCorrectly).toEqual(1);
@@ -63,4 +63,3 @@ SpecEnd
 }
 
 @end
-

@@ -39,7 +39,7 @@ SpecEnd
 - (void)testBeforeEachAndAfterEachHooks {
   beforeEachRan = afterEachRan = example1RanCorrectly = example2RanCorrectly = 0;
 
-  RunTestSuite(_CompilationTest4Spec);
+  RunSpec(_CompilationTest4Spec);
 
   expect(example1RanCorrectly).toEqual(1);
   expect(example2RanCorrectly).toEqual(1);
@@ -49,4 +49,3 @@ SpecEnd
 }
 
 @end
-

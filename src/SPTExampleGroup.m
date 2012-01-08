@@ -1,6 +1,5 @@
 #import "SPTExampleGroup.h"
 #import "SPTExample.h"
-#import <objc/runtime.h>
 
 @interface SPTExampleGroup ()
 
@@ -11,8 +10,6 @@
 - (void)runAfterHooks;
 
 @end
-
-unsigned int SPT_digits(unsigned int number);
 
 @implementation SPTExampleGroup
 
@@ -172,15 +169,18 @@ unsigned int SPT_digits(unsigned int number);
   }
 }
 
-- (unsigned int)compileExamples:(Class)testClass index:(unsigned int)index {
+- (NSArray *)compileExamplesWithNameStack:(NSArray *)nameStack {
+  NSArray *compiled = [NSArray array];
   for(id child in self.children) {
     if([child isKindOfClass:[SPTExampleGroup class]]) {
       SPTExampleGroup *group = child;
-      index = [group compileExamples:testClass index:index];
+      nameStack = [nameStack arrayByAddingObject:group.name];
+      compiled = [compiled arrayByAddingObjectsFromArray:[group compileExamplesWithNameStack:nameStack]];
     } else if([child isKindOfClass:[SPTExample class]]) {
-      index ++;
       SPTExample *example = child;
-      IMP imp = imp_implementationWithBlock(^{
+      nameStack = [nameStack arrayByAddingObject:example.name];
+      NSString *compiledName = [nameStack componentsJoinedByString:@" "];
+      SPTVoidBlock compiledBlock = ^{
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];
           [self runBeforeHooks];
@@ -190,24 +190,13 @@ unsigned int SPT_digits(unsigned int number);
           [self incrementRanExampleCount];
           [self runAfterHooks];
         }
-      });
-      NSString *format = [NSString stringWithFormat:@"%@%d%@", @"test%0", SPT_digits([self.root exampleCount]), @"u"];
-      SEL sel = NSSelectorFromString([NSString stringWithFormat:format, index]);
-      class_addMethod(testClass, sel, imp, "v@:");
+      };
+      SPTExample *compiledExample = [[SPTExample alloc] initWithName:compiledName block:compiledBlock];
+      compiled = [compiled arrayByAddingObject:compiledExample];
+      [compiledExample release];
     }
   }
-  return index;
+  return compiled;
 }
 
 @end
-
-unsigned int SPT_digits(unsigned int number) {
-  unsigned int digits = 0;
-  int i = 1;
-  do {
-    digits ++;
-    i *= 10;
-  } while(i <= number);
-  return digits;
-}
-

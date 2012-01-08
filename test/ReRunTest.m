@@ -45,7 +45,7 @@ SpecEnd
 - (void)test_Tests_should_be_able_to_run_multiple_times {
   beforeEachRan = afterEachRan = example1Ran = example2Ran = beforeAllRan = afterAllRan = 0;
 
-  RunTestSuite(_ReRunTestSpec);
+  RunSpec(_ReRunTestSpec);
 
   expect(example1Ran).toEqual(1);
   expect(example2Ran).toEqual(1);
@@ -55,7 +55,7 @@ SpecEnd
   expect(afterEachRan).toEqual(2);
   expect(afterAllRan).toEqual(1);
 
-  RunTestSuite(_ReRunTestSpec);
+  RunSpec(_ReRunTestSpec);
 
   expect(example1Ran).toEqual(2);
   expect(example2Ran).toEqual(2);
@@ -67,4 +67,3 @@ SpecEnd
 }
 
 @end
-

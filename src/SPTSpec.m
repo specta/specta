@@ -1,0 +1,38 @@
+#import "SPTSpec.h"
+#import "SPTExampleGroup.h"
+#import "SPTExample.h"
+
+@implementation SPTSpec
+
+@synthesize
+  rootGroup=_rootGroup
+, groupStack=_groupStack
+, compiledExamples=_compiledExamples
+;
+
+- (void)dealloc {
+  self.rootGroup = nil;
+  self.groupStack = nil;
+  self.compiledExamples = nil;
+  [super dealloc];
+}
+
+- (id)init {
+  self = [super init];
+  if(self) {
+    self.rootGroup = [[[SPTExampleGroup alloc] init] autorelease];
+    self.rootGroup.root = self.rootGroup;
+    self.groupStack = [NSMutableArray arrayWithObject:self.rootGroup];
+  }
+  return self;
+}
+
+- (SPTExampleGroup *)currentGroup {
+  return [self.groupStack lastObject];
+}
+
+- (void)compile {
+  self.compiledExamples = [self.rootGroup compileExamplesWithNameStack:[NSArray array]];
+}
+
+@end

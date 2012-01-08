@@ -39,7 +39,7 @@ SpecEnd
 - (void)testNestedExamples {
   example1Ran = example2Ran = example3Ran = example4Ran = 0;
 
-  RunTestSuite(_CompilationTest3Spec);
+  RunSpec(_CompilationTest3Spec);
 
   expect(example1Ran).toEqual(1);
   expect(example2Ran).toEqual(1);
@@ -48,4 +48,3 @@ SpecEnd
 }
 
 @end
-

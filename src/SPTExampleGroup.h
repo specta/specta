@@ -1,17 +1,19 @@
 #import <Foundation/Foundation.h>
 #import "SpectaSupport.h"
 
-@class SPTExample;
+@class
+  SPTExample
+;
 
 @interface SPTExampleGroup : NSObject {
   NSString *_name;
   SPTExampleGroup *_root;
   SPTExampleGroup *_parent;
   NSMutableArray *_children;
-  NSMutableArray *_beforeAllBlock;
-  NSMutableArray *_afterAllBlock;
-  NSMutableArray *_beforeEachBlock;
-  NSMutableArray *_afterEachBlock;
+  NSMutableArray *_beforeAllArray;
+  NSMutableArray *_afterAllArray;
+  NSMutableArray *_beforeEachArray;
+  NSMutableArray *_afterEachArray;
   unsigned int _exampleCount;
   unsigned int _ranExampleCount;
 }
@@ -28,13 +30,15 @@
 @property (nonatomic) unsigned int ranExampleCount;
 
 - (id)initWithName:(NSString *)name parent:(SPTExampleGroup *)parent root:(SPTExampleGroup *)root;
+
 - (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name;
 - (SPTExample *)addExampleWithName:(NSString *)name block:(SPTVoidBlock)block;
+
 - (void)addBeforeAllBlock:(SPTVoidBlock)block;
 - (void)addAfterAllBlock:(SPTVoidBlock)block;
 - (void)addBeforeEachBlock:(SPTVoidBlock)block;
 - (void)addAfterEachBlock:(SPTVoidBlock)block;
-- (unsigned int)compileExamples:(Class)testClass index:(unsigned int)index;
+
+- (NSArray *)compileExamplesWithNameStack:(NSArray *)nameStack;
 
 @end
-

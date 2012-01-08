@@ -10,7 +10,7 @@ SpecEnd
 @implementation DSLTest1
 
 - (void)testSingleExampleGroup {
-  SPTExampleGroup *rootGroup = [_DSLTest1Spec rootGroup];
+  SPTExampleGroup *rootGroup = [_DSLTest1Spec SPT_spec].rootGroup;
 
   expect(rootGroup).toBeKindOf([SPTExampleGroup class]);
   expect(rootGroup.root).toEqual(rootGroup);
@@ -24,4 +24,3 @@ SpecEnd
 }
 
 @end
-
