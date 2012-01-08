@@ -5,4 +5,5 @@ xcuserdata
 build/
 *.pbxuser
 *.mode1v3
+products/*
 

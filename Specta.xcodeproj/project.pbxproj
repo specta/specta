@@ -9,18 +9,38 @@
 /* Begin PBXBuildFile section */
 		E910177314B911340087CD46 /* PassingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E910177214B911340087CD46 /* PassingSpecTest.m */; };
 		E910177514B9114A0087CD46 /* FailingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E910177414B9114A0087CD46 /* FailingSpecTest.m */; };
-		E9B7778014B9E15300D8DC76 /* SPTSenTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */; };
+		E9B7778014B9E15300D8DC76 /* SPTSenTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9B7778214B9E15A00D8DC76 /* SPTSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B7778114B9E15A00D8DC76 /* SPTSenTestCase.m */; };
 		E9B7778814BA24EC00D8DC76 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B7778714BA24EC00D8DC76 /* TestHelper.m */; };
-		E9D9420E14B8B42A00CD833A /* Specta-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420414B8B42A00CD833A /* Specta-Prefix.pch */; };
-		E9D9420F14B8B42A00CD833A /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420514B8B42A00CD833A /* Specta.h */; };
+		E9B777BB14BA294C00D8DC76 /* libSpecta-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B777A414BA294B00D8DC76 /* libSpecta-iOS.a */; };
+		E9B777D414BA306F00D8DC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D96A2E14B6B8AB007D9521 /* Foundation.framework */; };
+		E9B777D514BA308B00D8DC76 /* Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9420614B8B42A00CD833A /* Specta.m */; };
+		E9B777D614BA308B00D8DC76 /* SPTSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9420D14B8B42A00CD833A /* SPTSpec.m */; };
+		E9B777D714BA308B00D8DC76 /* SPTExample.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9420814B8B42A00CD833A /* SPTExample.m */; };
+		E9B777D814BA308B00D8DC76 /* SPTExampleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9420A14B8B42A00CD833A /* SPTExampleGroup.m */; };
+		E9B777D914BA308B00D8DC76 /* SPTSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B7778114B9E15A00D8DC76 /* SPTSenTestCase.m */; };
+		E9B777E114BA312600D8DC76 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D96A3B14B6B8AB007D9521 /* SenTestingKit.framework */; };
+		E9B777E314BA313A00D8DC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B777DE14BA30F600D8DC76 /* Foundation.framework */; };
+		E9B777F314BA31FC00D8DC76 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D96A3B14B6B8AB007D9521 /* SenTestingKit.framework */; };
+		E9B777F514BA320400D8DC76 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D96A3B14B6B8AB007D9521 /* SenTestingKit.framework */; };
+		E9B777F614BA320D00D8DC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9B777DE14BA30F600D8DC76 /* Foundation.framework */; };
+		E9B777F714BA321400D8DC76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D96A2E14B6B8AB007D9521 /* Foundation.framework */; };
+		E9B777F814BA329400D8DC76 /* Specta-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420414B8B42A00CD833A /* Specta-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9B777F914BA329400D8DC76 /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420514B8B42A00CD833A /* Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9B777FA14BA329400D8DC76 /* SpectaSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420B14B8B42A00CD833A /* SpectaSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9B777FB14BA329400D8DC76 /* SPTSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420C14B8B42A00CD833A /* SPTSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9B777FC14BA329400D8DC76 /* SPTExample.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420714B8B42A00CD833A /* SPTExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9B777FD14BA329400D8DC76 /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420914B8B42A00CD833A /* SPTExampleGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9B777FE14BA329400D8DC76 /* SPTSenTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9D9420E14B8B42A00CD833A /* Specta-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420414B8B42A00CD833A /* Specta-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9D9420F14B8B42A00CD833A /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420514B8B42A00CD833A /* Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D9421014B8B42A00CD833A /* Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9420614B8B42A00CD833A /* Specta.m */; };
-		E9D9421114B8B42A00CD833A /* SPTExample.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420714B8B42A00CD833A /* SPTExample.h */; };
+		E9D9421114B8B42A00CD833A /* SPTExample.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420714B8B42A00CD833A /* SPTExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D9421214B8B42A00CD833A /* SPTExample.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9420814B8B42A00CD833A /* SPTExample.m */; };
-		E9D9421314B8B42A00CD833A /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420914B8B42A00CD833A /* SPTExampleGroup.h */; };
+		E9D9421314B8B42A00CD833A /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420914B8B42A00CD833A /* SPTExampleGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D9421414B8B42A00CD833A /* SPTExampleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9420A14B8B42A00CD833A /* SPTExampleGroup.m */; };
-		E9D9421514B8B42A00CD833A /* SpectaSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420B14B8B42A00CD833A /* SpectaSupport.h */; };
-		E9D9421614B8B42A00CD833A /* SPTSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420C14B8B42A00CD833A /* SPTSpec.h */; };
+		E9D9421514B8B42A00CD833A /* SpectaSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420B14B8B42A00CD833A /* SpectaSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9D9421614B8B42A00CD833A /* SPTSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420C14B8B42A00CD833A /* SPTSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D9421714B8B42A00CD833A /* SPTSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9420D14B8B42A00CD833A /* SPTSpec.m */; };
 		E9D9424814B8B43200CD833A /* CompilationTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9421914B8B43200CD833A /* CompilationTest1.m */; };
 		E9D9424914B8B43200CD833A /* CompilationTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9421A14B8B43200CD833A /* CompilationTest2.m */; };
@@ -39,14 +59,18 @@
 		E9D9425814B8B43200CD833A /* libExpecta-macosx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D9424314B8B43200CD833A /* libExpecta-macosx.a */; };
 		E9D9425914B8B43200CD833A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E9D9424414B8B43200CD833A /* LICENSE */; };
 		E9D9425A14B8B43200CD833A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E9D9424714B8B43200CD833A /* README.md */; };
-		E9D96A2A14B6B8AB007D9521 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D96A2914B6B8AB007D9521 /* Cocoa.framework */; };
-		E9D96A3C14B6B8AB007D9521 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D96A3B14B6B8AB007D9521 /* SenTestingKit.framework */; };
-		E9D96A3D14B6B8AB007D9521 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D96A2914B6B8AB007D9521 /* Cocoa.framework */; };
 		E9D96A4014B6B8AB007D9521 /* libSpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D96A2614B6B8AB007D9521 /* libSpecta.a */; };
 		E9D96A5614B6BF0A007D9521 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D96A3B14B6B8AB007D9521 /* SenTestingKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E9B777B914BA294C00D8DC76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9D96A1D14B6B8AA007D9521 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9B777A314BA294B00D8DC76;
+			remoteInfo = "Specta-iOS";
+		};
 		E9D96A3E14B6B8AB007D9521 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E9D96A1D14B6B8AA007D9521 /* Project object */;
@@ -64,6 +88,9 @@
 		E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTSenTestCase.h; sourceTree = "<group>"; };
 		E9B7778114B9E15A00D8DC76 /* SPTSenTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTSenTestCase.m; sourceTree = "<group>"; };
 		E9B7778714BA24EC00D8DC76 /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
+		E9B777A414BA294B00D8DC76 /* libSpecta-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSpecta-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9B777B314BA294C00D8DC76 /* Specta-iOSTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Specta-iOSTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9B777DE14BA30F600D8DC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		E9D9420414B8B42A00CD833A /* Specta-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Specta-Prefix.pch"; sourceTree = "<group>"; };
 		E9D9420514B8B42A00CD833A /* Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Specta.h; sourceTree = "<group>"; };
 		E9D9420614B8B42A00CD833A /* Specta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Specta.m; sourceTree = "<group>"; };
@@ -117,20 +144,36 @@
 		E9D9424614B8B43200CD833A /* NSValue+Expecta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+Expecta.h"; sourceTree = "<group>"; };
 		E9D9424714B8B43200CD833A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		E9D96A2614B6B8AB007D9521 /* libSpecta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpecta.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9D96A2914B6B8AB007D9521 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		E9D96A2C14B6B8AB007D9521 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		E9D96A2D14B6B8AB007D9521 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E9D96A2E14B6B8AB007D9521 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E9D96A3A14B6B8AB007D9521 /* SpectaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpectaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D96A3B14B6B8AB007D9521 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E9B777A114BA294B00D8DC76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9B777E314BA313A00D8DC76 /* Foundation.framework in Frameworks */,
+				E9B777E114BA312600D8DC76 /* SenTestingKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9B777AF14BA294B00D8DC76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9B777F614BA320D00D8DC76 /* Foundation.framework in Frameworks */,
+				E9B777F514BA320400D8DC76 /* SenTestingKit.framework in Frameworks */,
+				E9B777BB14BA294C00D8DC76 /* libSpecta-iOS.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E9D96A2314B6B8AB007D9521 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9D96A2A14B6B8AB007D9521 /* Cocoa.framework in Frameworks */,
+				E9B777D414BA306F00D8DC76 /* Foundation.framework in Frameworks */,
 				E9D96A5614B6BF0A007D9521 /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,8 +182,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9D96A3C14B6B8AB007D9521 /* SenTestingKit.framework in Frameworks */,
-				E9D96A3D14B6B8AB007D9521 /* Cocoa.framework in Frameworks */,
+				E9B777F714BA321400D8DC76 /* Foundation.framework in Frameworks */,
+				E9B777F314BA31FC00D8DC76 /* SenTestingKit.framework in Frameworks */,
 				E9D96A4014B6B8AB007D9521 /* libSpecta.a in Frameworks */,
 				E9D9425814B8B43200CD833A /* libExpecta-macosx.a in Frameworks */,
 			);
@@ -149,6 +192,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E9B777DC14BA30CE00D8DC76 /* macosx */ = {
+			isa = PBXGroup;
+			children = (
+				E9D96A2E14B6B8AB007D9521 /* Foundation.framework */,
+			);
+			name = macosx;
+			sourceTree = "<group>";
+		};
+		E9B777DD14BA30E100D8DC76 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				E9B777DE14BA30F600D8DC76 /* Foundation.framework */,
+			);
+			name = ios;
+			sourceTree = "<group>";
+		};
 		E9D9420314B8B42A00CD833A /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +328,8 @@
 			children = (
 				E9D96A2614B6B8AB007D9521 /* libSpecta.a */,
 				E9D96A3A14B6B8AB007D9521 /* SpectaTests.octest */,
+				E9B777A414BA294B00D8DC76 /* libSpecta-iOS.a */,
+				E9B777B314BA294C00D8DC76 /* Specta-iOSTests.octest */,
 			);
 			name = products;
 			sourceTree = "<group>";
@@ -276,35 +337,39 @@
 		E9D96A2814B6B8AB007D9521 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E9D96A2914B6B8AB007D9521 /* Cocoa.framework */,
+				E9B777DC14BA30CE00D8DC76 /* macosx */,
+				E9B777DD14BA30E100D8DC76 /* ios */,
 				E9D96A3B14B6B8AB007D9521 /* SenTestingKit.framework */,
-				E9D96A2B14B6B8AB007D9521 /* Other Frameworks */,
 			);
 			name = frameworks;
-			sourceTree = "<group>";
-		};
-		E9D96A2B14B6B8AB007D9521 /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E9D96A2C14B6B8AB007D9521 /* AppKit.framework */,
-				E9D96A2D14B6B8AB007D9521 /* CoreData.framework */,
-				E9D96A2E14B6B8AB007D9521 /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		E9B777A214BA294B00D8DC76 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9B777F914BA329400D8DC76 /* Specta.h in Headers */,
+				E9B777FA14BA329400D8DC76 /* SpectaSupport.h in Headers */,
+				E9B777F814BA329400D8DC76 /* Specta-Prefix.pch in Headers */,
+				E9B777FB14BA329400D8DC76 /* SPTSpec.h in Headers */,
+				E9B777FC14BA329400D8DC76 /* SPTExample.h in Headers */,
+				E9B777FD14BA329400D8DC76 /* SPTExampleGroup.h in Headers */,
+				E9B777FE14BA329400D8DC76 /* SPTSenTestCase.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E9D96A2414B6B8AB007D9521 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9D9420E14B8B42A00CD833A /* Specta-Prefix.pch in Headers */,
 				E9D9420F14B8B42A00CD833A /* Specta.h in Headers */,
+				E9D9421514B8B42A00CD833A /* SpectaSupport.h in Headers */,
+				E9D9420E14B8B42A00CD833A /* Specta-Prefix.pch in Headers */,
 				E9D9421114B8B42A00CD833A /* SPTExample.h in Headers */,
 				E9D9421314B8B42A00CD833A /* SPTExampleGroup.h in Headers */,
-				E9D9421514B8B42A00CD833A /* SpectaSupport.h in Headers */,
 				E9D9421614B8B42A00CD833A /* SPTSpec.h in Headers */,
 				E9B7778014B9E15300D8DC76 /* SPTSenTestCase.h in Headers */,
 			);
@@ -313,6 +378,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		E9B777A314BA294B00D8DC76 /* Specta-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9B777C514BA294C00D8DC76 /* Build configuration list for PBXNativeTarget "Specta-iOS" */;
+			buildPhases = (
+				E9B777A014BA294B00D8DC76 /* Sources */,
+				E9B777A114BA294B00D8DC76 /* Frameworks */,
+				E9B777A214BA294B00D8DC76 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Specta-iOS";
+			productName = "Specta-iOS";
+			productReference = E9B777A414BA294B00D8DC76 /* libSpecta-iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E9B777B214BA294B00D8DC76 /* Specta-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9B777C814BA294C00D8DC76 /* Build configuration list for PBXNativeTarget "Specta-iOSTests" */;
+			buildPhases = (
+				E9B777AE14BA294B00D8DC76 /* Sources */,
+				E9B777AF14BA294B00D8DC76 /* Frameworks */,
+				E9B777B014BA294B00D8DC76 /* Resources */,
+				E9B777B114BA294B00D8DC76 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9B777BA14BA294C00D8DC76 /* PBXTargetDependency */,
+			);
+			name = "Specta-iOSTests";
+			productName = "Specta-iOSTests";
+			productReference = E9B777B314BA294C00D8DC76 /* Specta-iOSTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		E9D96A2514B6B8AB007D9521 /* Specta */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9D96A4C14B6B8AB007D9521 /* Build configuration list for PBXNativeTarget "Specta" */;
@@ -371,12 +472,21 @@
 			projectRoot = "";
 			targets = (
 				E9D96A2514B6B8AB007D9521 /* Specta */,
+				E9B777A314BA294B00D8DC76 /* Specta-iOS */,
 				E9D96A3914B6B8AB007D9521 /* SpectaTests */,
+				E9B777B214BA294B00D8DC76 /* Specta-iOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E9B777B014BA294B00D8DC76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E9D96A3714B6B8AB007D9521 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,6 +499,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		E9B777B114BA294B00D8DC76 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		E9D96A3814B6B8AB007D9521 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -405,14 +528,33 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E9B777A014BA294B00D8DC76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9B777D514BA308B00D8DC76 /* Specta.m in Sources */,
+				E9B777D614BA308B00D8DC76 /* SPTSpec.m in Sources */,
+				E9B777D714BA308B00D8DC76 /* SPTExample.m in Sources */,
+				E9B777D814BA308B00D8DC76 /* SPTExampleGroup.m in Sources */,
+				E9B777D914BA308B00D8DC76 /* SPTSenTestCase.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9B777AE14BA294B00D8DC76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E9D96A2214B6B8AB007D9521 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E9D9421014B8B42A00CD833A /* Specta.m in Sources */,
 				E9D9421714B8B42A00CD833A /* SPTSpec.m in Sources */,
-				E9D9421414B8B42A00CD833A /* SPTExampleGroup.m in Sources */,
 				E9D9421214B8B42A00CD833A /* SPTExample.m in Sources */,
+				E9D9421414B8B42A00CD833A /* SPTExampleGroup.m in Sources */,
 				E9B7778214B9E15A00D8DC76 /* SPTSenTestCase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +586,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		E9B777BA14BA294C00D8DC76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9B777A314BA294B00D8DC76 /* Specta-iOS */;
+			targetProxy = E9B777B914BA294C00D8DC76 /* PBXContainerItemProxy */;
+		};
 		E9D96A3F14B6B8AB007D9521 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E9D96A2514B6B8AB007D9521 /* Specta */;
@@ -452,6 +599,102 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		E9B777C614BA294C00D8DC76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/Specta_iOS.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E9B777C714BA294C00D8DC76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/Specta_iOS.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E9B777C914BA294C00D8DC76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INFOPLIST_FILE = "test/support/Test-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E9B777CA14BA294C00D8DC76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				INFOPLIST_FILE = "test/support/Test-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		E9D96A4A14B6B8AB007D9521 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -475,7 +718,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -495,7 +738,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -509,9 +752,10 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 			};
 			name = Debug;
 		};
@@ -525,9 +769,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -539,16 +785,18 @@
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "test/support/Test-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/test/vendor/expecta\"",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -561,16 +809,19 @@
 				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "test/support/Test-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/test/vendor/expecta\"",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+					"-ObjC",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				RUN_CLANG_STATIC_ANALYZER = YES;
+				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
@@ -578,6 +829,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E9B777C514BA294C00D8DC76 /* Build configuration list for PBXNativeTarget "Specta-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9B777C614BA294C00D8DC76 /* Debug */,
+				E9B777C714BA294C00D8DC76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9B777C814BA294C00D8DC76 /* Build configuration list for PBXNativeTarget "Specta-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9B777C914BA294C00D8DC76 /* Debug */,
+				E9B777CA14BA294C00D8DC76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E9D96A2014B6B8AA007D9521 /* Build configuration list for PBXProject "Specta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
