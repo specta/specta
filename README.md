@@ -2,9 +2,90 @@
 
 A light-weight TDD / BDD framework for Objective-C & Cocoa.
 
-## WIP
+## FEATURES
+
+* RSpec-like BDD DSL
+* Super quick and easy to set up
+* Runs on top of OCUnit
+* Excellent Xcode integration
+
+## SETUP
+
+1. Clone from Github.
+2. Run `rake` in project root to build.
+3. Copy and add all header files in `products` folder to the Test target in your Xcode project.
+4. For **OS X projects**, copy and add `libSpecta-macosx.a` in `products` folder to the Test target in your Xcode project.  
+   For **iOS projects**, copy and add `libSpecta-ios-universal.a` in `products` folder to the Test target in your Xcode project.
+5. Make sure that `SenTestingKit.framework` is included in your Test target.
+6. Add the following to your test code.
+
+```objective-c
+#import "Specta.h"
+```
+
+Standard OCUnit matchers such as `STAssertEqualObjects` and `STAssertNil` work, but you probably want to add a nicer matcher framework: [Expecta](http://github.com/petejkim/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
+
+## WRITING SPECS
+
+```objective-c
+#import "Specta.h"
+
+SpecBegin(Thing)
+
+describe(@"Thing", ^{
+  beforeAll(^{
+    // This is run once and only once before all of the examples
+    // in this group and before any beforeEach blocks.
+  });
+
+  beforeEach(^{
+    // This is run before each example.
+  });
+
+  it(@"should do stuff", ^{
+    // This is an example block. Place your assertions here.
+  });
+
+  it(@"should do more stuff", ^{
+    // ...
+  });
+
+  describe(@"Nested examples", ^{
+    it(@"should do even more stuff", ^{
+      // ...
+    });
+  });
+
+  afterEach(^{
+    // This is run after each example.
+  });
+
+  afterAll(^{
+    // This is run once and only once after all of the examples
+    // in this group and after any afterEach blocks.
+  });
+});
+
+SpecEnd
+```
+
+* `beforeEach` and `afterEach` are also aliased as `before` and `after` respectively.
+* `describe` is also aliased as `context`.
+* `it` is also aliased as `example` and `specify`.
+* Do `#define SPT_CEDAR_SYNTAX` if you prefer to write `SPEC_BEGIN` and `SPEC_END` instead of `SpecBegin` and `SpecEnd`.
+
+### FEATURES COMING SOON
+
+* Pending Specs
+* Shared Examples
+
+### CONTRIBUTION GUIDELINES
+
+* Please use only spaces and indent 2 spaces at a time.
+* Please prefix instance variable names with a single underscore (`_`).
+* Please prefix custom classes and functions defined in the global scope with `SPT`.
 
 ## LICENSE
 
-Copyright (c) 2011 Peter Jihoon Kim. This software is licensed under the [MIT License](http://github.com/petejkim/specta/raw/master/LICENSE).
+Copyright (c) 2012 Peter Jihoon Kim. This software is licensed under the [MIT License](http://github.com/petejkim/specta/raw/master/LICENSE).
 
