@@ -76,7 +76,7 @@
   NSUInteger i;
   [self.SPT_invocation getArgument:&i atIndex:2];
   SPTExample *compiledExample = [[[self class] SPT_spec].compiledExamples objectAtIndex:i];
-  NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"];
+  NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"];
   NSString *exampleName = [[compiledExample.name componentsSeparatedByCharactersInSet:[charSet invertedSet]] componentsJoinedByString:@"_"];
   return [NSString stringWithFormat:@"-[%@ %@]", specName, exampleName];
 }
