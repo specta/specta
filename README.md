@@ -2,14 +2,18 @@
 
 A light-weight TDD / BDD framework for Objective-C & Cocoa.
 
-## FEATURES
+### FEATURES
 
 * RSpec-like BDD DSL
 * Super quick and easy to set up
 * Runs on top of OCUnit
 * Excellent Xcode integration
 
-## SETUP
+### SCREENSHOT
+
+![Specta Screenshot](http://github.com/petejkim/stuff/raw/master/images/specta-screenshot.png)
+
+### SETUP
 
 1. Clone from Github.
 2. Run `rake` in project root to build.
