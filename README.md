@@ -15,6 +15,15 @@ A light-weight TDD / BDD framework for Objective-C & Cocoa.
 
 ### SETUP
 
+Use [CocoaPods](http://github.com/CocoaPods/CocoaPods)
+
+```ruby
+dependency 'Specta', '~> 0.1.0'
+# dependency 'Expecta', '~> 0.1.0'   # expecta matchers
+```
+
+or
+
 1. Clone from Github.
 2. Run `rake` in project root to build.
 3. Copy and add all header files in `products` folder to the Test target in your Xcode project.
