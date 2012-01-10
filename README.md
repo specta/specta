@@ -18,8 +18,10 @@ A light-weight TDD / BDD framework for Objective-C & Cocoa.
 Use [CocoaPods](http://github.com/CocoaPods/CocoaPods)
 
 ```ruby
-dependency 'Specta', '~> 0.1.0'
-# dependency 'Expecta', '~> 0.1.0'   # expecta matchers
+dependency 'Specta',      '~> 0.1.0'
+# dependency 'Expecta',     '~> 0.1.0'   # expecta matchers
+# dependency 'OCHamcrest',  '~> 1.6'     # hamcrest matchers
+# dependency 'OCMock',      '~> 1.77.1'  # OCMock
 ```
 
 or
