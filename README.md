@@ -28,17 +28,17 @@ or
 
 1. Clone from Github.
 2. Run `rake` in project root to build.
-3. Copy and add all header files in `products` folder to the Test target in your Xcode project.
-4. For **OS X projects**, copy and add `libSpecta-macosx.a` in `products` folder to the Test target in your Xcode project.  
+3. Add a "Cocoa/Cocoa Touch Unit Testing Bundle" target if you don't already have one.
+4. Copy and add all header files in `products` folder to the Test target in your Xcode project.
+5. For **OS X projects**, copy and add `libSpecta-macosx.a` in `products` folder to the Test target in your Xcode project.  
    For **iOS projects**, copy and add `libSpecta-ios-universal.a` in `products` folder to the Test target in your Xcode project.
-5. Make sure that `SenTestingKit.framework` is included in your Test target.
 6. Add the following to your test code.
 
 ```objective-c
 #import "Specta.h"
 ```
 
-Standard OCUnit matchers such as `STAssertEqualObjects` and `STAssertNil` work, but you probably want to add a nicer matcher framework: [Expecta](http://github.com/petejkim/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
+Standard OCUnit matchers such as `STAssertEqualObjects` and `STAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](http://github.com/petejkim/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
 
 ## WRITING SPECS
 
