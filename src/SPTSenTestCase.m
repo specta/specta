@@ -3,6 +3,12 @@
 #import "SPTExample.h"
 #import <objc/runtime.h>
 
+@interface NSObject (SPTSenTestCase)
+
++ (NSArray *)senAllSuperclasses;
+
+@end
+
 @implementation SPTSenTestCase
 
 @synthesize
@@ -90,6 +96,14 @@
   self.SPT_run = (SenTestCaseRun *)run;
   [super performTest:run];
   self.SPT_run = nil;
+}
+
++ (NSArray *)senAllSuperclasses {
+  NSArray *arr = [super senAllSuperclasses];
+  if([arr objectAtIndex:0] == [SPTSenTestCase class]) {
+    return [NSArray arrayWithObject:[NSObject class]];
+  }
+  return arr;
 }
 
 @end
