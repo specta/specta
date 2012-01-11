@@ -27,7 +27,7 @@ EXPFixCategoriesBug(EXPMatcher##matcherName##Matcher); \
 @implementation EXPExpect (matcherName##Matcher) \
 @dynamic matcherName;\
 - (void(^) matcherArguments) matcherName { \
-  [[[NSThread currentThread] threadDictionary] setObject:self forKey:@"currentMatcher"]; \
+  [[[NSThread currentThread] threadDictionary] setObject:self forKey:@"EXP_currentMatcher"]; \
   __block id actual = self.actual; \
   __block void (^prerequisite)(EXPBoolBlock block) = ^(EXPBoolBlock block) { EXP_prerequisite(block); }; \
   __block void (^match)(EXPBoolBlock block) = ^(EXPBoolBlock block) { EXP_match(block); }; \

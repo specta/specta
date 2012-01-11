@@ -32,6 +32,8 @@
 		E9B777FC14BA329400D8DC76 /* SPTExample.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420714B8B42A00CD833A /* SPTExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9B777FD14BA329400D8DC76 /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420914B8B42A00CD833A /* SPTExampleGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9B777FE14BA329400D8DC76 /* SPTSenTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9BDBAB914BE2F3A00102FB5 /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */; };
+		E9BDBABA14BE2F3A00102FB5 /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */; };
 		E9D9420E14B8B42A00CD833A /* Specta-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420414B8B42A00CD833A /* Specta-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D9420F14B8B42A00CD833A /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420514B8B42A00CD833A /* Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D9421014B8B42A00CD833A /* Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9420614B8B42A00CD833A /* Specta.m */; };
@@ -91,6 +93,7 @@
 		E9B777A414BA294B00D8DC76 /* libSpecta-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSpecta-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B777B314BA294C00D8DC76 /* Specta-iOSTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Specta-iOSTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B777DE14BA30F600D8DC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiscTest.m; sourceTree = "<group>"; };
 		E9D9420414B8B42A00CD833A /* Specta-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Specta-Prefix.pch"; sourceTree = "<group>"; };
 		E9D9420514B8B42A00CD833A /* Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Specta.h; sourceTree = "<group>"; };
 		E9D9420614B8B42A00CD833A /* Specta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Specta.m; sourceTree = "<group>"; };
@@ -249,6 +252,7 @@
 				E9D9422814B8B43200CD833A /* SequenceTest.m */,
 				E910177214B911340087CD46 /* PassingSpecTest.m */,
 				E910177414B9114A0087CD46 /* FailingSpecTest.m */,
+				E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -544,6 +548,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BDBABA14BE2F3A00102FB5 /* MiscTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +585,7 @@
 				E910177314B911340087CD46 /* PassingSpecTest.m in Sources */,
 				E910177514B9114A0087CD46 /* FailingSpecTest.m in Sources */,
 				E9B7778814BA24EC00D8DC76 /* TestHelper.m in Sources */,
+				E9BDBAB914BE2F3A00102FB5 /* MiscTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

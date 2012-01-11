@@ -11,7 +11,6 @@ typedef NSString *(^EXPStringBlock)();
   char *_fileName;
   BOOL _negative;
   BOOL _asynchronous;
-  NSMutableDictionary *_userInfo;
 
   EXPBoolBlock _prerequisiteBlock;
   EXPBoolBlock _matchBlock;
@@ -26,7 +25,6 @@ typedef NSString *(^EXPStringBlock)();
 @property(nonatomic) char *fileName;
 @property(nonatomic) BOOL negative;
 @property(nonatomic) BOOL asynchronous;
-@property(nonatomic, retain) NSMutableDictionary *userInfo;
 
 @property(nonatomic, readonly) EXPExpect *Not;
 @property(nonatomic, readonly) EXPExpect *isGoing;
