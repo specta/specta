@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E910177314B911340087CD46 /* PassingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E910177214B911340087CD46 /* PassingSpecTest.m */; };
 		E910177514B9114A0087CD46 /* FailingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E910177414B9114A0087CD46 /* FailingSpecTest.m */; };
+		E96598D914C345F3003BC25B /* CompilationTest8.m in Sources */ = {isa = PBXBuildFile; fileRef = E96598D814C345F3003BC25B /* CompilationTest8.m */; };
+		E96598DA14C345F3003BC25B /* CompilationTest8.m in Sources */ = {isa = PBXBuildFile; fileRef = E96598D814C345F3003BC25B /* CompilationTest8.m */; };
 		E9B7778014B9E15300D8DC76 /* SPTSenTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9B7778214B9E15A00D8DC76 /* SPTSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B7778114B9E15A00D8DC76 /* SPTSenTestCase.m */; };
 		E9B7778814BA24EC00D8DC76 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B7778714BA24EC00D8DC76 /* TestHelper.m */; };
@@ -87,6 +89,7 @@
 		E910177414B9114A0087CD46 /* FailingSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailingSpecTest.m; sourceTree = "<group>"; };
 		E9624B4514B8AE7C00E50DE5 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E9624B4614B8AF2B00E50DE5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		E96598D814C345F3003BC25B /* CompilationTest8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompilationTest8.m; sourceTree = "<group>"; };
 		E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTSenTestCase.h; sourceTree = "<group>"; };
 		E9B7778114B9E15A00D8DC76 /* SPTSenTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTSenTestCase.m; sourceTree = "<group>"; };
 		E9B7778714BA24EC00D8DC76 /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
@@ -243,6 +246,7 @@
 				E9D9421D14B8B43200CD833A /* CompilationTest5.m */,
 				E9D9421E14B8B43200CD833A /* CompilationTest6.m */,
 				E9D9421F14B8B43200CD833A /* CompilationTest7.m */,
+				E96598D814C345F3003BC25B /* CompilationTest8.m */,
 				E9D9422014B8B43200CD833A /* DSLTest1.m */,
 				E9D9422114B8B43200CD833A /* DSLTest2.m */,
 				E9D9422214B8B43200CD833A /* DSLTest3.m */,
@@ -549,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9BDBABA14BE2F3A00102FB5 /* MiscTest.m in Sources */,
+				E96598DA14C345F3003BC25B /* CompilationTest8.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +591,7 @@
 				E910177514B9114A0087CD46 /* FailingSpecTest.m in Sources */,
 				E9B7778814BA24EC00D8DC76 /* TestHelper.m in Sources */,
 				E9BDBAB914BE2F3A00102FB5 /* MiscTest.m in Sources */,
+				E96598D914C345F3003BC25B /* CompilationTest8.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

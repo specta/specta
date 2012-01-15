@@ -26,7 +26,6 @@
   SPTSpec *spec = [[SPTSpec alloc] init];
   SPTSenTestCase *testCase = [[[self class] alloc] init];
   objc_setAssociatedObject(self, "SPT_spec", spec, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-  objc_setAssociatedObject(self, "SPT_singleton", testCase, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
   [testCase SPT_defineSpec];
   [testCase release];
   [spec compile];
@@ -36,10 +35,6 @@
 
 + (SPTSpec *)SPT_spec {
   return objc_getAssociatedObject(self, "SPT_spec");
-}
-
-+ (SPTSenTestCase *)SPT_singleton {
-  return objc_getAssociatedObject(self, "SPT_singleton");
 }
 
 - (void)SPT_defineSpecBefore {

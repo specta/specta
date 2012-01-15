@@ -174,12 +174,12 @@
   for(id child in self.children) {
     if([child isKindOfClass:[SPTExampleGroup class]]) {
       SPTExampleGroup *group = child;
-      nameStack = [nameStack arrayByAddingObject:group.name];
-      compiled = [compiled arrayByAddingObjectsFromArray:[group compileExamplesWithNameStack:nameStack]];
+      NSArray *newNameStack = [nameStack arrayByAddingObject:group.name];
+      compiled = [compiled arrayByAddingObjectsFromArray:[group compileExamplesWithNameStack:newNameStack]];
     } else if([child isKindOfClass:[SPTExample class]]) {
       SPTExample *example = child;
-      nameStack = [nameStack arrayByAddingObject:example.name];
-      NSString *compiledName = [nameStack componentsJoinedByString:@" "];
+      NSArray *newNameStack = [nameStack arrayByAddingObject:example.name];
+      NSString *compiledName = [newNameStack componentsJoinedByString:@" "];
       SPTVoidBlock compiledBlock = ^{
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];

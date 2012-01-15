@@ -31,7 +31,7 @@ expect(baz).toEqual(3.14159);
 Use [CocoaPods](https://github.com/CocoaPods/CocoaPods)
 
 ```ruby
-dependency 'Expecta', '~> 0.1.1'
+dependency 'Expecta', '~> 0.1.2'
 ```
 
 or

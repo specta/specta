@@ -14,7 +14,6 @@
 @property (nonatomic, assign) SenTestCaseRun *SPT_run;
 
 + (SPTSpec *)SPT_spec;
-+ (SPTSenTestCase *)SPT_singleton;
 - (void)SPT_defineSpecBefore;
 - (void)SPT_defineSpecAfter;
 - (void)SPT_defineSpec;
