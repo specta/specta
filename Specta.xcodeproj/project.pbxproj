@@ -90,6 +90,7 @@
 		E9624B4514B8AE7C00E50DE5 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E9624B4614B8AF2B00E50DE5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		E96598D814C345F3003BC25B /* CompilationTest8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompilationTest8.m; sourceTree = "<group>"; };
+		E96598DF14C34CE9003BC25B /* Specta.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Specta.podspec; sourceTree = "<group>"; };
 		E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTSenTestCase.h; sourceTree = "<group>"; };
 		E9B7778114B9E15A00D8DC76 /* SPTSenTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTSenTestCase.m; sourceTree = "<group>"; };
 		E9B7778714BA24EC00D8DC76 /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
@@ -324,6 +325,7 @@
 			children = (
 				E9624B4514B8AE7C00E50DE5 /* LICENSE */,
 				E9624B4614B8AF2B00E50DE5 /* README.md */,
+				E96598DF14C34CE9003BC25B /* Specta.podspec */,
 				E9D9420314B8B42A00CD833A /* src */,
 				E9D9421814B8B43200CD833A /* test */,
 				E9D96A2814B6B8AB007D9521 /* frameworks */,
