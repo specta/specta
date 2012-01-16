@@ -1,5 +1,3 @@
-typedef void (^SPTVoidBlock)();
-
 #define _SPT_SpecBegin(name, file, line) \
 @interface name##Spec : SPTSenTestCase \
 @end \

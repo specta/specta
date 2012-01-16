@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "SpectaSupport.h"
+#import "SpectaTypes.h"
 
 @interface SPTExample : NSObject {
   NSString *_name;

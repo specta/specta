@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "SpectaSupport.h"
+#import "SpectaTypes.h"
 
 @class
   SPTExample

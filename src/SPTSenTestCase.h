@@ -1,5 +1,4 @@
 #import <SenTestingKit/SenTestingKit.h>
-#import "SpectaSupport.h"
 
 @class
   SPTSpec

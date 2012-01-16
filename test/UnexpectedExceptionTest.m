@@ -1,9 +1,6 @@
 #import "TestHelper.h"
 #import <objc/runtime.h>
 #import <TargetConditionals.h>
-#if TARGET_IPHONE_SIMULATOR
-#  import <UIKit/UIKit.h>
-#endif
 
 static BOOL shouldRaiseException = NO;
 
@@ -27,13 +24,6 @@ SpecEnd
 @implementation UnexpectedExceptionTest
 
 - (void)testUnexpectedExceptionHandling {
-#if TARGET_IPHONE_SIMULATOR
-  Class uiDevice = NSClassFromString(@"UIDevice");
-  float version = [[[uiDevice currentDevice] systemVersion] floatValue];
-  if(version >= 4.0 && version < 5.0) {
-    return; // skip this test if on ios 4 simulator
-  }
-#endif
   shouldRaiseException = YES;
   SenTestSuiteRun *result = RunSpec(_UnexpectedExceptionTestSpec);
   expect([result failureCount]).toEqual(0);

@@ -1,6 +1,7 @@
 #import "SPTSenTestCase.h"
 #import "SPTSpec.h"
 #import "SPTExample.h"
+#import "SPTSenTestInvocation.h"
 #import <objc/runtime.h>
 
 @interface NSObject (SPTSenTestCase)
@@ -72,7 +73,10 @@
 + (NSArray *)testInvocations {
   NSMutableArray *invocations = [NSMutableArray array];
   for(NSUInteger i = 0; i < [[self SPT_spec].compiledExamples count]; i ++) {
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self instanceMethodSignatureForSelector:@selector(SPT_runExampleAtIndex:)]];
+    SPTSenTestInvocation *invocation = (SPTSenTestInvocation *)[SPTSenTestInvocation invocationWithMethodSignature:[self instanceMethodSignatureForSelector:@selector(SPT_runExampleAtIndex:)]];
+    invocation.SPT_invocationBlock = ^{
+      [(SPTSenTestCase *)[invocation target] SPT_runExampleAtIndex:i];
+    };
     [invocation setSelector:@selector(SPT_runExampleAtIndex:)];
     [invocation setArgument:&i atIndex:2];
     [invocations addObject:invocation];
