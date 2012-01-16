@@ -8,12 +8,15 @@
   rootGroup=_rootGroup
 , groupStack=_groupStack
 , compiledExamples=_compiledExamples
+, fileName=_fileName
+, lineNumber=_lineNumber
 ;
 
 - (void)dealloc {
   self.rootGroup = nil;
   self.groupStack = nil;
   self.compiledExamples = nil;
+  self.fileName = nil;
   [super dealloc];
 }
 

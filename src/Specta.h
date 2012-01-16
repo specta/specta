@@ -7,7 +7,7 @@
 @interface Specta : NSObject
 @end
 
-#define SpecBegin(name)    _SPT_SpecBegin(name)
+#define SpecBegin(name)    _SPT_SpecBegin(name, __FILE__, __LINE__)
 #define SpecEnd            _SPT_SpecEnd
 
 #ifdef SPT_CEDAR_SYNTAX

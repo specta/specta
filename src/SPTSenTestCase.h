@@ -3,6 +3,7 @@
 
 @class
   SPTSpec
+, SPTExample
 ;
 
 @interface SPTSenTestCase : SenTestCase {
@@ -14,9 +15,10 @@
 @property (nonatomic, assign) SenTestCaseRun *SPT_run;
 
 + (SPTSpec *)SPT_spec;
-- (void)SPT_defineSpecBefore;
-- (void)SPT_defineSpecAfter;
+- (void)SPT_setCurrentSpecWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber;
 - (void)SPT_defineSpec;
+- (void)SPT_unsetCurrentSpec;
 - (void)SPT_runExampleAtIndex:(NSUInteger)index;
+- (SPTExample *)SPT_getCurrentExample;
 
 @end

@@ -4,7 +4,6 @@ id _EXPObjectify(char *type, ...);
 EXPExpect *_EXP_expect(id testCase, int lineNumber, char *fileName, EXPIdBlock actualBlock);
 
 void EXPFail(id testCase, int lineNumber, char *fileName, NSString *message);
-NSException* EXPOCUnitException(const char* fileName, int lineNumber, NSString *description);
 NSString *EXPDescribeObject(id obj);
 
 void EXP_prerequisite(EXPBoolBlock block);

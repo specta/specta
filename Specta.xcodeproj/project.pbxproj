@@ -9,8 +9,30 @@
 /* Begin PBXBuildFile section */
 		E910177314B911340087CD46 /* PassingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E910177214B911340087CD46 /* PassingSpecTest.m */; };
 		E910177514B9114A0087CD46 /* FailingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E910177414B9114A0087CD46 /* FailingSpecTest.m */; };
+		E944CA2614C4B46900821DED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E944CA2514C4B46900821DED /* UIKit.framework */; };
+		E96187B214C4AC690021D7CE /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E96187B114C4AC690021D7CE /* UnexpectedExceptionTest.m */; };
+		E96187B414C4AFA60021D7CE /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B7778714BA24EC00D8DC76 /* TestHelper.m */; };
+		E96187B514C4AFA60021D7CE /* CompilationTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9421914B8B43200CD833A /* CompilationTest1.m */; };
+		E96187B614C4AFA60021D7CE /* CompilationTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9421A14B8B43200CD833A /* CompilationTest2.m */; };
+		E96187B714C4AFA60021D7CE /* CompilationTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9421B14B8B43200CD833A /* CompilationTest3.m */; };
+		E96187B814C4AFA60021D7CE /* CompilationTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9421C14B8B43200CD833A /* CompilationTest4.m */; };
+		E96187B914C4AFA60021D7CE /* CompilationTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9421D14B8B43200CD833A /* CompilationTest5.m */; };
+		E96187BA14C4AFA60021D7CE /* CompilationTest6.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9421E14B8B43200CD833A /* CompilationTest6.m */; };
+		E96187BB14C4AFA60021D7CE /* CompilationTest7.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9421F14B8B43200CD833A /* CompilationTest7.m */; };
+		E96187BC14C4AFA60021D7CE /* CompilationTest8.m in Sources */ = {isa = PBXBuildFile; fileRef = E96598D814C345F3003BC25B /* CompilationTest8.m */; };
+		E96187BD14C4AFA60021D7CE /* DSLTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9422014B8B43200CD833A /* DSLTest1.m */; };
+		E96187BE14C4AFA60021D7CE /* DSLTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9422114B8B43200CD833A /* DSLTest2.m */; };
+		E96187BF14C4AFA60021D7CE /* DSLTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9422214B8B43200CD833A /* DSLTest3.m */; };
+		E96187C014C4AFA60021D7CE /* DSLTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9422314B8B43200CD833A /* DSLTest4.m */; };
+		E96187C114C4AFA60021D7CE /* DSLTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9422414B8B43200CD833A /* DSLTest5.m */; };
+		E96187C214C4AFA60021D7CE /* ReRunTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9422714B8B43200CD833A /* ReRunTest.m */; };
+		E96187C314C4AFA70021D7CE /* SequenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9422814B8B43200CD833A /* SequenceTest.m */; };
+		E96187C414C4AFA70021D7CE /* PassingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E910177214B911340087CD46 /* PassingSpecTest.m */; };
+		E96187C514C4AFA70021D7CE /* FailingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E910177414B9114A0087CD46 /* FailingSpecTest.m */; };
+		E96187C614C4AFA70021D7CE /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E96187B114C4AC690021D7CE /* UnexpectedExceptionTest.m */; };
+		E96187C714C4AFA70021D7CE /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */; };
+		E96187C814C4AFBD0021D7CE /* libExpecta-ios-universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D9424214B8B43200CD833A /* libExpecta-ios-universal.a */; };
 		E96598D914C345F3003BC25B /* CompilationTest8.m in Sources */ = {isa = PBXBuildFile; fileRef = E96598D814C345F3003BC25B /* CompilationTest8.m */; };
-		E96598DA14C345F3003BC25B /* CompilationTest8.m in Sources */ = {isa = PBXBuildFile; fileRef = E96598D814C345F3003BC25B /* CompilationTest8.m */; };
 		E9B7778014B9E15300D8DC76 /* SPTSenTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9B7778214B9E15A00D8DC76 /* SPTSenTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B7778114B9E15A00D8DC76 /* SPTSenTestCase.m */; };
 		E9B7778814BA24EC00D8DC76 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B7778714BA24EC00D8DC76 /* TestHelper.m */; };
@@ -35,7 +57,6 @@
 		E9B777FD14BA329400D8DC76 /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420914B8B42A00CD833A /* SPTExampleGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9B777FE14BA329400D8DC76 /* SPTSenTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9BDBAB914BE2F3A00102FB5 /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */; };
-		E9BDBABA14BE2F3A00102FB5 /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */; };
 		E9D9420E14B8B42A00CD833A /* Specta-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420414B8B42A00CD833A /* Specta-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D9420F14B8B42A00CD833A /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420514B8B42A00CD833A /* Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D9421014B8B42A00CD833A /* Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9420614B8B42A00CD833A /* Specta.m */; };
@@ -87,6 +108,8 @@
 /* Begin PBXFileReference section */
 		E910177214B911340087CD46 /* PassingSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassingSpecTest.m; sourceTree = "<group>"; };
 		E910177414B9114A0087CD46 /* FailingSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailingSpecTest.m; sourceTree = "<group>"; };
+		E944CA2514C4B46900821DED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		E96187B114C4AC690021D7CE /* UnexpectedExceptionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnexpectedExceptionTest.m; sourceTree = "<group>"; };
 		E9624B4514B8AE7C00E50DE5 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E9624B4614B8AF2B00E50DE5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		E96598D814C345F3003BC25B /* CompilationTest8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompilationTest8.m; sourceTree = "<group>"; };
@@ -170,9 +193,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E944CA2614C4B46900821DED /* UIKit.framework in Frameworks */,
 				E9B777F614BA320D00D8DC76 /* Foundation.framework in Frameworks */,
 				E9B777F514BA320400D8DC76 /* SenTestingKit.framework in Frameworks */,
 				E9B777BB14BA294C00D8DC76 /* libSpecta-iOS.a in Frameworks */,
+				E96187C814C4AFBD0021D7CE /* libExpecta-ios-universal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				E9B777DE14BA30F600D8DC76 /* Foundation.framework */,
+				E944CA2514C4B46900821DED /* UIKit.framework */,
 			);
 			name = ios;
 			sourceTree = "<group>";
@@ -257,6 +283,7 @@
 				E9D9422814B8B43200CD833A /* SequenceTest.m */,
 				E910177214B911340087CD46 /* PassingSpecTest.m */,
 				E910177414B9114A0087CD46 /* FailingSpecTest.m */,
+				E96187B114C4AC690021D7CE /* UnexpectedExceptionTest.m */,
 				E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */,
 			);
 			path = test;
@@ -554,8 +581,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9BDBABA14BE2F3A00102FB5 /* MiscTest.m in Sources */,
-				E96598DA14C345F3003BC25B /* CompilationTest8.m in Sources */,
+				E96187B414C4AFA60021D7CE /* TestHelper.m in Sources */,
+				E96187B514C4AFA60021D7CE /* CompilationTest1.m in Sources */,
+				E96187B614C4AFA60021D7CE /* CompilationTest2.m in Sources */,
+				E96187B714C4AFA60021D7CE /* CompilationTest3.m in Sources */,
+				E96187B814C4AFA60021D7CE /* CompilationTest4.m in Sources */,
+				E96187B914C4AFA60021D7CE /* CompilationTest5.m in Sources */,
+				E96187BA14C4AFA60021D7CE /* CompilationTest6.m in Sources */,
+				E96187BB14C4AFA60021D7CE /* CompilationTest7.m in Sources */,
+				E96187BC14C4AFA60021D7CE /* CompilationTest8.m in Sources */,
+				E96187BD14C4AFA60021D7CE /* DSLTest1.m in Sources */,
+				E96187BE14C4AFA60021D7CE /* DSLTest2.m in Sources */,
+				E96187BF14C4AFA60021D7CE /* DSLTest3.m in Sources */,
+				E96187C014C4AFA60021D7CE /* DSLTest4.m in Sources */,
+				E96187C114C4AFA60021D7CE /* DSLTest5.m in Sources */,
+				E96187C214C4AFA60021D7CE /* ReRunTest.m in Sources */,
+				E96187C314C4AFA70021D7CE /* SequenceTest.m in Sources */,
+				E96187C414C4AFA70021D7CE /* PassingSpecTest.m in Sources */,
+				E96187C514C4AFA70021D7CE /* FailingSpecTest.m in Sources */,
+				E96187C614C4AFA70021D7CE /* UnexpectedExceptionTest.m in Sources */,
+				E96187C714C4AFA70021D7CE /* MiscTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,6 +639,7 @@
 				E9B7778814BA24EC00D8DC76 /* TestHelper.m in Sources */,
 				E9BDBAB914BE2F3A00102FB5 /* MiscTest.m in Sources */,
 				E96598D914C345F3003BC25B /* CompilationTest8.m in Sources */,
+				E96187B214C4AC690021D7CE /* UnexpectedExceptionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +718,10 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "test/support/Test-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/test/vendor/expecta\"",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					SenTestingKit,
@@ -697,6 +747,10 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "test/support/Test-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/test/vendor/expecta\"",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					SenTestingKit,

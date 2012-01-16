@@ -26,7 +26,7 @@ SpecEnd
 - (void)testFailingSpec {
   foo = @"not foo";
   bar = @"not bar";
-  SenTestRun *result = RunSpec(_FailingSpecTestSpec);
+  SenTestSuiteRun *result = RunSpec(_FailingSpecTestSpec);
   expect([result failureCount]).toEqual(2);
   expect([result hasSucceeded]).toEqual(NO);
   foo = @"foo";

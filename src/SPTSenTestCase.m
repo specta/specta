@@ -37,21 +37,34 @@
   return objc_getAssociatedObject(self, "SPT_spec");
 }
 
-- (void)SPT_defineSpecBefore {
-  [[[NSThread currentThread] threadDictionary] setObject:[[self class] SPT_spec] forKey:@"SPT_currentSpec"];
+- (void)SPT_setCurrentSpecWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber {
+  SPTSpec *spec = [[self class] SPT_spec];
+  spec.fileName = [NSString stringWithUTF8String:fileName];
+  spec.lineNumber = lineNumber;
+  [[[NSThread currentThread] threadDictionary] setObject:spec forKey:@"SPT_currentSpec"];
 }
 
 - (void)SPT_defineSpec {}
 
-- (void)SPT_defineSpecAfter {
+- (void)SPT_unsetCurrentSpec {
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:@"SPT_currentSpec"];
 }
 
 - (void)SPT_runExampleAtIndex:(NSUInteger)index {
   [[[NSThread currentThread] threadDictionary] setObject:self forKey:@"SPT_currentTestCase"];
   SPTExample *compiledExample = [[[self class] SPT_spec].compiledExamples objectAtIndex:index];
+  fprintf(stderr, "  %s\n", [compiledExample.name UTF8String]);
   compiledExample.block();
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:@"SPT_currentTestCase"];
+}
+
+- (SPTExample *)SPT_getCurrentExample {
+  if(!self.SPT_invocation) {
+    return nil;
+  }
+  NSUInteger i;
+  [self.SPT_invocation getArgument:&i atIndex:2];
+  return [[[self class] SPT_spec].compiledExamples objectAtIndex:i];
 }
 
 #pragma mark - SenTestCase overrides
@@ -74,15 +87,28 @@
 
 - (NSString *)name {
   NSString *specName = NSStringFromClass([self class]);
-  NSUInteger i;
-  [self.SPT_invocation getArgument:&i atIndex:2];
-  SPTExample *compiledExample = [[[self class] SPT_spec].compiledExamples objectAtIndex:i];
+  SPTExample *compiledExample = [self SPT_getCurrentExample];
   NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"];
   NSString *exampleName = [[compiledExample.name componentsSeparatedByCharactersInSet:[charSet invertedSet]] componentsJoinedByString:@"_"];
   return [NSString stringWithFormat:@"-[%@ %@]", specName, exampleName];
 }
 
 - (void)logException:(NSException *)exception {
+  if(![exception filename]) {
+    NSString *name = [exception name];
+    NSString *reason = [exception reason];
+    SPTSpec *spec = [[self class] SPT_spec];
+    NSString *file = spec.fileName;
+    NSString *description = [NSString stringWithFormat:@"%@: %@", name, reason];
+    if([exception respondsToSelector:@selector(callStackSymbols)]) {
+      NSArray *callStack = [exception callStackSymbols];
+      if(callStack) {
+        description = [NSString stringWithFormat:@"%@\n  Call Stack:\n    %@", description, [callStack componentsJoinedByString:@"\n    "]];
+      }
+    }
+    exception = [NSException exceptionWithName:name reason:description
+                             userInfo:[[NSException failureInFile:file atLine:0 withDescription:description] userInfo]];
+  }
   SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
   [currentTestCase.SPT_run addException:exception];
 }

@@ -1,0 +1,55 @@
+#import "TestHelper.h"
+#import <objc/runtime.h>
+#import <TargetConditionals.h>
+#if TARGET_IPHONE_SIMULATOR
+#  import <UIKit/UIKit.h>
+#endif
+
+static BOOL shouldRaiseException = NO;
+
+static void raiseException() {
+  [[NSException exceptionWithName:@"MyException" reason:@"Oh Noes!" userInfo:nil] raise];
+}
+
+SpecBegin(_UnexpectedExceptionTest)
+
+describe(@"group", ^{
+  it(@"example 1", ^{
+    if(shouldRaiseException) {
+      raiseException();
+    }
+  });
+});
+
+SpecEnd
+
+@interface UnexpectedExceptionTest : SenTestCase; @end
+@implementation UnexpectedExceptionTest
+
+- (void)testUnexpectedExceptionHandling {
+#if TARGET_IPHONE_SIMULATOR
+  Class uiDevice = NSClassFromString(@"UIDevice");
+  float version = [[[uiDevice currentDevice] systemVersion] floatValue];
+  if(version >= 4.0 && version < 5.0) {
+    return; // skip this test if on ios 4 simulator
+  }
+#endif
+  shouldRaiseException = YES;
+  SenTestSuiteRun *result = RunSpec(_UnexpectedExceptionTestSpec);
+  expect([result failureCount]).toEqual(0);
+  expect([result unexpectedExceptionCount]).toEqual(1);
+  expect([result hasSucceeded]).toEqual(NO);
+
+  NSException *exception = [[[[result testRuns] lastObject] exceptions] lastObject];
+  NSString *reason = [exception reason];
+  expect(reason).toContain(@"MyException: Oh Noes!");
+  if([NSException instancesRespondToSelector:@selector(callStackSymbols)]) {
+    expect(reason).toContain(@"Call Stack:");
+    expect(reason).toContain(@"raiseException");
+    expect(reason).toContain(@"_UnexpectedExceptionTestSpec");
+  }
+  expect([exception filename]).toContain(@"UnexpectedExceptionTest.m");
+  shouldRaiseException = NO;
+}
+
+@end

@@ -1,13 +1,13 @@
 typedef void (^SPTVoidBlock)();
 
-#define _SPT_SpecBegin(name) \
+#define _SPT_SpecBegin(name, file, line) \
 @interface name##Spec : SPTSenTestCase \
 @end \
 @implementation name##Spec \
 - (void)SPT_defineSpec { \
-  [self SPT_defineSpecBefore];
+  [self SPT_setCurrentSpecWithFileName:(file) lineNumber:(line)];
 
 #define _SPT_SpecEnd \
-  [self SPT_defineSpecAfter]; \
+  [self SPT_unsetCurrentSpec]; \
 } \
 @end

@@ -5,4 +5,4 @@
 
 #define RunSpec(TestClass) RunSpecClass([TestClass class])
 
-SenTestRun *RunSpecClass(Class testClass);
+SenTestSuiteRun *RunSpecClass(Class testClass);
