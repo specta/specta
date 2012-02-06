@@ -13,8 +13,8 @@
 		E944CA2A14C4B5E300821DED /* SPTSenTestInvocation.h in Headers */ = {isa = PBXBuildFile; fileRef = E944CA2814C4B5E300821DED /* SPTSenTestInvocation.h */; };
 		E944CA2C14C4B5F600821DED /* SPTSenTestInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E944CA2B14C4B5F600821DED /* SPTSenTestInvocation.m */; };
 		E944CA2D14C4B5F600821DED /* SPTSenTestInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E944CA2B14C4B5F600821DED /* SPTSenTestInvocation.m */; };
-		E944CA2F14C4B70000821DED /* SpectaTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E944CA2E14C4B70000821DED /* SpectaTypes.h */; };
-		E944CA3014C4B70000821DED /* SpectaTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E944CA2E14C4B70000821DED /* SpectaTypes.h */; };
+		E944CA2F14C4B70000821DED /* SpectaTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E944CA2E14C4B70000821DED /* SpectaTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E944CA3014C4B70000821DED /* SpectaTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E944CA2E14C4B70000821DED /* SpectaTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E96187B214C4AC690021D7CE /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E96187B114C4AC690021D7CE /* UnexpectedExceptionTest.m */; };
 		E96187B414C4AFA60021D7CE /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B7778714BA24EC00D8DC76 /* TestHelper.m */; };
 		E96187B514C4AFA60021D7CE /* CompilationTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9421914B8B43200CD833A /* CompilationTest1.m */; };
