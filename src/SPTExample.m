@@ -5,6 +5,7 @@
 @synthesize
   name=_name
 , block=_block
+, pending=_pending
 ;
 
 - (void)dealloc {
@@ -18,6 +19,7 @@
   if(self) {
     self.name = name;
     self.block = block;
+    self.pending = NO;
   }
   return self;
 }

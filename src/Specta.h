@@ -22,6 +22,14 @@ void    example(NSString *name, void (^block)());
 void         it(NSString *name, void (^block)());
 void    specify(NSString *name, void (^block)());
 
+void   _pending(NSString *name, ...);
+#define xdescribe(...) _pending(__VA_ARGS__, nil)
+#define  xcontext(...) _pending(__VA_ARGS__, nil)
+#define  xexample(...) _pending(__VA_ARGS__, nil)
+#define       xit(...) _pending(__VA_ARGS__, nil)
+#define  xspecify(...) _pending(__VA_ARGS__, nil)
+#define   pending(...) _pending(__VA_ARGS__, nil)
+
 void  beforeAll(void (^block)());
 void   afterAll(void (^block)());
 void beforeEach(void (^block)());

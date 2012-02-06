@@ -8,9 +8,13 @@
 #define SPT_currentGroup [SPT_currentSpec currentGroup]
 
 void describe(NSString *name, void (^block)()) {
-  [SPT_groupStack addObject:[SPT_currentGroup addExampleGroupWithName:name]];
-  block();
-  [SPT_groupStack removeLastObject];
+  if(block) {
+    [SPT_groupStack addObject:[SPT_currentGroup addExampleGroupWithName:name]];
+    block();
+    [SPT_groupStack removeLastObject];
+  } else {
+    example(name, nil);
+  }
 }
 
 void context(NSString *name, void (^block)()) {
@@ -27,6 +31,10 @@ void it(NSString *name, void (^block)()) {
 
 void specify(NSString *name, void (^block)()) {
   example(name, block);
+}
+
+void _pending(NSString *name, ...) {
+  example(name, nil);
 }
 
 void beforeAll(void (^block)()) {

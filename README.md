@@ -71,6 +71,12 @@ describe(@"Thing", ^{
     });
   });
 
+  pending(@"pending example");
+
+  pending(@"another pending example", ^{
+    // ...
+  });
+
   afterEach(^{
     // This is run after each example.
   });
@@ -87,11 +93,11 @@ SpecEnd
 * `beforeEach` and `afterEach` are also aliased as `before` and `after` respectively.
 * `describe` is also aliased as `context`.
 * `it` is also aliased as `example` and `specify`.
+* Use `pending` or prepend `x` to `describe`, `context`, `example, `it`, and `specify` to mark examples or groups as pending.
 * Do `#define SPT_CEDAR_SYNTAX` if you prefer to write `SPEC_BEGIN` and `SPEC_END` instead of `SpecBegin` and `SpecEnd`.
 
 ### FEATURES COMING SOON
 
-* Pending Specs
 * Shared Examples
 
 ### CONTRIBUTION GUIDELINES

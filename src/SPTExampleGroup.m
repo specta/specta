@@ -75,6 +75,9 @@
   SPTExample *example;
   @synchronized(self) {
     example = [[SPTExample alloc] initWithName:name block:block];
+    if(!block) {
+      example.pending = YES;
+    }
     [self.children addObject:example];
     [self incrementExampleCount];
   }
@@ -108,18 +111,22 @@
 }
 
 - (void)addBeforeAllBlock:(SPTVoidBlock)block {
+  if(!block) return;
   [self.beforeAllArray addObject:[[block copy] autorelease]];
 }
 
 - (void)addAfterAllBlock:(SPTVoidBlock)block {
+  if(!block) return;
   [self.afterAllArray addObject:[[block copy] autorelease]];
 }
 
 - (void)addBeforeEachBlock:(SPTVoidBlock)block {
+  if(!block) return;
   [self.beforeEachArray addObject:[[block copy] autorelease]];
 }
 
 - (void)addAfterEachBlock:(SPTVoidBlock)block {
+  if(!block) return;
   [self.afterEachArray addObject:[[block copy] autorelease]];
 }
 
@@ -180,7 +187,7 @@
       SPTExample *example = child;
       NSArray *newNameStack = [nameStack arrayByAddingObject:example.name];
       NSString *compiledName = [newNameStack componentsJoinedByString:@" "];
-      SPTVoidBlock compiledBlock = ^{
+      SPTVoidBlock compiledBlock = example.pending ? nil : ^{
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];
           [self runBeforeHooks];
@@ -192,6 +199,7 @@
         }
       };
       SPTExample *compiledExample = [[SPTExample alloc] initWithName:compiledName block:compiledBlock];
+      compiledExample.pending = example.pending;
       compiled = [compiled arrayByAddingObject:compiledExample];
       [compiledExample release];
     }

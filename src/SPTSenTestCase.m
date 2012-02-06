@@ -54,8 +54,10 @@
 - (void)SPT_runExampleAtIndex:(NSUInteger)index {
   [[[NSThread currentThread] threadDictionary] setObject:self forKey:@"SPT_currentTestCase"];
   SPTExample *compiledExample = [[[self class] SPT_spec].compiledExamples objectAtIndex:index];
-  fprintf(stderr, "  %s\n", [compiledExample.name UTF8String]);
-  compiledExample.block();
+  fprintf(stderr, "  %s%s\n", [compiledExample.name UTF8String], compiledExample.pending ? " (pending)" : "");
+  if(!compiledExample.pending) {
+    compiledExample.block();
+  }
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:@"SPT_currentTestCase"];
 }
 
