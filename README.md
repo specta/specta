@@ -96,6 +96,13 @@ SpecEnd
 * Use `pending` or prepend `x` to `describe`, `context`, `example, `it`, and `specify` to mark examples or groups as pending.
 * Do `#define SPT_CEDAR_SYNTAX` if you prefer to write `SPEC_BEGIN` and `SPEC_END` instead of `SpecBegin` and `SpecEnd`.
 
+### RUNNING SPECS FROM COMMAND LINE / CI
+
+Refer to
+[this blog post](http://www.raingrove.com/2012/03/28/running-ocunit-and-specta-tests-from-command-line.html)
+on how to run specs from command line or in continuous integration
+servers.
+
 ### FEATURES COMING SOON
 
 * Shared Examples
