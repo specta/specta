@@ -5,7 +5,7 @@
 static BOOL shouldRaiseException = NO;
 
 static void raiseException() {
-  [[NSException exceptionWithName:@"MyException" reason:@"Oh Noes!" userInfo:nil] raise];
+  [[NSException exceptionWithName:@"MyException" reason:@"Oh Noes! %@" userInfo:nil] raise];
 }
 
 SpecBegin(_UnexpectedExceptionTest)

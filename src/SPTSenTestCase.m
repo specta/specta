@@ -112,8 +112,9 @@
         description = [NSString stringWithFormat:@"%@\n  Call Stack:\n    %@", description, [callStack componentsJoinedByString:@"\n    "]];
       }
     }
+    NSString * sanitizedDescription = [description stringByReplacingOccurrencesOfString:@"%@" withString:@"?"];
     exception = [NSException exceptionWithName:name reason:description
-                             userInfo:[[NSException failureInFile:file atLine:0 withDescription:description] userInfo]];
+                             userInfo:[[NSException failureInFile:file atLine:0 withDescription:sanitizedDescription] userInfo]];
   }
   SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
   [currentTestCase.SPT_run addException:exception];
