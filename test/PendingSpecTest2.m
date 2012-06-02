@@ -1,5 +1,4 @@
 #import "TestHelper.h"
-#import <objc/runtime.h>
 
 SpecBegin(_PendingSpecTest2)
 

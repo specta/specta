@@ -1,5 +1,4 @@
 #import "TestHelper.h"
-#import <objc/runtime.h>
 #import <TargetConditionals.h>
 
 static BOOL shouldRaiseException = NO;
