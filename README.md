@@ -45,9 +45,24 @@ Standard OCUnit matchers such as `STAssertEqualObjects` and `STAssertNil` work, 
 ```objective-c
 #import "Specta.h"
 
+SharedExamplesBegin(MySharedExamples)
+// Global shared examples are shared across all spec files.
+
+sharedExamplesFor(@"a shared behavior", ^(NSDictionary *data) {
+  it(@"should do some stuff", ^{
+    // ...
+  });
+});
+
+SharedExamplesEnd
+
 SpecBegin(Thing)
 
 describe(@"Thing", ^{
+  sharedExamplesFor(@"another shared behavior", ^(NSDictionary *data) {
+    // Locally defined shared examples can override global shared examples within its scope.
+  });
+
   beforeAll(^{
     // This is run once and only once before all of the examples
     // in this group and before any beforeEach blocks.
@@ -64,6 +79,8 @@ describe(@"Thing", ^{
   it(@"should do more stuff", ^{
     // ...
   });
+
+  itShouldBehaveLike(@"a shared behavior", [NSDictionary dictionaryWithObjectsAndKeys:@"obj", @"key", nil]);
 
   describe(@"Nested examples", ^{
     it(@"should do even more stuff", ^{
@@ -93,6 +110,7 @@ SpecEnd
 * `beforeEach` and `afterEach` are also aliased as `before` and `after` respectively.
 * `describe` is also aliased as `context`.
 * `it` is also aliased as `example` and `specify`.
+* `itShouldBehaveLike` is also aliased as `itBehavesLike`.
 * Use `pending` or prepend `x` to `describe`, `context`, `example, `it`, and `specify` to mark examples or groups as pending.
 * Do `#define SPT_CEDAR_SYNTAX` if you prefer to write `SPEC_BEGIN` and `SPEC_END` instead of `SpecBegin` and `SpecEnd`.
 
@@ -102,10 +120,6 @@ Refer to
 [this blog post](http://www.raingrove.com/2012/03/28/running-ocunit-and-specta-tests-from-command-line.html)
 on how to run specs from command line or in continuous integration
 servers.
-
-### FEATURES COMING SOON
-
-* Shared Examples
 
 ### CONTRIBUTION GUIDELINES
 

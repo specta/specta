@@ -66,6 +66,16 @@
 		E9B777FD14BA329400D8DC76 /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420914B8B42A00CD833A /* SPTExampleGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9B777FE14BA329400D8DC76 /* SPTSenTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9BDBAB914BE2F3A00102FB5 /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */; };
+		E9D3DED6157A385C0054978E /* SharedExamplesTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D3DED5157A385C0054978E /* SharedExamplesTest1.m */; };
+		E9D3DED7157A385C0054978E /* SharedExamplesTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D3DED5157A385C0054978E /* SharedExamplesTest1.m */; };
+		E9D3DEDA157A3F3D0054978E /* SPTSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D3DED9157A3F340054978E /* SPTSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9D3DEDB157A3F3D0054978E /* SPTSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D3DED9157A3F340054978E /* SPTSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E9D3DEDD157A3F470054978E /* SPTSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D3DEDC157A3F470054978E /* SPTSharedExampleGroups.m */; };
+		E9D3DEDE157A3F470054978E /* SPTSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D3DEDC157A3F470054978E /* SPTSharedExampleGroups.m */; };
+		E9D3DEE0157A45550054978E /* SharedExamplesTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D3DEDF157A45540054978E /* SharedExamplesTest2.m */; };
+		E9D3DEE1157A45550054978E /* SharedExamplesTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D3DEDF157A45540054978E /* SharedExamplesTest2.m */; };
+		E9D3DEE3157A55F50054978E /* SharedExamplesTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D3DEE2157A55F40054978E /* SharedExamplesTest3.m */; };
+		E9D3DEE4157A55F50054978E /* SharedExamplesTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D3DEE2157A55F40054978E /* SharedExamplesTest3.m */; };
 		E9D9420E14B8B42A00CD833A /* Specta-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420414B8B42A00CD833A /* Specta-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D9420F14B8B42A00CD833A /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9D9420514B8B42A00CD833A /* Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E9D9421014B8B42A00CD833A /* Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9D9420614B8B42A00CD833A /* Specta.m */; };
@@ -134,6 +144,11 @@
 		E9B777B314BA294C00D8DC76 /* Specta-iOSTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Specta-iOSTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B777DE14BA30F600D8DC76 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiscTest.m; sourceTree = "<group>"; };
+		E9D3DED5157A385C0054978E /* SharedExamplesTest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest1.m; sourceTree = "<group>"; };
+		E9D3DED9157A3F340054978E /* SPTSharedExampleGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTSharedExampleGroups.h; sourceTree = "<group>"; };
+		E9D3DEDC157A3F470054978E /* SPTSharedExampleGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTSharedExampleGroups.m; sourceTree = "<group>"; };
+		E9D3DEDF157A45540054978E /* SharedExamplesTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest2.m; sourceTree = "<group>"; };
+		E9D3DEE2157A55F40054978E /* SharedExamplesTest3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest3.m; sourceTree = "<group>"; };
 		E9D9420414B8B42A00CD833A /* Specta-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Specta-Prefix.pch"; sourceTree = "<group>"; };
 		E9D9420514B8B42A00CD833A /* Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Specta.h; sourceTree = "<group>"; };
 		E9D9420614B8B42A00CD833A /* Specta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Specta.m; sourceTree = "<group>"; };
@@ -266,6 +281,8 @@
 				E9D9420814B8B42A00CD833A /* SPTExample.m */,
 				E9D9420914B8B42A00CD833A /* SPTExampleGroup.h */,
 				E9D9420A14B8B42A00CD833A /* SPTExampleGroup.m */,
+				E9D3DED9157A3F340054978E /* SPTSharedExampleGroups.h */,
+				E9D3DEDC157A3F470054978E /* SPTSharedExampleGroups.m */,
 				E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */,
 				E9B7778114B9E15A00D8DC76 /* SPTSenTestCase.m */,
 				E944CA2814C4B5E300821DED /* SPTSenTestInvocation.h */,
@@ -299,6 +316,9 @@
 				E910177414B9114A0087CD46 /* FailingSpecTest.m */,
 				E9A204C814C79F81006E4A66 /* PendingSpecTest1.m */,
 				E9A204CC14C7A487006E4A66 /* PendingSpecTest2.m */,
+				E9D3DED5157A385C0054978E /* SharedExamplesTest1.m */,
+				E9D3DEDF157A45540054978E /* SharedExamplesTest2.m */,
+				E9D3DEE2157A55F40054978E /* SharedExamplesTest3.m */,
 				E96187B114C4AC690021D7CE /* UnexpectedExceptionTest.m */,
 				E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */,
 				E9D96A2814B6B8AB007D9521 /* frameworks */,
@@ -411,6 +431,7 @@
 				E9B777FB14BA329400D8DC76 /* SPTSpec.h in Headers */,
 				E9B777FC14BA329400D8DC76 /* SPTExample.h in Headers */,
 				E9B777FD14BA329400D8DC76 /* SPTExampleGroup.h in Headers */,
+				E9D3DEDB157A3F3D0054978E /* SPTSharedExampleGroups.h in Headers */,
 				E9B777FE14BA329400D8DC76 /* SPTSenTestCase.h in Headers */,
 				E944CA2A14C4B5E300821DED /* SPTSenTestInvocation.h in Headers */,
 				E944CA3014C4B70000821DED /* SpectaTypes.h in Headers */,
@@ -426,6 +447,7 @@
 				E9D9420E14B8B42A00CD833A /* Specta-Prefix.pch in Headers */,
 				E9D9421114B8B42A00CD833A /* SPTExample.h in Headers */,
 				E9D9421314B8B42A00CD833A /* SPTExampleGroup.h in Headers */,
+				E9D3DEDA157A3F3D0054978E /* SPTSharedExampleGroups.h in Headers */,
 				E9D9421614B8B42A00CD833A /* SPTSpec.h in Headers */,
 				E9B7778014B9E15300D8DC76 /* SPTSenTestCase.h in Headers */,
 				E944CA2914C4B5E300821DED /* SPTSenTestInvocation.h in Headers */,
@@ -596,6 +618,7 @@
 				E9B777D814BA308B00D8DC76 /* SPTExampleGroup.m in Sources */,
 				E9B777D914BA308B00D8DC76 /* SPTSenTestCase.m in Sources */,
 				E944CA2D14C4B5F600821DED /* SPTSenTestInvocation.m in Sources */,
+				E9D3DEDE157A3F470054978E /* SPTSharedExampleGroups.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,6 +648,9 @@
 				E96187C714C4AFA70021D7CE /* MiscTest.m in Sources */,
 				E9A204CA14C79F81006E4A66 /* PendingSpecTest1.m in Sources */,
 				E9A204CE14C7A487006E4A66 /* PendingSpecTest2.m in Sources */,
+				E9D3DED7157A385C0054978E /* SharedExamplesTest1.m in Sources */,
+				E9D3DEE1157A45550054978E /* SharedExamplesTest2.m in Sources */,
+				E9D3DEE4157A55F50054978E /* SharedExamplesTest3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +664,7 @@
 				E9D9421414B8B42A00CD833A /* SPTExampleGroup.m in Sources */,
 				E9B7778214B9E15A00D8DC76 /* SPTSenTestCase.m in Sources */,
 				E944CA2C14C4B5F600821DED /* SPTSenTestInvocation.m in Sources */,
+				E9D3DEDD157A3F470054978E /* SPTSharedExampleGroups.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +694,9 @@
 				E96187B214C4AC690021D7CE /* UnexpectedExceptionTest.m in Sources */,
 				E9A204C914C79F81006E4A66 /* PendingSpecTest1.m in Sources */,
 				E9A204CD14C7A487006E4A66 /* PendingSpecTest2.m in Sources */,
+				E9D3DED6157A385C0054978E /* SharedExamplesTest1.m in Sources */,
+				E9D3DEE0157A45550054978E /* SharedExamplesTest2.m in Sources */,
+				E9D3DEE3157A55F50054978E /* SharedExamplesTest3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

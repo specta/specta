@@ -1,4 +1,5 @@
 #import "Specta.h"
+#import "SpectaTypes.h"
 
 @implementation Specta
 @end
@@ -59,4 +60,23 @@ void before(void (^block)()) {
 
 void after(void (^block)()) {
   afterEach(block);
+}
+
+void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data)) {
+  [SPTSharedExampleGroups addSharedExampleGroupWithName:name block:block exampleGroup:SPT_currentGroup];
+}
+
+void sharedExamples(NSString *name, void (^block)(NSDictionary *data)) {
+  sharedExamplesFor(name, block);
+}
+
+void itShouldBehaveLike(NSString *name, NSDictionary *data) {
+  SPTDictionaryBlock block = [SPTSharedExampleGroups sharedExampleGroupWithName:name exampleGroup:SPT_currentGroup];
+  if(block) {
+    block(data);
+  }
+}
+
+void itBehavesLike(NSString *name, NSDictionary *data) {
+  itShouldBehaveLike(name, data);
 }

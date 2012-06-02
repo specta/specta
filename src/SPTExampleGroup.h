@@ -14,6 +14,7 @@
   NSMutableArray *_afterAllArray;
   NSMutableArray *_beforeEachArray;
   NSMutableArray *_afterEachArray;
+  NSMutableDictionary *_sharedExamples;
   unsigned int _exampleCount;
   unsigned int _ranExampleCount;
 }
@@ -26,6 +27,7 @@
 @property (nonatomic, retain) NSMutableArray *afterAllArray;
 @property (nonatomic, retain) NSMutableArray *beforeEachArray;
 @property (nonatomic, retain) NSMutableArray *afterEachArray;
+@property (nonatomic, retain) NSMutableDictionary *sharedExamples;
 @property (nonatomic) unsigned int exampleCount;
 @property (nonatomic) unsigned int ranExampleCount;
 

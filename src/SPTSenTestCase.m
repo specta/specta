@@ -2,6 +2,7 @@
 #import "SPTSpec.h"
 #import "SPTExample.h"
 #import "SPTSenTestInvocation.h"
+#import "SPTSharedExampleGroups.h"
 #import <objc/runtime.h>
 
 @interface NSObject (SPTSenTestCase)
@@ -24,6 +25,7 @@
 }
 
 + (void)initialize {
+  [SPTSharedExampleGroups initialize];
   SPTSpec *spec = [[SPTSpec alloc] init];
   SPTSenTestCase *testCase = [[[self class] alloc] init];
   objc_setAssociatedObject(self, "SPT_spec", spec, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

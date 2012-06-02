@@ -9,3 +9,13 @@
   [self SPT_unsetCurrentSpec]; \
 } \
 @end
+
+#define _SPT_SharedExampleGroupsBegin(name) \
+@interface name##SharedExampleGroups : SPTSharedExampleGroups \
+@end \
+@implementation name##SharedExampleGroups \
++ (void)defineSharedExampleGroups {
+
+#define _SPT_SharedExampleGroupsEnd \
+} \
+@end

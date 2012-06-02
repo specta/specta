@@ -22,6 +22,7 @@
 , afterAllArray=_afterAllArray
 , beforeEachArray=_beforeEachArray
 , afterEachArray=_afterEachArray
+, sharedExamples=_sharedExamples
 , exampleCount=_exampleCount
 , ranExampleCount=_ranExampleCount
 ;
@@ -35,6 +36,7 @@
   self.afterAllArray = nil;
   self.beforeEachArray = nil;
   self.afterEachArray = nil;
+  self.sharedExamples = nil;
   [super dealloc];
 }
 
@@ -49,6 +51,7 @@
     self.afterAllArray = [NSMutableArray array];
     self.beforeEachArray = [NSMutableArray array];
     self.afterEachArray = [NSMutableArray array];
+    self.sharedExamples = [NSMutableDictionary dictionary];
     self.exampleCount = 0;
     self.ranExampleCount = 0;
   }
