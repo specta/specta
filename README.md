@@ -111,7 +111,7 @@ SpecEnd
 * `describe` is also aliased as `context`.
 * `it` is also aliased as `example` and `specify`.
 * `itShouldBehaveLike` is also aliased as `itBehavesLike`.
-* Use `pending` or prepend `x` to `describe`, `context`, `example, `it`, and `specify` to mark examples or groups as pending.
+* Use `pending` or prepend `x` to `describe`, `context`, `example`, `it`, and `specify` to mark examples or groups as pending.
 * Do `#define SPT_CEDAR_SYNTAX` if you prefer to write `SPEC_BEGIN` and `SPEC_END` instead of `SpecBegin` and `SpecEnd`.
 
 ### RUNNING SPECS FROM COMMAND LINE / CI
