@@ -19,9 +19,10 @@ Use [CocoaPods](http://github.com/CocoaPods/CocoaPods)
 
 ```ruby
 dependency 'Specta',      '~> 0.1.5'
-# dependency 'Expecta',     '~> 0.1.3'   # expecta matchers
-# dependency 'OCHamcrest',  '~> 1.6'     # hamcrest matchers
-# dependency 'OCMock',      '~> 1.77.1'  # OCMock
+# dependency 'Expecta',     '~> 0.2.0'   # expecta matchers
+# dependency 'OCHamcrest',  '~> 1.7'     # hamcrest matchers
+# dependency 'OCMock',      '~> 2.0.1'   # OCMock
+# dependency 'LRMocky',     '~> 0.9.1'   # LRMocky
 ```
 
 or
