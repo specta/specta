@@ -72,9 +72,11 @@ void sharedExamples(NSString *name, void (^block)(NSDictionary *data)) {
 
 void itShouldBehaveLike(NSString *name, NSDictionary *data) {
   SPTDictionaryBlock block = [SPTSharedExampleGroups sharedExampleGroupWithName:name exampleGroup:SPT_currentGroup];
-  if(block) {
-    block(data);
-  }
+  example(name, ^{
+    if(block) {
+      block(data);
+    }
+  });
 }
 
 void itBehavesLike(NSString *name, NSDictionary *data) {
