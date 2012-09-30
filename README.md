@@ -83,6 +83,12 @@ describe(@"Thing", ^{
 
   itShouldBehaveLike(@"a shared behavior", [NSDictionary dictionaryWithObjectsAndKeys:@"obj", @"key", nil]);
 
+  itShouldBehaveLike(@"another shared behavior", ^{
+    // Use a block that returns a dictionary if you need the context to be evaluated lazily,
+    // e.g. to use an object prepared in a beforeEach block.
+    return [NSDictionary dictionaryWithObjectsAndKeys:@"obj", @"key", nil];
+  });
+
   describe(@"Nested examples", ^{
     it(@"should do even more stuff", ^{
       // ...

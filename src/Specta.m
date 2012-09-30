@@ -8,6 +8,8 @@
 #define SPT_groupStack   [SPT_currentSpec groupStack]
 #define SPT_currentGroup [SPT_currentSpec currentGroup]
 
+#define SPT_isBlock(obj) [(obj) isKindOfClass:NSClassFromString(@"NSBlock")]
+
 void describe(NSString *name, void (^block)()) {
   if(block) {
     [SPT_groupStack addObject:[SPT_currentGroup addExampleGroupWithName:name]];
@@ -70,13 +72,33 @@ void sharedExamples(NSString *name, void (^block)(NSDictionary *data)) {
   sharedExamplesFor(name, block);
 }
 
-void itShouldBehaveLike(NSString *name, NSDictionary *data) {
+void itShouldBehaveLike(NSString *name, id dictionaryOrBlock) {
   SPTDictionaryBlock block = [SPTSharedExampleGroups sharedExampleGroupWithName:name exampleGroup:SPT_currentGroup];
   if(block) {
-    block(data);
+    if(SPT_isBlock(dictionaryOrBlock)) {
+      id (^dataBlock)(void) = [[dictionaryOrBlock copy] autorelease];
+
+      describe(name, ^{
+        __block NSMutableDictionary *dataDict = [NSMutableDictionary dictionary];
+
+        beforeEach(^{
+          NSDictionary *blockData = dataBlock();
+          [dataDict removeAllObjects];
+          [dataDict addEntriesFromDictionary:blockData];
+        });
+
+        block(dataDict);
+      });
+    } else {
+      NSDictionary *data = dictionaryOrBlock;
+
+      describe(name, ^{
+        block(data);
+      });
+    }
   }
 }
 
-void itBehavesLike(NSString *name, NSDictionary *data) {
-  itShouldBehaveLike(name, data);
+void itBehavesLike(NSString *name, id dictionaryOrBlock) {
+  itShouldBehaveLike(name, dictionaryOrBlock);
 }

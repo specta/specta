@@ -38,6 +38,8 @@
 		E96187C714C4AFA70021D7CE /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */; };
 		E96187C814C4AFBD0021D7CE /* libExpecta-ios-universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D9424214B8B43200CD833A /* libExpecta-ios-universal.a */; };
 		E96598D914C345F3003BC25B /* CompilationTest8.m in Sources */ = {isa = PBXBuildFile; fileRef = E96598D814C345F3003BC25B /* CompilationTest8.m */; };
+		E96A5A561618327200D4B395 /* SharedExamplesTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E96A5A551618327200D4B395 /* SharedExamplesTest4.m */; };
+		E96A5A571618327200D4B395 /* SharedExamplesTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E96A5A551618327200D4B395 /* SharedExamplesTest4.m */; };
 		E9A204C914C79F81006E4A66 /* PendingSpecTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A204C814C79F81006E4A66 /* PendingSpecTest1.m */; };
 		E9A204CA14C79F81006E4A66 /* PendingSpecTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A204C814C79F81006E4A66 /* PendingSpecTest1.m */; };
 		E9A204CD14C7A487006E4A66 /* PendingSpecTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A204CC14C7A487006E4A66 /* PendingSpecTest2.m */; };
@@ -135,6 +137,7 @@
 		E9624B4614B8AF2B00E50DE5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		E96598D814C345F3003BC25B /* CompilationTest8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompilationTest8.m; sourceTree = "<group>"; };
 		E96598DF14C34CE9003BC25B /* Specta.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Specta.podspec; sourceTree = "<group>"; };
+		E96A5A551618327200D4B395 /* SharedExamplesTest4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest4.m; sourceTree = "<group>"; };
 		E9A204C814C79F81006E4A66 /* PendingSpecTest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest1.m; sourceTree = "<group>"; };
 		E9A204CC14C7A487006E4A66 /* PendingSpecTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest2.m; sourceTree = "<group>"; };
 		E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTSenTestCase.h; sourceTree = "<group>"; };
@@ -319,6 +322,7 @@
 				E9D3DED5157A385C0054978E /* SharedExamplesTest1.m */,
 				E9D3DEDF157A45540054978E /* SharedExamplesTest2.m */,
 				E9D3DEE2157A55F40054978E /* SharedExamplesTest3.m */,
+				E96A5A551618327200D4B395 /* SharedExamplesTest4.m */,
 				E96187B114C4AC690021D7CE /* UnexpectedExceptionTest.m */,
 				E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */,
 				E9D96A2814B6B8AB007D9521 /* frameworks */,
@@ -651,6 +655,7 @@
 				E9D3DED7157A385C0054978E /* SharedExamplesTest1.m in Sources */,
 				E9D3DEE1157A45550054978E /* SharedExamplesTest2.m in Sources */,
 				E9D3DEE4157A55F50054978E /* SharedExamplesTest3.m in Sources */,
+				E96A5A571618327200D4B395 /* SharedExamplesTest4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,6 +702,7 @@
 				E9D3DED6157A385C0054978E /* SharedExamplesTest1.m in Sources */,
 				E9D3DEE0157A45550054978E /* SharedExamplesTest2.m in Sources */,
 				E9D3DEE3157A55F50054978E /* SharedExamplesTest3.m in Sources */,
+				E96A5A561618327200D4B395 /* SharedExamplesTest4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

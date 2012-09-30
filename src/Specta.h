@@ -48,5 +48,5 @@ void      after(void (^block)());
 void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data));
 void    sharedExamples(NSString *name, void (^block)(NSDictionary *data));
 
-void itShouldBehaveLike(NSString *name, NSDictionary *data);
-void      itBehavesLike(NSString *name, NSDictionary *data);
+void itShouldBehaveLike(NSString *name, id dictionaryOrBlock);
+void      itBehavesLike(NSString *name, id dictionaryOrBlock);
