@@ -22,7 +22,7 @@ sharedExamplesFor(@"shared1", ^(NSDictionary * (^dataInject)(void)) {
 
 sharedExamples(@"shared2", ^(NSDictionary * (^dataInject)(void)) {
   it(@"inserts data.baz to items", ^{
-	NSDictionary *data = dataInject();
+    NSDictionary *data = dataInject();
     [items addObject:[data objectForKey:@"baz"]];
   });
 });
