@@ -38,12 +38,12 @@ BOOL initialized = NO;
   }
 }
 
-+ (void)addSharedExampleGroupWithName:(NSString *)name block:(SPTDictionaryBlock)block exampleGroup:(SPTExampleGroup *)exampleGroup {
++ (void)addSharedExampleGroupWithName:(NSString *)name block:(void (^)(NSDictionary * (^data)(void)))block exampleGroup:(SPTExampleGroup *)exampleGroup {
   [(exampleGroup == nil ? globalSharedExampleGroups : exampleGroup.sharedExamples) setObject:[[block copy] autorelease] forKey:name];
 }
 
-+ (SPTDictionaryBlock)sharedExampleGroupWithName:(NSString *)name exampleGroup:(SPTExampleGroup *)exampleGroup {
-  SPTDictionaryBlock sharedExampleGroup = nil;
++ (void (^)(NSDictionary * (^data)(void)))sharedExampleGroupWithName:(NSString *)name exampleGroup:(SPTExampleGroup *)exampleGroup {
+  void (^sharedExampleGroup)(NSDictionary * (^data)(void)) = nil;
   while(exampleGroup != nil) {
     if((sharedExampleGroup = [exampleGroup.sharedExamples objectForKey:name])) {
       return sharedExampleGroup;

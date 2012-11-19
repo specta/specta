@@ -7,8 +7,8 @@
 
 @interface SPTSharedExampleGroups : NSObject
 
-+ (void)addSharedExampleGroupWithName:(NSString *)name block:(SPTDictionaryBlock)block exampleGroup:(SPTExampleGroup *)exampleGroup;
-+ (SPTDictionaryBlock)sharedExampleGroupWithName:(NSString *)name exampleGroup:(SPTExampleGroup *)exampleGroup;
++ (void)addSharedExampleGroupWithName:(NSString *)name block:(void (^)(NSDictionary * (^data)(void)))block exampleGroup:(SPTExampleGroup *)exampleGroup;
++ (void (^)(NSDictionary * (^data)(void)))sharedExampleGroupWithName:(NSString *)name exampleGroup:(SPTExampleGroup *)exampleGroup;
 + (void)defineSharedExampleGroups;
 
 @end

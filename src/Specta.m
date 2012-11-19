@@ -62,21 +62,21 @@ void after(void (^block)()) {
   afterEach(block);
 }
 
-void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data)) {
+void sharedExamplesFor(NSString *name, void (^block)(NSDictionary * (^data)(void))) {
   [SPTSharedExampleGroups addSharedExampleGroupWithName:name block:block exampleGroup:SPT_currentGroup];
 }
 
-void sharedExamples(NSString *name, void (^block)(NSDictionary *data)) {
+void sharedExamples(NSString *name, void (^block)(NSDictionary * (^data)(void))) {
   sharedExamplesFor(name, block);
 }
 
-void itShouldBehaveLike(NSString *name, NSDictionary *data) {
-  SPTDictionaryBlock block = [SPTSharedExampleGroups sharedExampleGroupWithName:name exampleGroup:SPT_currentGroup];
+void itShouldBehaveLike(NSString *name, NSDictionary * (^injected)(void)) {
+  void (^block)(NSDictionary * (^data)(void)) = [SPTSharedExampleGroups sharedExampleGroupWithName:name exampleGroup:SPT_currentGroup];
   if(block) {
-    block(data);
+    block(injected);
   }
 }
 
-void itBehavesLike(NSString *name, NSDictionary *data) {
-  itShouldBehaveLike(name, data);
+void itBehavesLike(NSString *name, NSDictionary * (^injected)(void)) {
+  itShouldBehaveLike(name, injected);
 }

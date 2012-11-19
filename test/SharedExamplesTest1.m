@@ -4,36 +4,39 @@ static NSMutableArray *items;
 
 SpecBegin(_SharedExamplesTest1)
 
-sharedExamplesFor(@"shared1", ^(NSDictionary *data) {
+sharedExamplesFor(@"shared1", ^(NSDictionary * (^dataInject)(void)) {
   describe(@"foo", ^{
     it(@"equals string 'Foo'", ^{
+	  NSDictionary *data = dataInject();
       expect([data objectForKey:@"foo"]).toEqual(@"Foo");
     });
   });
 
   describe(@"bar", ^{
     it(@"equals string 'Bar'", ^{
+	  NSDictionary *data = dataInject();
       expect([data objectForKey:@"bar"]).toEqual(@"Bar");
     });
   });
 });
 
-sharedExamples(@"shared2", ^(NSDictionary *data) {
+sharedExamples(@"shared2", ^(NSDictionary * (^dataInject)(void)) {
   it(@"inserts data.baz to items", ^{
+	NSDictionary *data = dataInject();
     [items addObject:[data objectForKey:@"baz"]];
   });
 });
 
 describe(@"group", ^{
   itShouldBehaveLike(@"shared1",
-                     [NSDictionary dictionaryWithObjectsAndKeys:@"Foo", @"foo",
-                                                                @"Bar", @"bar", nil]);
+                     ^{ return [NSDictionary dictionaryWithObjectsAndKeys:@"Foo", @"foo",
+								@"Bar", @"bar", nil]; });
 });
 
-itBehavesLike(@"shared2", [NSDictionary dictionaryWithObject:@"hello" forKey:@"baz"]);
+itBehavesLike(@"shared2", ^{ return [NSDictionary dictionaryWithObject:@"hello" forKey:@"baz"]; });
 
 context(@"group2", ^{
-  itBehavesLike(@"shared2", [NSDictionary dictionaryWithObject:@"world" forKey:@"baz"]);
+	itBehavesLike(@"shared2", ^{ return [NSDictionary dictionaryWithObject:@"world" forKey:@"baz"]; });
 });
 
 SpecEnd
