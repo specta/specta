@@ -9,7 +9,7 @@
 #import "SPTBlockTrampoline.h"
 
 @interface SPTBlockTrampoline () {
-	id block;
+	id _block;
 }
 
 @property (nonatomic, readonly, copy) id block;
