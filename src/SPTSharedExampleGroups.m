@@ -38,18 +38,19 @@ BOOL initialized = NO;
   }
 }
 
-+ (void)addSharedExampleGroupWithName:(NSString *)name block:(SPTDictionaryBlock)block exampleGroup:(SPTExampleGroup *)exampleGroup {
++ (void)addSharedExampleGroupWithName:(NSString *)name block:(id)block exampleGroup:(SPTExampleGroup *)exampleGroup {
   [(exampleGroup == nil ? globalSharedExampleGroups : exampleGroup.sharedExamples) setObject:[[block copy] autorelease] forKey:name];
 }
 
-+ (SPTDictionaryBlock)sharedExampleGroupWithName:(NSString *)name exampleGroup:(SPTExampleGroup *)exampleGroup {
-  SPTDictionaryBlock sharedExampleGroup = nil;
++ (id)sharedExampleGroupWithName:(NSString *)name exampleGroup:(SPTExampleGroup *)exampleGroup {
+  id sharedExampleGroup = nil;
   while(exampleGroup != nil) {
     if((sharedExampleGroup = [exampleGroup.sharedExamples objectForKey:name])) {
       return sharedExampleGroup;
     }
     exampleGroup = exampleGroup.parent;
   }
+
   return [globalSharedExampleGroups objectForKey:name];
 }
 

@@ -4,36 +4,34 @@ static NSMutableArray *items;
 
 SpecBegin(_SharedExamplesTest1)
 
-sharedExamplesFor(@"shared1", ^(NSDictionary *data) {
+sharedExamplesFor(@"shared1", ^(id foo, id bar) {
   describe(@"foo", ^{
     it(@"equals string 'Foo'", ^{
-      expect([data objectForKey:@"foo"]).toEqual(@"Foo");
+      expect(foo).toEqual(@"Foo");
     });
   });
 
   describe(@"bar", ^{
     it(@"equals string 'Bar'", ^{
-      expect([data objectForKey:@"bar"]).toEqual(@"Bar");
+      expect(bar).toEqual(@"Bar");
     });
   });
 });
 
-sharedExamples(@"shared2", ^(NSDictionary *data) {
+sharedExamples(@"shared2", ^(id baz) {
   it(@"inserts data.baz to items", ^{
-    [items addObject:[data objectForKey:@"baz"]];
+    [items addObject:baz];
   });
 });
 
 describe(@"group", ^{
-  itShouldBehaveLike(@"shared1",
-                     [NSDictionary dictionaryWithObjectsAndKeys:@"Foo", @"foo",
-                                                                @"Bar", @"bar", nil]);
+  itShouldBehaveLike(@"shared1", @"Foo", @"Bar", nil);
 });
 
-itBehavesLike(@"shared2", [NSDictionary dictionaryWithObject:@"hello" forKey:@"baz"]);
+itBehavesLike(@"shared2", @"hello", nil);
 
 context(@"group2", ^{
-  itBehavesLike(@"shared2", [NSDictionary dictionaryWithObject:@"world" forKey:@"baz"]);
+  itBehavesLike(@"shared2", @"world", nil);
 });
 
 SpecEnd

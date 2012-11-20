@@ -5,31 +5,35 @@ static NSMutableArray *items;
 SpecBegin(_SharedExamplesTest2)
 
 describe(@"group", ^{
-  itShouldBehaveLike(@"global shared 1",
-                     [NSDictionary dictionaryWithObjectsAndKeys:@"Foo", @"foo",
-                                                                @"Bar", @"bar", nil]);
+  __block id delayedObj;
+  beforeEach(^{
+    delayedObj = [NSNumber numberWithInt:42];
+  });
+
+  itShouldBehaveLike(@"global shared 1", @"Foo", @"Bar", [^{ return delayedObj; } copy], nil);
 });
 
-itBehavesLike(@"global shared 2", [NSDictionary dictionaryWithObject:@"hello" forKey:@"baz"]);
+itBehavesLike(@"global shared 2", @"hello", nil);
 
 context(@"group2", ^{
-  itBehavesLike(@"global shared 2", [NSDictionary dictionaryWithObject:@"world" forKey:@"baz"]);
+  itBehavesLike(@"global shared 2", @"world", nil);
 });
 
 SpecEnd
 
 SharedExamplesBegin(GlobalSharedExamples1)
 
-sharedExamplesFor(@"global shared 1", ^(NSDictionary *data) {
+sharedExamplesFor(@"global shared 1", ^(id foo, id bar, id (^delayed)(void)) {
   describe(@"foo", ^{
     it(@"equals string 'Foo'", ^{
-      expect([data objectForKey:@"foo"]).toEqual(@"Foo");
+      expect(foo).toEqual(@"Foo");
+      expect(delayed()).toEqual([NSNumber numberWithInt:42]);
     });
   });
 
   describe(@"bar", ^{
     it(@"equals string 'Bar'", ^{
-      expect([data objectForKey:@"bar"]).toEqual(@"Bar");
+      expect(bar).toEqual(@"Bar");
     });
   });
 });
@@ -38,9 +42,9 @@ SharedExamplesEnd
 
 SharedExamplesBegin(GlobalSharedExamples2)
 
-sharedExamples(@"global shared 2", ^(NSDictionary *data) {
-  it(@"inserts data.baz to items", ^{
-    [items addObject:[data objectForKey:@"baz"]];
+sharedExamples(@"global shared 2", ^(id baz) {
+  it(@"inserts baz to items", ^{
+    [items addObject:baz];
   });
 });
 

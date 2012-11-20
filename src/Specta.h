@@ -45,8 +45,8 @@ void  afterEach(void (^block)());
 void     before(void (^block)());
 void      after(void (^block)());
 
-void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data));
-void    sharedExamples(NSString *name, void (^block)(NSDictionary *data));
+void sharedExamplesFor(NSString *name, id block);
+void    sharedExamples(NSString *name, id block);
 
-void itShouldBehaveLike(NSString *name, NSDictionary *data);
-void      itBehavesLike(NSString *name, NSDictionary *data);
+void itShouldBehaveLike(NSString *name, id arg, ...) NS_REQUIRES_NIL_TERMINATION;
+#define itBehavesLike(name, ...) itShouldBehaveLike(name, __VA_ARGS__)
