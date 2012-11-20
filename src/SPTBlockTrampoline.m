@@ -14,6 +14,8 @@
 
 @implementation SPTBlockTrampoline
 
+@synthesize block = _block;
+
 #pragma mark API
 
 - (id)initWithBlock:(id)block {
