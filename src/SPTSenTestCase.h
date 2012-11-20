@@ -20,4 +20,10 @@
 - (void)SPT_runExampleAtIndex:(NSUInteger)index;
 - (SPTExample *)SPT_getCurrentExample;
 
+// Called before each example begins.
+- (void)SPT_setUp;
+
+// Called after each example ends.
+- (void)SPT_tearDown;
+
 @end
