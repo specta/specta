@@ -41,7 +41,7 @@
 	invocation.target = self;
 
 	for (NSUInteger i = 0; i < arguments.count; i++) {
-		id arg = arguments[i];
+		id arg = [arguments objectAtIndex:i];
 		NSInteger argIndex = (NSInteger)(i + 2);
 		[invocation setArgument:&arg atIndex:argIndex];
 	}
