@@ -4,13 +4,13 @@ static NSMutableArray *items;
 
 SharedExamplesBegin(MoreGlobalSharedExamples)
 
-sharedExamplesFor(@"overridden shared example 1", ^(NSDictionary * (^dataInject)(void)) {
+sharedExamplesFor(@"overridden shared example 1", ^{
   it(@"adds bar to items", ^{
     [items addObject:@"bar"];
   });
 });
 
-sharedExamplesFor(@"overridden shared example 2", ^(NSDictionary * (^dataInject)(void)) {
+sharedExamplesFor(@"overridden shared example 2", ^{
   it(@"adds baz to items", ^{
     [items addObject:@"baz"];
   });
@@ -20,7 +20,7 @@ SharedExamplesEnd
 
 SpecBegin(_SharedExamplesTest3)
 
-sharedExamplesFor(@"overridden shared example 1", ^(NSDictionary * (^dataInject)(void)) {
+sharedExamplesFor(@"overridden shared example 1", ^{
   it(@"adds foo to items", ^{
     [items addObject:@"foo"];
   });
@@ -31,13 +31,13 @@ describe(@"overriding global shared examples with local shared examples", ^{
   itBehavesLike(@"overridden shared example 2", nil); // ['foo', 'baz']
 
   describe(@"another override", ^{
-    sharedExamplesFor(@"overridden shared example 1", ^(NSDictionary * (^dataInject)(void)) {
+    sharedExamplesFor(@"overridden shared example 1", ^{
       it(@"adds qux to items", ^{
         [items addObject:@"qux"];
       });
     });
 
-    sharedExamplesFor(@"overridden shared example 2", ^(NSDictionary * (^dataInject)(void)) {
+    sharedExamplesFor(@"overridden shared example 2", ^{
       it(@"adds faz to items", ^{
         [items addObject:@"faz"];
       });
