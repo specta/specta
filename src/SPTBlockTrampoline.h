@@ -11,7 +11,9 @@
 // Allows a limited type of dynamic block invocation.
 //
 // Based on RACBlockTrampline from ReactiveCocoa.
-@interface SPTBlockTrampoline : NSObject
+@interface SPTBlockTrampoline : NSObject {
+	id _block;
+}
 
 // Invokes the given block with the given arguments. All of the block's
 // argument types must be objects and must not return anything.
