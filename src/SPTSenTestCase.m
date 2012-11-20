@@ -59,6 +59,7 @@
   fprintf(stderr, "  %s%s\n", [compiledExample.name UTF8String], compiledExample.pending ? " (pending)" : "");
   if(!compiledExample.pending) {
     compiledExample.block();
+    [self SPT_tearDown];
   }
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:@"SPT_currentTestCase"];
 }
@@ -71,6 +72,8 @@
   [self.SPT_invocation getArgument:&i atIndex:2];
   return [[[self class] SPT_spec].compiledExamples objectAtIndex:i];
 }
+
+- (void)SPT_tearDown {}
 
 #pragma mark - SenTestCase overrides
 
