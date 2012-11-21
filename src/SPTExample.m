@@ -14,7 +14,7 @@
   [super dealloc];
 }
 
-- (id)initWithName:(NSString *)name block:(SPTVoidBlock)block {
+- (id)initWithName:(NSString *)name block:(void (^)(SPTSenTestCase *))block {
   self = [super init];
   if(self) {
     self.name = name;
