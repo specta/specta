@@ -79,11 +79,12 @@
 - (SPTExample *)addExampleWithName:(NSString *)name block:(SPTVoidBlock)block {
   SPTExample *example;
   @synchronized(self) {
-    example = [[SPTExample alloc] initWithName:name block:^{
     SPTSpec *spec = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentSpec"];
-      [spec.testCase SPT_setUp];
+    SPTSenTestCase *testCase = spec.testCase;
+    example = [[SPTExample alloc] initWithName:name block:^{
+      [testCase SPT_setUp];
       block();
-      [spec.testCase SPT_tearDown];
+      [testCase SPT_tearDown];
     }];
     if(!block) {
       example.pending = YES;
