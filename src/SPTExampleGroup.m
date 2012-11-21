@@ -1,6 +1,5 @@
 #import "SPTExampleGroup.h"
 #import "SPTExample.h"
-#import "SPTSenTestCase.h"
 
 @interface SPTExampleGroup ()
 
@@ -191,17 +190,15 @@
       SPTExample *example = child;
       NSArray *newNameStack = [nameStack arrayByAddingObject:example.name];
       NSString *compiledName = [newNameStack componentsJoinedByString:@" "];
-      void (^compiledBlock)(SPTSenTestCase *) = example.pending ? nil : ^(SPTSenTestCase *testCase) {
+      SPTVoidBlock compiledBlock = example.pending ? nil : ^{
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];
           [self runBeforeHooks];
-          [testCase SPT_setUp];
         }
-        example.block(testCase);
+        example.block();
         @synchronized(self.root) {
           [self incrementRanExampleCount];
           [self runAfterHooks];
-          [testCase SPT_tearDown];
         }
       };
       SPTExample *compiledExample = [[SPTExample alloc] initWithName:compiledName block:compiledBlock];

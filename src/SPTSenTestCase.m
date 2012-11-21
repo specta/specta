@@ -59,7 +59,7 @@
   fprintf(stderr, "  %s%s\n", [compiledExample.name UTF8String], compiledExample.pending ? " (pending)" : "");
   if(!compiledExample.pending) {
     [self SPT_setUp];
-    compiledExample.block(self);
+    compiledExample.block();
     [self SPT_tearDown];
   }
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:@"SPT_currentTestCase"];
