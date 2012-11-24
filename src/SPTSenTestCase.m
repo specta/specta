@@ -44,6 +44,7 @@
   SPTSpec *spec = [[self class] SPT_spec];
   spec.fileName = [NSString stringWithUTF8String:fileName];
   spec.lineNumber = lineNumber;
+  spec.testCase = self;
   [[[NSThread currentThread] threadDictionary] setObject:spec forKey:@"SPT_currentSpec"];
 }
 

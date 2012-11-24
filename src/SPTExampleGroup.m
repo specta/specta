@@ -1,5 +1,7 @@
 #import "SPTExampleGroup.h"
 #import "SPTExample.h"
+#import "SPTSenTestCase.h"
+#import "SPTSpec.h"
 
 @interface SPTExampleGroup ()
 
@@ -78,6 +80,8 @@
   SPTExample *example;
   @synchronized(self) {
     example = [[SPTExample alloc] initWithName:name block:block];
+    SPTSpec *spec = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentSpec"];
+    example.testCase = spec.testCase;
     if(!block) {
       example.pending = YES;
     }
@@ -190,15 +194,18 @@
       SPTExample *example = child;
       NSArray *newNameStack = [nameStack arrayByAddingObject:example.name];
       NSString *compiledName = [newNameStack componentsJoinedByString:@" "];
+      SPTSenTestCase *testCase = example.testCase;
       SPTVoidBlock compiledBlock = example.pending ? nil : ^{
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];
+          [testCase SPT_setUp];
           [self runBeforeHooks];
         }
         example.block();
         @synchronized(self.root) {
           [self incrementRanExampleCount];
           [self runAfterHooks];
+          [testCase SPT_tearDown];
         }
       };
       SPTExample *compiledExample = [[SPTExample alloc] initWithName:compiledName block:compiledBlock];
