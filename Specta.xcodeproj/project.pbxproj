@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		372B8853169A31F0005FBE0C /* AsyncSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B8852169A31F0005FBE0C /* AsyncSpecTest.m */; };
+		372B8854169A31F0005FBE0C /* AsyncSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B8852169A31F0005FBE0C /* AsyncSpecTest.m */; };
 		E910177314B911340087CD46 /* PassingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E910177214B911340087CD46 /* PassingSpecTest.m */; };
 		E910177514B9114A0087CD46 /* FailingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E910177414B9114A0087CD46 /* FailingSpecTest.m */; };
 		E944CA2914C4B5E300821DED /* SPTSenTestInvocation.h in Headers */ = {isa = PBXBuildFile; fileRef = E944CA2814C4B5E300821DED /* SPTSenTestInvocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -127,6 +129,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		372B8852169A31F0005FBE0C /* AsyncSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTest.m; sourceTree = "<group>"; };
 		E910177214B911340087CD46 /* PassingSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassingSpecTest.m; sourceTree = "<group>"; };
 		E910177414B9114A0087CD46 /* FailingSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailingSpecTest.m; sourceTree = "<group>"; };
 		E944CA2814C4B5E300821DED /* SPTSenTestInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTSenTestInvocation.h; sourceTree = "<group>"; };
@@ -319,6 +322,7 @@
 				E910177414B9114A0087CD46 /* FailingSpecTest.m */,
 				E9A204C814C79F81006E4A66 /* PendingSpecTest1.m */,
 				E9A204CC14C7A487006E4A66 /* PendingSpecTest2.m */,
+				372B8852169A31F0005FBE0C /* AsyncSpecTest.m */,
 				E9D3DED5157A385C0054978E /* SharedExamplesTest1.m */,
 				E9D3DEDF157A45540054978E /* SharedExamplesTest2.m */,
 				E9D3DEE2157A55F40054978E /* SharedExamplesTest3.m */,
@@ -656,6 +660,7 @@
 				E9D3DEE1157A45550054978E /* SharedExamplesTest2.m in Sources */,
 				E9D3DEE4157A55F50054978E /* SharedExamplesTest3.m in Sources */,
 				E96A5A571618327200D4B395 /* SharedExamplesTest4.m in Sources */,
+				372B8854169A31F0005FBE0C /* AsyncSpecTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,6 +708,7 @@
 				E9D3DEE0157A45550054978E /* SharedExamplesTest2.m in Sources */,
 				E9D3DEE3157A55F50054978E /* SharedExamplesTest3.m in Sources */,
 				E96A5A561618327200D4B395 /* SharedExamplesTest4.m in Sources */,
+				372B8853169A31F0005FBE0C /* AsyncSpecTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
