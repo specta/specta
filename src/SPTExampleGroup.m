@@ -209,7 +209,23 @@
           [self resetRanExampleCountIfNeeded];
           [self runBeforeHooks];
         }
-        example.block();
+        if([example isMemberOfClass:[SPTAsyncExample class]]) {
+          __block BOOL complete = NO;
+          ((SPTAsyncExample *)example).asyncBlock(^{
+            complete = YES;
+          });
+          NSTimeInterval timeout = 10;
+          NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
+          while (complete == NO && [timeoutDate timeIntervalSinceNow] > 0) {
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:timeoutDate];
+          }
+          if (!complete) {
+            NSLog(@"Async test (%@)\n\tfailed to callback before timeout (%f seconds)",
+                   compiledName, timeout);
+          }
+        } else {
+          example.block();
+        }
         @synchronized(self.root) {
           [self incrementRanExampleCount];
           [self runAfterHooks];
