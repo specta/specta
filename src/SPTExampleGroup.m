@@ -1,5 +1,6 @@
 #import "SPTExampleGroup.h"
 #import "SPTExample.h"
+#import "SPTAsyncExample.h"
 
 @interface SPTExampleGroup ()
 
@@ -79,6 +80,19 @@
   @synchronized(self) {
     example = [[SPTExample alloc] initWithName:name block:block];
     if(!block) {
+      example.pending = YES;
+    }
+    [self.children addObject:example];
+    [self incrementExampleCount];
+  }
+  return [example autorelease];
+}
+
+- (SPTExample *)addExampleWithName:(NSString *)name asyncBlock:(SPTAsyncBlock)asyncBlock {
+  SPTAsyncExample *example;
+  @synchronized(self) {
+    example = [[SPTAsyncExample alloc] initWithName:name asyncBlock:asyncBlock];
+    if (!asyncBlock) {
       example.pending = YES;
     }
     [self.children addObject:example];
@@ -195,7 +209,23 @@
           [self resetRanExampleCountIfNeeded];
           [self runBeforeHooks];
         }
-        example.block();
+        if([example isMemberOfClass:[SPTAsyncExample class]]) {
+          __block BOOL complete = NO;
+          ((SPTAsyncExample *)example).asyncBlock(^{
+            complete = YES;
+          });
+          NSTimeInterval timeout = 10;
+          NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
+          while (complete == NO && [timeoutDate timeIntervalSinceNow] > 0) {
+            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:timeoutDate];
+          }
+          if (!complete) {
+            NSLog(@"Async test (%@)\n\tfailed to callback before timeout (%f seconds)",
+                   compiledName, timeout);
+          }
+        } else {
+          example.block();
+        }
         @synchronized(self.root) {
           [self incrementRanExampleCount];
           [self runAfterHooks];

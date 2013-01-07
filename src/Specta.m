@@ -28,12 +28,24 @@ void example(NSString *name, void (^block)()) {
   [SPT_currentGroup addExampleWithName:name block:block];
 }
 
+void example_(NSString *name, void (^block)(void (^)())) {
+  [SPT_currentGroup addExampleWithName:name asyncBlock:block];
+}
+
 void it(NSString *name, void (^block)()) {
   example(name, block);
 }
 
+void it_(NSString *name, void (^block)(void (^)())) {
+  example_(name, block);
+}
+
 void specify(NSString *name, void (^block)()) {
   example(name, block);
+}
+
+void specify_(NSString *name, void (^block)(void (^)())) {
+  example_(name, block);
 }
 
 void _pending(NSString *name, ...) {

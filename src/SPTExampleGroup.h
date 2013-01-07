@@ -35,6 +35,7 @@
 
 - (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name;
 - (SPTExample *)addExampleWithName:(NSString *)name block:(SPTVoidBlock)block;
+- (SPTExample *)addExampleWithName:(NSString *)name asyncBlock:(SPTAsyncBlock)asyncBlock;
 
 - (void)addBeforeAllBlock:(SPTVoidBlock)block;
 - (void)addAfterAllBlock:(SPTVoidBlock)block;
