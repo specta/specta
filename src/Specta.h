@@ -27,8 +27,11 @@ void   describe(NSString *name, void (^block)());
 void    context(NSString *name, void (^block)());
 
 void    example(NSString *name, void (^block)());
+void    example_(NSString *name, void (^block)(void (^)()));
 void         it(NSString *name, void (^block)());
+void         it_(NSString *name, void (^block)(void (^)()));
 void    specify(NSString *name, void (^block)());
+void    specify_(NSString *name, void (^block)(void (^)()));
 
 void   _pending(NSString *name, ...);
 #define xdescribe(...) _pending(__VA_ARGS__, nil)

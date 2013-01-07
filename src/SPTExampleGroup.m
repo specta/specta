@@ -1,5 +1,6 @@
 #import "SPTExampleGroup.h"
 #import "SPTExample.h"
+#import "SPTAsyncExample.h"
 
 @interface SPTExampleGroup ()
 
@@ -79,6 +80,19 @@
   @synchronized(self) {
     example = [[SPTExample alloc] initWithName:name block:block];
     if(!block) {
+      example.pending = YES;
+    }
+    [self.children addObject:example];
+    [self incrementExampleCount];
+  }
+  return [example autorelease];
+}
+
+- (SPTExample *)addExampleWithName:(NSString *)name asyncBlock:(SPTAsyncBlock)asyncBlock {
+  SPTAsyncExample *example;
+  @synchronized(self) {
+    example = [[SPTAsyncExample alloc] initWithName:name asyncBlock:asyncBlock];
+    if (!asyncBlock) {
       example.pending = YES;
     }
     [self.children addObject:example];
