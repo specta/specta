@@ -6,6 +6,7 @@ describe(@"group", ^{
   it_(@"example 1", ^(void (^done)()) {
     dispatch_async(dispatch_get_main_queue(), ^{
       expect(YES).toBeFalsy();
+      done();
     });
   });
 });
