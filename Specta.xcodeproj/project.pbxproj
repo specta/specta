@@ -131,7 +131,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		372B8852169A31F0005FBE0C /* AsyncSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTest.m; sourceTree = "<group>"; };
+		372B8852169A31F0005FBE0C /* AsyncSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTest.m; sourceTree = "<group>"; tabWidth = 2; };
 		372B8856169A3B19005FBE0C /* SPTAsyncExample.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SPTAsyncExample.h; sourceTree = "<group>"; tabWidth = 2; };
 		372B8857169A3B19005FBE0C /* SPTAsyncExample.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SPTAsyncExample.m; sourceTree = "<group>"; tabWidth = 2; };
 		E910177214B911340087CD46 /* PassingSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassingSpecTest.m; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 		E9A204C814C79F81006E4A66 /* PendingSpecTest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest1.m; sourceTree = "<group>"; };
 		E9A204CC14C7A487006E4A66 /* PendingSpecTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest2.m; sourceTree = "<group>"; };
 		E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTSenTestCase.h; sourceTree = "<group>"; };
-		E9B7778114B9E15A00D8DC76 /* SPTSenTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTSenTestCase.m; sourceTree = "<group>"; };
+		E9B7778114B9E15A00D8DC76 /* SPTSenTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SPTSenTestCase.m; sourceTree = "<group>"; tabWidth = 2; };
 		E9B7778714BA24EC00D8DC76 /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 		E9B777A414BA294B00D8DC76 /* libSpecta-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSpecta-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B777B314BA294C00D8DC76 /* Specta-iOSTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Specta-iOSTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
