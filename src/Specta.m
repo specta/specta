@@ -8,6 +8,7 @@
 #define SPT_currentSpec  [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentSpec"]
 #define SPT_groupStack   [SPT_currentSpec groupStack]
 #define SPT_currentGroup [SPT_currentSpec currentGroup]
+#define SPT_returnUnlessBlockOrNil(block) if((block) && !SPT_isBlock((block))) return;
 
 void describe(NSString *name, void (^block)()) {
   if(block) {
@@ -24,9 +25,7 @@ void context(NSString *name, void (^block)()) {
 }
 
 void example(NSString *name, id block) {
-  if(block && !SPT_isBlock(block)) {
-    return;
-  }
+  SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addExampleWithName:name block:block];
 }
 
@@ -42,27 +41,31 @@ void SPT_pending(NSString *name, ...) {
   example(name, nil);
 }
 
-void beforeAll(void (^block)()) {
+void beforeAll(id block) {
+  SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addBeforeAllBlock:block];
 }
 
-void afterAll(void (^block)()) {
+void afterAll(id block) {
+  SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addAfterAllBlock:block];
 }
 
-void beforeEach(void (^block)()) {
+void beforeEach(id block) {
+  SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addBeforeEachBlock:block];
 }
 
-void afterEach(void (^block)()) {
+void afterEach(id block) {
+  SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addAfterEachBlock:block];
 }
 
-void before(void (^block)()) {
+void before(id block) {
   beforeEach(block);
 }
 
-void after(void (^block)()) {
+void after(id block) {
   afterEach(block);
 }
 

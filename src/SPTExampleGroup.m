@@ -46,8 +46,8 @@ static void runExampleBlock(id block, NSString *name) {
 - (void)incrementExampleCount;
 - (void)resetRanExampleCountIfNeeded;
 - (void)incrementRanExampleCount;
-- (void)runBeforeHooks;
-- (void)runAfterHooks;
+- (void)runBeforeHooks:(NSString *)compiledName;
+- (void)runAfterHooks:(NSString *)compiledName;
 
 @end
 
@@ -174,7 +174,7 @@ static void runExampleBlock(id block, NSString *name) {
   [self.afterEachArray addObject:[[block copy] autorelease]];
 }
 
-- (void)runBeforeHooks {
+- (void)runBeforeHooks:(NSString *)compiledName {
   NSMutableArray *groups = [NSMutableArray array];
   SPTExampleGroup *group = self;
   while(group != nil) {
@@ -184,20 +184,20 @@ static void runExampleBlock(id block, NSString *name) {
   // run beforeAll hooks
   for(group in groups) {
     if(group.ranExampleCount == 0) {
-      for(SPTVoidBlock beforeAllBlock in group.beforeAllArray) {
-        beforeAllBlock();
+      for(id beforeAllBlock in group.beforeAllArray) {
+        runExampleBlock(beforeAllBlock, [NSString stringWithFormat:@"%@ - before all block", compiledName]);
       }
     }
   }
   // run beforeEach hooks
   for(group in groups) {
-    for(SPTVoidBlock beforeEachBlock in group.beforeEachArray) {
-      beforeEachBlock();
+    for(id beforeEachBlock in group.beforeEachArray) {
+      runExampleBlock(beforeEachBlock, [NSString stringWithFormat:@"%@ - before each block", compiledName]);
     }
   }
 }
 
-- (void)runAfterHooks {
+- (void)runAfterHooks:(NSString *)compiledName {
   NSMutableArray *groups = [NSMutableArray array];
   SPTExampleGroup *group = self;
   while(group != nil) {
@@ -206,15 +206,15 @@ static void runExampleBlock(id block, NSString *name) {
   }
   // run afterEach hooks
   for(group in groups) {
-    for(SPTVoidBlock afterEachBlock in group.afterEachArray) {
-      afterEachBlock();
+    for(id afterEachBlock in group.afterEachArray) {
+      runExampleBlock(afterEachBlock, [NSString stringWithFormat:@"%@ - after each block", compiledName]);
     }
   }
   // run afterAll hooks
   for(group in groups) {
     if(group.ranExampleCount == group.exampleCount) {
-      for(SPTVoidBlock afterAllBlock in group.afterAllArray) {
-        afterAllBlock();
+      for(id afterAllBlock in group.afterAllArray) {
+        runExampleBlock(afterAllBlock, [NSString stringWithFormat:@"%@ - after all block", compiledName]);
       }
     }
   }
@@ -235,12 +235,12 @@ static void runExampleBlock(id block, NSString *name) {
       SPTVoidBlock compiledBlock = example.pending ? nil : ^{
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];
-          [self runBeforeHooks];
+          [self runBeforeHooks:compiledName];
         }
         runExampleBlock(example.block, compiledName);
         @synchronized(self.root) {
           [self incrementRanExampleCount];
-          [self runAfterHooks];
+          [self runAfterHooks:compiledName];
         }
       };
       SPTExample *compiledExample = [[SPTExample alloc] initWithName:compiledName block:compiledBlock];

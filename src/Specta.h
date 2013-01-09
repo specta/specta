@@ -40,12 +40,12 @@ void SPT_pending(NSString *name, ...);
 #define  xspecify(...) SPT_pending(__VA_ARGS__, nil)
 #define   pending(...) SPT_pending(__VA_ARGS__, nil)
 
-void  beforeAll(void (^block)());
-void   afterAll(void (^block)());
-void beforeEach(void (^block)());
-void  afterEach(void (^block)());
-void     before(void (^block)());
-void      after(void (^block)());
+void  beforeAll(id block);
+void   afterAll(id block);
+void beforeEach(id block);
+void  afterEach(id block);
+void     before(id block);
+void      after(id block);
 
 void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data));
 void    sharedExamples(NSString *name, void (^block)(NSDictionary *data));
