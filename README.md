@@ -77,8 +77,9 @@ describe(@"Thing", ^{
     // This is an example block. Place your assertions here.
   });
 
-  it(@"should do more stuff", ^{
-    // ...
+  it(@"should do some stuff asynchronously", ^AsyncBlock {
+    // Async example blocks need to invoke done() callback.
+    done();
   });
 
   itShouldBehaveLike(@"a shared behavior", [NSDictionary dictionaryWithObjectsAndKeys:@"obj", @"key", nil]);
@@ -119,6 +120,8 @@ SpecEnd
 * `it` is also aliased as `example` and `specify`.
 * `itShouldBehaveLike` is also aliased as `itBehavesLike`.
 * Use `pending` or prepend `x` to `describe`, `context`, `example`, `it`, and `specify` to mark examples or groups as pending.
+* Use `^AsyncBlock` as shown in the example above to make examples wait for completion. `done()` callback needs to be invoked to let Specta know that your test is complete.
+* `(before|after)(Each/All)` also accept `^AsyncBlock`s.
 * Do `#define SPT_CEDAR_SYNTAX` if you prefer to write `SPEC_BEGIN` and `SPEC_END` instead of `SpecBegin` and `SpecEnd`.
 
 ### RUNNING SPECS FROM COMMAND LINE / CI
@@ -133,6 +136,14 @@ servers.
 * Please use only spaces and indent 2 spaces at a time.
 * Please prefix instance variable names with a single underscore (`_`).
 * Please prefix custom classes and functions defined in the global scope with `SPT`.
+
+### CONTRIBUTORS
+
+* Dan Palmer [(danpalmer)](https://github.com/danpalmer)
+* Justin Spahr-Summers [(jspahrsummers)](https://github.com/jspahrsummers)
+* Josh Abernathy [(joshaber)](https://github.com/joshaber)
+* Meiwin Fu [(meiwin)](https://github.com/meiwin)
+* Shawn Morel [(strangemonad)](https://github.com/strangemonad)
 
 ## LICENSE
 
