@@ -14,12 +14,12 @@
   [super dealloc];
 }
 
-- (id)initWithName:(NSString *)name block:(SPTVoidBlock)block {
+- (id)initWithName:(NSString *)name block:(id)block {
   self = [super init];
   if(self) {
     self.name = name;
     self.block = block;
-    self.pending = NO;
+    self.pending = block == nil;
   }
   return self;
 }

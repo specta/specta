@@ -1,10 +1,45 @@
 #import "SPTExampleGroup.h"
 #import "SPTExample.h"
-#import "SPTAsyncExample.h"
 #import "SPTSenTestCase.h"
 #import "SPTSpec.h"
+#import "SpectaUtility.h"
 
 static NSTimeInterval asyncSpecTimeout = 10.0;
+static const char *asyncBlockSignature = NULL;
+
+static void runExampleBlock(id block, NSString *name) {
+  if(!SPT_isBlock(block)) {
+    return;
+  }
+
+  if (!asyncBlockSignature) {
+    asyncBlockSignature = SPT_getBlockSignature(^(void (^done)()) {});
+  }
+
+  const char *blockSignature = SPT_getBlockSignature(block);
+  BOOL isAsyncBlock = strcmp(blockSignature, asyncBlockSignature) == 0;
+
+  if(isAsyncBlock) {
+    __block BOOL complete = NO;
+    ((SPTAsyncBlock)block)(^{
+      complete = YES;
+    });
+    NSTimeInterval timeout = asyncSpecTimeout;
+    NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
+    while (complete == NO && [timeoutDate timeIntervalSinceNow] > 0) {
+      [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.01]];
+    }
+    if (!complete) {
+      NSString *message = [NSString stringWithFormat:@"\"%@\" failed to invoke done() callback before timeout (%f seconds)", name, timeout];
+      SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
+      SPTSpec *spec = [[currentTestCase class] SPT_spec];
+      NSException *exception = [NSException failureInFile:spec.fileName atLine:(int)spec.lineNumber withDescription:message];
+      [currentTestCase failWithException: exception];
+    }
+  } else {
+    ((SPTVoidBlock)block)();
+  }
+}
 
 @interface SPTExampleGroup ()
 
@@ -83,26 +118,10 @@ static NSTimeInterval asyncSpecTimeout = 10.0;
   return [group autorelease];
 }
 
-- (SPTExample *)addExampleWithName:(NSString *)name block:(SPTVoidBlock)block {
+- (SPTExample *)addExampleWithName:(NSString *)name block:(id)block {
   SPTExample *example;
   @synchronized(self) {
     example = [[SPTExample alloc] initWithName:name block:block];
-    if(!block) {
-      example.pending = YES;
-    }
-    [self.children addObject:example];
-    [self incrementExampleCount];
-  }
-  return [example autorelease];
-}
-
-- (SPTExample *)addExampleWithName:(NSString *)name asyncBlock:(SPTAsyncBlock)asyncBlock {
-  SPTAsyncExample *example;
-  @synchronized(self) {
-    example = [[SPTAsyncExample alloc] initWithName:name asyncBlock:asyncBlock];
-    if (!asyncBlock) {
-      example.pending = YES;
-    }
     [self.children addObject:example];
     [self incrementExampleCount];
   }
@@ -212,31 +231,13 @@ static NSTimeInterval asyncSpecTimeout = 10.0;
       SPTExample *example = child;
       NSArray *newNameStack = [nameStack arrayByAddingObject:example.name];
       NSString *compiledName = [newNameStack componentsJoinedByString:@" "];
+
       SPTVoidBlock compiledBlock = example.pending ? nil : ^{
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];
           [self runBeforeHooks];
         }
-        if([example isMemberOfClass:[SPTAsyncExample class]]) {
-          __block BOOL complete = NO;
-          ((SPTAsyncExample *)example).asyncBlock(^{
-            complete = YES;
-          });
-          NSTimeInterval timeout = asyncSpecTimeout;
-          NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
-          while (complete == NO && [timeoutDate timeIntervalSinceNow] > 0) {
-            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.01]];
-          }
-          if (!complete) {
-            NSString *message = [NSString stringWithFormat:@"Async spec (%@) failed to invoke callback before timeout (%f seconds)", compiledName, timeout];
-            SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
-            SPTSpec *spec = [[currentTestCase class] SPT_spec];
-            NSException *exception = [NSException failureInFile:spec.fileName atLine:(int)spec.lineNumber withDescription:message];
-            [currentTestCase failWithException: exception];
-          }
-        } else {
-          example.block();
-        }
+        runExampleBlock(example.block, compiledName);
         @synchronized(self.root) {
           [self incrementRanExampleCount];
           [self runAfterHooks];

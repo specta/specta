@@ -8,21 +8,21 @@ static NSString
 SpecBegin(_AsyncSpecTest)
 
 describe(@"group", ^{
-  it_(@"example 1", ^AsyncSpec {
+  it(@"example 1", ^AsyncBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
       expect(foo).toEqual(@"foo");
       done();
     });
   });
 
-  it_(@"example 2", ^AsyncSpec {
+  it(@"example 2", ^AsyncBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
       expect(bar).toEqual(@"bar");
       done();
     });
   });
 
-  it_(@"example 3", ^AsyncSpec {
+  it(@"example 3", ^AsyncBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
       expect(NO).toBeFalsy();
       done();

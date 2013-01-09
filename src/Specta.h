@@ -23,25 +23,22 @@
 #  define SHARED_EXAMPLE_GROUPS_END         SharedExamplesEnd
 #endif
 
-#define AsyncSpec (void (^done)())
+#define AsyncBlock (void (^done)())
 
 void   describe(NSString *name, void (^block)());
 void    context(NSString *name, void (^block)());
 
-void    example(NSString *name, void (^block)());
-void    example_(NSString *name, void (^block)(void (^)()));
-void         it(NSString *name, void (^block)());
-void         it_(NSString *name, void (^block)(void (^)()));
-void    specify(NSString *name, void (^block)());
-void    specify_(NSString *name, void (^block)(void (^)()));
+void    example(NSString *name, id block);
+void         it(NSString *name, id block);
+void    specify(NSString *name, id block);
 
-void   _pending(NSString *name, ...);
-#define xdescribe(...) _pending(__VA_ARGS__, nil)
-#define  xcontext(...) _pending(__VA_ARGS__, nil)
-#define  xexample(...) _pending(__VA_ARGS__, nil)
-#define       xit(...) _pending(__VA_ARGS__, nil)
-#define  xspecify(...) _pending(__VA_ARGS__, nil)
-#define   pending(...) _pending(__VA_ARGS__, nil)
+void SPT_pending(NSString *name, ...);
+#define xdescribe(...) SPT_pending(__VA_ARGS__, nil)
+#define  xcontext(...) SPT_pending(__VA_ARGS__, nil)
+#define  xexample(...) SPT_pending(__VA_ARGS__, nil)
+#define       xit(...) SPT_pending(__VA_ARGS__, nil)
+#define  xspecify(...) SPT_pending(__VA_ARGS__, nil)
+#define   pending(...) SPT_pending(__VA_ARGS__, nil)
 
 void  beforeAll(void (^block)());
 void   afterAll(void (^block)());

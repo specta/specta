@@ -1,5 +1,6 @@
 #import "Specta.h"
 #import "SpectaTypes.h"
+#import "SpectaUtility.h"
 
 @implementation Specta
 @end
@@ -7,8 +8,6 @@
 #define SPT_currentSpec  [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentSpec"]
 #define SPT_groupStack   [SPT_currentSpec groupStack]
 #define SPT_currentGroup [SPT_currentSpec currentGroup]
-
-#define SPT_isBlock(obj) [(obj) isKindOfClass:NSClassFromString(@"NSBlock")]
 
 void describe(NSString *name, void (^block)()) {
   if(block) {
@@ -24,31 +23,22 @@ void context(NSString *name, void (^block)()) {
   describe(name, block);
 }
 
-void example(NSString *name, void (^block)()) {
+void example(NSString *name, id block) {
+  if(block && !SPT_isBlock(block)) {
+    return;
+  }
   [SPT_currentGroup addExampleWithName:name block:block];
 }
 
-void example_(NSString *name, void (^block)(void (^)())) {
-  [SPT_currentGroup addExampleWithName:name asyncBlock:block];
-}
-
-void it(NSString *name, void (^block)()) {
+void it(NSString *name, id block) {
   example(name, block);
 }
 
-void it_(NSString *name, void (^block)(void (^)())) {
-  example_(name, block);
-}
-
-void specify(NSString *name, void (^block)()) {
+void specify(NSString *name, id block) {
   example(name, block);
 }
 
-void specify_(NSString *name, void (^block)(void (^)())) {
-  example_(name, block);
-}
-
-void _pending(NSString *name, ...) {
+void SPT_pending(NSString *name, ...) {
   example(name, nil);
 }
 

@@ -3,14 +3,14 @@
 SpecBegin(_AsyncSpecTimeoutTest)
 
 describe(@"group", ^{
-  it_(@"example 1", ^AsyncSpec {
+  it(@"example 1", ^AsyncBlock {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 200LL * NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
       expect(NO).toBeFalsy();
       done();
     });
   });
 
-  it_(@"example 2", ^AsyncSpec {
+  it(@"example 2", ^AsyncBlock {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 50LL * NSEC_PER_MSEC), dispatch_get_main_queue(), ^{
       expect(NO).toBeFalsy();
       done();

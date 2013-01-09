@@ -58,7 +58,7 @@
   SPTExample *compiledExample = [[[self class] SPT_spec].compiledExamples objectAtIndex:index];
   fprintf(stderr, "  %s%s\n", [compiledExample.name UTF8String], compiledExample.pending ? " (pending)" : "");
   if(!compiledExample.pending) {
-    compiledExample.block();
+    ((SPTVoidBlock)compiledExample.block)();
   }
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:@"SPT_currentTestCase"];
 }
