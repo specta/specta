@@ -18,7 +18,7 @@ A light-weight TDD / BDD framework for Objective-C & Cocoa.
 Use [CocoaPods](http://github.com/CocoaPods/CocoaPods)
 
 ```ruby
-dependency 'Specta',      '~> 0.1.5'
+dependency 'Specta',      '~> 0.1.7'
 # dependency 'Expecta',     '~> 0.2.0'   # expecta matchers
 # dependency 'OCHamcrest',  '~> 1.7'     # hamcrest matchers
 # dependency 'OCMock',      '~> 2.0.1'   # OCMock
@@ -49,7 +49,7 @@ Standard OCUnit matchers such as `STAssertEqualObjects` and `STAssertNil` work, 
 SharedExamplesBegin(MySharedExamples)
 // Global shared examples are shared across all spec files.
 
-sharedExamplesFor(@"a shared behavior", ^(id stuff) {
+sharedExamplesFor(@"a shared behavior", ^(NSDictionary *data) {
   it(@"should do some stuff", ^{
     // ...
   });
@@ -60,7 +60,7 @@ SharedExamplesEnd
 SpecBegin(Thing)
 
 describe(@"Thing", ^{
-  sharedExamplesFor(@"another shared behavior", ^(id stuff) {
+  sharedExamplesFor(@"another shared behavior", ^(NSDictionary *data) {
     // Locally defined shared examples can override global shared examples within its scope.
   });
 
@@ -77,11 +77,18 @@ describe(@"Thing", ^{
     // This is an example block. Place your assertions here.
   });
 
-  it(@"should do more stuff", ^{
-    // ...
+  it(@"should do some stuff asynchronously", ^AsyncBlock {
+    // Async example blocks need to invoke done() callback.
+    done();
   });
 
-  itShouldBehaveLike(@"a shared behavior", @"key", nil);
+  itShouldBehaveLike(@"a shared behavior", [NSDictionary dictionaryWithObjectsAndKeys:@"obj", @"key", nil]);
+
+  itShouldBehaveLike(@"another shared behavior", ^{
+    // Use a block that returns a dictionary if you need the context to be evaluated lazily,
+    // e.g. to use an object prepared in a beforeEach block.
+    return [NSDictionary dictionaryWithObjectsAndKeys:@"obj", @"key", nil];
+  });
 
   describe(@"Nested examples", ^{
     it(@"should do even more stuff", ^{
@@ -113,6 +120,8 @@ SpecEnd
 * `it` is also aliased as `example` and `specify`.
 * `itShouldBehaveLike` is also aliased as `itBehavesLike`.
 * Use `pending` or prepend `x` to `describe`, `context`, `example`, `it`, and `specify` to mark examples or groups as pending.
+* Use `^AsyncBlock` as shown in the example above to make examples wait for completion. `done()` callback needs to be invoked to let Specta know that your test is complete.
+* `(before|after)(Each/All)` also accept `^AsyncBlock`s.
 * Do `#define SPT_CEDAR_SYNTAX` if you prefer to write `SPEC_BEGIN` and `SPEC_END` instead of `SpecBegin` and `SpecEnd`.
 
 ### RUNNING SPECS FROM COMMAND LINE / CI
@@ -127,6 +136,14 @@ servers.
 * Please use only spaces and indent 2 spaces at a time.
 * Please prefix instance variable names with a single underscore (`_`).
 * Please prefix custom classes and functions defined in the global scope with `SPT`.
+
+### CONTRIBUTORS
+
+* Dan Palmer [(danpalmer)](https://github.com/danpalmer)
+* Justin Spahr-Summers [(jspahrsummers)](https://github.com/jspahrsummers)
+* Josh Abernathy [(joshaber)](https://github.com/joshaber)
+* Meiwin Fu [(meiwin)](https://github.com/meiwin)
+* Shawn Morel [(strangemonad)](https://github.com/strangemonad)
 
 ## LICENSE
 

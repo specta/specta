@@ -1,6 +1,6 @@
 #import "Specta.h"
 #import "SpectaTypes.h"
-#import "SPTBlockTrampoline.h"
+#import "SpectaUtility.h"
 
 @implementation Specta
 @end
@@ -8,6 +8,7 @@
 #define SPT_currentSpec  [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentSpec"]
 #define SPT_groupStack   [SPT_currentSpec groupStack]
 #define SPT_currentGroup [SPT_currentSpec currentGroup]
+#define SPT_returnUnlessBlockOrNil(block) if((block) && !SPT_isBlock((block))) return;
 
 void describe(NSString *name, void (^block)()) {
   if(block) {
@@ -23,66 +24,90 @@ void context(NSString *name, void (^block)()) {
   describe(name, block);
 }
 
-void example(NSString *name, void (^block)()) {
+void example(NSString *name, id block) {
+  SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addExampleWithName:name block:block];
 }
 
-void it(NSString *name, void (^block)()) {
+void it(NSString *name, id block) {
   example(name, block);
 }
 
-void specify(NSString *name, void (^block)()) {
+void specify(NSString *name, id block) {
   example(name, block);
 }
 
-void _pending(NSString *name, ...) {
+void SPT_pending(NSString *name, ...) {
   example(name, nil);
 }
 
-void beforeAll(void (^block)()) {
+void beforeAll(id block) {
+  SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addBeforeAllBlock:block];
 }
 
-void afterAll(void (^block)()) {
+void afterAll(id block) {
+  SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addAfterAllBlock:block];
 }
 
-void beforeEach(void (^block)()) {
+void beforeEach(id block) {
+  SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addBeforeEachBlock:block];
 }
 
-void afterEach(void (^block)()) {
+void afterEach(id block) {
+  SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addAfterEachBlock:block];
 }
 
-void before(void (^block)()) {
+void before(id block) {
   beforeEach(block);
 }
 
-void after(void (^block)()) {
+void after(id block) {
   afterEach(block);
 }
 
-void sharedExamplesFor(NSString *name, id block) {
+void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data)) {
   [SPTSharedExampleGroups addSharedExampleGroupWithName:name block:block exampleGroup:SPT_currentGroup];
 }
 
-void sharedExamples(NSString *name, id block) {
+void sharedExamples(NSString *name, void (^block)(NSDictionary *data)) {
   sharedExamplesFor(name, block);
 }
 
-void itShouldBehaveLike(NSString *name, id arg, ...) {
-  id block = [SPTSharedExampleGroups sharedExampleGroupWithName:name exampleGroup:SPT_currentGroup];
-
-  NSMutableArray *objects = [NSMutableArray array];
-  va_list args;
-  va_start(args, arg);
-  for(id currentObject = arg; currentObject != nil; currentObject = va_arg(args, id)) {
-    [objects addObject:currentObject];
-  }
-  va_end(args);
-
+void itShouldBehaveLike(NSString *name, id dictionaryOrBlock) {
+  SPTDictionaryBlock block = [SPTSharedExampleGroups sharedExampleGroupWithName:name exampleGroup:SPT_currentGroup];
   if(block) {
-    [SPTBlockTrampoline invokeBlock:block withArguments:objects];
+    if(SPT_isBlock(dictionaryOrBlock)) {
+      id (^dataBlock)(void) = [[dictionaryOrBlock copy] autorelease];
+
+      describe(name, ^{
+        __block NSMutableDictionary *dataDict = [NSMutableDictionary dictionary];
+
+        beforeEach(^{
+          NSDictionary *blockData = dataBlock();
+          [dataDict removeAllObjects];
+          [dataDict addEntriesFromDictionary:blockData];
+        });
+
+        block(dataDict);
+      });
+    } else {
+      NSDictionary *data = dictionaryOrBlock;
+
+      describe(name, ^{
+        block(data);
+      });
+    }
   }
+}
+
+void itBehavesLike(NSString *name, id dictionaryOrBlock) {
+  itShouldBehaveLike(name, dictionaryOrBlock);
+}
+
+void setAsyncSpecTimeout(NSTimeInterval timeout) {
+  [SPTExampleGroup setAsyncSpecTimeout:timeout];
 }

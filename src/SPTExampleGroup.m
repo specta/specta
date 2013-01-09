@@ -2,14 +2,52 @@
 #import "SPTExample.h"
 #import "SPTSenTestCase.h"
 #import "SPTSpec.h"
+#import "SpectaUtility.h"
+
+static NSTimeInterval asyncSpecTimeout = 10.0;
+static const char *asyncBlockSignature = NULL;
+
+static void runExampleBlock(id block, NSString *name) {
+  if(!SPT_isBlock(block)) {
+    return;
+  }
+
+  if (!asyncBlockSignature) {
+    asyncBlockSignature = SPT_getBlockSignature(^(void (^done)()) {});
+  }
+
+  const char *blockSignature = SPT_getBlockSignature(block);
+  BOOL isAsyncBlock = strcmp(blockSignature, asyncBlockSignature) == 0;
+
+  if(isAsyncBlock) {
+    __block BOOL complete = NO;
+    ((SPTAsyncBlock)block)(^{
+      complete = YES;
+    });
+    NSTimeInterval timeout = asyncSpecTimeout;
+    NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
+    while (complete == NO && [timeoutDate timeIntervalSinceNow] > 0) {
+      [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.01]];
+    }
+    if (!complete) {
+      NSString *message = [NSString stringWithFormat:@"\"%@\" failed to invoke done() callback before timeout (%f seconds)", name, timeout];
+      SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
+      SPTSpec *spec = [[currentTestCase class] SPT_spec];
+      NSException *exception = [NSException failureInFile:spec.fileName atLine:(int)spec.lineNumber withDescription:message];
+      [currentTestCase failWithException: exception];
+    }
+  } else {
+    ((SPTVoidBlock)block)();
+  }
+}
 
 @interface SPTExampleGroup ()
 
 - (void)incrementExampleCount;
 - (void)resetRanExampleCountIfNeeded;
 - (void)incrementRanExampleCount;
-- (void)runBeforeHooks;
-- (void)runAfterHooks;
+- (void)runBeforeHooks:(NSString *)compiledName;
+- (void)runAfterHooks:(NSString *)compiledName;
 
 @end
 
@@ -60,6 +98,10 @@
   return self;
 }
 
++ (void)setAsyncSpecTimeout:(NSTimeInterval)timeout {
+  asyncSpecTimeout = timeout;
+}
+
 - (id)initWithName:(NSString *)name parent:(SPTExampleGroup *)parent root:(SPTExampleGroup *)root {
   self = [self init];
   if(self) {
@@ -76,7 +118,7 @@
   return [group autorelease];
 }
 
-- (SPTExample *)addExampleWithName:(NSString *)name block:(SPTVoidBlock)block {
+- (SPTExample *)addExampleWithName:(NSString *)name block:(id)block {
   SPTExample *example;
   @synchronized(self) {
     example = [[SPTExample alloc] initWithName:name block:block];
@@ -137,7 +179,7 @@
   [self.afterEachArray addObject:[[block copy] autorelease]];
 }
 
-- (void)runBeforeHooks {
+- (void)runBeforeHooks:(NSString *)compiledName {
   NSMutableArray *groups = [NSMutableArray array];
   SPTExampleGroup *group = self;
   while(group != nil) {
@@ -147,20 +189,20 @@
   // run beforeAll hooks
   for(group in groups) {
     if(group.ranExampleCount == 0) {
-      for(SPTVoidBlock beforeAllBlock in group.beforeAllArray) {
-        beforeAllBlock();
+      for(id beforeAllBlock in group.beforeAllArray) {
+        runExampleBlock(beforeAllBlock, [NSString stringWithFormat:@"%@ - before all block", compiledName]);
       }
     }
   }
   // run beforeEach hooks
   for(group in groups) {
-    for(SPTVoidBlock beforeEachBlock in group.beforeEachArray) {
-      beforeEachBlock();
+    for(id beforeEachBlock in group.beforeEachArray) {
+      runExampleBlock(beforeEachBlock, [NSString stringWithFormat:@"%@ - before each block", compiledName]);
     }
   }
 }
 
-- (void)runAfterHooks {
+- (void)runAfterHooks:(NSString *)compiledName {
   NSMutableArray *groups = [NSMutableArray array];
   SPTExampleGroup *group = self;
   while(group != nil) {
@@ -169,15 +211,15 @@
   }
   // run afterEach hooks
   for(group in groups) {
-    for(SPTVoidBlock afterEachBlock in group.afterEachArray) {
-      afterEachBlock();
+    for(id afterEachBlock in group.afterEachArray) {
+      runExampleBlock(afterEachBlock, [NSString stringWithFormat:@"%@ - after each block", compiledName]);
     }
   }
   // run afterAll hooks
   for(group in groups) {
     if(group.ranExampleCount == group.exampleCount) {
-      for(SPTVoidBlock afterAllBlock in group.afterAllArray) {
-        afterAllBlock();
+      for(id afterAllBlock in group.afterAllArray) {
+        runExampleBlock(afterAllBlock, [NSString stringWithFormat:@"%@ - after all block", compiledName]);
       }
     }
   }
@@ -194,17 +236,18 @@
       SPTExample *example = child;
       NSArray *newNameStack = [nameStack arrayByAddingObject:example.name];
       NSString *compiledName = [newNameStack componentsJoinedByString:@" "];
+
       SPTSenTestCase *testCase = example.testCase;
       SPTVoidBlock compiledBlock = example.pending ? nil : ^{
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];
           [testCase SPT_setUp];
-          [self runBeforeHooks];
+          [self runBeforeHooks:compiledName];
         }
-        example.block();
+        runExampleBlock(example.block, compiledName);
         @synchronized(self.root) {
           [self incrementRanExampleCount];
-          [self runAfterHooks];
+          [self runAfterHooks:compiledName];
           [testCase SPT_tearDown];
         }
       };

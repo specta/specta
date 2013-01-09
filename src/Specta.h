@@ -23,30 +23,34 @@
 #  define SHARED_EXAMPLE_GROUPS_END         SharedExamplesEnd
 #endif
 
+#define AsyncBlock (void (^done)())
+
 void   describe(NSString *name, void (^block)());
 void    context(NSString *name, void (^block)());
 
-void    example(NSString *name, void (^block)());
-void         it(NSString *name, void (^block)());
-void    specify(NSString *name, void (^block)());
+void    example(NSString *name, id block);
+void         it(NSString *name, id block);
+void    specify(NSString *name, id block);
 
-void   _pending(NSString *name, ...);
-#define xdescribe(...) _pending(__VA_ARGS__, nil)
-#define  xcontext(...) _pending(__VA_ARGS__, nil)
-#define  xexample(...) _pending(__VA_ARGS__, nil)
-#define       xit(...) _pending(__VA_ARGS__, nil)
-#define  xspecify(...) _pending(__VA_ARGS__, nil)
-#define   pending(...) _pending(__VA_ARGS__, nil)
+void SPT_pending(NSString *name, ...);
+#define xdescribe(...) SPT_pending(__VA_ARGS__, nil)
+#define  xcontext(...) SPT_pending(__VA_ARGS__, nil)
+#define  xexample(...) SPT_pending(__VA_ARGS__, nil)
+#define       xit(...) SPT_pending(__VA_ARGS__, nil)
+#define  xspecify(...) SPT_pending(__VA_ARGS__, nil)
+#define   pending(...) SPT_pending(__VA_ARGS__, nil)
 
-void  beforeAll(void (^block)());
-void   afterAll(void (^block)());
-void beforeEach(void (^block)());
-void  afterEach(void (^block)());
-void     before(void (^block)());
-void      after(void (^block)());
+void  beforeAll(id block);
+void   afterAll(id block);
+void beforeEach(id block);
+void  afterEach(id block);
+void     before(id block);
+void      after(id block);
 
-void sharedExamplesFor(NSString *name, id block);
-void    sharedExamples(NSString *name, id block);
+void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data));
+void    sharedExamples(NSString *name, void (^block)(NSDictionary *data));
 
-void itShouldBehaveLike(NSString *name, id arg, ...) NS_REQUIRES_NIL_TERMINATION;
-#define itBehavesLike(name, ...) itShouldBehaveLike(name, __VA_ARGS__)
+void itShouldBehaveLike(NSString *name, id dictionaryOrBlock);
+void      itBehavesLike(NSString *name, id dictionaryOrBlock);
+
+void setAsyncSpecTimeout(NSTimeInterval timeout);
