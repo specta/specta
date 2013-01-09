@@ -101,6 +101,13 @@ void itShouldBehaveLike(NSString *name, id dictionaryOrBlock) {
         block(data);
       });
     }
+  } else {
+    SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
+    if(currentTestCase) {
+      SPTSpec *spec = [[currentTestCase class] SPT_spec];
+      NSException *exception = [NSException failureInFile:spec.fileName atLine:(int)spec.lineNumber withDescription:@"itShouldBehaveLike should not be invoked inside an example block!"];
+      [currentTestCase failWithException: exception];
+    }
   }
 }
 
