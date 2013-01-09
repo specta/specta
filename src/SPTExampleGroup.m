@@ -3,6 +3,7 @@
 #import "SPTSenTestCase.h"
 #import "SPTSpec.h"
 #import "SpectaUtility.h"
+#import <libkern/OSAtomic.h>
 
 static NSTimeInterval asyncSpecTimeout = 10.0;
 static const char *asyncBlockSignature = NULL;
@@ -20,13 +21,13 @@ static void runExampleBlock(id block, NSString *name) {
   BOOL isAsyncBlock = strcmp(blockSignature, asyncBlockSignature) == 0;
 
   if(isAsyncBlock) {
-    __block BOOL complete = NO;
+    __block uint32_t complete = 0;
     ((SPTAsyncBlock)block)(^{
-      complete = YES;
+      OSAtomicOr32Barrier(1, &complete);
     });
     NSTimeInterval timeout = asyncSpecTimeout;
     NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
-    while (complete == NO && [timeoutDate timeIntervalSinceNow] > 0) {
+    while (!complete && [timeoutDate timeIntervalSinceNow] > 0) {
       [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.01]];
     }
     if (!complete) {
