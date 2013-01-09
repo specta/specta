@@ -114,3 +114,7 @@ void itShouldBehaveLike(NSString *name, id dictionaryOrBlock) {
 void itBehavesLike(NSString *name, id dictionaryOrBlock) {
   itShouldBehaveLike(name, dictionaryOrBlock);
 }
+
+void setAsyncSpecTimeout(NSTimeInterval timeout) {
+  [SPTExampleGroup setAsyncSpecTimeout:timeout];
+}

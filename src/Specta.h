@@ -23,6 +23,8 @@
 #  define SHARED_EXAMPLE_GROUPS_END         SharedExamplesEnd
 #endif
 
+#define AsyncSpec (void (^done)())
+
 void   describe(NSString *name, void (^block)());
 void    context(NSString *name, void (^block)());
 
@@ -53,3 +55,5 @@ void    sharedExamples(NSString *name, void (^block)(NSDictionary *data));
 
 void itShouldBehaveLike(NSString *name, id dictionaryOrBlock);
 void      itBehavesLike(NSString *name, id dictionaryOrBlock);
+
+void setAsyncSpecTimeout(NSTimeInterval timeout);

@@ -1,6 +1,10 @@
 #import "SPTExampleGroup.h"
 #import "SPTExample.h"
 #import "SPTAsyncExample.h"
+#import "SPTSenTestCase.h"
+#import "SPTSpec.h"
+
+static NSTimeInterval asyncSpecTimeout = 10.0;
 
 @interface SPTExampleGroup ()
 
@@ -57,6 +61,10 @@
     self.ranExampleCount = 0;
   }
   return self;
+}
+
++ (void)setAsyncSpecTimeout:(NSTimeInterval)timeout {
+  asyncSpecTimeout = timeout;
 }
 
 - (id)initWithName:(NSString *)name parent:(SPTExampleGroup *)parent root:(SPTExampleGroup *)root {
@@ -214,14 +222,17 @@
           ((SPTAsyncExample *)example).asyncBlock(^{
             complete = YES;
           });
-          NSTimeInterval timeout = 10;
+          NSTimeInterval timeout = asyncSpecTimeout;
           NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
           while (complete == NO && [timeoutDate timeIntervalSinceNow] > 0) {
-            [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:timeoutDate];
+            [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.01]];
           }
           if (!complete) {
-            NSLog(@"Async test (%@)\n\tfailed to callback before timeout (%f seconds)",
-                   compiledName, timeout);
+            NSString *message = [NSString stringWithFormat:@"Async spec (%@) failed to invoke callback before timeout (%f seconds)", compiledName, timeout];
+            SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
+            SPTSpec *spec = [[currentTestCase class] SPT_spec];
+            NSException *exception = [NSException failureInFile:spec.fileName atLine:(int)spec.lineNumber withDescription:message];
+            [currentTestCase failWithException: exception];
           }
         } else {
           example.block();
