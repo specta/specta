@@ -20,7 +20,7 @@
 @property (nonatomic, retain) NSArray *compiledExamples;
 @property (nonatomic, retain) NSString *fileName;
 @property (nonatomic) NSUInteger lineNumber;
-@property (nonatomic, assign) SPTSenTestCase *testCase;
+@property (nonatomic, retain) SPTSenTestCase *testCase;
 
 - (SPTExampleGroup *)currentGroup;
 - (void)compile;
