@@ -49,7 +49,7 @@ Standard OCUnit matchers such as `STAssertEqualObjects` and `STAssertNil` work, 
 SharedExamplesBegin(MySharedExamples)
 // Global shared examples are shared across all spec files.
 
-sharedExamplesFor(@"a shared behavior", ^(id stuff) {
+sharedExamplesFor(@"a shared behavior", ^(NSDictionary *data) {
   it(@"should do some stuff", ^{
     // ...
   });
@@ -60,7 +60,7 @@ SharedExamplesEnd
 SpecBegin(Thing)
 
 describe(@"Thing", ^{
-  sharedExamplesFor(@"another shared behavior", ^(id stuff) {
+  sharedExamplesFor(@"another shared behavior", ^(NSDictionary *data) {
     // Locally defined shared examples can override global shared examples within its scope.
   });
 
@@ -81,7 +81,7 @@ describe(@"Thing", ^{
     // ...
   });
 
-  itShouldBehaveLike(@"a shared behavior", @"key", nil);
+  itShouldBehaveLike(@"a shared behavior", [NSDictionary dictionaryWithObjectsAndKeys:@"obj", @"key", nil]);
 
   describe(@"Nested examples", ^{
     it(@"should do even more stuff", ^{

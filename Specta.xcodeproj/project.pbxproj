@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		889982FC165BEA6200456240 /* SPTBlockTrampoline.h in Headers */ = {isa = PBXBuildFile; fileRef = 889982FA165BEA6200456240 /* SPTBlockTrampoline.h */; };
-		889982FD165BEA6200456240 /* SPTBlockTrampoline.h in Headers */ = {isa = PBXBuildFile; fileRef = 889982FA165BEA6200456240 /* SPTBlockTrampoline.h */; };
-		889982FE165BEA6200456240 /* SPTBlockTrampoline.m in Sources */ = {isa = PBXBuildFile; fileRef = 889982FB165BEA6200456240 /* SPTBlockTrampoline.m */; };
-		889982FF165BEA6200456240 /* SPTBlockTrampoline.m in Sources */ = {isa = PBXBuildFile; fileRef = 889982FB165BEA6200456240 /* SPTBlockTrampoline.m */; };
 		E910177314B911340087CD46 /* PassingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E910177214B911340087CD46 /* PassingSpecTest.m */; };
 		E910177514B9114A0087CD46 /* FailingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E910177414B9114A0087CD46 /* FailingSpecTest.m */; };
 		E944CA2914C4B5E300821DED /* SPTSenTestInvocation.h in Headers */ = {isa = PBXBuildFile; fileRef = E944CA2814C4B5E300821DED /* SPTSenTestInvocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -129,8 +125,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		889982FA165BEA6200456240 /* SPTBlockTrampoline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTBlockTrampoline.h; sourceTree = "<group>"; };
-		889982FB165BEA6200456240 /* SPTBlockTrampoline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTBlockTrampoline.m; sourceTree = "<group>"; };
 		E910177214B911340087CD46 /* PassingSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassingSpecTest.m; sourceTree = "<group>"; };
 		E910177414B9114A0087CD46 /* FailingSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailingSpecTest.m; sourceTree = "<group>"; };
 		E944CA2814C4B5E300821DED /* SPTSenTestInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTSenTestInvocation.h; sourceTree = "<group>"; };
@@ -287,8 +281,6 @@
 				E9D9420814B8B42A00CD833A /* SPTExample.m */,
 				E9D9420914B8B42A00CD833A /* SPTExampleGroup.h */,
 				E9D9420A14B8B42A00CD833A /* SPTExampleGroup.m */,
-				889982FA165BEA6200456240 /* SPTBlockTrampoline.h */,
-				889982FB165BEA6200456240 /* SPTBlockTrampoline.m */,
 				E9D3DED9157A3F340054978E /* SPTSharedExampleGroups.h */,
 				E9D3DEDC157A3F470054978E /* SPTSharedExampleGroups.m */,
 				E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */,
@@ -443,7 +435,6 @@
 				E9B777FE14BA329400D8DC76 /* SPTSenTestCase.h in Headers */,
 				E944CA2A14C4B5E300821DED /* SPTSenTestInvocation.h in Headers */,
 				E944CA3014C4B70000821DED /* SpectaTypes.h in Headers */,
-				889982FD165BEA6200456240 /* SPTBlockTrampoline.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,7 +452,6 @@
 				E9B7778014B9E15300D8DC76 /* SPTSenTestCase.h in Headers */,
 				E944CA2914C4B5E300821DED /* SPTSenTestInvocation.h in Headers */,
 				E944CA2F14C4B70000821DED /* SpectaTypes.h in Headers */,
-				889982FC165BEA6200456240 /* SPTBlockTrampoline.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,7 +619,6 @@
 				E9B777D914BA308B00D8DC76 /* SPTSenTestCase.m in Sources */,
 				E944CA2D14C4B5F600821DED /* SPTSenTestInvocation.m in Sources */,
 				E9D3DEDE157A3F470054978E /* SPTSharedExampleGroups.m in Sources */,
-				889982FF165BEA6200456240 /* SPTBlockTrampoline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,7 +665,6 @@
 				E9B7778214B9E15A00D8DC76 /* SPTSenTestCase.m in Sources */,
 				E944CA2C14C4B5F600821DED /* SPTSenTestInvocation.m in Sources */,
 				E9D3DEDD157A3F470054978E /* SPTSharedExampleGroups.m in Sources */,
-				889982FE165BEA6200456240 /* SPTBlockTrampoline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

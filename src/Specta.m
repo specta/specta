@@ -1,6 +1,5 @@
 #import "Specta.h"
 #import "SpectaTypes.h"
-#import "SPTBlockTrampoline.h"
 
 @implementation Specta
 @end
@@ -63,26 +62,21 @@ void after(void (^block)()) {
   afterEach(block);
 }
 
-void sharedExamplesFor(NSString *name, id block) {
+void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data)) {
   [SPTSharedExampleGroups addSharedExampleGroupWithName:name block:block exampleGroup:SPT_currentGroup];
 }
 
-void sharedExamples(NSString *name, id block) {
+void sharedExamples(NSString *name, void (^block)(NSDictionary *data)) {
   sharedExamplesFor(name, block);
 }
 
-void itShouldBehaveLike(NSString *name, id arg, ...) {
-  id block = [SPTSharedExampleGroups sharedExampleGroupWithName:name exampleGroup:SPT_currentGroup];
-
-  NSMutableArray *objects = [NSMutableArray array];
-  va_list args;
-  va_start(args, arg);
-  for(id currentObject = arg; currentObject != nil; currentObject = va_arg(args, id)) {
-    [objects addObject:currentObject];
-  }
-  va_end(args);
-
+void itShouldBehaveLike(NSString *name, NSDictionary *data) {
+  SPTDictionaryBlock block = [SPTSharedExampleGroups sharedExampleGroupWithName:name exampleGroup:SPT_currentGroup];
   if(block) {
-    [SPTBlockTrampoline invokeBlock:block withArguments:objects];
+    block(data);
   }
+}
+
+void itBehavesLike(NSString *name, NSDictionary *data) {
+  itShouldBehaveLike(name, data);
 }
