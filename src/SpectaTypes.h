@@ -1,2 +1,3 @@
 typedef void (^SPTVoidBlock)();
-typedef void (^SPTDictionaryBlock)();
+typedef void (^SPTAsyncBlock)(void (^)());
+typedef void (^SPTDictionaryBlock)(NSDictionary *dictionary);

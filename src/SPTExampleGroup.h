@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import <SenTestingKit/SenTestingKit.h>
 #import "SpectaTypes.h"
 
 @class
@@ -31,10 +32,11 @@
 @property (nonatomic) unsigned int exampleCount;
 @property (nonatomic) unsigned int ranExampleCount;
 
++ (void)setAsyncSpecTimeout:(NSTimeInterval)timeout;
 - (id)initWithName:(NSString *)name parent:(SPTExampleGroup *)parent root:(SPTExampleGroup *)root;
 
 - (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name;
-- (SPTExample *)addExampleWithName:(NSString *)name block:(SPTVoidBlock)block;
+- (SPTExample *)addExampleWithName:(NSString *)name block:(id)block;
 
 - (void)addBeforeAllBlock:(SPTVoidBlock)block;
 - (void)addAfterAllBlock:(SPTVoidBlock)block;
