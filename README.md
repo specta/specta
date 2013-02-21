@@ -120,7 +120,7 @@ SpecEnd
 * `it` is also aliased as `example` and `specify`.
 * `itShouldBehaveLike` is also aliased as `itBehavesLike`.
 * Use `pending` or prepend `x` to `describe`, `context`, `example`, `it`, and `specify` to mark examples or groups as pending.
-* Use `^AsyncBlock` as shown in the example above to make examples wait for completion. `done()` callback needs to be invoked to let Specta know that your test is complete.
+* Use `^AsyncBlock` as shown in the example above to make examples wait for completion. `done()` callback needs to be invoked to let Specta know that your test is complete. The default timeout is 10.0 seconds but this can be changed by calling the function `setAsyncSpecTimeout(NSTimeInterval timeout)`.
 * `(before|after)(Each/All)` also accept `^AsyncBlock`s.
 * Do `#define SPT_CEDAR_SYNTAX` if you prefer to write `SPEC_BEGIN` and `SPEC_END` instead of `SpecBegin` and `SpecEnd`.
 
