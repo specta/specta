@@ -39,5 +39,28 @@ task :build => :clean do |t|
   puts "\n** BUILD SUCCEEDED **"
 end
 
+namespace 'templates' do
+  install_directory = File.expand_path("~/Library/Developer/Xcode/Templates/File Templates/Specta")
+  templates_directory = File.expand_path("../templates/Specta", __FILE__)
+
+  desc "Uninstall Specta templates"
+  task :uninstall do
+    rm_rf install_directory
+  end
+
+  desc "Install Specta templates"
+  task :install do
+    if File.exists?(install_directory)
+      puts "Templates already installed at #{install_directory}"
+    else
+      mkdir_p install_directory
+      cp_r templates_directory, install_directory
+    end
+  end
+
+  desc "Remove and re-install Specta templates"
+  task :reinstall => [:uninstall, :install]
+end
+
 task :default => [:build]
 

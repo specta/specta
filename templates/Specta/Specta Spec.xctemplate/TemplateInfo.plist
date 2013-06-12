@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>AllowedTypes</key>
+    <array>
+      <string>public.objective-c-source</string>
+      <string>public.objective-c-plus-plus-source</string>
+    </array>
+    <key>DefaultCompletionName</key>
+    <string>MySpec</string>
+    <key>Description</key>
+    <string>A Specta spec file</string>
+    <key>Kind</key>
+    <string>Xcode.IDEKit.TextSubstitutionFileTemplateKind</string>
+    <key>MainTemplateFile</key>
+    <string>___FILEBASENAME___.m</string>
+    <key>Platforms</key>
+    <array>
+        <string>com.apple.platform.macosx</string>
+        <string>com.apple.platform.iphoneos</string>
+    </array>
+    <key>BuildableType</key>
+    <string>Test</string>
+    <key>Options</key>
+    <array>
+      <dict>
+        <key>Identifier</key>
+        <string>subjectClassName</string>
+        <key>Name</key>
+        <string>Class</string>
+        <key>Description</key>
+        <string>The class to spec</string>
+        <key>Type</key>
+        <string>class</string>
+        <key>Required</key>
+        <true/>
+        <key>NotPersisted</key>
+        <true/>
+      </dict>
+      <dict>
+        <key>Default</key>
+        <string>___VARIABLE_subjectClassName:identifier___Spec</string>
+        <key>Identifier</key>
+        <string>productName</string>
+        <key>Type</key>
+        <string>static</string>
+      </dict>
+    </array>
+</dict>
+</plist>
