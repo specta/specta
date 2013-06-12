@@ -4,6 +4,7 @@
 #import "SPTSpec.h"
 #import "SpectaUtility.h"
 #import <libkern/OSAtomic.h>
+#import <objc/runtime.h>
 
 static NSTimeInterval asyncSpecTimeout = 10.0;
 static const char *asyncBlockSignature = NULL;
@@ -175,6 +176,60 @@ static void runExampleBlock(id block, NSString *name) {
   [self.afterEachArray addObject:[[block copy] autorelease]];
 }
 
+static NSArray * ClassesWithClassMethod(SEL classMethodSelector) {
+  NSMutableArray * classesWithClassMethod = [[NSMutableArray alloc] init];
+  
+  int numberOfClasses = objc_getClassList(NULL, 0);
+  if(numberOfClasses > 0) {
+    Class * classes = malloc(sizeof(Class) * numberOfClasses);
+    numberOfClasses = objc_getClassList(classes, numberOfClasses);
+    
+    for(int classIndex = 0; classIndex < numberOfClasses; classIndex++) {
+      Class aClass = classes[classIndex];
+      
+      Method globalMethod = class_getClassMethod(aClass, classMethodSelector);
+      if(globalMethod) {
+        [classesWithClassMethod addObject:aClass];
+      }
+    }
+    
+    free(classes);
+  }
+  
+  return classesWithClassMethod;
+}
+
+static void InvokeClassMethod(NSArray * classes, SEL selector) {
+  for(Class aClass in classes) {
+    Method globalMethod = class_getClassMethod(aClass, selector);
+    unsigned numberOfArguments = method_getNumberOfArguments(globalMethod);
+    if(numberOfArguments == 2) {
+      IMP globalMethodIMP = method_getImplementation(globalMethod);
+      globalMethodIMP(aClass, selector);
+    }
+  }
+}
+
+- (void)runGlobalBeforeEachHooks:(NSString *)compiledName {
+  static NSArray * globalBeforeEachClasses;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    globalBeforeEachClasses = ClassesWithClassMethod(@selector(beforeEach));
+  });
+  
+  InvokeClassMethod(globalBeforeEachClasses, @selector(beforeEach));
+}
+
+- (void)runGlobalAfterEachHooks:(NSString *)compiledName {
+  static NSArray * globalAfterEachClasses;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    globalAfterEachClasses = ClassesWithClassMethod(@selector(afterEach));
+  });
+  
+  InvokeClassMethod(globalAfterEachClasses, @selector(afterEach));
+}
+
 - (void)runBeforeHooks:(NSString *)compiledName {
   NSMutableArray *groups = [NSMutableArray array];
   SPTExampleGroup *group = self;
@@ -182,6 +237,7 @@ static void runExampleBlock(id block, NSString *name) {
     [groups insertObject:group atIndex:0];
     group = group.parent;
   }
+  
   // run beforeAll hooks
   for(group in groups) {
     if(group.ranExampleCount == 0) {
@@ -190,7 +246,9 @@ static void runExampleBlock(id block, NSString *name) {
       }
     }
   }
+  
   // run beforeEach hooks
+  [self runGlobalBeforeEachHooks:compiledName];
   for(group in groups) {
     for(id beforeEachBlock in group.beforeEachArray) {
       runExampleBlock(beforeEachBlock, [NSString stringWithFormat:@"%@ - before each block", compiledName]);
@@ -211,6 +269,8 @@ static void runExampleBlock(id block, NSString *name) {
       runExampleBlock(afterEachBlock, [NSString stringWithFormat:@"%@ - after each block", compiledName]);
     }
   }
+  [self runGlobalAfterEachHooks:compiledName];
+
   // run afterAll hooks
   for(group in groups) {
     if(group.ranExampleCount == group.exampleCount) {
