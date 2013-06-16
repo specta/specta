@@ -25,6 +25,7 @@ SpecEnd
   expect([result testCaseCount]).toEqual(5);
   expect([result failureCount]).toEqual(0);
   expect([result hasSucceeded]).toEqual(YES);
+  expect([result pendingTestCaseCount]).toEqual(5);
 }
 
 @end
