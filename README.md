@@ -51,6 +51,7 @@ SharedExamplesBegin(MySharedExamples)
 
 sharedExamplesFor(@"a shared behavior", ^(NSDictionary *data) {
   it(@"should do some stuff", ^{
+    id obj = [data objectForKey:@"key"];
     // ...
   });
 });
