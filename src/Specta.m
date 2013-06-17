@@ -119,7 +119,7 @@ void SPT_itShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSStrin
       id (^dataBlock)(void) = [[dictionaryOrBlock copy] autorelease];
 
       describe(name, ^{
-        __block NSMutableDictionary *dataDict = [NSMutableDictionary dictionary];
+          __block NSMutableDictionary *dataDict = [[NSMutableDictionary alloc] init];
 
         beforeEach(^{
           NSDictionary *blockData = dataBlock();
@@ -128,6 +128,10 @@ void SPT_itShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSStrin
         });
 
         block(dataDict);
+          
+        afterAll(^{
+          [dataDict release];
+        });
       });
     } else {
       NSDictionary *data = dictionaryOrBlock;
