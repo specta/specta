@@ -2,6 +2,10 @@
 #define SPT_SUBCLASS SPTSenTestCase
 #endif
 
+#ifndef PENDING
+#define PENDING nil
+#endif
+
 #define _SPT_SpecBegin(name, file, line) \
 @interface name##Spec : SPT_SUBCLASS \
 @end \
