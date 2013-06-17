@@ -4,6 +4,7 @@
 #import "SPTSpec.h"
 #import "SPTExampleGroup.h"
 #import "SPTSharedExampleGroups.h"
+#import "SenTestRun+Specta.h"
 
 @interface Specta : NSObject
 @end

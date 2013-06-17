@@ -1,4 +1,6 @@
 #import "SenTestRun+Specta.h"
+#import "SPTSenTestCase.h"
+#import "SPTExample.h"
 
 @implementation SenTestRun (Specta)
 
@@ -21,6 +23,32 @@
   {
     block((SenTestCaseRun *)self);
   }
+}
+
+// ===== PENDING TEST CASES ============================================================================================
+#pragma mark - Pending Test Cases
+
+- (NSUInteger)pendingTestCaseCount
+{
+  NSUInteger pendingTestCaseCount = 0;
+  
+  if ([self isKindOfClass:[SenTestSuiteRun class]])
+  {
+    for (SenTestRun * testRun in [(SenTestSuiteRun *)self testRuns])
+    {
+      pendingTestCaseCount += [testRun pendingTestCaseCount];
+    }
+  }
+  else if ([[self test] isKindOfClass:[SPTSenTestCase class]])
+  {
+    SPTExample * example = [(SPTSenTestCase *)[self test] SPT_getCurrentExample];
+    if (example == nil || example.pending)
+    {
+      return 1;
+    }
+  }
+
+  return pendingTestCaseCount;
 }
 
 @end

@@ -32,7 +32,7 @@
   {
     [self printLine];
     [self printLine];
-    [self printSessionDetails:suiteRun];
+    [self printSessionSections:suiteRun];
   }
 }
 
@@ -62,19 +62,19 @@
   [self printStringWithFormat:@"# ----- %@ --------------------\n\n", header];
 }
 
-- (void)printSessionDetails:(SenTestSuiteRun *)suiteRun
+- (void)printSessionSections:(SenTestSuiteRun *)suiteRun
 {
   [self printXCodeIntegrationOutputForSession:suiteRun];
-  if ([suiteRun hasSucceeded] == NO)
+  if ([suiteRun hasSucceeded] == NO || [suiteRun pendingTestCaseCount] > 0)
   {
-    [self printSessionFailures:suiteRun];
+    [self printSessionDetails:suiteRun];
   }
   [self printSessionResults:suiteRun];
 }
 
-- (void)printSessionFailures:(SenTestSuiteRun *)suiteRun
+- (void)printSessionDetails:(SenTestSuiteRun *)suiteRun
 {
-  [self printSectionHeader:@"Failures"];
+  [self printSectionHeader:@"Details"];
   
   NSMutableArray * testCaseClassNames = [NSMutableArray array];
   NSMutableDictionary * testRunsByTestClass = [NSMutableDictionary dictionary];
@@ -115,49 +115,83 @@
   
   [self printLineWithFormat:@"Session completed in %0.3f seconds",
                             suiteRun.totalDuration];
+
+  NSString * runInfo = [[self class] conciseRunInfoWithNumberOfTests:[suiteRun testCaseCount]
+                                                    numberOfFailures:[suiteRun failureCount]
+                                                  numberOfExceptions:[suiteRun unexpectedExceptionCount]
+                                                numberOfPendingTests:[suiteRun pendingTestCaseCount]];
+    
+  [self printLine:runInfo];
+}
+
++ (NSString *)conciseRunInfoWithNumberOfTests:(NSUInteger)numberOfTests
+                             numberOfFailures:(NSUInteger)numberOfFailures
+                           numberOfExceptions:(NSUInteger)numberOfExceptions
+                         numberOfPendingTests:(NSUInteger)numberOfPendingTests
+{
+  NSString * testLabel = [[self class] pluralizeString:@"test"
+                                          pluralString:@"tests"
+                                                 count:numberOfTests];
   
-  [self printLineWithFormat:@"%lu tests; %lu failures; %lu exceptions",
-                            (unsigned long)[suiteRun testCaseCount],
-                            (unsigned long)[suiteRun failureCount],
-                            (unsigned long)[suiteRun unexpectedExceptionCount]];
+  NSString * failureLabel = [[self class] pluralizeString:@"failure"
+                                             pluralString:@"failures"
+                                                    count:numberOfFailures];
+  
+  NSString * exceptionLabel = [[self class] pluralizeString:@"exception"
+                                               pluralString:@"exceptions"
+                                                      count:numberOfExceptions];
+  
+  return [NSString stringWithFormat:@"%lu %@; %lu %@; %lu %@; %lu pending",
+                                   (unsigned long)numberOfTests,
+                                   testLabel,
+                                   (unsigned long)numberOfFailures,
+                                   failureLabel,
+                                   (unsigned long)numberOfExceptions,
+                                   exceptionLabel,
+                                   (unsigned long)numberOfPendingTests];
 }
 
 - (void)printSummaryForTestCaseClass:(Class)testCaseClass
                         testCaseRuns:(NSArray *)testCaseRuns
 {
+  NSUInteger numberOfTests = 0;
   NSUInteger numberOfFailures = 0;
   NSUInteger numberOfExceptions = 0;
+  NSUInteger numberOfPendingTests = 0;
   
   for (SenTestCaseRun * testRun in testCaseRuns)
   {
+    numberOfTests += testRun.testCaseCount;
     numberOfFailures += testRun.failureCount;
     numberOfExceptions += testRun.unexpectedExceptionCount;
+    numberOfPendingTests += [testRun pendingTestCaseCount];
   }
   
-  if (numberOfFailures + numberOfExceptions > 0)
+  if (numberOfFailures + numberOfExceptions + numberOfPendingTests > 0)
   {
-    NSString * failureLabel = [[self class] pluralizeString:@"failure"
-                                               pluralString:@"failures"
-                                                      count:numberOfFailures];
+    NSString * runInfo = [[self class] conciseRunInfoWithNumberOfTests:numberOfTests
+                                                      numberOfFailures:numberOfFailures
+                                                    numberOfExceptions:numberOfExceptions
+                                                  numberOfPendingTests:numberOfPendingTests];
     
-    NSString * exceptionLabel = [[self class] pluralizeString:@"exception"
-                                                 pluralString:@"exceptions"
-                                                        count:numberOfExceptions];
-    
-    [self printLineWithFormat:@"+ %s (%lu %@, %lu %@)\n",
+    [self printLineWithFormat:@"+ %s (%@)\n",
                               class_getName(testCaseClass),
-                              (unsigned long)numberOfFailures,
-                              failureLabel,
-                              (unsigned long)numberOfExceptions,
-                              exceptionLabel];
+                              runInfo];
 
     for (SenTestCaseRun * testRun in testCaseRuns)
     {
+      if ([testRun pendingTestCaseCount] > 0)
+      {
+        [self printLineWithFormat:@"  - %@ (PENDING)",
+                                 [(SenTestCase *)[testRun test] SPT_title]];
+        [self printLine];
+      }
+      
       for (NSException * failure in testRun.exceptions)
       {
         if ([failure.name isEqualToString:SenTestFailureException])
         {
-          [self printLineWithFormat:@"  - %@ (FAILURE)\n    %@:%@\n\n    %@\n",
+          [self printLineWithFormat:@"  - %@ (FAILURE)\n    %@:%@\n\n    %@",
                                     [(SenTestCase *)[testRun test] SPT_title],
                                     [failure filename],
                                     [failure lineNumber],
@@ -165,14 +199,17 @@
         }
         else
         {
-          [self printLineWithFormat:@"  - %@ (%@)\n    %@\n\n    %@\n",
+          [self printLineWithFormat:@"  - %@ (%@)\n    %@\n\n    %@",
                                     [(SenTestCase *)[testRun test] SPT_title],
                                     [failure name],
                                     [[testRun.test class] SPT_testCasePathname],
                                     [failure reason]];
         }
+        [self printLine];
       }
     }
+    
+    
   }
 }
 
