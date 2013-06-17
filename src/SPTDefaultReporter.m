@@ -199,10 +199,9 @@
         }
         else
         {
-          [self printLineWithFormat:@"  - %@ (%@)\n    %@\n\n    %@",
+          [self printLineWithFormat:@"  - %@\n    %@\n\n    %@",
                                     [(SenTestCase *)[testRun test] SPT_title],
                                     [failure name],
-                                    [[testRun.test class] SPT_testCasePathname],
                                     [failure reason]];
         }
         [self printLine];
@@ -227,13 +226,7 @@
       {
         NSString * filename = failure.filePathInProject;
         NSNumber * lineNumber = failure.lineNumber;
-        
-        if ([filename isEqualToString:@"Unknown.m"])
-        {
-          filename = [[testRun.test class] SPT_testCasePathname];
-          lineNumber = @(0);
-        }
-        
+                
         [self printLineWithFormat:@"\n%@:%@: error: %@ : %@\n",
                                   filename,
                                   lineNumber,

@@ -2,7 +2,6 @@
 
 @interface SenTestCase (Specta)
 
-+ (NSString *)SPT_testCasePathname;
 - (NSString *)SPT_title;
 
 @end

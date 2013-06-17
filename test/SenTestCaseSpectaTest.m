@@ -17,35 +17,12 @@ SpecEnd
 
 @implementation SenTestCaseSpectaTest
 
-- (void)test_SPT_testCasePathname_when_test_case_exists
-{
-  NSString * pathnameForTestClass = [SenTestCaseSpectaTest SPT_testCasePathname];
-  
-  STAssertEqualObjects(pathnameForTestClass,
-                       [NSString stringWithUTF8String:__FILE__],
-                       @"[SenTestCase SPT_testCasePathname] returns the path of the test case (when possible)");
-}
-
-- (void)test_SPT_testCasePathname_when_test_case_doesnt_exist
-{
-  NSString * pathnameForSpecClass = [_SenTestCaseSpectaTestSpec SPT_testCasePathname];
-  
-  NSString * expectedPathName = [NSString stringWithUTF8String:__FILE__];
-  expectedPathName = [expectedPathName stringByDeletingLastPathComponent]; // remove the .m file
-  expectedPathName = [expectedPathName stringByDeletingLastPathComponent]; // remove the test/ directory
-  expectedPathName = [expectedPathName stringByAppendingPathComponent:@"_SenTestCaseSpectaTestSpec.m"];
-  
-  STAssertEqualObjects(pathnameForSpecClass,
-                       expectedPathName,
-                       @"[SenTestCase SPT_testCasePathname] returns a guessed path name in the project directory when "
-                        "the spec file can't be found.");
-}
-
 - (void)test_SPT_title_when_test_case_is_a_spec_example
 {
   SenTestSuite * testSuite = [SenTestSuite testSuiteForTestCaseClass:[_SenTestCaseSpectaTestSpec class]];
   
-  STAssertEquals([[testSuite valueForKey:@"tests"] count], 1UL,
+  STAssertEquals((NSUInteger)[[testSuite valueForKey:@"tests"] count],
+                 (NSUInteger)1,
                  @"Only one test exists in the sample spec");
   
   SPTSenTestCase * specExample = [[testSuite valueForKey:@"tests"] objectAtIndex:0];
