@@ -84,7 +84,7 @@ void itShouldBehaveLike(NSString *name, id dictionaryOrBlock) {
       id (^dataBlock)(void) = [[dictionaryOrBlock copy] autorelease];
 
       describe(name, ^{
-        __block NSMutableDictionary *dataDict = [NSMutableDictionary dictionary];
+          __block NSMutableDictionary *dataDict = [[NSMutableDictionary alloc] init];
 
         beforeEach(^{
           NSDictionary *blockData = dataBlock();
@@ -93,6 +93,10 @@ void itShouldBehaveLike(NSString *name, id dictionaryOrBlock) {
         });
 
         block(dataDict);
+          
+        afterAll(^{
+          [dataDict release];
+        });
       });
     } else {
       NSDictionary *data = dictionaryOrBlock;
