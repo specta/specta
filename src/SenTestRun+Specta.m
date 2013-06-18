@@ -41,14 +41,40 @@
   }
   else if ([[self test] isKindOfClass:[SPTSenTestCase class]])
   {
-    SPTExample * example = [(SPTSenTestCase *)[self test] SPT_getCurrentExample];
-    if (example == nil || example.pending)
+    SPTSenTestCase * testCase = (SPTSenTestCase *)[self test];
+    if (testCase != nil && [testCase SPT_isPending])
     {
-      return 1;
+      pendingTestCaseCount++;
     }
   }
 
   return pendingTestCaseCount;
+}
+
+// ===== SKIPPED TEST CASES ============================================================================================
+#pragma mark - Skipped Test Cases
+
+- (NSUInteger)skippedTestCaseCount
+{
+  NSUInteger skippedTestCaseCount = 0;
+  
+  if ([self isKindOfClass:[SenTestSuiteRun class]])
+  {
+    for (SenTestRun * testRun in [(SenTestSuiteRun *)self testRuns])
+    {
+      skippedTestCaseCount += [testRun skippedTestCaseCount];
+    }
+  }
+  else if ([[self test] isKindOfClass:[SPTSenTestCase class]])
+  {
+    SPTSenTestCase * testCase = (SPTSenTestCase *)[self test];
+    if (testCase.SPT_skipped)
+    {
+      skippedTestCaseCount++;
+    }
+  }
+  
+  return skippedTestCaseCount;
 }
 
 @end

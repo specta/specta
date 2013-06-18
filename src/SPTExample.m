@@ -6,6 +6,7 @@
   name=_name
 , block=_block
 , pending=_pending
+, focused=_focused
 ;
 
 - (void)dealloc {

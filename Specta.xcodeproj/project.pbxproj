@@ -25,6 +25,8 @@
 		CDB75B52176E803100FF6631 /* SenTestCaseSpectaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B50176E803100FF6631 /* SenTestCaseSpectaTest.m */; };
 		CDB75B54176E861A00FF6631 /* SpectaUtilityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B53176E861A00FF6631 /* SpectaUtilityTest.m */; };
 		CDB75B55176E861A00FF6631 /* SpectaUtilityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B53176E861A00FF6631 /* SpectaUtilityTest.m */; };
+		CDB75B65176E9CC600FF6631 /* FocusedSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B62176E9CC400FF6631 /* FocusedSpecTest.m */; };
+		CDB75B66176E9CC700FF6631 /* FocusedSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B62176E9CC400FF6631 /* FocusedSpecTest.m */; };
 		CDF6BA36176CF53300212B6A /* SPTReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF6BA34176CF53300212B6A /* SPTReporter.h */; };
 		CDF6BA37176CF53300212B6A /* SPTReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF6BA34176CF53300212B6A /* SPTReporter.h */; };
 		CDF6BA38176CF53300212B6A /* SPTReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF6BA35176CF53300212B6A /* SPTReporter.m */; };
@@ -174,6 +176,7 @@
 		CDB75B4B176E6BA900FF6631 /* SenTestCase+Specta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SenTestCase+Specta.m"; sourceTree = "<group>"; };
 		CDB75B50176E803100FF6631 /* SenTestCaseSpectaTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SenTestCaseSpectaTest.m; sourceTree = "<group>"; };
 		CDB75B53176E861A00FF6631 /* SpectaUtilityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpectaUtilityTest.m; sourceTree = "<group>"; };
+		CDB75B62176E9CC400FF6631 /* FocusedSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusedSpecTest.m; sourceTree = "<group>"; };
 		CDF6BA34176CF53300212B6A /* SPTReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTReporter.h; sourceTree = "<group>"; };
 		CDF6BA35176CF53300212B6A /* SPTReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTReporter.m; sourceTree = "<group>"; };
 		CDF6BA4C176D3F6100212B6A /* SPTDefaultReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTDefaultReporter.h; sourceTree = "<group>"; };
@@ -402,6 +405,7 @@
 				CDB75B50176E803100FF6631 /* SenTestCaseSpectaTest.m */,
 				CDB75B53176E861A00FF6631 /* SpectaUtilityTest.m */,
 				E9D96A2814B6B8AB007D9521 /* frameworks */,
+				CDB75B62176E9CC400FF6631 /* FocusedSpecTest.m */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -754,6 +758,7 @@
 				E96A5A571618327200D4B395 /* SharedExamplesTest4.m in Sources */,
 				372B8854169A31F0005FBE0C /* AsyncSpecTest.m in Sources */,
 				E90EF6DB169DC5F500A819CC /* AsyncSpecTimeoutTest.m in Sources */,
+				CDB75B66176E9CC700FF6631 /* FocusedSpecTest.m in Sources */,
 				E90EF6E5169DEC5300A819CC /* AsyncSpecTest2.m in Sources */,
 				E90EF6E8169DEE9E00A819CC /* AsyncSpecTest3.m in Sources */,
 				E90EF6FE169E026800A819CC /* SharedExamplesTest5.m in Sources */,
@@ -814,6 +819,7 @@
 				E96A5A561618327200D4B395 /* SharedExamplesTest4.m in Sources */,
 				372B8853169A31F0005FBE0C /* AsyncSpecTest.m in Sources */,
 				E90EF6DA169DC5F500A819CC /* AsyncSpecTimeoutTest.m in Sources */,
+				CDB75B65176E9CC600FF6631 /* FocusedSpecTest.m in Sources */,
 				E90EF6E4169DEC5300A819CC /* AsyncSpecTest2.m in Sources */,
 				E90EF6E7169DEE9E00A819CC /* AsyncSpecTest3.m in Sources */,
 				E90EF6FD169E026800A819CC /* SharedExamplesTest5.m in Sources */,

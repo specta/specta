@@ -9,4 +9,9 @@
 
 - (NSUInteger)pendingTestCaseCount;
 
+// ===== SKIPPED TEST CASES ============================================================================================
+#pragma mark - Skipped Test Cases
+
+- (NSUInteger)skippedTestCaseCount;
+
 @end

@@ -18,6 +18,7 @@
   NSMutableDictionary *_sharedExamples;
   unsigned int _exampleCount;
   unsigned int _ranExampleCount;
+  BOOL _focused;
 }
 
 @property (nonatomic, copy) NSString *name;
@@ -31,12 +32,16 @@
 @property (nonatomic, retain) NSMutableDictionary *sharedExamples;
 @property (nonatomic) unsigned int exampleCount;
 @property (nonatomic) unsigned int ranExampleCount;
+@property (nonatomic, getter = isFocused) BOOL focused;
 
 + (void)setAsyncSpecTimeout:(NSTimeInterval)timeout;
 - (id)initWithName:(NSString *)name parent:(SPTExampleGroup *)parent root:(SPTExampleGroup *)root;
 
 - (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name;
+- (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name  focused:(BOOL)focused;
+
 - (SPTExample *)addExampleWithName:(NSString *)name block:(id)block;
+- (SPTExample *)addExampleWithName:(NSString *)name block:(id)block focused:(BOOL)focused;
 
 - (void)addBeforeAllBlock:(SPTVoidBlock)block;
 - (void)addAfterAllBlock:(SPTVoidBlock)block;
