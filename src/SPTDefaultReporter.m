@@ -117,6 +117,7 @@
                             suiteRun.totalDuration];
 
   NSString * runInfo = [[self class] conciseRunInfoWithNumberOfTests:[suiteRun testCaseCount]
+                                                numberOfSkippedTests:[suiteRun skippedTestCaseCount]
                                                     numberOfFailures:[suiteRun failureCount]
                                                   numberOfExceptions:[suiteRun unexpectedExceptionCount]
                                                 numberOfPendingTests:[suiteRun pendingTestCaseCount]];
@@ -125,6 +126,7 @@
 }
 
 + (NSString *)conciseRunInfoWithNumberOfTests:(NSUInteger)numberOfTests
+                         numberOfSkippedTests:(NSUInteger)numberOfSkippedTests
                              numberOfFailures:(NSUInteger)numberOfFailures
                            numberOfExceptions:(NSUInteger)numberOfExceptions
                          numberOfPendingTests:(NSUInteger)numberOfPendingTests
@@ -141,9 +143,10 @@
                                                pluralString:@"exceptions"
                                                       count:numberOfExceptions];
   
-  return [NSString stringWithFormat:@"%lu %@; %lu %@; %lu %@; %lu pending",
+  return [NSString stringWithFormat:@"%lu %@; %lu skipped; %lu %@; %lu %@; %lu pending",
                                    (unsigned long)numberOfTests,
                                    testLabel,
+                                   (unsigned long)numberOfSkippedTests,
                                    (unsigned long)numberOfFailures,
                                    failureLabel,
                                    (unsigned long)numberOfExceptions,
@@ -155,6 +158,7 @@
                         testCaseRuns:(NSArray *)testCaseRuns
 {
   NSUInteger numberOfTests = 0;
+  NSUInteger numberOfSkippedTests = 0;
   NSUInteger numberOfFailures = 0;
   NSUInteger numberOfExceptions = 0;
   NSUInteger numberOfPendingTests = 0;
@@ -162,6 +166,7 @@
   for (SenTestCaseRun * testRun in testCaseRuns)
   {
     numberOfTests += testRun.testCaseCount;
+    numberOfSkippedTests += testRun.skippedTestCaseCount;
     numberOfFailures += testRun.failureCount;
     numberOfExceptions += testRun.unexpectedExceptionCount;
     numberOfPendingTests += [testRun pendingTestCaseCount];
@@ -170,6 +175,7 @@
   if (numberOfFailures + numberOfExceptions + numberOfPendingTests > 0)
   {
     NSString * runInfo = [[self class] conciseRunInfoWithNumberOfTests:numberOfTests
+                                                  numberOfSkippedTests:numberOfSkippedTests
                                                       numberOfFailures:numberOfFailures
                                                     numberOfExceptions:numberOfExceptions
                                                   numberOfPendingTests:numberOfPendingTests];

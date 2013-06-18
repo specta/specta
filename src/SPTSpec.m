@@ -10,6 +10,8 @@
 , compiledExamples=_compiledExamples
 , fileName=_fileName
 , lineNumber=_lineNumber
+, disabled = _disabled
+, hasFocusedExamples = _hasFocusedExamples
 ;
 
 - (void)dealloc {
@@ -36,6 +38,12 @@
 
 - (void)compile {
   self.compiledExamples = [self.rootGroup compileExamplesWithNameStack:[NSArray array]];
+  for (SPTExample * example in self.compiledExamples) {
+    if (example.focused) {
+      self.hasFocusedExamples = YES;
+      break;
+    }
+  }
 }
 
 @end
