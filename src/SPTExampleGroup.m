@@ -115,15 +115,29 @@ static void runExampleBlock(id block, NSString *name) {
 }
 
 - (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name {
+  return [self addExampleGroupWithName:name
+                               focused:NO];
+}
+
+
+- (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name  focused:(BOOL)focused {
   SPTExampleGroup *group = [[SPTExampleGroup alloc] initWithName:name parent:self root:self.root];
+  group.focused = focused;
   [self.children addObject:group];
   return [group autorelease];
 }
 
 - (SPTExample *)addExampleWithName:(NSString *)name block:(id)block {
+  return [self addExampleWithName:name
+                            block:block
+                          focused:NO];
+}
+
+- (SPTExample *)addExampleWithName:(NSString *)name block:(id)block focused:(BOOL)focused {
   SPTExample *example;
   @synchronized(self) {
     example = [[SPTExample alloc] initWithName:name block:block];
+    example.focused = focused;
     [self.children addObject:example];
     [self incrementExampleCount];
   }
@@ -281,7 +295,23 @@ static void InvokeClassMethod(NSArray * classes, SEL selector) {
   }
 }
 
+- (BOOL)isFocusedOrHasFocusedAncestor
+{
+  SPTExampleGroup * ancestor = self;
+  while (ancestor != nil) {
+    if (ancestor.focused) {
+      return YES;
+    } else {
+      ancestor = ancestor.parent;
+    }
+  }
+  
+  return NO;
+}
+
 - (NSArray *)compileExamplesWithNameStack:(NSArray *)nameStack {
+  BOOL groupIsFocusedOrHasFocusedAncestor = [self isFocusedOrHasFocusedAncestor];
+  
   NSArray *compiled = [NSArray array];
   for(id child in self.children) {
     if([child isKindOfClass:[SPTExampleGroup class]]) {
@@ -292,7 +322,7 @@ static void InvokeClassMethod(NSArray * classes, SEL selector) {
       SPTExample *example = child;
       NSArray *newNameStack = [nameStack arrayByAddingObject:example.name];
       NSString *compiledName = [newNameStack componentsJoinedByString:@" "];
-
+      
       SPTVoidBlock compiledBlock = example.pending ? nil : ^{
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];
@@ -306,6 +336,7 @@ static void InvokeClassMethod(NSArray * classes, SEL selector) {
       };
       SPTExample *compiledExample = [[SPTExample alloc] initWithName:compiledName block:compiledBlock];
       compiledExample.pending = example.pending;
+      compiledExample.focused = (groupIsFocusedOrHasFocusedAncestor || example.focused);
       compiled = [compiled arrayByAddingObject:compiledExample];
       [compiledExample release];
     }

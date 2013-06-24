@@ -10,35 +10,64 @@
 #define SPT_currentGroup [SPT_currentSpec currentGroup]
 #define SPT_returnUnlessBlockOrNil(block) if((block) && !SPT_isBlock((block))) return;
 
-void describe(NSString *name, void (^block)()) {
+void SPT_describe(NSString *name, BOOL focused, void (^block)())
+{
   if(block) {
-    [SPT_groupStack addObject:[SPT_currentGroup addExampleGroupWithName:name]];
+    [SPT_groupStack addObject:[SPT_currentGroup addExampleGroupWithName:name
+                                                                focused:focused]];
     block();
     [SPT_groupStack removeLastObject];
   } else {
-    example(name, nil);
+    SPT_example(name, focused, nil);
   }
 }
 
+void describe(NSString *name, void (^block)()) {
+  SPT_describe(name, NO, block);
+}
+
+void fdescribe(NSString *name, void (^block)()) {
+  SPT_describe(name, YES, block);
+}
+
 void context(NSString *name, void (^block)()) {
-  describe(name, block);
+  SPT_describe(name, NO, block);
+}
+void fcontext(NSString *name, void (^block)()) {
+  SPT_describe(name, YES, block);
+}
+
+void SPT_example(NSString *name, BOOL focused, id block) {
+  SPT_returnUnlessBlockOrNil(block);
+  [SPT_currentGroup addExampleWithName:name block:block focused:focused];
 }
 
 void example(NSString *name, id block) {
-  SPT_returnUnlessBlockOrNil(block);
-  [SPT_currentGroup addExampleWithName:name block:block];
+  SPT_example(name, NO, block);
+}
+
+void fexample(NSString *name, id block) {
+  SPT_example(name, YES, block);
 }
 
 void it(NSString *name, id block) {
-  example(name, block);
+  SPT_example(name, NO, block);
+}
+
+void fit(NSString *name, id block) {
+  SPT_example(name, YES, block);
 }
 
 void specify(NSString *name, id block) {
-  example(name, block);
+  SPT_example(name, NO, block);
+}
+
+void fspecify(NSString *name, id block) {
+  SPT_example(name, YES, block);
 }
 
 void SPT_pending(NSString *name, ...) {
-  example(name, nil);
+  SPT_example(name, NO, nil);
 }
 
 void beforeAll(id block) {

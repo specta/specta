@@ -4,6 +4,7 @@
 #import "SPTSpec.h"
 #import "SPTExampleGroup.h"
 #import "SPTSharedExampleGroups.h"
+#import "SenTestRun+Specta.h"
 
 @interface Specta : NSObject
 @end
@@ -25,12 +26,20 @@
 
 #define AsyncBlock (void (^done)())
 
-void   describe(NSString *name, void (^block)());
-void    context(NSString *name, void (^block)());
+void SPT_describe(NSString *name, BOOL focused, void (^block)());
+void     describe(NSString *name, void (^block)());
+void    fdescribe(NSString *name, void (^block)());
+void      context(NSString *name, void (^block)());
+void     fcontext(NSString *name, void (^block)());
 
-void    example(NSString *name, id block);
-void         it(NSString *name, id block);
-void    specify(NSString *name, id block);
+void SPT_example(NSString *name, BOOL focused, id block);
+void     example(NSString *name, id block);
+void    fexample(NSString *name, id block);
+void          it(NSString *name, id block);
+void         fit(NSString *name, id block);
+void     specify(NSString *name, id block);
+void    fspecify(NSString *name, id block);
+
 
 void SPT_pending(NSString *name, ...);
 #define xdescribe(...) SPT_pending(__VA_ARGS__, nil)
