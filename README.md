@@ -124,13 +124,16 @@ SpecEnd
 * Use `^AsyncBlock` as shown in the example above to make examples wait for completion. `done()` callback needs to be invoked to let Specta know that your test is complete. The default timeout is 10.0 seconds but this can be changed by calling the function `setAsyncSpecTimeout(NSTimeInterval timeout)`.
 * `(before|after)(Each/All)` also accept `^AsyncBlock`s.
 * Do `#define SPT_CEDAR_SYNTAX` if you prefer to write `SPEC_BEGIN` and `SPEC_END` instead of `SpecBegin` and `SpecEnd`.
+* Prepend `f` to your `describe`, `context`, `example`, `it`, and `specify` to set focus on examples or groups. When specs are focused, all unfocused specs are skipped.
 
 ### RUNNING SPECS FROM COMMAND LINE / CI
 
-Refer to
+~~Refer to
 [this blog post](http://www.raingrove.com/2012/03/28/running-ocunit-and-specta-tests-from-command-line.html)
 on how to run specs from command line or in continuous integration
-servers.
+servers.~~
+
+Check out Facebook's [xctool](https://github.com/facebook/xctool).
 
 ### CONTRIBUTION GUIDELINES
 
@@ -145,6 +148,7 @@ servers.
 * Josh Abernathy [(joshaber)](https://github.com/joshaber)
 * Meiwin Fu [(meiwin)](https://github.com/meiwin)
 * Shawn Morel [(strangemonad)](https://github.com/strangemonad)
+* Christian Niles [(nerdyc)](https://github.com/nerdyc)
 
 ## LICENSE
 
