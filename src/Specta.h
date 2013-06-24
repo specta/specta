@@ -22,6 +22,9 @@
 #  define SPEC_END         SpecEnd
 #  define SHARED_EXAMPLE_GROUPS_BEGIN(name) SharedExamplesBegin(name)
 #  define SHARED_EXAMPLE_GROUPS_END         SharedExamplesEnd
+#  ifndef PENDING
+#    define PENDING nil
+#  endif
 #endif
 
 #define AsyncBlock (void (^done)())

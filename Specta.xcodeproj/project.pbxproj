@@ -80,6 +80,8 @@
 		E96598D914C345F3003BC25B /* CompilationTest8.m in Sources */ = {isa = PBXBuildFile; fileRef = E96598D814C345F3003BC25B /* CompilationTest8.m */; };
 		E96A5A561618327200D4B395 /* SharedExamplesTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E96A5A551618327200D4B395 /* SharedExamplesTest4.m */; };
 		E96A5A571618327200D4B395 /* SharedExamplesTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E96A5A551618327200D4B395 /* SharedExamplesTest4.m */; };
+		E99BCF8617783E380081286D /* CedarDSLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E99BCF8517783E380081286D /* CedarDSLTest.m */; };
+		E99BCF8717783E380081286D /* CedarDSLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E99BCF8517783E380081286D /* CedarDSLTest.m */; };
 		E9A204C914C79F81006E4A66 /* PendingSpecTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A204C814C79F81006E4A66 /* PendingSpecTest1.m */; };
 		E9A204CA14C79F81006E4A66 /* PendingSpecTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A204C814C79F81006E4A66 /* PendingSpecTest1.m */; };
 		E9A204CD14C7A487006E4A66 /* PendingSpecTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A204CC14C7A487006E4A66 /* PendingSpecTest2.m */; };
@@ -198,6 +200,7 @@
 		E96598D814C345F3003BC25B /* CompilationTest8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompilationTest8.m; sourceTree = "<group>"; };
 		E96598DF14C34CE9003BC25B /* Specta.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Specta.podspec; sourceTree = "<group>"; };
 		E96A5A551618327200D4B395 /* SharedExamplesTest4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest4.m; sourceTree = "<group>"; };
+		E99BCF8517783E380081286D /* CedarDSLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CedarDSLTest.m; sourceTree = "<group>"; };
 		E9A204C814C79F81006E4A66 /* PendingSpecTest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest1.m; sourceTree = "<group>"; };
 		E9A204CC14C7A487006E4A66 /* PendingSpecTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest2.m; sourceTree = "<group>"; };
 		E9B7777F14B9E15300D8DC76 /* SPTSenTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTSenTestCase.h; sourceTree = "<group>"; };
@@ -385,6 +388,7 @@
 				E9D9422214B8B43200CD833A /* DSLTest3.m */,
 				E9D9422314B8B43200CD833A /* DSLTest4.m */,
 				E9D9422414B8B43200CD833A /* DSLTest5.m */,
+				E99BCF8517783E380081286D /* CedarDSLTest.m */,
 				E9D9422714B8B43200CD833A /* ReRunTest.m */,
 				E9D9422814B8B43200CD833A /* SequenceTest.m */,
 				E910177214B911340087CD46 /* PassingSpecTest.m */,
@@ -404,7 +408,6 @@
 				E9BDBAB814BE2F3A00102FB5 /* MiscTest.m */,
 				CDB75B50176E803100FF6631 /* SenTestCaseSpectaTest.m */,
 				CDB75B53176E861A00FF6631 /* SpectaUtilityTest.m */,
-				E9D96A2814B6B8AB007D9521 /* frameworks */,
 				CDB75B62176E9CC400FF6631 /* FocusedSpecTest.m */,
 			);
 			path = test;
@@ -476,6 +479,7 @@
 				E96598DF14C34CE9003BC25B /* Specta.podspec */,
 				E9D9420314B8B42A00CD833A /* src */,
 				E9D9421814B8B43200CD833A /* test */,
+				E9D96A2814B6B8AB007D9521 /* frameworks */,
 				E9D96A2714B6B8AB007D9521 /* products */,
 			);
 			sourceTree = "<group>";
@@ -499,7 +503,6 @@
 				E9D96A3B14B6B8AB007D9521 /* SenTestingKit.framework */,
 			);
 			name = frameworks;
-			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -762,6 +765,7 @@
 				E90EF6E5169DEC5300A819CC /* AsyncSpecTest2.m in Sources */,
 				E90EF6E8169DEE9E00A819CC /* AsyncSpecTest3.m in Sources */,
 				E90EF6FE169E026800A819CC /* SharedExamplesTest5.m in Sources */,
+				E99BCF8717783E380081286D /* CedarDSLTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +827,7 @@
 				E90EF6E4169DEC5300A819CC /* AsyncSpecTest2.m in Sources */,
 				E90EF6E7169DEE9E00A819CC /* AsyncSpecTest3.m in Sources */,
 				E90EF6FD169E026800A819CC /* SharedExamplesTest5.m in Sources */,
+				E99BCF8617783E380081286D /* CedarDSLTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
