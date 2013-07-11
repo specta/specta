@@ -1,3 +1,9 @@
+v0.1.10
+=======
+
+* Fixed Accessibility Inspector causing crash[wonga00]
+* Fail when non-existent shared example is called[brow]
+
 v0.1.9
 ======
 
