@@ -200,10 +200,12 @@ static NSArray * ClassesWithClassMethod(SEL classMethodSelector) {
     
     for(int classIndex = 0; classIndex < numberOfClasses; classIndex++) {
       Class aClass = classes[classIndex];
-      
-      Method globalMethod = class_getClassMethod(aClass, classMethodSelector);
-      if(globalMethod) {
-        [classesWithClassMethod addObject:aClass];
+
+      if (strcmp("UIAccessibilitySafeCategory__NSObject", class_getName(aClass))) {
+        Method globalMethod = class_getClassMethod(aClass, classMethodSelector);
+        if(globalMethod) {
+          [classesWithClassMethod addObject:aClass];
+        }
       }
     }
     
