@@ -62,7 +62,10 @@ void      after(id block);
 void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data));
 void    sharedExamples(NSString *name, void (^block)(NSDictionary *data));
 
-void itShouldBehaveLike(NSString *name, id dictionaryOrBlock);
-void      itBehavesLike(NSString *name, id dictionaryOrBlock);
+void SPT_itShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSString *name, id dictionaryOrBlock);
+void itShouldBehaveLike(NSString *name, id dictionaryOrBlockOrNil); // aid code completion
+void      itBehavesLike(NSString *name, id dictionaryOrBlockOrNil);
+#define itShouldBehaveLike(...) SPT_itShouldBehaveLike(__FILE__, __LINE__, __VA_ARGS__)
+#define      itBehavesLike(...) SPT_itShouldBehaveLike(__FILE__, __LINE__, __VA_ARGS__)
 
 void setAsyncSpecTimeout(NSTimeInterval timeout);
