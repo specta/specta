@@ -3,6 +3,10 @@
 
 @implementation SPTReporter
 
+@synthesize
+  runStack=_runStack
+;
+
 // ===== SHARED REPORTER ===============================================================================================
 #pragma mark - Shared Reporter
 

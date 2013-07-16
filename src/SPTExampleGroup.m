@@ -67,6 +67,7 @@ static void runExampleBlock(id block, NSString *name) {
 , sharedExamples=_sharedExamples
 , exampleCount=_exampleCount
 , ranExampleCount=_ranExampleCount
+, focused=_focused
 ;
 
 - (void)dealloc {

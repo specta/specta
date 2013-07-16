@@ -32,7 +32,7 @@
 @property (nonatomic, retain) NSMutableDictionary *sharedExamples;
 @property (nonatomic) unsigned int exampleCount;
 @property (nonatomic) unsigned int ranExampleCount;
-@property (nonatomic, getter = isFocused) BOOL focused;
+@property (nonatomic, getter=isFocused) BOOL focused;
 
 + (void)setAsyncSpecTimeout:(NSTimeInterval)timeout;
 - (id)initWithName:(NSString *)name parent:(SPTExampleGroup *)parent root:(SPTExampleGroup *)root;
