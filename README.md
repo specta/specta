@@ -23,7 +23,7 @@ target :MyApp do
 end
 
 target :MyAppTests do
-  pod 'Specta',      '~> 0.1.10'
+  pod 'Specta',      '~> 0.1.11'
   # pod 'Expecta',     '~> 0.2.1'   # expecta matchers
   # pod 'OCHamcrest',  '~> 1.7'     # hamcrest matchers
   # pod 'OCMock',      '~> 2.0.1'   # OCMock
@@ -149,12 +149,15 @@ Check out Facebook's [xctool](https://github.com/facebook/xctool).
 
 ### CONTRIBUTORS
 
+* Christian Niles [(nerdyc)](https://github.com/nerdyc)
 * Dan Palmer [(danpalmer)](https://github.com/danpalmer)
 * Justin Spahr-Summers [(jspahrsummers)](https://github.com/jspahrsummers)
 * Josh Abernathy [(joshaber)](https://github.com/joshaber)
 * Meiwin Fu [(meiwin)](https://github.com/meiwin)
+* Robert Gilliam [(rhgills)](https://github.com/rhgills)
 * Shawn Morel [(strangemonad)](https://github.com/strangemonad)
-* Christian Niles [(nerdyc)](https://github.com/nerdyc)
+* Tom Brow [(brow)](https://github.com/brow)
+* Tony Arnold [(tonyarnold)](https://github.com/tonyarnold)
 
 ## LICENSE
 
