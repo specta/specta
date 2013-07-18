@@ -27,8 +27,6 @@
 #  endif
 #endif
 
-#define AsyncBlock (void (^done)())
-
 void SPT_describe(NSString *name, BOOL focused, void (^block)());
 void     describe(NSString *name, void (^block)());
 void    fdescribe(NSString *name, void (^block)());
@@ -68,4 +66,6 @@ void      itBehavesLike(NSString *name, id dictionaryOrBlockOrNil);
 #define itShouldBehaveLike(...) SPT_itShouldBehaveLike(__FILE__, __LINE__, __VA_ARGS__)
 #define      itBehavesLike(...) SPT_itShouldBehaveLike(__FILE__, __LINE__, __VA_ARGS__)
 
+// Requires Apple LLVM Compiler (Clang)
 void setAsyncSpecTimeout(NSTimeInterval timeout);
+#define AsyncBlock (void (^done)(void))

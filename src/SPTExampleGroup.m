@@ -7,18 +7,20 @@
 #import <objc/runtime.h>
 
 static NSTimeInterval asyncSpecTimeout = 10.0;
-static const char *asyncBlockSignature = NULL;
+#ifdef __clang__
+  static const char *asyncBlockSignature = NULL;
+#else
+  static void (^emptyBlock)(void) = nil;
+#endif
 
 static void runExampleBlock(id block, NSString *name) {
   if(!SPT_isBlock(block)) {
     return;
   }
 
-  if (!asyncBlockSignature) {
-    asyncBlockSignature = SPT_getBlockSignature(^(void (^done)()) {});
-  }
-
+#ifdef __clang__
   const char *blockSignature = SPT_getBlockSignature(block);
+
   BOOL isAsyncBlock = strcmp(blockSignature, asyncBlockSignature) == 0;
 
   if(isAsyncBlock) {
@@ -41,6 +43,9 @@ static void runExampleBlock(id block, NSString *name) {
   } else {
     ((SPTVoidBlock)block)();
   }
+#else
+  ((SPTVoidBlock)block)(emptyBlock);
+#endif
 }
 
 @interface SPTExampleGroup ()
@@ -81,6 +86,16 @@ static void runExampleBlock(id block, NSString *name) {
   self.afterEachArray = nil;
   self.sharedExamples = nil;
   [super dealloc];
+}
+
++ (void)initialize {
+#ifdef __clang__
+  if (asyncBlockSignature == NULL) {
+    asyncBlockSignature = SPT_getBlockSignature(^(void (^done)(void)) {});
+  }
+#else
+  emptyBlock = ^{};
+#endif
 }
 
 - (id)init {

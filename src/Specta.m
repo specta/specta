@@ -3,6 +3,12 @@
 #import "SpectaUtility.h"
 
 @implementation Specta
+
++ (void)initialize {
+#ifndef __clang__
+  printf("<Specta> WARNING: Support for asynchronous testing (^AsyncBlock) is disabled because Specta is not compiled with the Apple LLVM Compiler (Clang, not GCC).\n\n");
+#endif
+}
 @end
 
 #define SPT_currentSpec  [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentSpec"]

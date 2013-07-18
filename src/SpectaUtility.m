@@ -40,7 +40,7 @@ const char *SPT_getBlockSignature(id blockObject) {
 
     if(flags & SPT_BLOCK_HAS_COPY_DISPOSE) {
       signaturePtr += sizeof(void(*)(void *dst, void *src)); // skip copy_helper
-      signaturePtr += sizeof(void(*)(void *dst, void *src)); // skip dispose_helper
+      signaturePtr += sizeof(void(*)(void *src)); // skip dispose_helper
     }
 
     return *(const char **)signaturePtr;
