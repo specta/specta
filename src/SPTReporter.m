@@ -1,6 +1,12 @@
 #import "SPTReporter.h"
 #import "SPTDefaultReporter.h"
 
+@interface SPTReporter ()
+
++ (SPTReporter *)loadSharedReporter;
+
+@end
+
 @implementation SPTReporter
 
 @synthesize
@@ -31,14 +37,14 @@
   self = [super init];
   if (self != nil)
   {
-    _runStack = [[NSMutableArray alloc] init];
+    self.runStack = [NSMutableArray array];
   }
   return self;
 }
 
 - (void)dealloc
 {
-  [_runStack release];
+  self.runStack = nil;
   [super dealloc];
 }
 

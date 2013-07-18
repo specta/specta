@@ -39,10 +39,10 @@ SpecEnd
   
   NSString * thisTestCaseName = NSStringFromSelector(_cmd);
   NSUInteger thisTestCaseIndex =
-    [testCases indexOfObjectPassingTest:^BOOL(SenTestCase * testCase, NSUInteger idx, BOOL *stop) {
-      return [NSStringFromSelector(testCase.selector) isEqualToString:thisTestCaseName];
+    [testCases indexOfObjectPassingTest:^BOOL(id testCase, NSUInteger idx, BOOL *stop) {
+      return [NSStringFromSelector([(SenTestCase *)testCase selector]) isEqualToString:thisTestCaseName];
     }];
-  
+
   SenTestCase * thisTestCase = [testCases objectAtIndex:thisTestCaseIndex];
   
   STAssertEqualObjects([thisTestCase SPT_title],

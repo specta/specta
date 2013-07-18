@@ -5,6 +5,27 @@
 #import "SpectaUtility.h"
 #import <objc/runtime.h>
 
+@interface SPTDefaultReporter ()
+
++ (NSString *)conciseRunInfoWithNumberOfTests:(NSUInteger)numberOfTests
+                         numberOfSkippedTests:(NSUInteger)numberOfSkippedTests
+                             numberOfFailures:(NSUInteger)numberOfFailures
+                           numberOfExceptions:(NSUInteger)numberOfExceptions
+                         numberOfPendingTests:(NSUInteger)numberOfPendingTests;
++ (NSString *)pluralizeString:(NSString *)singularString
+                 pluralString:(NSString *)pluralString
+                        count:(NSInteger)count;
+
+- (void)printSectionHeader:(NSString *)header;
+- (void)printSessionSections:(SenTestSuiteRun *)suiteRun;
+- (void)printSessionDetails:(SenTestSuiteRun *)suiteRun;
+- (void)printSessionResults:(SenTestSuiteRun *)suiteRn;
+- (void)printSummaryForTestCaseClass:(Class)testCaseClass
+                        testCaseRuns:(NSArray *)testCaseRuns;
+- (void)printXCodeIntegrationOutputForSession:(SenTestRun *)sessionRun;
+
+@end
+
 @implementation SPTDefaultReporter
 
 // ===== SPTReporter ===================================================================================================
