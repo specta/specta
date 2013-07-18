@@ -56,10 +56,9 @@ BOOL initialized = NO;
 
 + (void)defineSharedExampleGroups {}
 
-+ (void)failWithException:(NSException *)exception
-{
-    SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
-    [currentTestCase failWithException: exception];
++ (void)failWithException:(NSException *)exception {
+  SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
+  [currentTestCase failWithException: exception];
 }
 
 @end
