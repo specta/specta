@@ -39,7 +39,8 @@ or
 4. Copy and add all header files in `products` folder to the Test target in your Xcode project.
 5. For **OS X projects**, copy and add `libSpecta-macosx.a` in `products` folder to the Test target in your Xcode project.  
    For **iOS projects**, copy and add `libSpecta-ios-universal.a` in `products` folder to the Test target in your Xcode project.
-6. Add the following to your test code.
+6. Add `-ObjC` and `-all_load` to the "Other Linker Flags" build setting for the Spec/Test target in your Xcode project.
+7. Add the following to your test code.
 
 ```objective-c
 #import "Specta.h"
@@ -88,6 +89,7 @@ describe(@"Thing", ^{
     // Async example blocks need to invoke done() callback.
     done();
   });
+  // You'll have to build your project with Clang (Apple LLVM Compiler) in order to use this feature.
 
   itShouldBehaveLike(@"a shared behavior", [NSDictionary dictionaryWithObjectsAndKeys:@"obj", @"key", nil]);
 
