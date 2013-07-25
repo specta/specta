@@ -153,6 +153,8 @@ static void runExampleBlock(id block, NSString *name) {
   SPTExample *example;
   @synchronized(self) {
     example = [[SPTExample alloc] initWithName:name block:block];
+    SPTSpec *spec = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentSpec"];
+    example.testCase = spec.testCase;
     example.focused = focused;
     [self.children addObject:example];
     [self incrementExampleCount];
@@ -340,16 +342,19 @@ static void InvokeClassMethod(NSArray * classes, SEL selector) {
       SPTExample *example = child;
       NSArray *newNameStack = [nameStack arrayByAddingObject:example.name];
       NSString *compiledName = [newNameStack componentsJoinedByString:@" "];
+      SPTSenTestCase *testCase = example.testCase;
       
       SPTVoidBlock compiledBlock = example.pending ? nil : ^{
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];
+          [testCase SPT_setUp];
           [self runBeforeHooks:compiledName];
         }
         runExampleBlock(example.block, compiledName);
         @synchronized(self.root) {
           [self incrementRanExampleCount];
           [self runAfterHooks:compiledName];
+          [testCase SPT_tearDown];
         }
       };
       SPTExample *compiledExample = [[SPTExample alloc] initWithName:compiledName block:compiledBlock];

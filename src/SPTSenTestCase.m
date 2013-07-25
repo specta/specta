@@ -106,6 +106,7 @@
   SPTSpec *spec = [[self class] SPT_spec];
   spec.fileName = [NSString stringWithUTF8String:fileName];
   spec.lineNumber = lineNumber;
+  spec.testCase = self;
   [[[NSThread currentThread] threadDictionary] setObject:spec forKey:@"SPT_currentSpec"];
 }
 
@@ -139,6 +140,9 @@
   [self.SPT_invocation getArgument:&i atIndex:2];
   return [[[self class] SPT_spec].compiledExamples objectAtIndex:i];
 }
+
+- (void)SPT_setUp {}
+- (void)SPT_tearDown {}
 
 #pragma mark - SenTestCase overrides
 
