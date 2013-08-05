@@ -10,6 +10,7 @@
 , compiledExamples=_compiledExamples
 , fileName=_fileName
 , lineNumber=_lineNumber
+, testCase=_testCase
 , disabled = _disabled
 , hasFocusedExamples = _hasFocusedExamples
 ;

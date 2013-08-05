@@ -3,6 +3,7 @@
 @class
   SPTExample
 , SPTExampleGroup
+, SPTSenTestCase
 ;
 
 @interface SPTSpec : NSObject {
@@ -11,6 +12,7 @@
   NSArray *_compiledExamples;
   NSString *_fileName;
   NSUInteger _lineNumber;
+  SPTSenTestCase *_testCase;
   BOOL _hasFocusedExamples;
   BOOL _disabled;
 }
@@ -20,6 +22,7 @@
 @property (nonatomic, retain) NSArray *compiledExamples;
 @property (nonatomic, retain) NSString *fileName;
 @property (nonatomic) NSUInteger lineNumber;
+@property (nonatomic, retain) SPTSenTestCase *testCase;
 @property (nonatomic, getter = isDisabled) BOOL disabled;
 @property (nonatomic) BOOL hasFocusedExamples;
 

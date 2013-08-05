@@ -6,6 +6,7 @@
   name=_name
 , block=_block
 , pending=_pending
+, testCase=_testCase
 , focused=_focused
 ;
 
