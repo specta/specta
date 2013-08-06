@@ -29,6 +29,16 @@
 
 + (SPTReporter *)loadSharedReporter
 {
+  NSString * customReporterClassName = [NSProcessInfo processInfo].environment[@"SPECTA_REPORTER_CLASS"];
+  if (customReporterClassName != nil)
+  {
+    Class customReporterClass = NSClassFromString(customReporterClassName);
+    if (customReporterClass != nil)
+    {
+      return [[[customReporterClass alloc] init] autorelease];
+    }
+  }
+  
   return [[[SPTDefaultReporter alloc] init] autorelease];
 }
 
