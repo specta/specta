@@ -25,8 +25,6 @@
 		CDB75B4F176E6BA900FF6631 /* SenTestCase+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B4B176E6BA900FF6631 /* SenTestCase+Specta.m */; };
 		CDB75B51176E803100FF6631 /* SenTestCaseSpectaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B50176E803100FF6631 /* SenTestCaseSpectaTest.m */; };
 		CDB75B52176E803100FF6631 /* SenTestCaseSpectaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B50176E803100FF6631 /* SenTestCaseSpectaTest.m */; };
-		CDB75B54176E861A00FF6631 /* SpectaUtilityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B53176E861A00FF6631 /* SpectaUtilityTest.m */; };
-		CDB75B55176E861A00FF6631 /* SpectaUtilityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B53176E861A00FF6631 /* SpectaUtilityTest.m */; };
 		CDB75B65176E9CC600FF6631 /* FocusedSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B62176E9CC400FF6631 /* FocusedSpecTest.m */; };
 		CDB75B66176E9CC700FF6631 /* FocusedSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B62176E9CC400FF6631 /* FocusedSpecTest.m */; };
 		CDF6BA36176CF53300212B6A /* SPTReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF6BA34176CF53300212B6A /* SPTReporter.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -151,6 +149,8 @@
 		E9D9425A14B8B43200CD833A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E9D9424714B8B43200CD833A /* README.md */; };
 		E9D96A4014B6B8AB007D9521 /* libSpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D96A2614B6B8AB007D9521 /* libSpecta.a */; };
 		E9D96A5614B6BF0A007D9521 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9D96A3B14B6B8AB007D9521 /* SenTestingKit.framework */; };
+		EE8DA94D17AFC82600A58C88 /* SpectaUtilityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B53176E861A00FF6631 /* SpectaUtilityTest.m */; };
+		EE8DA94E17AFC82600A58C88 /* SpectaUtilityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB75B53176E861A00FF6631 /* SpectaUtilityTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -725,7 +725,6 @@
 				E944CA2D14C4B5F600821DED /* SPTSenTestInvocation.m in Sources */,
 				E9D3DEDE157A3F470054978E /* SPTSharedExampleGroups.m in Sources */,
 				E90EF6E2169DD76400A819CC /* SpectaUtility.m in Sources */,
-				CDB75B55176E861A00FF6631 /* SpectaUtilityTest.m in Sources */,
 				CDB75B4F176E6BA900FF6631 /* SenTestCase+Specta.m in Sources */,
 				CDF6BA51176D3F6100212B6A /* SPTDefaultReporter.m in Sources */,
 				CDF6BA39176CF53300212B6A /* SPTReporter.m in Sources */,
@@ -747,6 +746,7 @@
 				E96187BB14C4AFA60021D7CE /* CompilationTest7.m in Sources */,
 				E96187BC14C4AFA60021D7CE /* CompilationTest8.m in Sources */,
 				E96187BD14C4AFA60021D7CE /* DSLTest1.m in Sources */,
+				EE8DA94E17AFC82600A58C88 /* SpectaUtilityTest.m in Sources */,
 				E96187BE14C4AFA60021D7CE /* DSLTest2.m in Sources */,
 				E96187BF14C4AFA60021D7CE /* DSLTest3.m in Sources */,
 				E96187C014C4AFA60021D7CE /* DSLTest4.m in Sources */,
@@ -788,7 +788,6 @@
 				E944CA2C14C4B5F600821DED /* SPTSenTestInvocation.m in Sources */,
 				E9D3DEDD157A3F470054978E /* SPTSharedExampleGroups.m in Sources */,
 				E90EF6E1169DD76400A819CC /* SpectaUtility.m in Sources */,
-				CDB75B54176E861A00FF6631 /* SpectaUtilityTest.m in Sources */,
 				CDB75B4E176E6BA900FF6631 /* SenTestCase+Specta.m in Sources */,
 				CDF6BA50176D3F6100212B6A /* SPTDefaultReporter.m in Sources */,
 				CDF6BA38176CF53300212B6A /* SPTReporter.m in Sources */,
@@ -810,6 +809,7 @@
 				E9D9424F14B8B43200CD833A /* DSLTest1.m in Sources */,
 				E9D9425014B8B43200CD833A /* DSLTest2.m in Sources */,
 				E9D9425114B8B43200CD833A /* DSLTest3.m in Sources */,
+				EE8DA94D17AFC82600A58C88 /* SpectaUtilityTest.m in Sources */,
 				E9D9425214B8B43200CD833A /* DSLTest4.m in Sources */,
 				E9D9425314B8B43200CD833A /* DSLTest5.m in Sources */,
 				E9D9425414B8B43200CD833A /* ReRunTest.m in Sources */,
