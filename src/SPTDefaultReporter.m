@@ -28,6 +28,23 @@
 
 @implementation SPTDefaultReporter
 
+// ===== REPORT FAILURES IMMEDIATELY ===================================================================================
+#pragma mark - Report Failures Immediately
+
+- (BOOL)reportFailuresImmediately
+{
+  NSString * reportFailuresImmediately =
+    [[[NSProcessInfo processInfo] environment] objectForKey:@"SPECTA_REPORT_FAILURES_IMMEDIATELY"];
+  if (reportFailuresImmediately != nil)
+  {
+    return [reportFailuresImmediately boolValue];
+  }
+  else
+  {
+    return YES;
+  }
+}
+
 // ===== SPTReporter ===================================================================================================
 #pragma mark - SPTReporter
 
@@ -64,10 +81,20 @@
   if ([testCaseRun unexpectedExceptionCount] > 0)
   {
     [self printString:@"E"];
+    if ([self reportFailuresImmediately])
+    {
+      [self printLine];
+      [self printXCodeIntegrationOutputForTestCaseRun:testCaseRun];
+    }
   }
   else if ([testCaseRun failureCount] > 0)
   {
     [self printString:@"F"];
+    if ([self reportFailuresImmediately])
+    {
+      [self printLine];
+      [self printXCodeIntegrationOutputForTestCaseRun:testCaseRun];
+    }
   }
   else
   {
@@ -239,33 +266,42 @@
   }
 }
 
+- (void)printXCodeIntegrationOutputForTestCaseRun:(SenTestCaseRun *)testRun
+{
+  [self printLineWithFormat:@"    Test Case '%@' started.", [testRun test]];
+  
+  if ([testRun hasSucceeded] == NO)
+  {
+    for (NSException * failure in testRun.exceptions)
+    {
+      NSString * filename = failure.filePathInProject;
+      NSNumber * lineNumber = failure.lineNumber;
+              
+      [self printLineWithFormat:@"\n%@:%@: error: %@ : %@\n",
+                                filename,
+                                lineNumber,
+                                [testRun test],
+                                [failure reason]];
+    }
+  }
+  
+  [self printLineWithFormat:@"    Test Case '%@' %s (%.3f seconds).",
+                            [testRun test],
+                            ([testRun hasSucceeded] ? "passed" : "failed"),
+                            [testRun totalDuration]];
+}
+
 - (void)printXCodeIntegrationOutputForSession:(SenTestRun *)sessionRun
 {
   [self printSectionHeader:@"XCode (OCUnit) Test Output"];
   
   [sessionRun SPT_visitTestCaseRunsWithBlock:^(SenTestCaseRun *testRun) {
     
-    [self printLineWithFormat:@"    Test Case '%@' started.", [testRun test]];
-    
-    if ([testRun hasSucceeded] == NO)
+    if ([self reportFailuresImmediately] == NO || [testRun hasSucceeded])
     {
-      for (NSException * failure in testRun.exceptions)
-      {
-        NSString * filename = failure.filePathInProject;
-        NSNumber * lineNumber = failure.lineNumber;
-                
-        [self printLineWithFormat:@"\n%@:%@: error: %@ : %@\n",
-                                  filename,
-                                  lineNumber,
-                                  [testRun test],
-                                  [failure reason]];
-      }
+      [self printXCodeIntegrationOutputForTestCaseRun:testRun];
     }
     
-    [self printLineWithFormat:@"    Test Case '%@' %s (%.3f seconds).",
-                              [testRun test],
-                              ([testRun hasSucceeded] ? "passed" : "failed"),
-                              [testRun totalDuration]];
   }];
   
   [self printLine];
