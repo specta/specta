@@ -29,7 +29,7 @@
 
 + (SPTReporter *)loadSharedReporter
 {
-  NSString * customReporterClassName = [NSProcessInfo processInfo].environment[@"SPECTA_REPORTER_CLASS"];
+  NSString * customReporterClassName = [[[NSProcessInfo processInfo] environment] objectForKey:@"SPECTA_REPORTER_CLASS"];
   if (customReporterClassName != nil)
   {
     Class customReporterClass = NSClassFromString(customReporterClassName);

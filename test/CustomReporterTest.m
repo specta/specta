@@ -20,16 +20,16 @@
 //
 - (void)test_custom_reporter_is_used
 {
-  NSString * customReporterClassName = [NSProcessInfo processInfo].environment[@"SPECTA_REPORTER_CLASS"];
+  NSString * customReporterClassName = [[[NSProcessInfo processInfo] environment] objectForKey:@"SPECTA_REPORTER_CLASS"];
   if (customReporterClassName != nil)
   {
-    STAssertEqualObjects([[SPTReporter sharedReporter] className],
+    STAssertEqualObjects(NSStringFromClass([[SPTReporter sharedReporter] class]),
                          customReporterClassName,
                          @"Specta should load the custom reporter from the SPECTA_REPORTER_CLASS environment variable");
   }
   else
   {
-    STAssertEqualObjects([[SPTReporter sharedReporter] className],
+    STAssertEqualObjects(NSStringFromClass([[SPTReporter sharedReporter] class]),
                          @"SPTDefaultReporter",
                          @"Specta should use SPTDefaultReporter when SPECTA_REPORTER_CLASS variable is not set");
   }
