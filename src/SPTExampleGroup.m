@@ -346,10 +346,14 @@ static void InvokeClassMethod(NSArray * classes, SEL selector) {
           [self resetRanExampleCountIfNeeded];
           [self runBeforeHooks:compiledName];
         }
-        runExampleBlock(example.block, compiledName);
-        @synchronized(self.root) {
-          [self incrementRanExampleCount];
-          [self runAfterHooks:compiledName];
+        @try {
+          runExampleBlock(example.block, compiledName);
+        }
+        @finally {
+          @synchronized(self.root) {
+            [self incrementRanExampleCount];
+            [self runAfterHooks:compiledName];
+          }
         }
       };
       SPTExample *compiledExample = [[SPTExample alloc] initWithName:compiledName block:compiledBlock];

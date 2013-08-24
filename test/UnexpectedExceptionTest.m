@@ -2,6 +2,8 @@
 #import <TargetConditionals.h>
 
 static BOOL shouldRaiseException = NO;
+static BOOL invokedAfterEach = NO;
+static BOOL invokedAfterAll = NO;
 
 static void raiseException() {
   [[NSException exceptionWithName:@"MyException" reason:@"Oh Noes! %@" userInfo:nil] raise];
@@ -10,6 +12,15 @@ static void raiseException() {
 SpecBegin(_UnexpectedExceptionTest)
 
 describe(@"group", ^{
+  
+  afterEach(^{
+    invokedAfterEach = YES;
+  });
+  
+  afterAll(^{
+    invokedAfterAll = YES;
+  });
+  
   it(@"example 1", ^{
     if(shouldRaiseException) {
       raiseException();
@@ -22,8 +33,15 @@ SpecEnd
 @interface UnexpectedExceptionTest : SenTestCase; @end
 @implementation UnexpectedExceptionTest
 
+- (void)setUp
+{
+  invokedAfterEach = NO;
+  invokedAfterAll = NO;
+}
+
 - (void)testUnexpectedExceptionHandling {
   shouldRaiseException = YES;
+  
   SenTestSuiteRun *result = RunSpec(_UnexpectedExceptionTestSpec);
   expect([result failureCount]).toEqual(0);
   expect([result unexpectedExceptionCount]).toEqual(1);
@@ -38,7 +56,11 @@ SpecEnd
     expect(reason).toContain(@"UnexpectedExceptionTest");
   }
   expect([exception filename]).toContain(@"UnexpectedExceptionTest.m");
-  shouldRaiseException = NO;
+  
+  expect(invokedAfterEach).toBeTruthy();
+  expect(invokedAfterAll).toBeTruthy();
+  
+  invokedAfterAll = NO;
 }
 
 @end
