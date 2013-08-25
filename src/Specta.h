@@ -33,13 +33,13 @@ void    fdescribe(NSString *name, void (^block)());
 void      context(NSString *name, void (^block)());
 void     fcontext(NSString *name, void (^block)());
 
-void SPT_example(NSString *name, BOOL focused, id block);
-void     example(NSString *name, id block);
-void    fexample(NSString *name, id block);
-void          it(NSString *name, id block);
-void         fit(NSString *name, id block);
-void     specify(NSString *name, id block);
-void    fspecify(NSString *name, id block);
+void SPT_example(NSString *name, BOOL focused, void (^block)());
+void     example(NSString *name, void (^block)());
+void    fexample(NSString *name, void (^block)());
+void          it(NSString *name, void (^block)());
+void         fit(NSString *name, void (^block)());
+void     specify(NSString *name, void (^block)());
+void    fspecify(NSString *name, void (^block)());
 
 
 void SPT_pending(NSString *name, ...);
@@ -50,12 +50,12 @@ void SPT_pending(NSString *name, ...);
 #define  xspecify(...) SPT_pending(__VA_ARGS__, nil)
 #define   pending(...) SPT_pending(__VA_ARGS__, nil)
 
-void  beforeAll(id block);
-void   afterAll(id block);
-void beforeEach(id block);
-void  afterEach(id block);
-void     before(id block);
-void      after(id block);
+void  beforeAll(void (^block)());
+void   afterAll(void (^block)());
+void beforeEach(void (^block)());
+void  afterEach(void (^block)());
+void     before(void (^block)());
+void      after(void (^block)());
 
 void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data));
 void    sharedExamples(NSString *name, void (^block)(NSDictionary *data));

@@ -43,32 +43,32 @@ void fcontext(NSString *name, void (^block)()) {
   SPT_describe(name, YES, block);
 }
 
-void SPT_example(NSString *name, BOOL focused, id block) {
+void SPT_example(NSString *name, BOOL focused, void (^block)()) {
   SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addExampleWithName:name block:block focused:focused];
 }
 
-void example(NSString *name, id block) {
+void example(NSString *name, void (^block)()) {
   SPT_example(name, NO, block);
 }
 
-void fexample(NSString *name, id block) {
+void fexample(NSString *name, void (^block)()) {
   SPT_example(name, YES, block);
 }
 
-void it(NSString *name, id block) {
+void it(NSString *name, void (^block)()) {
   SPT_example(name, NO, block);
 }
 
-void fit(NSString *name, id block) {
+void fit(NSString *name, void (^block)()) {
   SPT_example(name, YES, block);
 }
 
-void specify(NSString *name, id block) {
+void specify(NSString *name, void (^block)()) {
   SPT_example(name, NO, block);
 }
 
-void fspecify(NSString *name, id block) {
+void fspecify(NSString *name, void (^block)()) {
   SPT_example(name, YES, block);
 }
 
@@ -76,31 +76,31 @@ void SPT_pending(NSString *name, ...) {
   SPT_example(name, NO, nil);
 }
 
-void beforeAll(id block) {
+void beforeAll(void (^block)()) {
   SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addBeforeAllBlock:block];
 }
 
-void afterAll(id block) {
+void afterAll(void (^block)()) {
   SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addAfterAllBlock:block];
 }
 
-void beforeEach(id block) {
+void beforeEach(void (^block)()) {
   SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addBeforeEachBlock:block];
 }
 
-void afterEach(id block) {
+void afterEach(void (^block)()) {
   SPT_returnUnlessBlockOrNil(block);
   [SPT_currentGroup addAfterEachBlock:block];
 }
 
-void before(id block) {
+void before(void (^block)()) {
   beforeEach(block);
 }
 
-void after(id block) {
+void after(void (^block)()) {
   afterEach(block);
 }
 
