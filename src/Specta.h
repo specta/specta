@@ -4,6 +4,7 @@
 #import "SPTSpec.h"
 #import "SPTExampleGroup.h"
 #import "SPTSharedExampleGroups.h"
+#import "SPTExample.h"
 #import "SenTestRun+Specta.h"
 
 @interface Specta : NSObject
@@ -56,6 +57,9 @@ void beforeEach(id block);
 void  afterEach(id block);
 void     before(id block);
 void      after(id block);
+
+void    assign(NSString *key, id (^block)());
+id   getAssign(NSString *key);
 
 void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data));
 void    sharedExamples(NSString *name, void (^block)(NSDictionary *data));

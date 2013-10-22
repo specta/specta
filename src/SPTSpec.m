@@ -12,6 +12,7 @@
 , lineNumber=_lineNumber
 , disabled = _disabled
 , hasFocusedExamples = _hasFocusedExamples
+, currentExecutingExample=_currentExecutingExample
 ;
 
 - (void)dealloc {

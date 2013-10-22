@@ -104,6 +104,41 @@ void after(id block) {
   afterEach(block);
 }
 
+void assign(NSString *key, id (^block)()) {
+  SPTExampleGroup *group = SPT_currentGroup;
+  [group assign:key forBlock:[[block copy] autorelease]];
+}
+
+id getAssign(NSString *key) {
+  __block id (^block)();
+  __block SPTExampleGroup *group;
+  BOOL found = false;
+  
+  SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
+  SPTSpec *spec = [[currentTestCase class] SPT_spec];
+  SPTExample *currentExample = spec.currentExecutingExample;
+  
+  
+  // Start at current example group and traverse upwards to find assignment
+  group = currentExample.parentGroup;
+  while(!found && group) {
+    if([group getAssign:key]) {
+      found = true;
+      block = [group getAssign:key];
+    } else {
+      group = group.parent;
+    }
+  }
+  
+  if (found) {
+    return block();
+  }
+  else {
+    return nil;
+  }
+
+}
+
 void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data)) {
   [SPTSharedExampleGroups addSharedExampleGroupWithName:name block:block exampleGroup:SPT_currentGroup];
 }

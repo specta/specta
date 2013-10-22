@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		372B8853169A31F0005FBE0C /* AsyncSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B8852169A31F0005FBE0C /* AsyncSpecTest.m */; };
 		372B8854169A31F0005FBE0C /* AsyncSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 372B8852169A31F0005FBE0C /* AsyncSpecTest.m */; };
+		8347E458180C369E00D2A422 /* AssignSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8347E455180C369E00D2A422 /* AssignSpecTest.m */; };
+		8347E459180C369E00D2A422 /* AssignSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8347E455180C369E00D2A422 /* AssignSpecTest.m */; };
+		8374A53D1811D4870041FDA3 /* AssignSpecTestNested.m in Sources */ = {isa = PBXBuildFile; fileRef = 8374A53C1811D4870041FDA3 /* AssignSpecTestNested.m */; };
+		8374A53E1811D4870041FDA3 /* AssignSpecTestNested.m in Sources */ = {isa = PBXBuildFile; fileRef = 8374A53C1811D4870041FDA3 /* AssignSpecTestNested.m */; };
 		CD564BEF17B09D83003942F5 /* CustomReporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD564BEE17B09D83003942F5 /* CustomReporterTest.m */; };
 		CD564BF017B09D83003942F5 /* CustomReporterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD564BEE17B09D83003942F5 /* CustomReporterTest.m */; };
 		CDB75B34176E427900FF6631 /* SenTestLog+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = CDB75B32176E427900FF6631 /* SenTestLog+Specta.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -172,6 +176,8 @@
 
 /* Begin PBXFileReference section */
 		372B8852169A31F0005FBE0C /* AsyncSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTest.m; sourceTree = "<group>"; tabWidth = 2; };
+		8347E455180C369E00D2A422 /* AssignSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignSpecTest.m; sourceTree = "<group>"; };
+		8374A53C1811D4870041FDA3 /* AssignSpecTestNested.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssignSpecTestNested.m; sourceTree = "<group>"; };
 		CD564BEE17B09D83003942F5 /* CustomReporterTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomReporterTest.m; sourceTree = "<group>"; };
 		CDB75B32176E427900FF6631 /* SenTestLog+Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SenTestLog+Specta.h"; sourceTree = "<group>"; };
 		CDB75B33176E427900FF6631 /* SenTestLog+Specta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SenTestLog+Specta.m"; sourceTree = "<group>"; };
@@ -378,6 +384,8 @@
 				E9D9422914B8B43200CD833A /* support */,
 				E9D9422C14B8B43200CD833A /* vendor */,
 				E9D9422514B8B43200CD833A /* helpers */,
+				8347E455180C369E00D2A422 /* AssignSpecTest.m */,
+				8374A53C1811D4870041FDA3 /* AssignSpecTestNested.m */,
 				E9D9421914B8B43200CD833A /* CompilationTest1.m */,
 				E9D9421A14B8B43200CD833A /* CompilationTest2.m */,
 				E9D9421B14B8B43200CD833A /* CompilationTest3.m */,
@@ -737,6 +745,7 @@
 			files = (
 				E96187B414C4AFA60021D7CE /* TestHelper.m in Sources */,
 				CD564BF017B09D83003942F5 /* CustomReporterTest.m in Sources */,
+				8374A53E1811D4870041FDA3 /* AssignSpecTestNested.m in Sources */,
 				E96187B514C4AFA60021D7CE /* CompilationTest1.m in Sources */,
 				E96187B614C4AFA60021D7CE /* CompilationTest2.m in Sources */,
 				E96187B714C4AFA60021D7CE /* CompilationTest3.m in Sources */,
@@ -753,6 +762,7 @@
 				E96187C114C4AFA60021D7CE /* DSLTest5.m in Sources */,
 				E96187C214C4AFA60021D7CE /* ReRunTest.m in Sources */,
 				E96187C314C4AFA70021D7CE /* SequenceTest.m in Sources */,
+				8347E459180C369E00D2A422 /* AssignSpecTest.m in Sources */,
 				E96187C414C4AFA70021D7CE /* PassingSpecTest.m in Sources */,
 				E96187C514C4AFA70021D7CE /* FailingSpecTest.m in Sources */,
 				E96187C614C4AFA70021D7CE /* UnexpectedExceptionTest.m in Sources */,
@@ -800,6 +810,7 @@
 			files = (
 				E9D9424814B8B43200CD833A /* CompilationTest1.m in Sources */,
 				CD564BEF17B09D83003942F5 /* CustomReporterTest.m in Sources */,
+				8374A53D1811D4870041FDA3 /* AssignSpecTestNested.m in Sources */,
 				E9D9424914B8B43200CD833A /* CompilationTest2.m in Sources */,
 				E9D9424A14B8B43200CD833A /* CompilationTest3.m in Sources */,
 				E9D9424B14B8B43200CD833A /* CompilationTest4.m in Sources */,
@@ -816,6 +827,7 @@
 				E9D9425514B8B43200CD833A /* SequenceTest.m in Sources */,
 				E910177314B911340087CD46 /* PassingSpecTest.m in Sources */,
 				E910177514B9114A0087CD46 /* FailingSpecTest.m in Sources */,
+				8347E458180C369E00D2A422 /* AssignSpecTest.m in Sources */,
 				E9B7778814BA24EC00D8DC76 /* TestHelper.m in Sources */,
 				E9BDBAB914BE2F3A00102FB5 /* MiscTest.m in Sources */,
 				E96598D914C345F3003BC25B /* CompilationTest8.m in Sources */,
