@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "SpectaTypes.h"
+#import "SPTExamplegroup.h"
 
 @interface SPTExample : NSObject {
   NSString *_name;
@@ -12,8 +13,9 @@
 @property (nonatomic, copy) id block;
 @property (nonatomic) BOOL pending;
 @property (nonatomic, getter = isFocused) BOOL focused;
+@property (nonatomic, retain) SPTExampleGroup *parentGroup;
 
-- (id)initWithName:(NSString *)name block:(id)block;
+- (id)initWithName:(NSString *)name block:(id)block parentGroup:(SPTExampleGroup *)parentGroup;
 
 @end
 

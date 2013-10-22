@@ -7,6 +7,7 @@
 , block=_block
 , pending=_pending
 , focused=_focused
+, parentGroup=_parentGroup
 ;
 
 - (void)dealloc {
@@ -15,11 +16,12 @@
   [super dealloc];
 }
 
-- (id)initWithName:(NSString *)name block:(id)block {
+- (id)initWithName:(NSString *)name block:(id)block parentGroup:(SPTExampleGroup *)parentGroup {
   self = [super init];
   if(self) {
     self.name = name;
     self.block = block;
+    self.parentGroup = parentGroup;
     self.pending = block == nil;
   }
   return self;

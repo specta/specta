@@ -22,6 +22,7 @@
 @property (nonatomic) NSUInteger lineNumber;
 @property (nonatomic, getter = isDisabled) BOOL disabled;
 @property (nonatomic) BOOL hasFocusedExamples;
+@property (nonatomic, retain) SPTExample *currentExecutingExample;
 
 - (SPTExampleGroup *)currentGroup;
 - (void)compile;

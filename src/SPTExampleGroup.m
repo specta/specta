@@ -20,7 +20,6 @@ static void runExampleBlock(id block, NSString *name) {
 
 #ifdef __clang__
   const char *blockSignature = SPT_getBlockSignature(block);
-
   BOOL isAsyncBlock = strcmp(blockSignature, asyncBlockSignature) == 0;
 
   if(isAsyncBlock) {
@@ -73,6 +72,7 @@ static void runExampleBlock(id block, NSString *name) {
 , exampleCount=_exampleCount
 , ranExampleCount=_ranExampleCount
 , focused=_focused
+, assignments=_assignments
 ;
 
 - (void)dealloc {
@@ -85,6 +85,7 @@ static void runExampleBlock(id block, NSString *name) {
   self.beforeEachArray = nil;
   self.afterEachArray = nil;
   self.sharedExamples = nil;
+  self.assignments = nil;
   [super dealloc];
 }
 
@@ -110,6 +111,7 @@ static void runExampleBlock(id block, NSString *name) {
     self.beforeEachArray = [NSMutableArray array];
     self.afterEachArray = [NSMutableArray array];
     self.sharedExamples = [NSMutableDictionary dictionary];
+    self.assignments = [NSMutableDictionary dictionary];
     self.exampleCount = 0;
     self.ranExampleCount = 0;
   }
@@ -152,12 +154,21 @@ static void runExampleBlock(id block, NSString *name) {
 - (SPTExample *)addExampleWithName:(NSString *)name block:(id)block focused:(BOOL)focused {
   SPTExample *example;
   @synchronized(self) {
-    example = [[SPTExample alloc] initWithName:name block:block];
+    example = [[SPTExample alloc] initWithName:name block:block parentGroup:self];
     example.focused = focused;
     [self.children addObject:example];
     [self incrementExampleCount];
   }
   return [example autorelease];
+}
+
+- (void)assign:(NSString *)key forBlock:(id (^)())block {
+  if(!block) return;
+  [self.assignments setObject:[[block copy] autorelease] forKey:key];
+}
+
+- (id)getAssign:(NSString *)key {
+  return [self.assignments valueForKey:key];
 }
 
 - (void)incrementExampleCount {
@@ -347,6 +358,9 @@ static void InvokeClassMethod(NSArray * classes, SEL selector) {
           [self runBeforeHooks:compiledName];
         }
         @try {
+          SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
+          SPTSpec *spec = [[currentTestCase class] SPT_spec];
+          spec.currentExecutingExample = example;
           runExampleBlock(example.block, compiledName);
         }
         @finally {
@@ -356,7 +370,7 @@ static void InvokeClassMethod(NSArray * classes, SEL selector) {
           }
         }
       };
-      SPTExample *compiledExample = [[SPTExample alloc] initWithName:compiledName block:compiledBlock];
+      SPTExample *compiledExample = [[SPTExample alloc] initWithName:compiledName block:compiledBlock parentGroup:self];
       compiledExample.pending = example.pending;
       compiledExample.focused = (groupIsFocusedOrHasFocusedAncestor || example.focused);
       compiled = [compiled arrayByAddingObject:compiledExample];
