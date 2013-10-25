@@ -4,17 +4,6 @@
 
 @implementation SPTSpec
 
-@synthesize
-  rootGroup=_rootGroup
-, groupStack=_groupStack
-, compiledExamples=_compiledExamples
-, fileName=_fileName
-, lineNumber=_lineNumber
-, disabled = _disabled
-, hasFocusedExamples = _hasFocusedExamples
-;
-
-
 - (id)init {
   self = [super init];
   if(self) {
