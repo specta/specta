@@ -31,7 +31,7 @@ SpecEnd
 
 - (void)testBeforeAndAfterHooks {
   SPTExampleGroup *rootGroup = [_DSLTest2Spec SPT_spec].rootGroup;
-  SPTExampleGroup *group = (rootGroup.children)[0];
+  SPTExampleGroup *group = rootGroup.children[0];
 
   expect([group.beforeAllArray count]).toEqual(2);
   expect([group.beforeEachArray count]).toEqual(2);

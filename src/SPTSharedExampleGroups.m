@@ -46,7 +46,7 @@ BOOL initialized = NO;
 + (SPTDictionaryBlock)sharedExampleGroupWithName:(NSString *)name exampleGroup:(SPTExampleGroup *)exampleGroup {
   SPTDictionaryBlock sharedExampleGroup = nil;
   while(exampleGroup != nil) {
-    if((sharedExampleGroup = (exampleGroup.sharedExamples)[name])) {
+    if((sharedExampleGroup = exampleGroup.sharedExamples[name])) {
       return sharedExampleGroup;
     }
     exampleGroup = exampleGroup.parent;

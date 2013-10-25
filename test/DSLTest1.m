@@ -17,7 +17,7 @@ SpecEnd
   expect(rootGroup.parent).toEqual(nil);
 
   expect([rootGroup.children count]).toEqual(1);
-  SPTExampleGroup *group = (rootGroup.children)[0];
+  SPTExampleGroup *group = rootGroup.children[0];
   expect(group.name).toEqual(@"group");
   expect(group.parent).toEqual(rootGroup);
   expect(group.root).toEqual(rootGroup);

@@ -44,7 +44,7 @@ SpecEnd
   
   SPTExampleGroup * specGroup = spec.rootGroup;
 
-  SPTExampleGroup * rootGroup = (specGroup.children)[0];
+  SPTExampleGroup * rootGroup = specGroup.children[0];
 
   SPTExample * unfocusedExample = [rootGroup children][0];
   STAssertFalse([unfocusedExample isFocused],
