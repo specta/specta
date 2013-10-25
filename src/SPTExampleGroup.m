@@ -75,18 +75,6 @@ static void runExampleBlock(id block, NSString *name) {
 , focused=_focused
 ;
 
-- (void)dealloc {
-  self.name = nil;
-  self.root = nil;
-  self.parent = nil;
-  self.children = nil;
-  self.beforeAllArray = nil;
-  self.afterAllArray = nil;
-  self.beforeEachArray = nil;
-  self.afterEachArray = nil;
-  self.sharedExamples = nil;
-  [super dealloc];
-}
 
 + (void)initialize {
 #ifdef __clang__
@@ -140,7 +128,7 @@ static void runExampleBlock(id block, NSString *name) {
   SPTExampleGroup *group = [[SPTExampleGroup alloc] initWithName:name parent:self root:self.root];
   group.focused = focused;
   [self.children addObject:group];
-  return [group autorelease];
+  return group;
 }
 
 - (SPTExample *)addExampleWithName:(NSString *)name block:(id)block {
@@ -157,7 +145,7 @@ static void runExampleBlock(id block, NSString *name) {
     [self.children addObject:example];
     [self incrementExampleCount];
   }
-  return [example autorelease];
+  return example;
 }
 
 - (void)incrementExampleCount {
@@ -188,22 +176,22 @@ static void runExampleBlock(id block, NSString *name) {
 
 - (void)addBeforeAllBlock:(SPTVoidBlock)block {
   if(!block) return;
-  [self.beforeAllArray addObject:[[block copy] autorelease]];
+  [self.beforeAllArray addObject:[block copy]];
 }
 
 - (void)addAfterAllBlock:(SPTVoidBlock)block {
   if(!block) return;
-  [self.afterAllArray addObject:[[block copy] autorelease]];
+  [self.afterAllArray addObject:[block copy]];
 }
 
 - (void)addBeforeEachBlock:(SPTVoidBlock)block {
   if(!block) return;
-  [self.beforeEachArray addObject:[[block copy] autorelease]];
+  [self.beforeEachArray addObject:[block copy]];
 }
 
 - (void)addAfterEachBlock:(SPTVoidBlock)block {
   if(!block) return;
-  [self.afterEachArray addObject:[[block copy] autorelease]];
+  [self.afterEachArray addObject:[block copy]];
 }
 
 static NSArray * ClassesWithClassMethod(SEL classMethodSelector) {
@@ -211,7 +199,7 @@ static NSArray * ClassesWithClassMethod(SEL classMethodSelector) {
   
   int numberOfClasses = objc_getClassList(NULL, 0);
   if(numberOfClasses > 0) {
-    Class * classes = malloc(sizeof(Class) * numberOfClasses);
+    Class * classes = (Class *)malloc(sizeof(Class) * numberOfClasses);
     numberOfClasses = objc_getClassList(classes, numberOfClasses);
     
     for(int classIndex = 0; classIndex < numberOfClasses; classIndex++) {
@@ -360,7 +348,6 @@ static void InvokeClassMethod(NSArray * classes, SEL selector) {
       compiledExample.pending = example.pending;
       compiledExample.focused = (groupIsFocusedOrHasFocusedAncestor || example.focused);
       compiled = [compiled arrayByAddingObject:compiledExample];
-      [compiledExample release];
     }
   }
   return compiled;

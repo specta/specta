@@ -116,7 +116,7 @@ void SPT_itShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSStrin
   SPTDictionaryBlock block = [SPTSharedExampleGroups sharedExampleGroupWithName:name exampleGroup:SPT_currentGroup];
   if(block) {
     if(SPT_isBlock(dictionaryOrBlock)) {
-      id (^dataBlock)(void) = [[dictionaryOrBlock copy] autorelease];
+      id (^dataBlock)(void) = [dictionaryOrBlock copy];
 
       describe(name, ^{
         __block NSMutableDictionary *dataDict = [[NSMutableDictionary alloc] init];
@@ -130,7 +130,6 @@ void SPT_itShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSStrin
         block(dataDict);
 
         afterAll(^{
-          [dataDict release];
           dataDict = nil;
         });
       });

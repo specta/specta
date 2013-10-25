@@ -2,7 +2,7 @@
 
 SpecBegin(_SharedExamplesTest4)
 
-__block NSString *foo = nil;
+__block __weak NSString *foo = nil;
 
 beforeEach(^{
   foo = @"bar";

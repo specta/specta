@@ -12,7 +12,7 @@
 // ===== RUN STACK =====================================================================================================
 #pragma mark - Run Stack
 
-@property (nonatomic, retain) NSArray *runStack;
+@property (nonatomic, strong) NSArray *runStack;
 
 // ===== TEST SUITE ====================================================================================================
 #pragma mark - Test Suite

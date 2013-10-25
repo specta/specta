@@ -8,8 +8,8 @@
 
 @interface SPTExampleGroup : NSObject {
   NSString *_name;
-  SPTExampleGroup *_root;
-  SPTExampleGroup *_parent;
+  SPTExampleGroup *__strong _root;
+  SPTExampleGroup *__strong _parent;
   NSMutableArray *_children;
   NSMutableArray *_beforeAllArray;
   NSMutableArray *_afterAllArray;
@@ -22,14 +22,14 @@
 }
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, assign) SPTExampleGroup *root;
-@property (nonatomic, assign) SPTExampleGroup *parent;
-@property (nonatomic, retain) NSMutableArray *children;
-@property (nonatomic, retain) NSMutableArray *beforeAllArray;
-@property (nonatomic, retain) NSMutableArray *afterAllArray;
-@property (nonatomic, retain) NSMutableArray *beforeEachArray;
-@property (nonatomic, retain) NSMutableArray *afterEachArray;
-@property (nonatomic, retain) NSMutableDictionary *sharedExamples;
+@property (nonatomic, strong) SPTExampleGroup *root;
+@property (nonatomic, strong) SPTExampleGroup *parent;
+@property (nonatomic, strong) NSMutableArray *children;
+@property (nonatomic, strong) NSMutableArray *beforeAllArray;
+@property (nonatomic, strong) NSMutableArray *afterAllArray;
+@property (nonatomic, strong) NSMutableArray *beforeEachArray;
+@property (nonatomic, strong) NSMutableArray *afterEachArray;
+@property (nonatomic, strong) NSMutableDictionary *sharedExamples;
 @property (nonatomic) unsigned int exampleCount;
 @property (nonatomic) unsigned int ranExampleCount;
 @property (nonatomic, getter=isFocused) BOOL focused;

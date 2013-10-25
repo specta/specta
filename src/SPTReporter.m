@@ -21,7 +21,7 @@
   static SPTReporter * sharedReporter = nil;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    sharedReporter = [[self loadSharedReporter] retain];
+    sharedReporter = [self loadSharedReporter];
   });
   
   return sharedReporter;
@@ -35,11 +35,11 @@
     Class customReporterClass = NSClassFromString(customReporterClassName);
     if (customReporterClass != nil)
     {
-      return [[[customReporterClass alloc] init] autorelease];
+      return [[customReporterClass alloc] init];
     }
   }
   
-  return [[[SPTDefaultReporter alloc] init] autorelease];
+  return [[SPTDefaultReporter alloc] init];
 }
 
 - (id)init
@@ -52,11 +52,6 @@
   return self;
 }
 
-- (void)dealloc
-{
-  self.runStack = nil;
-  [super dealloc];
-}
 
 // ===== SenTestObserver ===============================================================================================
 #pragma mark - SenTestObserver
@@ -156,7 +151,6 @@
   va_end(args);
   
   [self printString:formattedString];
-  [formattedString release];
 }
 
 - (void)printLine
@@ -178,7 +172,6 @@
   
   [self printLine:formattedString];
   
-  [formattedString release];
 }
 
 @end

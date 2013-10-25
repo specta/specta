@@ -58,7 +58,6 @@ SharedExamplesEnd
   expect([result failureCount]).toEqual(1);
   expect([result hasSucceeded]).toEqual(NO);
   expect(items).toEqual(([NSArray arrayWithObjects:@"hello", @"world", nil]));
-  [items release];
   items = nil;
   foo = @"Foo";
 }

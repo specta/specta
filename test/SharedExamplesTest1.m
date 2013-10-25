@@ -48,7 +48,6 @@ SpecEnd
   expect([result failureCount]).toEqual(0);
   expect([result hasSucceeded]).toEqual(YES);
   expect(items).toEqual(([NSArray arrayWithObjects:@"hello", @"world", nil]));
-  [items release];
   items = nil;
 }
 

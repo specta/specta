@@ -1,4 +1,5 @@
 #import "TestHelper.h"
+#import "SPTExample.h"
 
 SpecBegin(_FocusedSpecTest)
 

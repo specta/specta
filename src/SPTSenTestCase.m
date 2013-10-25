@@ -20,11 +20,6 @@
 , SPT_skipped=_SPT_skipped
 ;
 
-- (void)dealloc {
-  self.SPT_invocation = nil;
-  self.SPT_run = nil;
-  [super dealloc];
-}
 
 + (void)initialize {
   [SPTSharedExampleGroups initialize];
@@ -32,9 +27,7 @@
   SPTSenTestCase *testCase = [[[self class] alloc] init];
   objc_setAssociatedObject(self, "SPT_spec", spec, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
   [testCase SPT_defineSpec];
-  [testCase release];
   [spec compile];
-  [spec release];
   [super initialize];
 }
 
@@ -68,7 +61,7 @@
     
     int numberOfClasses = objc_getClassList(NULL, 0);
     if(numberOfClasses > 0) {
-      Class * classes = malloc(sizeof(Class) * numberOfClasses);
+      Class * classes = (Class *)malloc(sizeof(Class) * numberOfClasses);
       numberOfClasses = objc_getClassList(classes, numberOfClasses);
       
       for (int classIndex = 0; classIndex < numberOfClasses; classIndex++) {
@@ -82,7 +75,6 @@
     }
     
     allSpecClasses = [specClasses copy];
-    [specClasses release];
   });
   
   return allSpecClasses;
@@ -146,8 +138,13 @@
   NSMutableArray *invocations = [NSMutableArray array];
   for(NSUInteger i = 0; i < [[self SPT_spec].compiledExamples count]; i ++) {
     SPTSenTestInvocation *invocation = (SPTSenTestInvocation *)[SPTSenTestInvocation invocationWithMethodSignature:[self instanceMethodSignatureForSelector:@selector(SPT_runExampleAtIndex:)]];
+
+    __weak typeof(invocation) weakInvocation = invocation;
+
     invocation.SPT_invocationBlock = ^{
-      [(SPTSenTestCase *)[invocation target] SPT_runExampleAtIndex:i];
+      __strong typeof(weakInvocation) strongInvocation = weakInvocation;
+      
+      [(SPTSenTestCase *)[strongInvocation target] SPT_runExampleAtIndex:i];
     };
     [invocation setSelector:@selector(SPT_runExampleAtIndex:)];
     [invocation setArgument:&i atIndex:2];

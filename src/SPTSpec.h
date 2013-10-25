@@ -15,10 +15,10 @@
   BOOL _disabled;
 }
 
-@property (nonatomic, retain) SPTExampleGroup *rootGroup;
-@property (nonatomic, retain) NSMutableArray *groupStack;
-@property (nonatomic, retain) NSArray *compiledExamples;
-@property (nonatomic, retain) NSString *fileName;
+@property (nonatomic, strong) SPTExampleGroup *rootGroup;
+@property (nonatomic, strong) NSMutableArray *groupStack;
+@property (nonatomic, strong) NSArray *compiledExamples;
+@property (nonatomic, strong) NSString *fileName;
 @property (nonatomic) NSUInteger lineNumber;
 @property (nonatomic, getter = isDisabled) BOOL disabled;
 @property (nonatomic) BOOL hasFocusedExamples;

@@ -1,5 +1,6 @@
 #import "SenTestCase+Specta.h"
 #import "SPTSenTestCase.h"
+#import "SPTExample.h"
 
 @implementation SenTestCase (Specta)
 

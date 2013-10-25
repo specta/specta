@@ -7,13 +7,13 @@
 ;
 
 @interface SPTSenTestCase : SenTestCase {
-  NSInvocation *_SPT_invocation;
-  SenTestCaseRun *_SPT_run;
+  NSInvocation *__strong _SPT_invocation;
+  SenTestCaseRun *__strong _SPT_run;
   BOOL _SPT_skipped;
 }
 
-@property (nonatomic, assign) NSInvocation *SPT_invocation;
-@property (nonatomic, assign) SenTestCaseRun *SPT_run;
+@property (nonatomic, strong) NSInvocation *SPT_invocation;
+@property (nonatomic, strong) SenTestCaseRun *SPT_run;
 @property (nonatomic, assign) BOOL SPT_skipped;
 @property (nonatomic, assign, readonly, getter = SPT_isPending) BOOL SPT_pending;
 

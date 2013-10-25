@@ -20,7 +20,7 @@ BOOL initialized = NO;
         int numClasses = objc_getClassList(NULL, 0);
 
         if(numClasses > 0) {
-          classes = malloc(sizeof(Class) * numClasses);
+          classes = (Class *)malloc(sizeof(Class) * numClasses);
           numClasses = objc_getClassList(classes, numClasses);
 
           Class klass, superClass;
@@ -40,7 +40,7 @@ BOOL initialized = NO;
 }
 
 + (void)addSharedExampleGroupWithName:(NSString *)name block:(SPTDictionaryBlock)block exampleGroup:(SPTExampleGroup *)exampleGroup {
-  [(exampleGroup == nil ? globalSharedExampleGroups : exampleGroup.sharedExamples) setObject:[[block copy] autorelease] forKey:name];
+  [(exampleGroup == nil ? globalSharedExampleGroups : exampleGroup.sharedExamples) setObject:[block copy] forKey:name];
 }
 
 + (SPTDictionaryBlock)sharedExampleGroupWithName:(NSString *)name exampleGroup:(SPTExampleGroup *)exampleGroup {
