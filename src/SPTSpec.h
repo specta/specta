@@ -5,15 +5,7 @@
 , SPTExampleGroup
 ;
 
-@interface SPTSpec : NSObject {
-  SPTExampleGroup *_rootGroup;
-  NSMutableArray *_groupStack;
-  NSArray *_compiledExamples;
-  NSString *_fileName;
-  NSUInteger _lineNumber;
-  BOOL _hasFocusedExamples;
-  BOOL _disabled;
-}
+@interface SPTSpec : NSObject
 
 @property (nonatomic, strong) SPTExampleGroup *rootGroup;
 @property (nonatomic, strong) NSMutableArray *groupStack;

@@ -6,20 +6,7 @@
   SPTExample
 ;
 
-@interface SPTExampleGroup : NSObject {
-  NSString *_name;
-  SPTExampleGroup *__strong _root;
-  SPTExampleGroup *__strong _parent;
-  NSMutableArray *_children;
-  NSMutableArray *_beforeAllArray;
-  NSMutableArray *_afterAllArray;
-  NSMutableArray *_beforeEachArray;
-  NSMutableArray *_afterEachArray;
-  NSMutableDictionary *_sharedExamples;
-  unsigned int _exampleCount;
-  unsigned int _ranExampleCount;
-  BOOL _focused;
-}
+@interface SPTExampleGroup : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong) SPTExampleGroup *root;

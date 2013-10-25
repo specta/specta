@@ -4,19 +4,7 @@ typedef id (^EXPIdBlock)();
 typedef BOOL (^EXPBoolBlock)();
 typedef NSString *(^EXPStringBlock)();
 
-@interface EXPExpect : NSObject {
-  EXPIdBlock _actualBlock;
-  id _testCase;
-  int _lineNumber;
-  char *_fileName;
-  BOOL _negative;
-  BOOL _asynchronous;
-
-  EXPBoolBlock _prerequisiteBlock;
-  EXPBoolBlock _matchBlock;
-  EXPStringBlock _failureMessageForToBlock;
-  EXPStringBlock _failureMessageForNotToBlock;
-}
+@interface EXPExpect : NSObject
 
 @property(nonatomic, copy) EXPIdBlock actualBlock;
 @property(nonatomic, readonly) id actual;
