@@ -22,13 +22,13 @@ SpecEnd
 
 - (void)testExamples {
   SPTExampleGroup *rootGroup = [_DSLTest4Spec SPT_spec].rootGroup;
-  SPTExampleGroup *group = [rootGroup.children objectAtIndex:0];
+  SPTExampleGroup *group = (rootGroup.children)[0];
 
   expect([group.children count]).toEqual(3);
 
-  SPTExample *example1 = [group.children objectAtIndex:0];
-  SPTExample *example2 = [group.children objectAtIndex:1];
-  SPTExample *example3 = [group.children objectAtIndex:2];
+  SPTExample *example1 = (group.children)[0];
+  SPTExample *example2 = (group.children)[1];
+  SPTExample *example3 = (group.children)[2];
 
   expect(example1).toBeKindOf([SPTExample class]);
   expect(example2).toBeKindOf([SPTExample class]);

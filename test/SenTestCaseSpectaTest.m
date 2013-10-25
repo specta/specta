@@ -25,7 +25,7 @@ SpecEnd
                  (NSUInteger)1,
                  @"Only one test exists in the sample spec");
   
-  SPTSenTestCase * specExample = [[testSuite valueForKey:@"tests"] objectAtIndex:0];
+  SPTSenTestCase * specExample = [testSuite valueForKey:@"tests"][0];
   STAssertEqualObjects([specExample SPT_title],
                        @"group example 1",
                        @"Spec example titles equal the full example name");
@@ -43,7 +43,7 @@ SpecEnd
       return [NSStringFromSelector([(SenTestCase *)testCase selector]) isEqualToString:thisTestCaseName];
     }];
 
-  SenTestCase * thisTestCase = [testCases objectAtIndex:thisTestCaseIndex];
+  SenTestCase * thisTestCase = testCases[thisTestCaseIndex];
   
   STAssertEqualObjects([thisTestCase SPT_title],
                        thisTestCaseName,

@@ -20,7 +20,7 @@ sharedExamplesFor(@"shared1", ^(NSDictionary *data) {
 
 sharedExamples(@"shared2", ^(NSDictionary *data) {
   it(@"inserts data.baz to items", ^{
-    [items addObject:[data objectForKey:@"baz"]];
+    [items addObject:data[@"baz"]];
   });
 });
 
@@ -30,10 +30,10 @@ describe(@"group", ^{
                                                                 @"Bar", @"bar", nil]);
 });
 
-itBehavesLike(@"shared2", [NSDictionary dictionaryWithObject:@"hello" forKey:@"baz"]);
+itBehavesLike(@"shared2", @{@"baz": @"hello"});
 
 context(@"group2", ^{
-  itBehavesLike(@"shared2", [NSDictionary dictionaryWithObject:@"world" forKey:@"baz"]);
+  itBehavesLike(@"shared2", @{@"baz": @"world"});
 });
 
 SpecEnd

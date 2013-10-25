@@ -96,9 +96,9 @@
 
 - (void)SPT_setCurrentSpecWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber {
   SPTSpec *spec = [[self class] SPT_spec];
-  spec.fileName = [NSString stringWithUTF8String:fileName];
+  spec.fileName = @(fileName);
   spec.lineNumber = lineNumber;
-  [[[NSThread currentThread] threadDictionary] setObject:spec forKey:@"SPT_currentSpec"];
+  [[NSThread currentThread] threadDictionary][@"SPT_currentSpec"] = spec;
 }
 
 - (void)SPT_defineSpec {}
@@ -108,8 +108,8 @@
 }
 
 - (void)SPT_runExampleAtIndex:(NSUInteger)index {
-  [[[NSThread currentThread] threadDictionary] setObject:self forKey:@"SPT_currentTestCase"];
-  SPTExample *compiledExample = [[[self class] SPT_spec].compiledExamples objectAtIndex:index];
+  [[NSThread currentThread] threadDictionary][@"SPT_currentTestCase"] = self;
+  SPTExample *compiledExample = ([[self class] SPT_spec].compiledExamples)[index];
   if(!compiledExample.pending)
   {
     if ([[self class] SPT_isDisabled] == NO &&
@@ -129,7 +129,7 @@
   }
   NSUInteger i;
   [self.SPT_invocation getArgument:&i atIndex:2];
-  return [[[self class] SPT_spec].compiledExamples objectAtIndex:i];
+  return ([[self class] SPT_spec].compiledExamples)[i];
 }
 
 #pragma mark - SenTestCase overrides
@@ -183,7 +183,7 @@
     exception = [NSException exceptionWithName:name reason:description
                              userInfo:[[NSException failureInFile:file atLine:0 withDescription:sanitizedDescription] userInfo]];
   }
-  SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
+  SPTSenTestCase *currentTestCase = [[NSThread currentThread] threadDictionary][@"SPT_currentTestCase"];
   [currentTestCase.SPT_run addException:exception];
 }
 
@@ -195,8 +195,8 @@
 
 + (NSArray *)senAllSuperclasses {
   NSArray *arr = [super senAllSuperclasses];
-  if([arr objectAtIndex:0] == [SPTSenTestCase class]) {
-    return [NSArray arrayWithObject:[NSObject class]];
+  if(arr[0] == [SPTSenTestCase class]) {
+    return @[[NSObject class]];
   }
   return arr;
 }

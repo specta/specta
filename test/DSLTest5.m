@@ -26,17 +26,17 @@ SpecEnd
 - (void)testNestedExamples {
   SPTExampleGroup *rootGroup = [_DSLTest5Spec SPT_spec].rootGroup;
 
-  SPTExampleGroup *group1 = [rootGroup.children objectAtIndex:0];
+  SPTExampleGroup *group1 = (rootGroup.children)[0];
   expect(group1.name).toEqual(@"group 1");
   expect([group1.children count]).toEqual(2);
 
-  SPTExampleGroup *group2 = [group1.children objectAtIndex:0];
+  SPTExampleGroup *group2 = (group1.children)[0];
   expect(group2.name).toEqual(@"group 2");
   expect([group2.children count]).toEqual(2);
 
-  SPTExample *example1 = [group2.children objectAtIndex:0];
-  SPTExample *example2 = [group2.children objectAtIndex:1];
-  SPTExample *example3 = [group1.children objectAtIndex:1];
+  SPTExample *example1 = (group2.children)[0];
+  SPTExample *example2 = (group2.children)[1];
+  SPTExample *example3 = (group1.children)[1];
 
   expect(example1).toBeKindOf([SPTExample class]);
   expect(example2).toBeKindOf([SPTExample class]);

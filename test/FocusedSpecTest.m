@@ -44,17 +44,17 @@ SpecEnd
   
   SPTExampleGroup * specGroup = spec.rootGroup;
 
-  SPTExampleGroup * rootGroup = [specGroup.children objectAtIndex:0];
+  SPTExampleGroup * rootGroup = (specGroup.children)[0];
 
-  SPTExample * unfocusedExample = [[rootGroup children] objectAtIndex:0];
+  SPTExample * unfocusedExample = [rootGroup children][0];
   STAssertFalse([unfocusedExample isFocused],
                 @"by default, examples are not focused");
   
-  SPTExample * focusedExample = [[rootGroup children] objectAtIndex:1];
+  SPTExample * focusedExample = [rootGroup children][1];
   STAssertTrue([focusedExample isFocused],
                 @"when prefixed with an 'f', examples are focused");
   
-  SPTExampleGroup * focusedExampleGroup = [[rootGroup children] objectAtIndex:2];
+  SPTExampleGroup * focusedExampleGroup = [rootGroup children][2];
   STAssertTrue([focusedExampleGroup isFocused],
                @"when prefixed with an 'f', groups are focused");
 
@@ -67,15 +67,15 @@ SpecEnd
                  (NSUInteger)3,
                  @"All examples are compiled, focused or not");
   
-  SPTExample * compiledUnfocusedExample = [spec.compiledExamples objectAtIndex:0];
+  SPTExample * compiledUnfocusedExample = (spec.compiledExamples)[0];
   STAssertFalse([compiledUnfocusedExample isFocused],
                 @"unfocused examples are not focused when compiled");
   
-  SPTExample * compiledFocusedExample = [spec.compiledExamples objectAtIndex:1];
+  SPTExample * compiledFocusedExample = (spec.compiledExamples)[1];
   STAssertTrue([compiledFocusedExample isFocused],
                 @"focused examples are focused when compiled");
   
-  SPTExample * compiledInheritedFocusedExample = [spec.compiledExamples objectAtIndex:2];
+  SPTExample * compiledInheritedFocusedExample = (spec.compiledExamples)[2];
   STAssertTrue([compiledInheritedFocusedExample isFocused],
                @"examples within focused groups are focused when compiled");
 }

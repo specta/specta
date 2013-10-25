@@ -30,7 +30,7 @@
 }
 
 - (void)compile {
-  self.compiledExamples = [self.rootGroup compileExamplesWithNameStack:[NSArray array]];
+  self.compiledExamples = [self.rootGroup compileExamplesWithNameStack:@[]];
   for (SPTExample * example in self.compiledExamples) {
     if (example.focused) {
       self.hasFocusedExamples = YES;

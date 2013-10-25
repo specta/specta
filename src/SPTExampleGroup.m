@@ -35,7 +35,7 @@ static void runExampleBlock(id block, NSString *name) {
     }
     if (!complete) {
       NSString *message = [NSString stringWithFormat:@"\"%@\" failed to invoke done() callback before timeout (%f seconds)", name, timeout];
-      SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
+      SPTSenTestCase *currentTestCase = [[NSThread currentThread] threadDictionary][@"SPT_currentTestCase"];
       SPTSpec *spec = [[currentTestCase class] SPT_spec];
       NSException *exception = [NSException failureInFile:spec.fileName atLine:(int)spec.lineNumber withDescription:message];
       [currentTestCase failWithException: exception];
@@ -318,7 +318,7 @@ static void InvokeClassMethod(NSArray * classes, SEL selector) {
 - (NSArray *)compileExamplesWithNameStack:(NSArray *)nameStack {
   BOOL groupIsFocusedOrHasFocusedAncestor = [self isFocusedOrHasFocusedAncestor];
   
-  NSArray *compiled = [NSArray array];
+  NSArray *compiled = @[];
   for(id child in self.children) {
     if([child isKindOfClass:[SPTExampleGroup class]]) {
       SPTExampleGroup *group = child;

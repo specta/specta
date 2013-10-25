@@ -11,10 +11,10 @@ describe(@"group", ^{
                                                                 @"Bar", @"bar", nil]);
 });
 
-itBehavesLike(@"global shared 2", [NSDictionary dictionaryWithObject:@"hello" forKey:@"baz"]);
+itBehavesLike(@"global shared 2", @{@"baz": @"hello"});
 
 context(@"group2", ^{
-  itBehavesLike(@"global shared 2", [NSDictionary dictionaryWithObject:@"world" forKey:@"baz"]);
+  itBehavesLike(@"global shared 2", @{@"baz": @"world"});
 });
 
 SpecEnd
@@ -41,7 +41,7 @@ SharedExamplesBegin(GlobalSharedExamples2)
 
 sharedExamples(@"global shared 2", ^(NSDictionary *data) {
   it(@"inserts data.baz to items", ^{
-    [items addObject:[data objectForKey:@"baz"]];
+    [items addObject:data[@"baz"]];
   });
 });
 
