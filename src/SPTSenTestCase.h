@@ -6,11 +6,7 @@
 , SPTExample
 ;
 
-@interface SPTSenTestCase : SenTestCase {
-  NSInvocation *__strong _SPT_invocation;
-  SenTestCaseRun *__strong _SPT_run;
-  BOOL _SPT_skipped;
-}
+@interface SPTSenTestCase : SenTestCase
 
 @property (nonatomic, strong) NSInvocation *SPT_invocation;
 @property (nonatomic, strong) SenTestCaseRun *SPT_run;

@@ -1,8 +1,6 @@
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface SPTReporter : SenTestObserver {
-  NSArray *_runStack;
-}
+@interface SPTReporter : SenTestObserver
 
 // ===== SHARED REPORTER ===============================================================================================
 #pragma mark - Shared Reporter
