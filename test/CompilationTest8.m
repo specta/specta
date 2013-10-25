@@ -27,12 +27,12 @@ SpecEnd
   SPTSpec *spec = [_CompilationTest8Spec SPT_spec];
   NSArray *compiledExamples = spec.compiledExamples;
 
-  expect([[compiledExamples objectAtIndex:0] name]).toEqual(@"group 1 group 2 group 3 example 1");
-  expect([[compiledExamples objectAtIndex:1] name]).toEqual(@"group 1 group 2 group 3 example 2");
-  expect([[compiledExamples objectAtIndex:2] name]).toEqual(@"group 1 group 2 example 3");
-  expect([[compiledExamples objectAtIndex:3] name]).toEqual(@"group 1 example 4");
-  expect([[compiledExamples objectAtIndex:4] name]).toEqual(@"group 1 example 5");
-  expect([[compiledExamples objectAtIndex:5] name]).toEqual(@"group 1 group 4 example 6");
+  expect([compiledExamples[0] name]).toEqual(@"group 1 group 2 group 3 example 1");
+  expect([compiledExamples[1] name]).toEqual(@"group 1 group 2 group 3 example 2");
+  expect([compiledExamples[2] name]).toEqual(@"group 1 group 2 example 3");
+  expect([compiledExamples[3] name]).toEqual(@"group 1 example 4");
+  expect([compiledExamples[4] name]).toEqual(@"group 1 example 5");
+  expect([compiledExamples[5] name]).toEqual(@"group 1 group 4 example 6");
 }
 
 @end

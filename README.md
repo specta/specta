@@ -91,12 +91,12 @@ describe(@"Thing", ^{
   });
   // You'll have to build your project with Clang (Apple LLVM Compiler) in order to use this feature.
 
-  itShouldBehaveLike(@"a shared behavior", [NSDictionary dictionaryWithObjectsAndKeys:@"obj", @"key", nil]);
+  itShouldBehaveLike(@"a shared behavior", @{@"key" : @"obj"});
 
   itShouldBehaveLike(@"another shared behavior", ^{
     // Use a block that returns a dictionary if you need the context to be evaluated lazily,
     // e.g. to use an object prepared in a beforeEach block.
-    return [NSDictionary dictionaryWithObjectsAndKeys:@"obj", @"key", nil];
+    return @{@"key" : @"obj"};
   });
 
   describe(@"Nested examples", ^{

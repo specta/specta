@@ -7,8 +7,8 @@ SpecBegin(_SharedExamplesTest2)
 
 describe(@"group", ^{
   itShouldBehaveLike(@"global shared 1",
-                     [NSDictionary dictionaryWithObjectsAndKeys:@"Foo", @"foo",
-                                                                @"Bar", @"bar", nil]);
+                     @{@"foo" : @"Foo",
+                       @"bar" : @"Bar"});
 });
 
 itBehavesLike(@"global shared 2", @{@"baz": @"hello"});

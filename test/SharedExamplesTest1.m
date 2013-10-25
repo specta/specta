@@ -26,8 +26,8 @@ sharedExamples(@"shared2", ^(NSDictionary *data) {
 
 describe(@"group", ^{
   itShouldBehaveLike(@"shared1",
-                     [NSDictionary dictionaryWithObjectsAndKeys:@"Foo", @"foo",
-                                                                @"Bar", @"bar", nil]);
+                     @{@"foo" : @"Foo",
+                       @"bar" : @"Bar"});
 });
 
 itBehavesLike(@"shared2", @{@"baz": @"hello"});
