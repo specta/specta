@@ -8,7 +8,7 @@ typedef NSString *(^EXPStringBlock)();
 
 @property(nonatomic, copy) EXPIdBlock actualBlock;
 @property(nonatomic, readonly) id actual;
-@property(nonatomic, assign) id testCase;
+@property(nonatomic, weak) id testCase;
 @property(nonatomic) int lineNumber;
 @property(nonatomic) char *fileName;
 @property(nonatomic) BOOL negative;
