@@ -7,14 +7,14 @@ SpecBegin(_SharedExamplesTest2)
 
 describe(@"group", ^{
   itShouldBehaveLike(@"global shared 1",
-                     [NSDictionary dictionaryWithObjectsAndKeys:@"Foo", @"foo",
-                                                                @"Bar", @"bar", nil]);
+                     @{@"foo" : @"Foo",
+                       @"bar" : @"Bar"});
 });
 
-itBehavesLike(@"global shared 2", [NSDictionary dictionaryWithObject:@"hello" forKey:@"baz"]);
+itBehavesLike(@"global shared 2", @{@"baz": @"hello"});
 
 context(@"group2", ^{
-  itBehavesLike(@"global shared 2", [NSDictionary dictionaryWithObject:@"world" forKey:@"baz"]);
+  itBehavesLike(@"global shared 2", @{@"baz": @"world"});
 });
 
 SpecEnd
@@ -41,7 +41,7 @@ SharedExamplesBegin(GlobalSharedExamples2)
 
 sharedExamples(@"global shared 2", ^(NSDictionary *data) {
   it(@"inserts data.baz to items", ^{
-    [items addObject:[data objectForKey:@"baz"]];
+    [items addObject:data[@"baz"]];
   });
 });
 
@@ -57,8 +57,7 @@ SharedExamplesEnd
   expect([result testCaseCount]).toEqual(4);
   expect([result failureCount]).toEqual(1);
   expect([result hasSucceeded]).toEqual(NO);
-  expect(items).toEqual(([NSArray arrayWithObjects:@"hello", @"world", nil]));
-  [items release];
+  expect(items).toEqual((@[ @"hello", @"world" ]));
   items = nil;
   foo = @"Foo";
 }

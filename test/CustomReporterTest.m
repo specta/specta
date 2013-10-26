@@ -20,7 +20,7 @@
 //
 - (void)test_custom_reporter_is_used
 {
-  NSString * customReporterClassName = [[[NSProcessInfo processInfo] environment] objectForKey:@"SPECTA_REPORTER_CLASS"];
+  NSString * customReporterClassName = [[NSProcessInfo processInfo] environment][@"SPECTA_REPORTER_CLASS"];
   if (customReporterClassName != nil)
   {
     STAssertEqualObjects(NSStringFromClass([[SPTReporter sharedReporter] class]),

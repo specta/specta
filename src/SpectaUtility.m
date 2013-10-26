@@ -29,7 +29,7 @@ enum {
 };
 
 const char *SPT_getBlockSignature(id blockObject) {
-  struct SPT_Block_literal_1 *block = (struct SPT_Block_literal_1 *)blockObject;
+  struct SPT_Block_literal_1 *block = (__bridge struct SPT_Block_literal_1 *)blockObject;
 
   int flags = block->flags;
 

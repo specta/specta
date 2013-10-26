@@ -78,7 +78,7 @@ describe(@"root", ^{
 
 SpecEnd
 
-#define assertSequence(i, obj) expect([sequence objectAtIndex:(i)]).toEqual((obj)); i++
+#define assertSequence(i, obj) expect(sequence[(i)]).toEqual((obj)); i++
 
 @interface SequenceTest : SenTestCase
 @end

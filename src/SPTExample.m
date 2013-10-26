@@ -9,11 +9,6 @@
 , focused=_focused
 ;
 
-- (void)dealloc {
-  self.name = nil;
-  self.block = nil;
-  [super dealloc];
-}
 
 - (id)initWithName:(NSString *)name block:(id)block {
   self = [super init];

@@ -116,7 +116,7 @@ void SPT_itShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSStrin
   SPTDictionaryBlock block = [SPTSharedExampleGroups sharedExampleGroupWithName:name exampleGroup:SPT_currentGroup];
   if(block) {
     if(SPT_isBlock(dictionaryOrBlock)) {
-      id (^dataBlock)(void) = [[dictionaryOrBlock copy] autorelease];
+      id (^dataBlock)(void) = [dictionaryOrBlock copy];
 
       describe(name, ^{
         __block NSMutableDictionary *dataDict = [[NSMutableDictionary alloc] init];
@@ -130,7 +130,6 @@ void SPT_itShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSStrin
         block(dataDict);
 
         afterAll(^{
-          [dataDict release];
           dataDict = nil;
         });
       });
@@ -142,13 +141,13 @@ void SPT_itShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSStrin
       });
     }
   } else {
-    SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
+    SPTSenTestCase *currentTestCase = [[NSThread currentThread] threadDictionary][@"SPT_currentTestCase"];
     if(currentTestCase) {
-      NSException *exception = [NSException failureInFile:[NSString stringWithUTF8String:fileName] atLine:(int)lineNumber withDescription:@"itShouldBehaveLike should not be invoked inside an example block!"];
+      NSException *exception = [NSException failureInFile:@(fileName) atLine:(int)lineNumber withDescription:@"itShouldBehaveLike should not be invoked inside an example block!"];
       [currentTestCase failWithException: exception];
     } else {
       it(name, ^{
-        NSException *exception = [NSException failureInFile:[NSString stringWithUTF8String:fileName] atLine:(int)lineNumber withDescription:[NSString stringWithFormat:@"Shared example group \"%@\" does not exist.", name]];
+        NSException *exception = [NSException failureInFile:@(fileName) atLine:(int)lineNumber withDescription:[NSString stringWithFormat:@"Shared example group \"%@\" does not exist.", name]];
         [exception raise];
       });
     }

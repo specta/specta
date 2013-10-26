@@ -2,18 +2,18 @@
 
 SpecBegin(_SharedExamplesTest4)
 
-__block NSString *foo = nil;
+__block __weak NSString *foo = nil;
 
 beforeEach(^{
   foo = @"bar";
 });
 
 itShouldBehaveLike(@"shared example with data supplied from beforeEach", ^{
-  return [NSDictionary dictionaryWithObject:foo forKey:@"foo"];
+  return @{@"foo": foo};
 });
 
 itShouldBehaveLike(@"shared example that does not capture the data dictionary", ^{
-  return [NSDictionary dictionaryWithObject:@"bar" forKey:@"foo"];
+  return @{@"foo": @"bar"};
 });
 
 SpecEnd

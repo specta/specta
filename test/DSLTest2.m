@@ -31,22 +31,22 @@ SpecEnd
 
 - (void)testBeforeAndAfterHooks {
   SPTExampleGroup *rootGroup = [_DSLTest2Spec SPT_spec].rootGroup;
-  SPTExampleGroup *group = [rootGroup.children objectAtIndex:0];
+  SPTExampleGroup *group = rootGroup.children[0];
 
   expect([group.beforeAllArray count]).toEqual(2);
   expect([group.beforeEachArray count]).toEqual(2);
   expect([group.afterEachArray count]).toEqual(2);
   expect([group.afterAllArray count]).toEqual(2);
 
-  expect([group.beforeAllArray objectAtIndex:0]).toEqual(block1);
-  expect([group.beforeEachArray objectAtIndex:0]).toEqual(block2);
-  expect([group.afterEachArray objectAtIndex:0]).toEqual(block3);
-  expect([group.afterAllArray objectAtIndex:0]).toEqual(block4);
+  expect(group.beforeAllArray[0]).toEqual(block1);
+  expect(group.beforeEachArray[0]).toEqual(block2);
+  expect(group.afterEachArray[0]).toEqual(block3);
+  expect(group.afterAllArray[0]).toEqual(block4);
 
-  expect([group.beforeAllArray objectAtIndex:1]).toEqual(block5);
-  expect([group.beforeEachArray objectAtIndex:1]).toEqual(block6);
-  expect([group.afterEachArray objectAtIndex:1]).toEqual(block7);
-  expect([group.afterAllArray objectAtIndex:1]).toEqual(block8);
+  expect(group.beforeAllArray[1]).toEqual(block5);
+  expect(group.beforeEachArray[1]).toEqual(block6);
+  expect(group.afterEachArray[1]).toEqual(block7);
+  expect(group.afterAllArray[1]).toEqual(block8);
 }
 
 @end

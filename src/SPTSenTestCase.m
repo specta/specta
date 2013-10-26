@@ -20,11 +20,6 @@
 , SPT_skipped=_SPT_skipped
 ;
 
-- (void)dealloc {
-  self.SPT_invocation = nil;
-  self.SPT_run = nil;
-  [super dealloc];
-}
 
 + (void)initialize {
   [SPTSharedExampleGroups initialize];
@@ -32,9 +27,7 @@
   SPTSenTestCase *testCase = [[[self class] alloc] init];
   objc_setAssociatedObject(self, "SPT_spec", spec, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
   [testCase SPT_defineSpec];
-  [testCase release];
   [spec compile];
-  [spec release];
   [super initialize];
 }
 
@@ -68,7 +61,7 @@
     
     int numberOfClasses = objc_getClassList(NULL, 0);
     if(numberOfClasses > 0) {
-      Class * classes = malloc(sizeof(Class) * numberOfClasses);
+      Class * classes = (Class *)malloc(sizeof(Class) * numberOfClasses);
       numberOfClasses = objc_getClassList(classes, numberOfClasses);
       
       for (int classIndex = 0; classIndex < numberOfClasses; classIndex++) {
@@ -82,7 +75,6 @@
     }
     
     allSpecClasses = [specClasses copy];
-    [specClasses release];
   });
   
   return allSpecClasses;
@@ -104,9 +96,9 @@
 
 - (void)SPT_setCurrentSpecWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber {
   SPTSpec *spec = [[self class] SPT_spec];
-  spec.fileName = [NSString stringWithUTF8String:fileName];
+  spec.fileName = @(fileName);
   spec.lineNumber = lineNumber;
-  [[[NSThread currentThread] threadDictionary] setObject:spec forKey:@"SPT_currentSpec"];
+  [[NSThread currentThread] threadDictionary][@"SPT_currentSpec"] = spec;
 }
 
 - (void)SPT_defineSpec {}
@@ -116,8 +108,8 @@
 }
 
 - (void)SPT_runExampleAtIndex:(NSUInteger)index {
-  [[[NSThread currentThread] threadDictionary] setObject:self forKey:@"SPT_currentTestCase"];
-  SPTExample *compiledExample = [[[self class] SPT_spec].compiledExamples objectAtIndex:index];
+  [[NSThread currentThread] threadDictionary][@"SPT_currentTestCase"] = self;
+  SPTExample *compiledExample = ([[self class] SPT_spec].compiledExamples)[index];
   if(!compiledExample.pending)
   {
     if ([[self class] SPT_isDisabled] == NO &&
@@ -137,7 +129,7 @@
   }
   NSUInteger i;
   [self.SPT_invocation getArgument:&i atIndex:2];
-  return [[[self class] SPT_spec].compiledExamples objectAtIndex:i];
+  return ([[self class] SPT_spec].compiledExamples)[i];
 }
 
 #pragma mark - SenTestCase overrides
@@ -146,8 +138,13 @@
   NSMutableArray *invocations = [NSMutableArray array];
   for(NSUInteger i = 0; i < [[self SPT_spec].compiledExamples count]; i ++) {
     SPTSenTestInvocation *invocation = (SPTSenTestInvocation *)[SPTSenTestInvocation invocationWithMethodSignature:[self instanceMethodSignatureForSelector:@selector(SPT_runExampleAtIndex:)]];
+
+    __weak typeof(invocation) weakInvocation = invocation;
+
     invocation.SPT_invocationBlock = ^{
-      [(SPTSenTestCase *)[invocation target] SPT_runExampleAtIndex:i];
+      __strong typeof(weakInvocation) strongInvocation = weakInvocation;
+      
+      [(SPTSenTestCase *)[strongInvocation target] SPT_runExampleAtIndex:i];
     };
     [invocation setSelector:@selector(SPT_runExampleAtIndex:)];
     [invocation setArgument:&i atIndex:2];
@@ -186,7 +183,7 @@
     exception = [NSException exceptionWithName:name reason:description
                              userInfo:[[NSException failureInFile:file atLine:0 withDescription:sanitizedDescription] userInfo]];
   }
-  SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
+  SPTSenTestCase *currentTestCase = [[NSThread currentThread] threadDictionary][@"SPT_currentTestCase"];
   [currentTestCase.SPT_run addException:exception];
 }
 
@@ -198,8 +195,8 @@
 
 + (NSArray *)senAllSuperclasses {
   NSArray *arr = [super senAllSuperclasses];
-  if([arr objectAtIndex:0] == [SPTSenTestCase class]) {
-    return [NSArray arrayWithObject:[NSObject class]];
+  if(arr[0] == [SPTSenTestCase class]) {
+    return @[[NSObject class]];
   }
   return arr;
 }

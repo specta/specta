@@ -20,7 +20,7 @@ BOOL initialized = NO;
         int numClasses = objc_getClassList(NULL, 0);
 
         if(numClasses > 0) {
-          classes = malloc(sizeof(Class) * numClasses);
+          classes = (Class *)malloc(sizeof(Class) * numClasses);
           numClasses = objc_getClassList(classes, numClasses);
 
           Class klass, superClass;
@@ -40,24 +40,24 @@ BOOL initialized = NO;
 }
 
 + (void)addSharedExampleGroupWithName:(NSString *)name block:(SPTDictionaryBlock)block exampleGroup:(SPTExampleGroup *)exampleGroup {
-  [(exampleGroup == nil ? globalSharedExampleGroups : exampleGroup.sharedExamples) setObject:[[block copy] autorelease] forKey:name];
+  (exampleGroup == nil ? globalSharedExampleGroups : exampleGroup.sharedExamples)[name] = [block copy];
 }
 
 + (SPTDictionaryBlock)sharedExampleGroupWithName:(NSString *)name exampleGroup:(SPTExampleGroup *)exampleGroup {
   SPTDictionaryBlock sharedExampleGroup = nil;
   while(exampleGroup != nil) {
-    if((sharedExampleGroup = [exampleGroup.sharedExamples objectForKey:name])) {
+    if((sharedExampleGroup = exampleGroup.sharedExamples[name])) {
       return sharedExampleGroup;
     }
     exampleGroup = exampleGroup.parent;
   }
-  return [globalSharedExampleGroups objectForKey:name];
+  return globalSharedExampleGroups[name];
 }
 
 + (void)defineSharedExampleGroups {}
 
 + (void)failWithException:(NSException *)exception {
-  SPTSenTestCase *currentTestCase = [[[NSThread currentThread] threadDictionary] objectForKey:@"SPT_currentTestCase"];
+  SPTSenTestCase *currentTestCase = [[NSThread currentThread] threadDictionary][@"SPT_currentTestCase"];
   [currentTestCase failWithException: exception];
 }
 

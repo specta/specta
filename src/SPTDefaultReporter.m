@@ -34,7 +34,7 @@
 - (BOOL)reportFailuresImmediately
 {
   NSString * reportFailuresImmediately =
-    [[[NSProcessInfo processInfo] environment] objectForKey:@"SPECTA_REPORT_FAILURES_IMMEDIATELY"];
+    [[NSProcessInfo processInfo] environment][@"SPECTA_REPORT_FAILURES_IMMEDIATELY"];
   if (reportFailuresImmediately != nil)
   {
     return [reportFailuresImmediately boolValue];
@@ -135,12 +135,11 @@
       [testCaseClassNames addObject:testCaseClassName];
     }
     
-    NSMutableArray * testRuns = [testRunsByTestClass objectForKey:testCaseClassName];
+    NSMutableArray * testRuns = testRunsByTestClass[testCaseClassName];
     if (testRuns == nil)
     {
       testRuns = [NSMutableArray array];
-      [testRunsByTestClass setObject:testRuns
-                              forKey:testCaseClassName];
+      testRunsByTestClass[testCaseClassName] = testRuns;
     }
     
     [testRuns addObject:testRun];
@@ -150,7 +149,7 @@
   for (NSString * testCaseClassName in testCaseClassNames)
   {
     Class testCaseClass = NSClassFromString(testCaseClassName);
-    NSArray * testCaseRuns = [testRunsByTestClass objectForKey:testCaseClassName];
+    NSArray * testCaseRuns = testRunsByTestClass[testCaseClassName];
     
     [self printSummaryForTestCaseClass:testCaseClass
                           testCaseRuns:testCaseRuns];

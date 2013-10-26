@@ -20,20 +20,20 @@ sharedExamplesFor(@"shared1", ^(NSDictionary *data) {
 
 sharedExamples(@"shared2", ^(NSDictionary *data) {
   it(@"inserts data.baz to items", ^{
-    [items addObject:[data objectForKey:@"baz"]];
+    [items addObject:data[@"baz"]];
   });
 });
 
 describe(@"group", ^{
   itShouldBehaveLike(@"shared1",
-                     [NSDictionary dictionaryWithObjectsAndKeys:@"Foo", @"foo",
-                                                                @"Bar", @"bar", nil]);
+                     @{@"foo" : @"Foo",
+                       @"bar" : @"Bar"});
 });
 
-itBehavesLike(@"shared2", [NSDictionary dictionaryWithObject:@"hello" forKey:@"baz"]);
+itBehavesLike(@"shared2", @{@"baz": @"hello"});
 
 context(@"group2", ^{
-  itBehavesLike(@"shared2", [NSDictionary dictionaryWithObject:@"world" forKey:@"baz"]);
+  itBehavesLike(@"shared2", @{@"baz": @"world"});
 });
 
 SpecEnd
@@ -47,8 +47,7 @@ SpecEnd
   expect([result testCaseCount]).toEqual(4);
   expect([result failureCount]).toEqual(0);
   expect([result hasSucceeded]).toEqual(YES);
-  expect(items).toEqual(([NSArray arrayWithObjects:@"hello", @"world", nil]));
-  [items release];
+  expect(items).toEqual((@[ @"hello", @"world" ]));
   items = nil;
 }
 
