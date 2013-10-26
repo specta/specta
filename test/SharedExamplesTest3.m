@@ -59,7 +59,7 @@ SpecEnd
 - (void)testSharedExamples {
   items = [[NSMutableArray alloc] init];
   RunSpec(_SharedExamplesTest3Spec);
-  expect(items).toEqual(([NSArray arrayWithObjects:@"foo", @"baz", @"qux", @"faz", @"foo", @"baz", nil]));
+  expect(items).toEqual((@[ @"foo", @"baz", @"qux", @"faz", @"foo", @"baz" ]));
   items = nil;
 }
 
