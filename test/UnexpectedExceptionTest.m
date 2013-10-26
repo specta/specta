@@ -56,7 +56,8 @@ SpecEnd
     expect(reason).toContain(@"UnexpectedExceptionTest");
   }
   expect([exception filename]).toContain(@"UnexpectedExceptionTest.m");
-  
+  shouldRaiseException = NO;
+
   expect(invokedAfterEach).toBeTruthy();
   expect(invokedAfterAll).toBeTruthy();
   
