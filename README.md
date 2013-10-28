@@ -149,19 +149,7 @@ Check out Facebook's [xctool](https://github.com/facebook/xctool).
 * Please prefix instance variable names with a single underscore (`_`).
 * Please prefix custom classes and functions defined in the global scope with `SPT`.
 
-### CONTRIBUTORS
-
-* Christian Niles [(nerdyc)](https://github.com/nerdyc)
-* Dan Palmer [(danpalmer)](https://github.com/danpalmer)
-* Justin Spahr-Summers [(jspahrsummers)](https://github.com/jspahrsummers)
-* Josh Abernathy [(joshaber)](https://github.com/joshaber)
-* Meiwin Fu [(meiwin)](https://github.com/meiwin)
-* Robert Gilliam [(rhgills)](https://github.com/rhgills)
-* Shawn Morel [(strangemonad)](https://github.com/strangemonad)
-* Tom Brow [(brow)](https://github.com/brow)
-* Tony Arnold [(tonyarnold)](https://github.com/tonyarnold)
-
 ## LICENSE
 
-Copyright (c) 2012 Peter Jihoon Kim. This software is licensed under the [MIT License](http://github.com/petejkim/specta/raw/master/LICENSE).
+Copyright (c) 2012-2013 [Specta Team](https://github.com/specta?tab=members). This software is licensed under the [MIT License](http://github.com/petejkim/specta/raw/master/LICENSE).
 
