@@ -8,7 +8,7 @@ sharedExamplesFor(@"shared1", ^(NSDictionary *data) {});
 
 describe(@"group", ^{
   it(@"should fail", ^{
-    if(shouldInvokeItShouldBehaveLike) {
+    if (shouldInvokeItShouldBehaveLike) {
       itShouldBehaveLike(@"shared1", nil);
     }
   });
@@ -16,15 +16,16 @@ describe(@"group", ^{
 
 SpecEnd
 
-@interface SharedExamplesTest5 : SenTestCase; @end
+@interface SharedExamplesTest5 : XCTestCase; @end
 @implementation SharedExamplesTest5
 
 - (void)testSharedExamplesFailingIfCalledInsideAnItBlock {
   shouldInvokeItShouldBehaveLike = YES;
-  SenTestSuiteRun *result = RunSpec(_SharedExamplesTest5Spec);
-  expect([result testCaseCount]).toEqual(1);
-  expect([result failureCount]).toEqual(1);
-  expect([result hasSucceeded]).toEqual(NO);
+  XCTestSuiteRun *result = RunSpec(_SharedExamplesTest5Spec);
+  SPTAssertEqual([result testCaseCount], 1);
+  SPTAssertEqual([result unexpectedExceptionCount], 1);
+  SPTAssertEqual([result failureCount], 0);
+  SPTAssertFalse([result hasSucceeded]);
   shouldInvokeItShouldBehaveLike = NO;
 }
 

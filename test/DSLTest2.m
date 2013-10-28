@@ -26,27 +26,27 @@ describe(@"group", ^{
 
 SpecEnd
 
-@interface DSLTest2 : SenTestCase; @end
+@interface DSLTest2 : XCTestCase; @end
 @implementation DSLTest2
 
 - (void)testBeforeAndAfterHooks {
-  SPTExampleGroup *rootGroup = [_DSLTest2Spec SPT_spec].rootGroup;
+  SPTExampleGroup *rootGroup = [_DSLTest2Spec spt_spec].rootGroup;
   SPTExampleGroup *group = rootGroup.children[0];
 
-  expect([group.beforeAllArray count]).toEqual(2);
-  expect([group.beforeEachArray count]).toEqual(2);
-  expect([group.afterEachArray count]).toEqual(2);
-  expect([group.afterAllArray count]).toEqual(2);
+  SPTAssertEqual([group.beforeAllArray count], 2);
+  SPTAssertEqual([group.beforeEachArray count], 2);
+  SPTAssertEqual([group.afterEachArray count], 2);
+  SPTAssertEqual([group.afterAllArray count], 2);
 
-  expect(group.beforeAllArray[0]).toEqual(block1);
-  expect(group.beforeEachArray[0]).toEqual(block2);
-  expect(group.afterEachArray[0]).toEqual(block3);
-  expect(group.afterAllArray[0]).toEqual(block4);
+  SPTAssertEqualObjects(group.beforeAllArray[0], block1);
+  SPTAssertEqualObjects(group.beforeEachArray[0], block2);
+  SPTAssertEqualObjects(group.afterEachArray[0], block3);
+  SPTAssertEqualObjects(group.afterAllArray[0], block4);
 
-  expect(group.beforeAllArray[1]).toEqual(block5);
-  expect(group.beforeEachArray[1]).toEqual(block6);
-  expect(group.afterEachArray[1]).toEqual(block7);
-  expect(group.afterAllArray[1]).toEqual(block8);
+  SPTAssertEqualObjects(group.beforeAllArray[1], block5);
+  SPTAssertEqualObjects(group.beforeEachArray[1], block6);
+  SPTAssertEqualObjects(group.afterEachArray[1], block7);
+  SPTAssertEqualObjects(group.afterAllArray[1], block8);
 }
 
 @end

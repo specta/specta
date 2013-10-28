@@ -4,22 +4,17 @@
 SpecBegin(_SpectaUtilityTest)
 SpecEnd
 
-@interface SpectaUtilityTest : SenTestCase
-
+@interface SpectaUtilityTest : XCTestCase
 @end
 
 @implementation SpectaUtilityTest
 
-- (void)test_SPT_IsSpecClass_returns_yes_when_provided_a_spec_class
-{
-  STAssertTrue(SPT_IsSpecClass([_SpectaUtilityTestSpec class]),
-               @"SPT_IsSpecClass returns YES when provided a spec class");
+- (void)test_SPTIsSpecClass_returns_yes_when_provided_a_spec_class {
+  SPTAssertTrue(SPTIsSpecClass([_SpectaUtilityTestSpec class]));
 }
 
-- (void)test_SPT_IsSpecClass_returns_no_when_provided_a_sentest_class
-{
-  STAssertFalse(SPT_IsSpecClass([SpectaUtilityTest class]),
-                @"SPT_IsSpecClass returns NO when provided a SenTest test class");
+- (void)test_SPTIsSpecClass_returns_no_when_provided_a_XCTest_class {
+  SPTAssertFalse(SPTIsSpecClass([SpectaUtilityTest class]));
 }
 
 @end

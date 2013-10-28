@@ -10,21 +10,21 @@ SpecBegin(_AsyncSpecTest)
 describe(@"group", ^{
   it(@"example 1", ^AsyncBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
-      expect(foo).toEqual(@"foo");
+      SPTAssertEqualObjects(foo, @"foo");
       done();
     });
   });
 
   it(@"example 2", ^AsyncBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
-      expect(bar).toEqual(@"bar");
+      SPTAssertEqualObjects(bar, @"bar");
       done();
     });
   });
 
   it(@"example 3", ^AsyncBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
-      expect(NO).toBeFalsy();
+      SPTAssertFalse(NO);
       done();
     });
   });
@@ -32,15 +32,16 @@ describe(@"group", ^{
 
 SpecEnd
 
-@interface AsyncSpecTest : SenTestCase; @end
+@interface AsyncSpecTest : XCTestCase; @end
 @implementation AsyncSpecTest
 
 - (void)testAsyncSpec {
   foo = @"not foo";
   bar = @"not bar";
-  SenTestRun *result = RunSpec(_AsyncSpecTestSpec);
-  expect([result failureCount]).toEqual(2);
-  expect([result hasSucceeded]).toEqual(NO);
+  XCTestRun *result = RunSpec(_AsyncSpecTestSpec);
+  SPTAssertEqual([result unexpectedExceptionCount], 0);
+  SPTAssertEqual([result failureCount], 2);
+  SPTAssertFalse([result hasSucceeded]);
   foo = @"foo";
   bar = @"bar";
 }

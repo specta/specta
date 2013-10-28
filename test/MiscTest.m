@@ -1,8 +1,8 @@
 #import "TestHelper.h"
 
-@interface NSObject (MiscTest)
+@interface XCTestCase (MiscTest)
 
-+ (NSArray *)senAllSubclasses;
++ (NSArray *)xct_allSubclasses;
 
 @end
 
@@ -13,16 +13,16 @@ describe(@"group", ^{
 
 SpecEnd
 
-@interface MiscTest : SenTestCase; @end
+@interface MiscTest : XCTestCase; @end
 @implementation MiscTest
 
-- (void)test_MiscTestSpecInSenTestCaseSubClassList {
-  expect([SenTestCase senAllSubclasses]).toContain([_MiscTestSpec class]);
+- (void)test_MiscTestSpecInXCTestCaseSubClassList {
+  SPTAssertTrue([[XCTestCase xct_allSubclasses] indexOfObject:[_MiscTestSpec class]] != NSNotFound);
 }
 
-- (void)testSPTSenTestCaseNotInSenTestCaseSubClassList {
-  // trick SenTestCase into thinking SPTSenTestCase is not a subclass of SenTestCase
-  expect([SenTestCase senAllSubclasses]).Not.toContain([SPTSenTestCase class]);
+- (void)testSPTXCTestCaseNotInXCTestCaseSubClassList {
+  // trick XCTestCase into thinking SPTXCTestCase is not a subclass of XCTestCase
+  SPTAssertTrue([[XCTestCase xct_allSubclasses] indexOfObject:[SPTXCTestCase class]] == NSNotFound);
 }
 
 @end

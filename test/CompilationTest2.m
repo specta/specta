@@ -29,7 +29,7 @@ describe(@"group", ^{
 
 SpecEnd
 
-@interface CompilationTest2 : SenTestCase; @end
+@interface CompilationTest2 : XCTestCase; @end
 @implementation CompilationTest2
 
 - (void)testMultipleExamples {
@@ -37,10 +37,10 @@ SpecEnd
 
   RunSpec(_CompilationTest2Spec);
 
-  expect(example1Ran).toEqual(1);
-  expect(example2Ran).toEqual(1);
-  expect(example3Ran).toEqual(1);
-  expect(example4Ran).toEqual(1);
+  SPTAssertEqual(example1Ran, 1);
+  SPTAssertEqual(example2Ran, 1);
+  SPTAssertEqual(example3Ran, 1);
+  SPTAssertEqual(example4Ran, 1);
 }
 
 @end

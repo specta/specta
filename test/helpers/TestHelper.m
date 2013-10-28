@@ -1,8 +1,10 @@
 #import "TestHelper.h"
+#import "XCTestLog+SpectaTest.h"
 
-SenTestSuiteRun *RunSpecClass(Class testClass) {
-  [SenTestObserver suspendObservation];
-  SenTestSuiteRun *result = (id)[(SenTestSuite *)[SenTestSuite testSuiteForTestCaseClass:testClass] run];
-  [SenTestObserver resumeObservation];
+XCTestSuiteRun *RunSpecClass(Class testClass) {
+  XCTestLog *testLog = [XCTestLog spt_sharedTestLog];
+  [testLog stopObserving];
+  XCTestSuiteRun *result = (id)[(XCTestSuite *)[XCTestSuite testSuiteForTestCaseClass:testClass] run];
+  [testLog startObserving];
   return result;
 }

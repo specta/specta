@@ -12,7 +12,7 @@ describe(@"group", ^{
 
 SpecEnd
 
-@interface CompilationTest1 : SenTestCase; @end
+@interface CompilationTest1 : XCTestCase; @end
 @implementation CompilationTest1
 
 - (void)testSingleExample {
@@ -20,7 +20,7 @@ SpecEnd
 
   RunSpec(_CompilationTest1Spec);
 
-  expect(example1Ran).toEqual(1);
+  SPTAssertEqual(example1Ran, 1);
 }
 
 @end

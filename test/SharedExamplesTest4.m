@@ -22,7 +22,7 @@ SharedExamplesBegin(_SharedExamplesTest4)
 
 sharedExamples(@"shared example with data supplied from beforeEach", ^(NSDictionary *data) {
   it(@"inserts data.baz to items", ^{
-    expect([data objectForKey:@"foo"]).toEqual(@"bar");
+    SPTAssertEqualObjects(data[@"foo"], @"bar");
   });
 });
 
@@ -32,14 +32,15 @@ sharedExamples(@"shared example that does not capture the data dictionary", ^(NS
 
 SharedExamplesEnd
 
-@interface SharedExamplesTest4 : SenTestCase; @end
+@interface SharedExamplesTest4 : XCTestCase; @end
 @implementation SharedExamplesTest4
 
 - (void)testSharedExamples {
-  SenTestSuiteRun *result = RunSpec(_SharedExamplesTest4Spec);
-  expect([result testCaseCount]).toEqual(2);
-  expect([result failureCount]).toEqual(0);
-  expect([result hasSucceeded]).toEqual(YES);
+  XCTestSuiteRun *result = RunSpec(_SharedExamplesTest4Spec);
+  SPTAssertEqual([result testCaseCount], 2);
+  SPTAssertEqual([result unexpectedExceptionCount], 0);
+  SPTAssertEqual([result failureCount], 0);
+  SPTAssertTrue([result hasSucceeded]);
 }
 
 @end

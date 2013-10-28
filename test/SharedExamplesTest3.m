@@ -53,13 +53,13 @@ describe(@"overriding global shared examples with local shared examples", ^{
 
 SpecEnd
 
-@interface SharedExamplesTest3 : SenTestCase; @end
+@interface SharedExamplesTest3 : XCTestCase; @end
 @implementation SharedExamplesTest3
 
 - (void)testSharedExamples {
   items = [[NSMutableArray alloc] init];
   RunSpec(_SharedExamplesTest3Spec);
-  expect(items).toEqual((@[ @"foo", @"baz", @"qux", @"faz", @"foo", @"baz" ]));
+  SPTAssertEqualObjects(items, (@[@"foo", @"baz", @"qux", @"faz", @"foo", @"baz"]));
   items = nil;
 }
 

@@ -17,30 +17,30 @@ describe(@"group", ^{
 
 SpecEnd
 
-@interface DSLTest4 : SenTestCase; @end
+@interface DSLTest4 : XCTestCase; @end
 @implementation DSLTest4
 
 - (void)testExamples {
-  SPTExampleGroup *rootGroup = [_DSLTest4Spec SPT_spec].rootGroup;
+  SPTExampleGroup *rootGroup = [_DSLTest4Spec spt_spec].rootGroup;
   SPTExampleGroup *group = rootGroup.children[0];
 
-  expect([group.children count]).toEqual(3);
+  SPTAssertEqual([group.children count], 3);
 
   SPTExample *example1 = group.children[0];
   SPTExample *example2 = group.children[1];
   SPTExample *example3 = group.children[2];
 
-  expect(example1).toBeKindOf([SPTExample class]);
-  expect(example2).toBeKindOf([SPTExample class]);
-  expect(example3).toBeKindOf([SPTExample class]);
+  SPTAssertTrue([example1 isKindOfClass:[SPTExample class]]);
+  SPTAssertTrue([example2 isKindOfClass:[SPTExample class]]);
+  SPTAssertTrue([example3 isKindOfClass:[SPTExample class]]);
 
-  expect(example1.name).toEqual(@"example 1");
-  expect(example2.name).toEqual(@"example 2");
-  expect(example3.name).toEqual(@"example 3");
+  SPTAssertEqualObjects(example1.name, @"example 1");
+  SPTAssertEqualObjects(example2.name, @"example 2");
+  SPTAssertEqualObjects(example3.name, @"example 3");
 
-  expect(example1.block).toEqual(block1);
-  expect(example2.block).toEqual(block2);
-  expect(example3.block).toEqual(block3);
+  SPTAssertEqualObjects(example1.block, block1);
+  SPTAssertEqualObjects(example2.block, block2);
+  SPTAssertEqualObjects(example3.block, block3);
 }
 
 @end
