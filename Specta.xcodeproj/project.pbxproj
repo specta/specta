@@ -7,552 +7,548 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E927203C181F7EAE008A6C54 /* XCTestLog+SpectaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E927203B181F7EAE008A6C54 /* XCTestLog+SpectaTest.m */; };
-		E927203D181F7EAE008A6C54 /* XCTestLog+SpectaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E927203B181F7EAE008A6C54 /* XCTestLog+SpectaTest.m */; };
-		E927204C181FC49F008A6C54 /* AsyncSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C0C181E5CE800AEE74D /* AsyncSpecTest.m */; };
-		E927204D181FC49F008A6C54 /* AsyncSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C0C181E5CE800AEE74D /* AsyncSpecTest.m */; };
-		E927204E181FC4A2008A6C54 /* AsyncSpecTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C0D181E5CE800AEE74D /* AsyncSpecTest2.m */; };
-		E927204F181FC4A3008A6C54 /* AsyncSpecTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C0D181E5CE800AEE74D /* AsyncSpecTest2.m */; };
-		E9272050181FC4A5008A6C54 /* AsyncSpecTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C0E181E5CE800AEE74D /* AsyncSpecTest3.m */; };
-		E9272051181FC4A6008A6C54 /* AsyncSpecTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C0E181E5CE800AEE74D /* AsyncSpecTest3.m */; };
-		E9272052181FC4A8008A6C54 /* AsyncSpecTimeoutTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C0F181E5CE800AEE74D /* AsyncSpecTimeoutTest.m */; };
-		E9272053181FC4A9008A6C54 /* AsyncSpecTimeoutTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C0F181E5CE800AEE74D /* AsyncSpecTimeoutTest.m */; };
-		E9272054181FCE49008A6C54 /* XCTestCase+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B2C181E5CB900AEE74D /* XCTestCase+Specta.m */; };
-		E9272055181FCE49008A6C54 /* XCTestCase+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B2C181E5CB900AEE74D /* XCTestCase+Specta.m */; };
-		E9272058181FCED7008A6C54 /* SpectaUtilityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C30181E5CE800AEE74D /* SpectaUtilityTest.m */; };
-		E9272059181FCED7008A6C54 /* SpectaUtilityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C30181E5CE800AEE74D /* SpectaUtilityTest.m */; };
-		E9546AED181E5BFF00AEE74D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9546AEC181E5BFF00AEE74D /* XCTest.framework */; };
-		E9546AF1181E5BFF00AEE74D /* libSpecta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9546AD8181E5BFF00AEE74D /* libSpecta.a */; };
-		E9546B15181E5C0900AEE74D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9546AEC181E5BFF00AEE74D /* XCTest.framework */; };
-		E9546B1B181E5C0900AEE74D /* libSpecta-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9546B06181E5C0800AEE74D /* libSpecta-iOS.a */; };
-		E9546B53181E5CB900AEE74D /* Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B33181E5CB900AEE74D /* Specta.m */; };
-		E9546B54181E5CB900AEE74D /* Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B33181E5CB900AEE74D /* Specta.m */; };
-		E9546B58181E5CB900AEE74D /* SpectaUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B37181E5CB900AEE74D /* SpectaUtility.m */; };
-		E9546B59181E5CB900AEE74D /* SpectaUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B37181E5CB900AEE74D /* SpectaUtility.m */; };
-		E9546B5E181E5CB900AEE74D /* SPTExample.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B3B181E5CB900AEE74D /* SPTExample.m */; };
-		E9546B5F181E5CB900AEE74D /* SPTExample.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B3B181E5CB900AEE74D /* SPTExample.m */; };
-		E9546B61181E5CB900AEE74D /* SPTExampleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B3D181E5CB900AEE74D /* SPTExampleGroup.m */; };
-		E9546B62181E5CB900AEE74D /* SPTExampleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B3D181E5CB900AEE74D /* SPTExampleGroup.m */; };
-		E9546B67181E5CB900AEE74D /* SPTXCTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B41181E5CB900AEE74D /* SPTXCTestCase.m */; };
-		E9546B68181E5CB900AEE74D /* SPTXCTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B41181E5CB900AEE74D /* SPTXCTestCase.m */; };
-		E9546B6A181E5CB900AEE74D /* SPTXCTestInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B43181E5CB900AEE74D /* SPTXCTestInvocation.m */; };
-		E9546B6B181E5CB900AEE74D /* SPTXCTestInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B43181E5CB900AEE74D /* SPTXCTestInvocation.m */; };
-		E9546B6D181E5CB900AEE74D /* SPTSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B45181E5CB900AEE74D /* SPTSharedExampleGroups.m */; };
-		E9546B6E181E5CB900AEE74D /* SPTSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B45181E5CB900AEE74D /* SPTSharedExampleGroups.m */; };
-		E9546B70181E5CB900AEE74D /* SPTSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B47181E5CB900AEE74D /* SPTSpec.m */; };
-		E9546B71181E5CB900AEE74D /* SPTSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546B47181E5CB900AEE74D /* SPTSpec.m */; };
-		E9546C5A181E5CE800AEE74D /* CedarDSLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C10181E5CE800AEE74D /* CedarDSLTest.m */; };
-		E9546C5B181E5CE800AEE74D /* CedarDSLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C10181E5CE800AEE74D /* CedarDSLTest.m */; };
-		E9546C5C181E5CE800AEE74D /* CompilationTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C11181E5CE800AEE74D /* CompilationTest1.m */; };
-		E9546C5D181E5CE800AEE74D /* CompilationTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C11181E5CE800AEE74D /* CompilationTest1.m */; };
-		E9546C5E181E5CE800AEE74D /* CompilationTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C12181E5CE800AEE74D /* CompilationTest2.m */; };
-		E9546C5F181E5CE800AEE74D /* CompilationTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C12181E5CE800AEE74D /* CompilationTest2.m */; };
-		E9546C60181E5CE800AEE74D /* CompilationTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C13181E5CE800AEE74D /* CompilationTest3.m */; };
-		E9546C61181E5CE800AEE74D /* CompilationTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C13181E5CE800AEE74D /* CompilationTest3.m */; };
-		E9546C62181E5CE800AEE74D /* CompilationTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C14181E5CE800AEE74D /* CompilationTest4.m */; };
-		E9546C63181E5CE800AEE74D /* CompilationTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C14181E5CE800AEE74D /* CompilationTest4.m */; };
-		E9546C64181E5CE800AEE74D /* CompilationTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C15181E5CE800AEE74D /* CompilationTest5.m */; };
-		E9546C65181E5CE800AEE74D /* CompilationTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C15181E5CE800AEE74D /* CompilationTest5.m */; };
-		E9546C66181E5CE800AEE74D /* CompilationTest6.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C16181E5CE800AEE74D /* CompilationTest6.m */; };
-		E9546C67181E5CE800AEE74D /* CompilationTest6.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C16181E5CE800AEE74D /* CompilationTest6.m */; };
-		E9546C68181E5CE800AEE74D /* CompilationTest7.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C17181E5CE800AEE74D /* CompilationTest7.m */; };
-		E9546C69181E5CE800AEE74D /* CompilationTest7.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C17181E5CE800AEE74D /* CompilationTest7.m */; };
-		E9546C6A181E5CE800AEE74D /* CompilationTest8.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C18181E5CE800AEE74D /* CompilationTest8.m */; };
-		E9546C6B181E5CE800AEE74D /* CompilationTest8.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C18181E5CE800AEE74D /* CompilationTest8.m */; };
-		E9546C6E181E5CE800AEE74D /* DSLTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C1A181E5CE800AEE74D /* DSLTest1.m */; };
-		E9546C6F181E5CE800AEE74D /* DSLTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C1A181E5CE800AEE74D /* DSLTest1.m */; };
-		E9546C70181E5CE800AEE74D /* DSLTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C1B181E5CE800AEE74D /* DSLTest2.m */; };
-		E9546C71181E5CE800AEE74D /* DSLTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C1B181E5CE800AEE74D /* DSLTest2.m */; };
-		E9546C72181E5CE800AEE74D /* DSLTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C1C181E5CE800AEE74D /* DSLTest3.m */; };
-		E9546C73181E5CE800AEE74D /* DSLTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C1C181E5CE800AEE74D /* DSLTest3.m */; };
-		E9546C74181E5CE800AEE74D /* DSLTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C1D181E5CE800AEE74D /* DSLTest4.m */; };
-		E9546C75181E5CE800AEE74D /* DSLTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C1D181E5CE800AEE74D /* DSLTest4.m */; };
-		E9546C76181E5CE800AEE74D /* DSLTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C1E181E5CE800AEE74D /* DSLTest5.m */; };
-		E9546C77181E5CE800AEE74D /* DSLTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C1E181E5CE800AEE74D /* DSLTest5.m */; };
-		E9546C78181E5CE800AEE74D /* FailingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C1F181E5CE800AEE74D /* FailingSpecTest.m */; };
-		E9546C79181E5CE800AEE74D /* FailingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C1F181E5CE800AEE74D /* FailingSpecTest.m */; };
-		E9546C7A181E5CE800AEE74D /* FocusedSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C20181E5CE800AEE74D /* FocusedSpecTest.m */; };
-		E9546C7B181E5CE800AEE74D /* FocusedSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C20181E5CE800AEE74D /* FocusedSpecTest.m */; };
-		E9546C7C181E5CE800AEE74D /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C23181E5CE800AEE74D /* TestHelper.m */; };
-		E9546C7D181E5CE800AEE74D /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C23181E5CE800AEE74D /* TestHelper.m */; };
-		E9546C7E181E5CE800AEE74D /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C24181E5CE800AEE74D /* MiscTest.m */; };
-		E9546C7F181E5CE800AEE74D /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C24181E5CE800AEE74D /* MiscTest.m */; };
-		E9546C80181E5CE800AEE74D /* PassingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C25181E5CE800AEE74D /* PassingSpecTest.m */; };
-		E9546C81181E5CE800AEE74D /* PassingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C25181E5CE800AEE74D /* PassingSpecTest.m */; };
-		E9546C82181E5CE800AEE74D /* PendingSpecTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C26181E5CE800AEE74D /* PendingSpecTest1.m */; };
-		E9546C83181E5CE800AEE74D /* PendingSpecTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C26181E5CE800AEE74D /* PendingSpecTest1.m */; };
-		E9546C84181E5CE800AEE74D /* PendingSpecTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C27181E5CE800AEE74D /* PendingSpecTest2.m */; };
-		E9546C85181E5CE800AEE74D /* PendingSpecTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C27181E5CE800AEE74D /* PendingSpecTest2.m */; };
-		E9546C86181E5CE800AEE74D /* ReRunTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C28181E5CE800AEE74D /* ReRunTest.m */; };
-		E9546C87181E5CE800AEE74D /* ReRunTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C28181E5CE800AEE74D /* ReRunTest.m */; };
-		E9546C8A181E5CE800AEE74D /* SequenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C2A181E5CE800AEE74D /* SequenceTest.m */; };
-		E9546C8B181E5CE800AEE74D /* SequenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C2A181E5CE800AEE74D /* SequenceTest.m */; };
-		E9546C8C181E5CE800AEE74D /* SharedExamplesTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C2B181E5CE800AEE74D /* SharedExamplesTest1.m */; };
-		E9546C8D181E5CE800AEE74D /* SharedExamplesTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C2B181E5CE800AEE74D /* SharedExamplesTest1.m */; };
-		E9546C8E181E5CE800AEE74D /* SharedExamplesTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C2C181E5CE800AEE74D /* SharedExamplesTest2.m */; };
-		E9546C8F181E5CE800AEE74D /* SharedExamplesTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C2C181E5CE800AEE74D /* SharedExamplesTest2.m */; };
-		E9546C90181E5CE800AEE74D /* SharedExamplesTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C2D181E5CE800AEE74D /* SharedExamplesTest3.m */; };
-		E9546C91181E5CE800AEE74D /* SharedExamplesTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C2D181E5CE800AEE74D /* SharedExamplesTest3.m */; };
-		E9546C92181E5CE800AEE74D /* SharedExamplesTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C2E181E5CE800AEE74D /* SharedExamplesTest4.m */; };
-		E9546C93181E5CE800AEE74D /* SharedExamplesTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C2E181E5CE800AEE74D /* SharedExamplesTest4.m */; };
-		E9546C94181E5CE800AEE74D /* SharedExamplesTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C2F181E5CE800AEE74D /* SharedExamplesTest5.m */; };
-		E9546C95181E5CE800AEE74D /* SharedExamplesTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C2F181E5CE800AEE74D /* SharedExamplesTest5.m */; };
-		E9546C9A181E5CE800AEE74D /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C33181E5CE800AEE74D /* UnexpectedExceptionTest.m */; };
-		E9546C9B181E5CE800AEE74D /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E9546C33181E5CE800AEE74D /* UnexpectedExceptionTest.m */; };
-		E9546CA8181E5DE400AEE74D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9546CA7181E5DE400AEE74D /* Foundation.framework */; };
-		E9546CDC181E5E1B00AEE74D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9546CA7181E5DE400AEE74D /* Foundation.framework */; };
-		E9546CDE181E5E2400AEE74D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9546CDD181E5E2300AEE74D /* Foundation.framework */; };
-		E9546CE0181E5E4A00AEE74D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9546CDD181E5E2300AEE74D /* Foundation.framework */; };
-		E9546CE2181E5ECA00AEE74D /* XCTestCase+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B2B181E5CB900AEE74D /* XCTestCase+Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CE5181E5ECA00AEE74D /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B32181E5CB900AEE74D /* Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CE6181E5ECA00AEE74D /* SpectaSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B34181E5CB900AEE74D /* SpectaSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CE7181E5ECA00AEE74D /* SpectaTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B35181E5CB900AEE74D /* SpectaTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CE8181E5ECA00AEE74D /* SpectaUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B36181E5CB900AEE74D /* SpectaUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CEA181E5ECA00AEE74D /* SPTExample.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B3A181E5CB900AEE74D /* SPTExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CEB181E5ECA00AEE74D /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B3C181E5CB900AEE74D /* SPTExampleGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CED181E5ECA00AEE74D /* SPTXCTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B40181E5CB900AEE74D /* SPTXCTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CEE181E5ECA00AEE74D /* SPTXCTestInvocation.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B42181E5CB900AEE74D /* SPTXCTestInvocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CEF181E5ECA00AEE74D /* SPTSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B44181E5CB900AEE74D /* SPTSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CF0181E5ECA00AEE74D /* SPTSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B46181E5CB900AEE74D /* SPTSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CF1181E5EDD00AEE74D /* XCTestCase+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B2B181E5CB900AEE74D /* XCTestCase+Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CF4181E5EDD00AEE74D /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B32181E5CB900AEE74D /* Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CF5181E5EDD00AEE74D /* SpectaSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B34181E5CB900AEE74D /* SpectaSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CF6181E5EDD00AEE74D /* SpectaTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B35181E5CB900AEE74D /* SpectaTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CF7181E5EDD00AEE74D /* SpectaUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B36181E5CB900AEE74D /* SpectaUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CF9181E5EDD00AEE74D /* SPTExample.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B3A181E5CB900AEE74D /* SPTExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CFA181E5EDD00AEE74D /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B3C181E5CB900AEE74D /* SPTExampleGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CFC181E5EDD00AEE74D /* SPTXCTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B40181E5CB900AEE74D /* SPTXCTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CFD181E5EDD00AEE74D /* SPTXCTestInvocation.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B42181E5CB900AEE74D /* SPTXCTestInvocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CFE181E5EDD00AEE74D /* SPTSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B44181E5CB900AEE74D /* SPTSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9546CFF181E5EDD00AEE74D /* SPTSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = E9546B46181E5CB900AEE74D /* SPTSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9B87788181F6EF700502C0B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9546AEC181E5BFF00AEE74D /* XCTest.framework */; };
-		E9B87789181F6EFE00502C0B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9546AEC181E5BFF00AEE74D /* XCTest.framework */; };
+		E93B45A318205B91009F43A2 /* Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5218205B6600844A05 /* Specta.m */; };
+		E93B45A418205B91009F43A2 /* SpectaUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5618205B6600844A05 /* SpectaUtility.m */; };
+		E93B45A518205B91009F43A2 /* SPTExample.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5818205B6600844A05 /* SPTExample.m */; };
+		E93B45A618205B91009F43A2 /* SPTExampleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5A18205B6600844A05 /* SPTExampleGroup.m */; };
+		E93B45A718205B91009F43A2 /* SPTSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5C18205B6600844A05 /* SPTSharedExampleGroups.m */; };
+		E93B45A818205B91009F43A2 /* SPTSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5E18205B6600844A05 /* SPTSpec.m */; };
+		E93B45A918205B91009F43A2 /* SPTXCTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C6018205B6600844A05 /* SPTXCTestCase.m */; };
+		E93B45AA18205B91009F43A2 /* SPTXCTestInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C6218205B6600844A05 /* SPTXCTestInvocation.m */; };
+		E93B45AB18205B91009F43A2 /* XCTestCase+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C6418205B6600844A05 /* XCTestCase+Specta.m */; };
+		E93B45AC18205B92009F43A2 /* Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5218205B6600844A05 /* Specta.m */; };
+		E93B45AD18205B92009F43A2 /* SpectaUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5618205B6600844A05 /* SpectaUtility.m */; };
+		E93B45AE18205B92009F43A2 /* SPTExample.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5818205B6600844A05 /* SPTExample.m */; };
+		E93B45AF18205B92009F43A2 /* SPTExampleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5A18205B6600844A05 /* SPTExampleGroup.m */; };
+		E93B45B018205B92009F43A2 /* SPTSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5C18205B6600844A05 /* SPTSharedExampleGroups.m */; };
+		E93B45B118205B92009F43A2 /* SPTSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5E18205B6600844A05 /* SPTSpec.m */; };
+		E93B45B218205B92009F43A2 /* SPTXCTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C6018205B6600844A05 /* SPTXCTestCase.m */; };
+		E93B45B318205B92009F43A2 /* SPTXCTestInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C6218205B6600844A05 /* SPTXCTestInvocation.m */; };
+		E93B45B418205B92009F43A2 /* XCTestCase+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C6418205B6600844A05 /* XCTestCase+Specta.m */; };
+		E93B45B618205BC0009F43A2 /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5118205B6600844A05 /* Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45B718205BC0009F43A2 /* SpectaSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5318205B6600844A05 /* SpectaSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45B818205BC0009F43A2 /* SpectaTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5418205B6600844A05 /* SpectaTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45B918205BC0009F43A2 /* SpectaUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5518205B6600844A05 /* SpectaUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45BA18205BC0009F43A2 /* SPTExample.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5718205B6600844A05 /* SPTExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45BB18205BC0009F43A2 /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5918205B6600844A05 /* SPTExampleGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45BC18205BC0009F43A2 /* SPTSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5B18205B6600844A05 /* SPTSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45BD18205BC0009F43A2 /* SPTSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5D18205B6600844A05 /* SPTSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45BE18205BC0009F43A2 /* SPTXCTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5F18205B6600844A05 /* SPTXCTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45BF18205BC1009F43A2 /* SPTXCTestInvocation.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C6118205B6600844A05 /* SPTXCTestInvocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45C018205BC1009F43A2 /* XCTestCase+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C6318205B6600844A05 /* XCTestCase+Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45C118205BC4009F43A2 /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5118205B6600844A05 /* Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45C218205BC4009F43A2 /* SpectaSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5318205B6600844A05 /* SpectaSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45C318205BC4009F43A2 /* SpectaTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5418205B6600844A05 /* SpectaTypes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45C418205BC4009F43A2 /* SpectaUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5518205B6600844A05 /* SpectaUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45C518205BC4009F43A2 /* SPTExample.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5718205B6600844A05 /* SPTExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45C618205BC4009F43A2 /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5918205B6600844A05 /* SPTExampleGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45C718205BC4009F43A2 /* SPTSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5B18205B6600844A05 /* SPTSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45C818205BC4009F43A2 /* SPTSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5D18205B6600844A05 /* SPTSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45C918205BC5009F43A2 /* SPTXCTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5F18205B6600844A05 /* SPTXCTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45CA18205BC5009F43A2 /* SPTXCTestInvocation.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C6118205B6600844A05 /* SPTXCTestInvocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45CB18205BC5009F43A2 /* XCTestCase+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C6318205B6600844A05 /* XCTestCase+Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45CC18205C07009F43A2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9901C0E18205A3500844A05 /* XCTest.framework */; };
+		E93B45CD18205C10009F43A2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9901C0E18205A3500844A05 /* XCTest.framework */; };
+		E93B45D118205C2B009F43A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E93B45D018205C2B009F43A2 /* Foundation.framework */; };
+		E93B45FB18205C99009F43A2 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E918205C77009F43A2 /* TestHelper.m */; };
+		E93B45FC18205C99009F43A2 /* XCTestLog+SpectaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45EB18205C77009F43A2 /* XCTestLog+SpectaTest.m */; };
+		E93B45FD18205C99009F43A2 /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E918205C77009F43A2 /* TestHelper.m */; };
+		E93B45FE18205C99009F43A2 /* XCTestLog+SpectaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45EB18205C77009F43A2 /* XCTestLog+SpectaTest.m */; };
+		E93B45FF18205C9E009F43A2 /* AsyncSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D318205C77009F43A2 /* AsyncSpecTest.m */; };
+		E93B460018205C9E009F43A2 /* AsyncSpecTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D418205C77009F43A2 /* AsyncSpecTest2.m */; };
+		E93B460118205C9E009F43A2 /* AsyncSpecTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D518205C77009F43A2 /* AsyncSpecTest3.m */; };
+		E93B460218205C9E009F43A2 /* AsyncSpecTimeoutTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D618205C77009F43A2 /* AsyncSpecTimeoutTest.m */; };
+		E93B460318205C9E009F43A2 /* CedarDSLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D718205C77009F43A2 /* CedarDSLTest.m */; };
+		E93B460418205C9E009F43A2 /* CompilationTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D818205C77009F43A2 /* CompilationTest1.m */; };
+		E93B460518205C9E009F43A2 /* CompilationTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D918205C77009F43A2 /* CompilationTest2.m */; };
+		E93B460618205C9E009F43A2 /* CompilationTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45DA18205C77009F43A2 /* CompilationTest3.m */; };
+		E93B460718205C9E009F43A2 /* CompilationTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45DB18205C77009F43A2 /* CompilationTest4.m */; };
+		E93B460818205C9E009F43A2 /* CompilationTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45DC18205C77009F43A2 /* CompilationTest5.m */; };
+		E93B460918205C9E009F43A2 /* CompilationTest6.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45DD18205C77009F43A2 /* CompilationTest6.m */; };
+		E93B460A18205C9E009F43A2 /* CompilationTest7.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45DE18205C77009F43A2 /* CompilationTest7.m */; };
+		E93B460B18205C9E009F43A2 /* CompilationTest8.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45DF18205C77009F43A2 /* CompilationTest8.m */; };
+		E93B460C18205C9E009F43A2 /* DSLTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E018205C77009F43A2 /* DSLTest1.m */; };
+		E93B460D18205C9E009F43A2 /* DSLTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E118205C77009F43A2 /* DSLTest2.m */; };
+		E93B460E18205C9E009F43A2 /* DSLTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E218205C77009F43A2 /* DSLTest3.m */; };
+		E93B460F18205C9E009F43A2 /* DSLTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E318205C77009F43A2 /* DSLTest4.m */; };
+		E93B461018205C9E009F43A2 /* DSLTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E418205C77009F43A2 /* DSLTest5.m */; };
+		E93B461118205C9E009F43A2 /* FailingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E518205C77009F43A2 /* FailingSpecTest.m */; };
+		E93B461218205C9E009F43A2 /* FocusedSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E618205C77009F43A2 /* FocusedSpecTest.m */; };
+		E93B461318205C9E009F43A2 /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45EC18205C77009F43A2 /* MiscTest.m */; };
+		E93B461418205C9E009F43A2 /* PassingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45ED18205C77009F43A2 /* PassingSpecTest.m */; };
+		E93B461518205C9E009F43A2 /* PendingSpecTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45EE18205C77009F43A2 /* PendingSpecTest1.m */; };
+		E93B461618205C9E009F43A2 /* PendingSpecTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45EF18205C77009F43A2 /* PendingSpecTest2.m */; };
+		E93B461718205C9E009F43A2 /* ReRunTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F018205C77009F43A2 /* ReRunTest.m */; };
+		E93B461818205C9E009F43A2 /* SequenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F118205C77009F43A2 /* SequenceTest.m */; };
+		E93B461918205C9E009F43A2 /* SharedExamplesTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F218205C77009F43A2 /* SharedExamplesTest1.m */; };
+		E93B461A18205C9E009F43A2 /* SharedExamplesTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F318205C77009F43A2 /* SharedExamplesTest2.m */; };
+		E93B461B18205C9E009F43A2 /* SharedExamplesTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F418205C77009F43A2 /* SharedExamplesTest3.m */; };
+		E93B461C18205C9E009F43A2 /* SharedExamplesTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F518205C77009F43A2 /* SharedExamplesTest4.m */; };
+		E93B461D18205C9E009F43A2 /* SharedExamplesTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F618205C77009F43A2 /* SharedExamplesTest5.m */; };
+		E93B461E18205C9E009F43A2 /* SpectaUtilityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F718205C77009F43A2 /* SpectaUtilityTest.m */; };
+		E93B461F18205C9E009F43A2 /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45FA18205C77009F43A2 /* UnexpectedExceptionTest.m */; };
+		E93B462018205C9E009F43A2 /* AsyncSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D318205C77009F43A2 /* AsyncSpecTest.m */; };
+		E93B462118205C9E009F43A2 /* AsyncSpecTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D418205C77009F43A2 /* AsyncSpecTest2.m */; };
+		E93B462218205C9E009F43A2 /* AsyncSpecTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D518205C77009F43A2 /* AsyncSpecTest3.m */; };
+		E93B462318205C9E009F43A2 /* AsyncSpecTimeoutTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D618205C77009F43A2 /* AsyncSpecTimeoutTest.m */; };
+		E93B462418205C9E009F43A2 /* CedarDSLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D718205C77009F43A2 /* CedarDSLTest.m */; };
+		E93B462518205C9E009F43A2 /* CompilationTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D818205C77009F43A2 /* CompilationTest1.m */; };
+		E93B462618205C9E009F43A2 /* CompilationTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45D918205C77009F43A2 /* CompilationTest2.m */; };
+		E93B462718205C9E009F43A2 /* CompilationTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45DA18205C77009F43A2 /* CompilationTest3.m */; };
+		E93B462818205C9E009F43A2 /* CompilationTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45DB18205C77009F43A2 /* CompilationTest4.m */; };
+		E93B462918205C9E009F43A2 /* CompilationTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45DC18205C77009F43A2 /* CompilationTest5.m */; };
+		E93B462A18205C9E009F43A2 /* CompilationTest6.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45DD18205C77009F43A2 /* CompilationTest6.m */; };
+		E93B462B18205C9E009F43A2 /* CompilationTest7.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45DE18205C77009F43A2 /* CompilationTest7.m */; };
+		E93B462C18205C9E009F43A2 /* CompilationTest8.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45DF18205C77009F43A2 /* CompilationTest8.m */; };
+		E93B462D18205C9E009F43A2 /* DSLTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E018205C77009F43A2 /* DSLTest1.m */; };
+		E93B462E18205C9E009F43A2 /* DSLTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E118205C77009F43A2 /* DSLTest2.m */; };
+		E93B462F18205C9E009F43A2 /* DSLTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E218205C77009F43A2 /* DSLTest3.m */; };
+		E93B463018205C9E009F43A2 /* DSLTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E318205C77009F43A2 /* DSLTest4.m */; };
+		E93B463118205C9E009F43A2 /* DSLTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E418205C77009F43A2 /* DSLTest5.m */; };
+		E93B463218205C9E009F43A2 /* FailingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E518205C77009F43A2 /* FailingSpecTest.m */; };
+		E93B463318205C9E009F43A2 /* FocusedSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45E618205C77009F43A2 /* FocusedSpecTest.m */; };
+		E93B463418205C9E009F43A2 /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45EC18205C77009F43A2 /* MiscTest.m */; };
+		E93B463518205C9E009F43A2 /* PassingSpecTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45ED18205C77009F43A2 /* PassingSpecTest.m */; };
+		E93B463618205C9E009F43A2 /* PendingSpecTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45EE18205C77009F43A2 /* PendingSpecTest1.m */; };
+		E93B463718205C9E009F43A2 /* PendingSpecTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45EF18205C77009F43A2 /* PendingSpecTest2.m */; };
+		E93B463818205C9E009F43A2 /* ReRunTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F018205C77009F43A2 /* ReRunTest.m */; };
+		E93B463918205C9E009F43A2 /* SequenceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F118205C77009F43A2 /* SequenceTest.m */; };
+		E93B463A18205C9E009F43A2 /* SharedExamplesTest1.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F218205C77009F43A2 /* SharedExamplesTest1.m */; };
+		E93B463B18205C9E009F43A2 /* SharedExamplesTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F318205C77009F43A2 /* SharedExamplesTest2.m */; };
+		E93B463C18205C9E009F43A2 /* SharedExamplesTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F418205C77009F43A2 /* SharedExamplesTest3.m */; };
+		E93B463D18205C9E009F43A2 /* SharedExamplesTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F518205C77009F43A2 /* SharedExamplesTest4.m */; };
+		E93B463E18205C9E009F43A2 /* SharedExamplesTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F618205C77009F43A2 /* SharedExamplesTest5.m */; };
+		E93B463F18205C9E009F43A2 /* SpectaUtilityTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45F718205C77009F43A2 /* SpectaUtilityTest.m */; };
+		E93B464018205C9E009F43A2 /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E93B45FA18205C77009F43A2 /* UnexpectedExceptionTest.m */; };
+		E9901C0118205A3500844A05 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9901C0018205A3500844A05 /* Foundation.framework */; };
+		E9901C0F18205A3500844A05 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9901C0E18205A3500844A05 /* XCTest.framework */; };
+		E9901C1518205A3500844A05 /* libSpecta-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9901BFD18205A3500844A05 /* libSpecta-iOS.a */; };
+		E9901C3C18205AB100844A05 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9901C0E18205A3500844A05 /* XCTest.framework */; };
+		E9901C4018205AB100844A05 /* libSpecta-OSX.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9901C2A18205AB100844A05 /* libSpecta-OSX.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E9546AEF181E5BFF00AEE74D /* PBXContainerItemProxy */ = {
+		E9901C1318205A3500844A05 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E9546AD0181E5BFF00AEE74D /* Project object */;
+			containerPortal = E9901BF518205A3500844A05 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E9546AD7181E5BFF00AEE74D;
+			remoteGlobalIDString = E9901BFC18205A3500844A05;
 			remoteInfo = Specta;
 		};
-		E9546B19181E5C0900AEE74D /* PBXContainerItemProxy */ = {
+		E9901C3E18205AB100844A05 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E9546AD0181E5BFF00AEE74D /* Project object */;
+			containerPortal = E9901BF518205A3500844A05 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E9546B05181E5C0800AEE74D;
-			remoteInfo = "Specta-iOS";
+			remoteGlobalIDString = E9901C2918205AB100844A05;
+			remoteInfo = "Specta-OSX";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E927203A181F7EAE008A6C54 /* XCTestLog+SpectaTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestLog+SpectaTest.h"; sourceTree = "<group>"; };
-		E927203B181F7EAE008A6C54 /* XCTestLog+SpectaTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestLog+SpectaTest.m"; sourceTree = "<group>"; };
-		E9546AD8181E5BFF00AEE74D /* libSpecta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpecta.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9546AEB181E5BFF00AEE74D /* SpectaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpectaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9546AEC181E5BFF00AEE74D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		E9546B06181E5C0800AEE74D /* libSpecta-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSpecta-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9546B14181E5C0900AEE74D /* Specta-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Specta-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9546B2B181E5CB900AEE74D /* XCTestCase+Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+Specta.h"; sourceTree = "<group>"; };
-		E9546B2C181E5CB900AEE74D /* XCTestCase+Specta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+Specta.m"; sourceTree = "<group>"; };
-		E9546B31181E5CB900AEE74D /* Specta-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Specta-Prefix.pch"; sourceTree = "<group>"; };
-		E9546B32181E5CB900AEE74D /* Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Specta.h; sourceTree = "<group>"; };
-		E9546B33181E5CB900AEE74D /* Specta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Specta.m; sourceTree = "<group>"; };
-		E9546B34181E5CB900AEE74D /* SpectaSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SpectaSupport.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		E9546B35181E5CB900AEE74D /* SpectaTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpectaTypes.h; sourceTree = "<group>"; };
-		E9546B36181E5CB900AEE74D /* SpectaUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SpectaUtility.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		E9546B37181E5CB900AEE74D /* SpectaUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SpectaUtility.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		E9546B3A181E5CB900AEE74D /* SPTExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTExample.h; sourceTree = "<group>"; };
-		E9546B3B181E5CB900AEE74D /* SPTExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTExample.m; sourceTree = "<group>"; };
-		E9546B3C181E5CB900AEE74D /* SPTExampleGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTExampleGroup.h; sourceTree = "<group>"; };
-		E9546B3D181E5CB900AEE74D /* SPTExampleGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTExampleGroup.m; sourceTree = "<group>"; };
-		E9546B40181E5CB900AEE74D /* SPTXCTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTXCTestCase.h; sourceTree = "<group>"; };
-		E9546B41181E5CB900AEE74D /* SPTXCTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTXCTestCase.m; sourceTree = "<group>"; };
-		E9546B42181E5CB900AEE74D /* SPTXCTestInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTXCTestInvocation.h; sourceTree = "<group>"; };
-		E9546B43181E5CB900AEE74D /* SPTXCTestInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTXCTestInvocation.m; sourceTree = "<group>"; };
-		E9546B44181E5CB900AEE74D /* SPTSharedExampleGroups.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTSharedExampleGroups.h; sourceTree = "<group>"; };
-		E9546B45181E5CB900AEE74D /* SPTSharedExampleGroups.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTSharedExampleGroups.m; sourceTree = "<group>"; };
-		E9546B46181E5CB900AEE74D /* SPTSpec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTSpec.h; sourceTree = "<group>"; };
-		E9546B47181E5CB900AEE74D /* SPTSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTSpec.m; sourceTree = "<group>"; };
-		E9546C0C181E5CE800AEE74D /* AsyncSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AsyncSpecTest.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		E9546C0D181E5CE800AEE74D /* AsyncSpecTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AsyncSpecTest2.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		E9546C0E181E5CE800AEE74D /* AsyncSpecTest3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AsyncSpecTest3.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		E9546C0F181E5CE800AEE74D /* AsyncSpecTimeoutTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTimeoutTest.m; sourceTree = "<group>"; };
-		E9546C10181E5CE800AEE74D /* CedarDSLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CedarDSLTest.m; sourceTree = "<group>"; };
-		E9546C11181E5CE800AEE74D /* CompilationTest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompilationTest1.m; sourceTree = "<group>"; };
-		E9546C12181E5CE800AEE74D /* CompilationTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompilationTest2.m; sourceTree = "<group>"; };
-		E9546C13181E5CE800AEE74D /* CompilationTest3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompilationTest3.m; sourceTree = "<group>"; };
-		E9546C14181E5CE800AEE74D /* CompilationTest4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CompilationTest4.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		E9546C15181E5CE800AEE74D /* CompilationTest5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CompilationTest5.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		E9546C16181E5CE800AEE74D /* CompilationTest6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CompilationTest6.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		E9546C17181E5CE800AEE74D /* CompilationTest7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CompilationTest7.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		E9546C18181E5CE800AEE74D /* CompilationTest8.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompilationTest8.m; sourceTree = "<group>"; };
-		E9546C1A181E5CE800AEE74D /* DSLTest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLTest1.m; sourceTree = "<group>"; };
-		E9546C1B181E5CE800AEE74D /* DSLTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLTest2.m; sourceTree = "<group>"; };
-		E9546C1C181E5CE800AEE74D /* DSLTest3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLTest3.m; sourceTree = "<group>"; };
-		E9546C1D181E5CE800AEE74D /* DSLTest4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLTest4.m; sourceTree = "<group>"; };
-		E9546C1E181E5CE800AEE74D /* DSLTest5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSLTest5.m; sourceTree = "<group>"; };
-		E9546C1F181E5CE800AEE74D /* FailingSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FailingSpecTest.m; sourceTree = "<group>"; };
-		E9546C20181E5CE800AEE74D /* FocusedSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FocusedSpecTest.m; sourceTree = "<group>"; };
-		E9546C22181E5CE800AEE74D /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
-		E9546C23181E5CE800AEE74D /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
-		E9546C24181E5CE800AEE74D /* MiscTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiscTest.m; sourceTree = "<group>"; };
-		E9546C25181E5CE800AEE74D /* PassingSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassingSpecTest.m; sourceTree = "<group>"; };
-		E9546C26181E5CE800AEE74D /* PendingSpecTest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest1.m; sourceTree = "<group>"; };
-		E9546C27181E5CE800AEE74D /* PendingSpecTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest2.m; sourceTree = "<group>"; };
-		E9546C28181E5CE800AEE74D /* ReRunTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReRunTest.m; sourceTree = "<group>"; };
-		E9546C2A181E5CE800AEE74D /* SequenceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SequenceTest.m; sourceTree = "<group>"; };
-		E9546C2B181E5CE800AEE74D /* SharedExamplesTest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest1.m; sourceTree = "<group>"; };
-		E9546C2C181E5CE800AEE74D /* SharedExamplesTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest2.m; sourceTree = "<group>"; };
-		E9546C2D181E5CE800AEE74D /* SharedExamplesTest3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest3.m; sourceTree = "<group>"; };
-		E9546C2E181E5CE800AEE74D /* SharedExamplesTest4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest4.m; sourceTree = "<group>"; };
-		E9546C2F181E5CE800AEE74D /* SharedExamplesTest5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SharedExamplesTest5.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		E9546C30181E5CE800AEE74D /* SpectaUtilityTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpectaUtilityTest.m; sourceTree = "<group>"; };
-		E9546C32181E5CE800AEE74D /* Test-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
-		E9546C33181E5CE800AEE74D /* UnexpectedExceptionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnexpectedExceptionTest.m; sourceTree = "<group>"; };
-		E9546CA7181E5DE400AEE74D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		E9546CDD181E5E2300AEE74D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		E9B87783181E5FF400502C0B /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
-		E9B87784181E5FF400502C0B /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		E9B87785181E5FF400502C0B /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
-		E9B87786181E5FF400502C0B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		E9B87787181E5FF400502C0B /* Specta.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Specta.podspec; sourceTree = "<group>"; };
+		E93B45D018205C2B009F43A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E93B45D318205C77009F43A2 /* AsyncSpecTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTest.m; sourceTree = "<group>"; };
+		E93B45D418205C77009F43A2 /* AsyncSpecTest2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTest2.m; sourceTree = "<group>"; };
+		E93B45D518205C77009F43A2 /* AsyncSpecTest3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTest3.m; sourceTree = "<group>"; };
+		E93B45D618205C77009F43A2 /* AsyncSpecTimeoutTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTimeoutTest.m; sourceTree = "<group>"; };
+		E93B45D718205C77009F43A2 /* CedarDSLTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CedarDSLTest.m; sourceTree = "<group>"; };
+		E93B45D818205C77009F43A2 /* CompilationTest1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompilationTest1.m; sourceTree = "<group>"; };
+		E93B45D918205C77009F43A2 /* CompilationTest2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompilationTest2.m; sourceTree = "<group>"; };
+		E93B45DA18205C77009F43A2 /* CompilationTest3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompilationTest3.m; sourceTree = "<group>"; };
+		E93B45DB18205C77009F43A2 /* CompilationTest4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompilationTest4.m; sourceTree = "<group>"; };
+		E93B45DC18205C77009F43A2 /* CompilationTest5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompilationTest5.m; sourceTree = "<group>"; };
+		E93B45DD18205C77009F43A2 /* CompilationTest6.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompilationTest6.m; sourceTree = "<group>"; };
+		E93B45DE18205C77009F43A2 /* CompilationTest7.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompilationTest7.m; sourceTree = "<group>"; };
+		E93B45DF18205C77009F43A2 /* CompilationTest8.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CompilationTest8.m; sourceTree = "<group>"; };
+		E93B45E018205C77009F43A2 /* DSLTest1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSLTest1.m; sourceTree = "<group>"; };
+		E93B45E118205C77009F43A2 /* DSLTest2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSLTest2.m; sourceTree = "<group>"; };
+		E93B45E218205C77009F43A2 /* DSLTest3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSLTest3.m; sourceTree = "<group>"; };
+		E93B45E318205C77009F43A2 /* DSLTest4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSLTest4.m; sourceTree = "<group>"; };
+		E93B45E418205C77009F43A2 /* DSLTest5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSLTest5.m; sourceTree = "<group>"; };
+		E93B45E518205C77009F43A2 /* FailingSpecTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FailingSpecTest.m; sourceTree = "<group>"; };
+		E93B45E618205C77009F43A2 /* FocusedSpecTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FocusedSpecTest.m; sourceTree = "<group>"; };
+		E93B45E818205C77009F43A2 /* TestHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
+		E93B45E918205C77009F43A2 /* TestHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
+		E93B45EA18205C77009F43A2 /* XCTestLog+SpectaTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XCTestLog+SpectaTest.h"; sourceTree = "<group>"; };
+		E93B45EB18205C77009F43A2 /* XCTestLog+SpectaTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XCTestLog+SpectaTest.m"; sourceTree = "<group>"; };
+		E93B45EC18205C77009F43A2 /* MiscTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MiscTest.m; sourceTree = "<group>"; };
+		E93B45ED18205C77009F43A2 /* PassingSpecTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PassingSpecTest.m; sourceTree = "<group>"; };
+		E93B45EE18205C77009F43A2 /* PendingSpecTest1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest1.m; sourceTree = "<group>"; };
+		E93B45EF18205C77009F43A2 /* PendingSpecTest2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest2.m; sourceTree = "<group>"; };
+		E93B45F018205C77009F43A2 /* ReRunTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReRunTest.m; sourceTree = "<group>"; };
+		E93B45F118205C77009F43A2 /* SequenceTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SequenceTest.m; sourceTree = "<group>"; };
+		E93B45F218205C77009F43A2 /* SharedExamplesTest1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest1.m; sourceTree = "<group>"; };
+		E93B45F318205C77009F43A2 /* SharedExamplesTest2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest2.m; sourceTree = "<group>"; };
+		E93B45F418205C77009F43A2 /* SharedExamplesTest3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest3.m; sourceTree = "<group>"; };
+		E93B45F518205C77009F43A2 /* SharedExamplesTest4.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest4.m; sourceTree = "<group>"; };
+		E93B45F618205C77009F43A2 /* SharedExamplesTest5.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest5.m; sourceTree = "<group>"; };
+		E93B45F718205C77009F43A2 /* SpectaUtilityTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpectaUtilityTest.m; sourceTree = "<group>"; };
+		E93B45F918205C77009F43A2 /* SpectaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpectaTests-Info.plist"; sourceTree = "<group>"; };
+		E93B45FA18205C77009F43A2 /* UnexpectedExceptionTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnexpectedExceptionTest.m; sourceTree = "<group>"; };
+		E9901BFD18205A3500844A05 /* libSpecta-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSpecta-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9901C0018205A3500844A05 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E9901C0D18205A3500844A05 /* SpectaTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpectaTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9901C0E18205A3500844A05 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E9901C2A18205AB100844A05 /* libSpecta-OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSpecta-OSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9901C3B18205AB100844A05 /* Specta-OSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Specta-OSXTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9901C5018205B6600844A05 /* Specta-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Specta-Prefix.pch"; sourceTree = "<group>"; };
+		E9901C5118205B6600844A05 /* Specta.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Specta.h; sourceTree = "<group>"; };
+		E9901C5218205B6600844A05 /* Specta.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Specta.m; sourceTree = "<group>"; };
+		E9901C5318205B6600844A05 /* SpectaSupport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpectaSupport.h; sourceTree = "<group>"; };
+		E9901C5418205B6600844A05 /* SpectaTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpectaTypes.h; sourceTree = "<group>"; };
+		E9901C5518205B6600844A05 /* SpectaUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpectaUtility.h; sourceTree = "<group>"; };
+		E9901C5618205B6600844A05 /* SpectaUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpectaUtility.m; sourceTree = "<group>"; };
+		E9901C5718205B6600844A05 /* SPTExample.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTExample.h; sourceTree = "<group>"; };
+		E9901C5818205B6600844A05 /* SPTExample.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTExample.m; sourceTree = "<group>"; };
+		E9901C5918205B6600844A05 /* SPTExampleGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTExampleGroup.h; sourceTree = "<group>"; };
+		E9901C5A18205B6600844A05 /* SPTExampleGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTExampleGroup.m; sourceTree = "<group>"; };
+		E9901C5B18205B6600844A05 /* SPTSharedExampleGroups.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTSharedExampleGroups.h; sourceTree = "<group>"; };
+		E9901C5C18205B6600844A05 /* SPTSharedExampleGroups.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTSharedExampleGroups.m; sourceTree = "<group>"; };
+		E9901C5D18205B6600844A05 /* SPTSpec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTSpec.h; sourceTree = "<group>"; };
+		E9901C5E18205B6600844A05 /* SPTSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTSpec.m; sourceTree = "<group>"; };
+		E9901C5F18205B6600844A05 /* SPTXCTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTXCTestCase.h; sourceTree = "<group>"; };
+		E9901C6018205B6600844A05 /* SPTXCTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTXCTestCase.m; sourceTree = "<group>"; };
+		E9901C6118205B6600844A05 /* SPTXCTestInvocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTXCTestInvocation.h; sourceTree = "<group>"; };
+		E9901C6218205B6600844A05 /* SPTXCTestInvocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTXCTestInvocation.m; sourceTree = "<group>"; };
+		E9901C6318205B6600844A05 /* XCTestCase+Specta.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+Specta.h"; sourceTree = "<group>"; };
+		E9901C6418205B6600844A05 /* XCTestCase+Specta.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+Specta.m"; sourceTree = "<group>"; };
+		E99B375A18205D6F00213D26 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGELOG.md; sourceTree = "<group>"; };
+		E99B375B18205D6F00213D26 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		E99B375C18205D7000213D26 /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
+		E99B375D18205D7000213D26 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		E99B375E18205D7000213D26 /* Specta.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Specta.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E9546AD5181E5BFF00AEE74D /* Frameworks */ = {
+		E9901BFA18205A3500844A05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9546CDC181E5E1B00AEE74D /* Foundation.framework in Frameworks */,
-				E9B87789181F6EFE00502C0B /* XCTest.framework in Frameworks */,
+				E93B45CC18205C07009F43A2 /* XCTest.framework in Frameworks */,
+				E9901C0118205A3500844A05 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9546AE8181E5BFF00AEE74D /* Frameworks */ = {
+		E9901C0A18205A3500844A05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9546CA8181E5DE400AEE74D /* Foundation.framework in Frameworks */,
-				E9546AED181E5BFF00AEE74D /* XCTest.framework in Frameworks */,
-				E9546AF1181E5BFF00AEE74D /* libSpecta.a in Frameworks */,
+				E9901C0F18205A3500844A05 /* XCTest.framework in Frameworks */,
+				E9901C1518205A3500844A05 /* libSpecta-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9546B03181E5C0800AEE74D /* Frameworks */ = {
+		E9901C2718205AB100844A05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9546CDE181E5E2400AEE74D /* Foundation.framework in Frameworks */,
-				E9B87788181F6EF700502C0B /* XCTest.framework in Frameworks */,
+				E93B45CD18205C10009F43A2 /* XCTest.framework in Frameworks */,
+				E93B45D118205C2B009F43A2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9546B11181E5C0900AEE74D /* Frameworks */ = {
+		E9901C3818205AB100844A05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9546CE0181E5E4A00AEE74D /* Foundation.framework in Frameworks */,
-				E9546B15181E5C0900AEE74D /* XCTest.framework in Frameworks */,
-				E9546B1B181E5C0900AEE74D /* libSpecta-iOS.a in Frameworks */,
+				E9901C3C18205AB100844A05 /* XCTest.framework in Frameworks */,
+				E9901C4018205AB100844A05 /* libSpecta-OSX.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E9546ACF181E5BFF00AEE74D = {
+		E93B45CE18205C14009F43A2 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				E9546B2A181E5CB900AEE74D /* src */,
-				E9546C0B181E5CE800AEE74D /* test */,
-				E9546ADA181E5BFF00AEE74D /* Frameworks */,
-				E9546AD9181E5BFF00AEE74D /* Products */,
-				E9B87783181E5FF400502C0B /* CHANGELOG.md */,
-				E9B87784181E5FF400502C0B /* LICENSE */,
-				E9B87785181E5FF400502C0B /* Rakefile */,
-				E9B87786181E5FF400502C0B /* README.md */,
-				E9B87787181E5FF400502C0B /* Specta.podspec */,
-			);
-			sourceTree = "<group>";
-		};
-		E9546AD9181E5BFF00AEE74D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E9546AD8181E5BFF00AEE74D /* libSpecta.a */,
-				E9546AEB181E5BFF00AEE74D /* SpectaTests.xctest */,
-				E9546B06181E5C0800AEE74D /* libSpecta-iOS.a */,
-				E9546B14181E5C0900AEE74D /* Specta-iOSTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E9546ADA181E5BFF00AEE74D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E9546CA6181E5DA700AEE74D /* Mac */,
-				E9546CA5181E5DA400AEE74D /* iOS */,
-				E9546AEC181E5BFF00AEE74D /* XCTest.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E9546B2A181E5CB900AEE74D /* src */ = {
-			isa = PBXGroup;
-			children = (
-				E9546B2B181E5CB900AEE74D /* XCTestCase+Specta.h */,
-				E9546B2C181E5CB900AEE74D /* XCTestCase+Specta.m */,
-				E9546B31181E5CB900AEE74D /* Specta-Prefix.pch */,
-				E9546B32181E5CB900AEE74D /* Specta.h */,
-				E9546B33181E5CB900AEE74D /* Specta.m */,
-				E9546B34181E5CB900AEE74D /* SpectaSupport.h */,
-				E9546B35181E5CB900AEE74D /* SpectaTypes.h */,
-				E9546B36181E5CB900AEE74D /* SpectaUtility.h */,
-				E9546B37181E5CB900AEE74D /* SpectaUtility.m */,
-				E9546B3A181E5CB900AEE74D /* SPTExample.h */,
-				E9546B3B181E5CB900AEE74D /* SPTExample.m */,
-				E9546B3C181E5CB900AEE74D /* SPTExampleGroup.h */,
-				E9546B3D181E5CB900AEE74D /* SPTExampleGroup.m */,
-				E9546B40181E5CB900AEE74D /* SPTXCTestCase.h */,
-				E9546B41181E5CB900AEE74D /* SPTXCTestCase.m */,
-				E9546B42181E5CB900AEE74D /* SPTXCTestInvocation.h */,
-				E9546B43181E5CB900AEE74D /* SPTXCTestInvocation.m */,
-				E9546B44181E5CB900AEE74D /* SPTSharedExampleGroups.h */,
-				E9546B45181E5CB900AEE74D /* SPTSharedExampleGroups.m */,
-				E9546B46181E5CB900AEE74D /* SPTSpec.h */,
-				E9546B47181E5CB900AEE74D /* SPTSpec.m */,
-			);
-			path = src;
-			sourceTree = "<group>";
-		};
-		E9546C0B181E5CE800AEE74D /* test */ = {
-			isa = PBXGroup;
-			children = (
-				E9546C21181E5CE800AEE74D /* helpers */,
-				E9546C31181E5CE800AEE74D /* support */,
-				E9546C0C181E5CE800AEE74D /* AsyncSpecTest.m */,
-				E9546C0D181E5CE800AEE74D /* AsyncSpecTest2.m */,
-				E9546C0E181E5CE800AEE74D /* AsyncSpecTest3.m */,
-				E9546C0F181E5CE800AEE74D /* AsyncSpecTimeoutTest.m */,
-				E9546C10181E5CE800AEE74D /* CedarDSLTest.m */,
-				E9546C11181E5CE800AEE74D /* CompilationTest1.m */,
-				E9546C12181E5CE800AEE74D /* CompilationTest2.m */,
-				E9546C13181E5CE800AEE74D /* CompilationTest3.m */,
-				E9546C14181E5CE800AEE74D /* CompilationTest4.m */,
-				E9546C15181E5CE800AEE74D /* CompilationTest5.m */,
-				E9546C16181E5CE800AEE74D /* CompilationTest6.m */,
-				E9546C17181E5CE800AEE74D /* CompilationTest7.m */,
-				E9546C18181E5CE800AEE74D /* CompilationTest8.m */,
-				E9546C1A181E5CE800AEE74D /* DSLTest1.m */,
-				E9546C1B181E5CE800AEE74D /* DSLTest2.m */,
-				E9546C1C181E5CE800AEE74D /* DSLTest3.m */,
-				E9546C1D181E5CE800AEE74D /* DSLTest4.m */,
-				E9546C1E181E5CE800AEE74D /* DSLTest5.m */,
-				E9546C1F181E5CE800AEE74D /* FailingSpecTest.m */,
-				E9546C20181E5CE800AEE74D /* FocusedSpecTest.m */,
-				E9546C24181E5CE800AEE74D /* MiscTest.m */,
-				E9546C25181E5CE800AEE74D /* PassingSpecTest.m */,
-				E9546C26181E5CE800AEE74D /* PendingSpecTest1.m */,
-				E9546C27181E5CE800AEE74D /* PendingSpecTest2.m */,
-				E9546C28181E5CE800AEE74D /* ReRunTest.m */,
-				E9546C2A181E5CE800AEE74D /* SequenceTest.m */,
-				E9546C2B181E5CE800AEE74D /* SharedExamplesTest1.m */,
-				E9546C2C181E5CE800AEE74D /* SharedExamplesTest2.m */,
-				E9546C2D181E5CE800AEE74D /* SharedExamplesTest3.m */,
-				E9546C2E181E5CE800AEE74D /* SharedExamplesTest4.m */,
-				E9546C2F181E5CE800AEE74D /* SharedExamplesTest5.m */,
-				E9546C30181E5CE800AEE74D /* SpectaUtilityTest.m */,
-				E9546C33181E5CE800AEE74D /* UnexpectedExceptionTest.m */,
-			);
-			path = test;
-			sourceTree = "<group>";
-		};
-		E9546C21181E5CE800AEE74D /* helpers */ = {
-			isa = PBXGroup;
-			children = (
-				E9546C22181E5CE800AEE74D /* TestHelper.h */,
-				E9546C23181E5CE800AEE74D /* TestHelper.m */,
-				E927203A181F7EAE008A6C54 /* XCTestLog+SpectaTest.h */,
-				E927203B181F7EAE008A6C54 /* XCTestLog+SpectaTest.m */,
-			);
-			path = helpers;
-			sourceTree = "<group>";
-		};
-		E9546C31181E5CE800AEE74D /* support */ = {
-			isa = PBXGroup;
-			children = (
-				E9546C32181E5CE800AEE74D /* Test-Info.plist */,
-			);
-			path = support;
-			sourceTree = "<group>";
-		};
-		E9546CA5181E5DA400AEE74D /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				E9546CDD181E5E2300AEE74D /* Foundation.framework */,
+				E9901C0018205A3500844A05 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		E9546CA6181E5DA700AEE74D /* Mac */ = {
+		E93B45CF18205C18009F43A2 /* OSX */ = {
 			isa = PBXGroup;
 			children = (
-				E9546CA7181E5DE400AEE74D /* Foundation.framework */,
+				E93B45D018205C2B009F43A2 /* Foundation.framework */,
 			);
-			name = Mac;
+			name = OSX;
+			sourceTree = "<group>";
+		};
+		E93B45D218205C77009F43A2 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				E93B45E718205C77009F43A2 /* helpers */,
+				E93B45F818205C77009F43A2 /* support */,
+				E93B45D318205C77009F43A2 /* AsyncSpecTest.m */,
+				E93B45D418205C77009F43A2 /* AsyncSpecTest2.m */,
+				E93B45D518205C77009F43A2 /* AsyncSpecTest3.m */,
+				E93B45D618205C77009F43A2 /* AsyncSpecTimeoutTest.m */,
+				E93B45D718205C77009F43A2 /* CedarDSLTest.m */,
+				E93B45D818205C77009F43A2 /* CompilationTest1.m */,
+				E93B45D918205C77009F43A2 /* CompilationTest2.m */,
+				E93B45DA18205C77009F43A2 /* CompilationTest3.m */,
+				E93B45DB18205C77009F43A2 /* CompilationTest4.m */,
+				E93B45DC18205C77009F43A2 /* CompilationTest5.m */,
+				E93B45DD18205C77009F43A2 /* CompilationTest6.m */,
+				E93B45DE18205C77009F43A2 /* CompilationTest7.m */,
+				E93B45DF18205C77009F43A2 /* CompilationTest8.m */,
+				E93B45E018205C77009F43A2 /* DSLTest1.m */,
+				E93B45E118205C77009F43A2 /* DSLTest2.m */,
+				E93B45E218205C77009F43A2 /* DSLTest3.m */,
+				E93B45E318205C77009F43A2 /* DSLTest4.m */,
+				E93B45E418205C77009F43A2 /* DSLTest5.m */,
+				E93B45E518205C77009F43A2 /* FailingSpecTest.m */,
+				E93B45E618205C77009F43A2 /* FocusedSpecTest.m */,
+				E93B45EC18205C77009F43A2 /* MiscTest.m */,
+				E93B45ED18205C77009F43A2 /* PassingSpecTest.m */,
+				E93B45EE18205C77009F43A2 /* PendingSpecTest1.m */,
+				E93B45EF18205C77009F43A2 /* PendingSpecTest2.m */,
+				E93B45F018205C77009F43A2 /* ReRunTest.m */,
+				E93B45F118205C77009F43A2 /* SequenceTest.m */,
+				E93B45F218205C77009F43A2 /* SharedExamplesTest1.m */,
+				E93B45F318205C77009F43A2 /* SharedExamplesTest2.m */,
+				E93B45F418205C77009F43A2 /* SharedExamplesTest3.m */,
+				E93B45F518205C77009F43A2 /* SharedExamplesTest4.m */,
+				E93B45F618205C77009F43A2 /* SharedExamplesTest5.m */,
+				E93B45F718205C77009F43A2 /* SpectaUtilityTest.m */,
+				E93B45FA18205C77009F43A2 /* UnexpectedExceptionTest.m */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
+		E93B45E718205C77009F43A2 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E93B45E818205C77009F43A2 /* TestHelper.h */,
+				E93B45E918205C77009F43A2 /* TestHelper.m */,
+				E93B45EA18205C77009F43A2 /* XCTestLog+SpectaTest.h */,
+				E93B45EB18205C77009F43A2 /* XCTestLog+SpectaTest.m */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		E93B45F818205C77009F43A2 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				E93B45F918205C77009F43A2 /* SpectaTests-Info.plist */,
+			);
+			path = support;
+			sourceTree = "<group>";
+		};
+		E9901BF418205A3500844A05 = {
+			isa = PBXGroup;
+			children = (
+				E9901C4F18205B6600844A05 /* src */,
+				E9901BFF18205A3500844A05 /* Frameworks */,
+				E9901BFE18205A3500844A05 /* Products */,
+				E93B45D218205C77009F43A2 /* test */,
+				E99B375A18205D6F00213D26 /* CHANGELOG.md */,
+				E99B375B18205D6F00213D26 /* LICENSE */,
+				E99B375C18205D7000213D26 /* Rakefile */,
+				E99B375D18205D7000213D26 /* README.md */,
+				E99B375E18205D7000213D26 /* Specta.podspec */,
+			);
+			sourceTree = "<group>";
+		};
+		E9901BFE18205A3500844A05 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E9901BFD18205A3500844A05 /* libSpecta-iOS.a */,
+				E9901C0D18205A3500844A05 /* SpectaTests-iOS.xctest */,
+				E9901C2A18205AB100844A05 /* libSpecta-OSX.a */,
+				E9901C3B18205AB100844A05 /* Specta-OSXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E9901BFF18205A3500844A05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E93B45CE18205C14009F43A2 /* iOS */,
+				E93B45CF18205C18009F43A2 /* OSX */,
+				E9901C0E18205A3500844A05 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9901C4F18205B6600844A05 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				E9901C5018205B6600844A05 /* Specta-Prefix.pch */,
+				E9901C5118205B6600844A05 /* Specta.h */,
+				E9901C5218205B6600844A05 /* Specta.m */,
+				E9901C5318205B6600844A05 /* SpectaSupport.h */,
+				E9901C5418205B6600844A05 /* SpectaTypes.h */,
+				E9901C5518205B6600844A05 /* SpectaUtility.h */,
+				E9901C5618205B6600844A05 /* SpectaUtility.m */,
+				E9901C5718205B6600844A05 /* SPTExample.h */,
+				E9901C5818205B6600844A05 /* SPTExample.m */,
+				E9901C5918205B6600844A05 /* SPTExampleGroup.h */,
+				E9901C5A18205B6600844A05 /* SPTExampleGroup.m */,
+				E9901C5B18205B6600844A05 /* SPTSharedExampleGroups.h */,
+				E9901C5C18205B6600844A05 /* SPTSharedExampleGroups.m */,
+				E9901C5D18205B6600844A05 /* SPTSpec.h */,
+				E9901C5E18205B6600844A05 /* SPTSpec.m */,
+				E9901C5F18205B6600844A05 /* SPTXCTestCase.h */,
+				E9901C6018205B6600844A05 /* SPTXCTestCase.m */,
+				E9901C6118205B6600844A05 /* SPTXCTestInvocation.h */,
+				E9901C6218205B6600844A05 /* SPTXCTestInvocation.m */,
+				E9901C6318205B6600844A05 /* XCTestCase+Specta.h */,
+				E9901C6418205B6600844A05 /* XCTestCase+Specta.m */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		E9546AD6181E5BFF00AEE74D /* Headers */ = {
+		E93B45B518205BB1009F43A2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9546CF1181E5EDD00AEE74D /* XCTestCase+Specta.h in Headers */,
-				E9546CF4181E5EDD00AEE74D /* Specta.h in Headers */,
-				E9546CF5181E5EDD00AEE74D /* SpectaSupport.h in Headers */,
-				E9546CF6181E5EDD00AEE74D /* SpectaTypes.h in Headers */,
-				E9546CF7181E5EDD00AEE74D /* SpectaUtility.h in Headers */,
-				E9546CF9181E5EDD00AEE74D /* SPTExample.h in Headers */,
-				E9546CFA181E5EDD00AEE74D /* SPTExampleGroup.h in Headers */,
-				E9546CFC181E5EDD00AEE74D /* SPTXCTestCase.h in Headers */,
-				E9546CFD181E5EDD00AEE74D /* SPTXCTestInvocation.h in Headers */,
-				E9546CFE181E5EDD00AEE74D /* SPTSharedExampleGroups.h in Headers */,
-				E9546CFF181E5EDD00AEE74D /* SPTSpec.h in Headers */,
+				E93B45B618205BC0009F43A2 /* Specta.h in Headers */,
+				E93B45B718205BC0009F43A2 /* SpectaSupport.h in Headers */,
+				E93B45B818205BC0009F43A2 /* SpectaTypes.h in Headers */,
+				E93B45B918205BC0009F43A2 /* SpectaUtility.h in Headers */,
+				E93B45BA18205BC0009F43A2 /* SPTExample.h in Headers */,
+				E93B45BB18205BC0009F43A2 /* SPTExampleGroup.h in Headers */,
+				E93B45BC18205BC0009F43A2 /* SPTSharedExampleGroups.h in Headers */,
+				E93B45BD18205BC0009F43A2 /* SPTSpec.h in Headers */,
+				E93B45BE18205BC0009F43A2 /* SPTXCTestCase.h in Headers */,
+				E93B45BF18205BC1009F43A2 /* SPTXCTestInvocation.h in Headers */,
+				E93B45C018205BC1009F43A2 /* XCTestCase+Specta.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9546CE1181E5EB400AEE74D /* Headers */ = {
+		E9901C2818205AB100844A05 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9546CE2181E5ECA00AEE74D /* XCTestCase+Specta.h in Headers */,
-				E9546CE5181E5ECA00AEE74D /* Specta.h in Headers */,
-				E9546CE6181E5ECA00AEE74D /* SpectaSupport.h in Headers */,
-				E9546CE7181E5ECA00AEE74D /* SpectaTypes.h in Headers */,
-				E9546CE8181E5ECA00AEE74D /* SpectaUtility.h in Headers */,
-				E9546CEA181E5ECA00AEE74D /* SPTExample.h in Headers */,
-				E9546CEB181E5ECA00AEE74D /* SPTExampleGroup.h in Headers */,
-				E9546CED181E5ECA00AEE74D /* SPTXCTestCase.h in Headers */,
-				E9546CEE181E5ECA00AEE74D /* SPTXCTestInvocation.h in Headers */,
-				E9546CEF181E5ECA00AEE74D /* SPTSharedExampleGroups.h in Headers */,
-				E9546CF0181E5ECA00AEE74D /* SPTSpec.h in Headers */,
+				E93B45C118205BC4009F43A2 /* Specta.h in Headers */,
+				E93B45C218205BC4009F43A2 /* SpectaSupport.h in Headers */,
+				E93B45C318205BC4009F43A2 /* SpectaTypes.h in Headers */,
+				E93B45C418205BC4009F43A2 /* SpectaUtility.h in Headers */,
+				E93B45C518205BC4009F43A2 /* SPTExample.h in Headers */,
+				E93B45C618205BC4009F43A2 /* SPTExampleGroup.h in Headers */,
+				E93B45C718205BC4009F43A2 /* SPTSharedExampleGroups.h in Headers */,
+				E93B45C818205BC4009F43A2 /* SPTSpec.h in Headers */,
+				E93B45C918205BC5009F43A2 /* SPTXCTestCase.h in Headers */,
+				E93B45CA18205BC5009F43A2 /* SPTXCTestInvocation.h in Headers */,
+				E93B45CB18205BC5009F43A2 /* XCTestCase+Specta.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E9546AD7181E5BFF00AEE74D /* Specta */ = {
+		E9901BFC18205A3500844A05 /* Specta-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E9546AFC181E5BFF00AEE74D /* Build configuration list for PBXNativeTarget "Specta" */;
+			buildConfigurationList = E9901C2018205A3500844A05 /* Build configuration list for PBXNativeTarget "Specta-iOS" */;
 			buildPhases = (
-				E9546AD4181E5BFF00AEE74D /* Sources */,
-				E9546AD5181E5BFF00AEE74D /* Frameworks */,
-				E9546AD6181E5BFF00AEE74D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Specta;
-			productName = Specta;
-			productReference = E9546AD8181E5BFF00AEE74D /* libSpecta.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		E9546AEA181E5BFF00AEE74D /* SpectaTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E9546AFF181E5BFF00AEE74D /* Build configuration list for PBXNativeTarget "SpectaTests" */;
-			buildPhases = (
-				E9546AE7181E5BFF00AEE74D /* Sources */,
-				E9546AE8181E5BFF00AEE74D /* Frameworks */,
-				E9546AE9181E5BFF00AEE74D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E9546AF0181E5BFF00AEE74D /* PBXTargetDependency */,
-			);
-			name = SpectaTests;
-			productName = SpectaTests;
-			productReference = E9546AEB181E5BFF00AEE74D /* SpectaTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		E9546B05181E5C0800AEE74D /* Specta-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E9546B24181E5C0900AEE74D /* Build configuration list for PBXNativeTarget "Specta-iOS" */;
-			buildPhases = (
-				E9546B02181E5C0800AEE74D /* Sources */,
-				E9546B03181E5C0800AEE74D /* Frameworks */,
-				E9546CE1181E5EB400AEE74D /* Headers */,
+				E9901BF918205A3500844A05 /* Sources */,
+				E9901BFA18205A3500844A05 /* Frameworks */,
+				E93B45B518205BB1009F43A2 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Specta-iOS";
-			productName = "Specta-iOS";
-			productReference = E9546B06181E5C0800AEE74D /* libSpecta-iOS.a */;
+			productName = Specta;
+			productReference = E9901BFD18205A3500844A05 /* libSpecta-iOS.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		E9546B13181E5C0900AEE74D /* Specta-iOSTests */ = {
+		E9901C0C18205A3500844A05 /* SpectaTests-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E9546B27181E5C0900AEE74D /* Build configuration list for PBXNativeTarget "Specta-iOSTests" */;
+			buildConfigurationList = E9901C2318205A3500844A05 /* Build configuration list for PBXNativeTarget "SpectaTests-iOS" */;
 			buildPhases = (
-				E9546B10181E5C0900AEE74D /* Sources */,
-				E9546B11181E5C0900AEE74D /* Frameworks */,
-				E9546B12181E5C0900AEE74D /* Resources */,
+				E9901C0918205A3500844A05 /* Sources */,
+				E9901C0A18205A3500844A05 /* Frameworks */,
+				E9901C0B18205A3500844A05 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E9546B1A181E5C0900AEE74D /* PBXTargetDependency */,
+				E9901C1418205A3500844A05 /* PBXTargetDependency */,
 			);
-			name = "Specta-iOSTests";
-			productName = "Specta-iOSTests";
-			productReference = E9546B14181E5C0900AEE74D /* Specta-iOSTests.xctest */;
+			name = "SpectaTests-iOS";
+			productName = SpectaTests;
+			productReference = E9901C0D18205A3500844A05 /* SpectaTests-iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E9901C2918205AB100844A05 /* Specta-OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9901C4918205AB100844A05 /* Build configuration list for PBXNativeTarget "Specta-OSX" */;
+			buildPhases = (
+				E9901C2618205AB100844A05 /* Sources */,
+				E9901C2718205AB100844A05 /* Frameworks */,
+				E9901C2818205AB100844A05 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Specta-OSX";
+			productName = "Specta-OSX";
+			productReference = E9901C2A18205AB100844A05 /* libSpecta-OSX.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E9901C3A18205AB100844A05 /* Specta-OSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9901C4C18205AB100844A05 /* Build configuration list for PBXNativeTarget "Specta-OSXTests" */;
+			buildPhases = (
+				E9901C3718205AB100844A05 /* Sources */,
+				E9901C3818205AB100844A05 /* Frameworks */,
+				E9901C3918205AB100844A05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9901C3F18205AB100844A05 /* PBXTargetDependency */,
+			);
+			name = "Specta-OSXTests";
+			productName = "Specta-OSXTests";
+			productReference = E9901C3B18205AB100844A05 /* Specta-OSXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E9546AD0181E5BFF00AEE74D /* Project object */ = {
+		E9901BF518205A3500844A05 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Specta Team";
 			};
-			buildConfigurationList = E9546AD3181E5BFF00AEE74D /* Build configuration list for PBXProject "Specta" */;
+			buildConfigurationList = E9901BF818205A3500844A05 /* Build configuration list for PBXProject "Specta" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = E9546ACF181E5BFF00AEE74D;
-			productRefGroup = E9546AD9181E5BFF00AEE74D /* Products */;
+			mainGroup = E9901BF418205A3500844A05;
+			productRefGroup = E9901BFE18205A3500844A05 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E9546AD7181E5BFF00AEE74D /* Specta */,
-				E9546B05181E5C0800AEE74D /* Specta-iOS */,
-				E9546AEA181E5BFF00AEE74D /* SpectaTests */,
-				E9546B13181E5C0900AEE74D /* Specta-iOSTests */,
+				E9901BFC18205A3500844A05 /* Specta-iOS */,
+				E9901C2918205AB100844A05 /* Specta-OSX */,
+				E9901C0C18205A3500844A05 /* SpectaTests-iOS */,
+				E9901C3A18205AB100844A05 /* Specta-OSXTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E9546AE9181E5BFF00AEE74D /* Resources */ = {
+		E9901C0B18205A3500844A05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9546B12181E5C0900AEE74D /* Resources */ = {
+		E9901C3918205AB100844A05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -562,144 +558,146 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E9546AD4181E5BFF00AEE74D /* Sources */ = {
+		E9901BF918205A3500844A05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9546B6A181E5CB900AEE74D /* SPTXCTestInvocation.m in Sources */,
-				E9546B67181E5CB900AEE74D /* SPTXCTestCase.m in Sources */,
-				E9272055181FCE49008A6C54 /* XCTestCase+Specta.m in Sources */,
-				E9546B5E181E5CB900AEE74D /* SPTExample.m in Sources */,
-				E9546B61181E5CB900AEE74D /* SPTExampleGroup.m in Sources */,
-				E9546B53181E5CB900AEE74D /* Specta.m in Sources */,
-				E9546B58181E5CB900AEE74D /* SpectaUtility.m in Sources */,
-				E9546B6D181E5CB900AEE74D /* SPTSharedExampleGroups.m in Sources */,
-				E9546B70181E5CB900AEE74D /* SPTSpec.m in Sources */,
+				E93B45B118205B92009F43A2 /* SPTSpec.m in Sources */,
+				E93B45AF18205B92009F43A2 /* SPTExampleGroup.m in Sources */,
+				E93B45B418205B92009F43A2 /* XCTestCase+Specta.m in Sources */,
+				E93B45AE18205B92009F43A2 /* SPTExample.m in Sources */,
+				E93B45AD18205B92009F43A2 /* SpectaUtility.m in Sources */,
+				E93B45B318205B92009F43A2 /* SPTXCTestInvocation.m in Sources */,
+				E93B45B018205B92009F43A2 /* SPTSharedExampleGroups.m in Sources */,
+				E93B45B218205B92009F43A2 /* SPTXCTestCase.m in Sources */,
+				E93B45AC18205B92009F43A2 /* Specta.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9546AE7181E5BFF00AEE74D /* Sources */ = {
+		E9901C0918205A3500844A05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9272053181FC4A9008A6C54 /* AsyncSpecTimeoutTest.m in Sources */,
-				E9546C7C181E5CE800AEE74D /* TestHelper.m in Sources */,
-				E9546C6A181E5CE800AEE74D /* CompilationTest8.m in Sources */,
-				E9546C5C181E5CE800AEE74D /* CompilationTest1.m in Sources */,
-				E9546C92181E5CE800AEE74D /* SharedExamplesTest4.m in Sources */,
-				E9546C66181E5CE800AEE74D /* CompilationTest6.m in Sources */,
-				E9546C72181E5CE800AEE74D /* DSLTest3.m in Sources */,
-				E9546C64181E5CE800AEE74D /* CompilationTest5.m in Sources */,
-				E9546C8A181E5CE800AEE74D /* SequenceTest.m in Sources */,
-				E9546C82181E5CE800AEE74D /* PendingSpecTest1.m in Sources */,
-				E9272058181FCED7008A6C54 /* SpectaUtilityTest.m in Sources */,
-				E9272050181FC4A5008A6C54 /* AsyncSpecTest3.m in Sources */,
-				E9546C7E181E5CE800AEE74D /* MiscTest.m in Sources */,
-				E9546C74181E5CE800AEE74D /* DSLTest4.m in Sources */,
-				E9546C80181E5CE800AEE74D /* PassingSpecTest.m in Sources */,
-				E9546C5A181E5CE800AEE74D /* CedarDSLTest.m in Sources */,
-				E9546C60181E5CE800AEE74D /* CompilationTest3.m in Sources */,
-				E9546C8C181E5CE800AEE74D /* SharedExamplesTest1.m in Sources */,
-				E9546C94181E5CE800AEE74D /* SharedExamplesTest5.m in Sources */,
-				E9546C6E181E5CE800AEE74D /* DSLTest1.m in Sources */,
-				E9546C90181E5CE800AEE74D /* SharedExamplesTest3.m in Sources */,
-				E927204C181FC49F008A6C54 /* AsyncSpecTest.m in Sources */,
-				E9546C78181E5CE800AEE74D /* FailingSpecTest.m in Sources */,
-				E9546C86181E5CE800AEE74D /* ReRunTest.m in Sources */,
-				E9546C76181E5CE800AEE74D /* DSLTest5.m in Sources */,
-				E9546C9A181E5CE800AEE74D /* UnexpectedExceptionTest.m in Sources */,
-				E927204E181FC4A2008A6C54 /* AsyncSpecTest2.m in Sources */,
-				E9546C84181E5CE800AEE74D /* PendingSpecTest2.m in Sources */,
-				E9546C8E181E5CE800AEE74D /* SharedExamplesTest2.m in Sources */,
-				E927203C181F7EAE008A6C54 /* XCTestLog+SpectaTest.m in Sources */,
-				E9546C5E181E5CE800AEE74D /* CompilationTest2.m in Sources */,
-				E9546C62181E5CE800AEE74D /* CompilationTest4.m in Sources */,
-				E9546C7A181E5CE800AEE74D /* FocusedSpecTest.m in Sources */,
-				E9546C70181E5CE800AEE74D /* DSLTest2.m in Sources */,
-				E9546C68181E5CE800AEE74D /* CompilationTest7.m in Sources */,
+				E93B462618205C9E009F43A2 /* CompilationTest2.m in Sources */,
+				E93B45FB18205C99009F43A2 /* TestHelper.m in Sources */,
+				E93B462018205C9E009F43A2 /* AsyncSpecTest.m in Sources */,
+				E93B463618205C9E009F43A2 /* PendingSpecTest1.m in Sources */,
+				E93B462C18205C9E009F43A2 /* CompilationTest8.m in Sources */,
+				E93B463518205C9E009F43A2 /* PassingSpecTest.m in Sources */,
+				E93B463C18205C9E009F43A2 /* SharedExamplesTest3.m in Sources */,
+				E93B462718205C9E009F43A2 /* CompilationTest3.m in Sources */,
+				E93B462F18205C9E009F43A2 /* DSLTest3.m in Sources */,
+				E93B462418205C9E009F43A2 /* CedarDSLTest.m in Sources */,
+				E93B463F18205C9E009F43A2 /* SpectaUtilityTest.m in Sources */,
+				E93B462818205C9E009F43A2 /* CompilationTest4.m in Sources */,
+				E93B463018205C9E009F43A2 /* DSLTest4.m in Sources */,
+				E93B462118205C9E009F43A2 /* AsyncSpecTest2.m in Sources */,
+				E93B463B18205C9E009F43A2 /* SharedExamplesTest2.m in Sources */,
+				E93B464018205C9E009F43A2 /* UnexpectedExceptionTest.m in Sources */,
+				E93B462318205C9E009F43A2 /* AsyncSpecTimeoutTest.m in Sources */,
+				E93B463E18205C9E009F43A2 /* SharedExamplesTest5.m in Sources */,
+				E93B462D18205C9E009F43A2 /* DSLTest1.m in Sources */,
+				E93B463918205C9E009F43A2 /* SequenceTest.m in Sources */,
+				E93B462518205C9E009F43A2 /* CompilationTest1.m in Sources */,
+				E93B463818205C9E009F43A2 /* ReRunTest.m in Sources */,
+				E93B463218205C9E009F43A2 /* FailingSpecTest.m in Sources */,
+				E93B463118205C9E009F43A2 /* DSLTest5.m in Sources */,
+				E93B463A18205C9E009F43A2 /* SharedExamplesTest1.m in Sources */,
+				E93B462918205C9E009F43A2 /* CompilationTest5.m in Sources */,
+				E93B45FC18205C99009F43A2 /* XCTestLog+SpectaTest.m in Sources */,
+				E93B462218205C9E009F43A2 /* AsyncSpecTest3.m in Sources */,
+				E93B463418205C9E009F43A2 /* MiscTest.m in Sources */,
+				E93B463D18205C9E009F43A2 /* SharedExamplesTest4.m in Sources */,
+				E93B463718205C9E009F43A2 /* PendingSpecTest2.m in Sources */,
+				E93B463318205C9E009F43A2 /* FocusedSpecTest.m in Sources */,
+				E93B462A18205C9E009F43A2 /* CompilationTest6.m in Sources */,
+				E93B462E18205C9E009F43A2 /* DSLTest2.m in Sources */,
+				E93B462B18205C9E009F43A2 /* CompilationTest7.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9546B02181E5C0800AEE74D /* Sources */ = {
+		E9901C2618205AB100844A05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9546B6B181E5CB900AEE74D /* SPTXCTestInvocation.m in Sources */,
-				E9546B68181E5CB900AEE74D /* SPTXCTestCase.m in Sources */,
-				E9272054181FCE49008A6C54 /* XCTestCase+Specta.m in Sources */,
-				E9546B5F181E5CB900AEE74D /* SPTExample.m in Sources */,
-				E9546B62181E5CB900AEE74D /* SPTExampleGroup.m in Sources */,
-				E9546B54181E5CB900AEE74D /* Specta.m in Sources */,
-				E9546B59181E5CB900AEE74D /* SpectaUtility.m in Sources */,
-				E9546B6E181E5CB900AEE74D /* SPTSharedExampleGroups.m in Sources */,
-				E9546B71181E5CB900AEE74D /* SPTSpec.m in Sources */,
+				E93B45A818205B91009F43A2 /* SPTSpec.m in Sources */,
+				E93B45A618205B91009F43A2 /* SPTExampleGroup.m in Sources */,
+				E93B45AB18205B91009F43A2 /* XCTestCase+Specta.m in Sources */,
+				E93B45A518205B91009F43A2 /* SPTExample.m in Sources */,
+				E93B45A418205B91009F43A2 /* SpectaUtility.m in Sources */,
+				E93B45AA18205B91009F43A2 /* SPTXCTestInvocation.m in Sources */,
+				E93B45A718205B91009F43A2 /* SPTSharedExampleGroups.m in Sources */,
+				E93B45A918205B91009F43A2 /* SPTXCTestCase.m in Sources */,
+				E93B45A318205B91009F43A2 /* Specta.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E9546B10181E5C0900AEE74D /* Sources */ = {
+		E9901C3718205AB100844A05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9272052181FC4A8008A6C54 /* AsyncSpecTimeoutTest.m in Sources */,
-				E9546C7D181E5CE800AEE74D /* TestHelper.m in Sources */,
-				E9546C6B181E5CE800AEE74D /* CompilationTest8.m in Sources */,
-				E9546C5D181E5CE800AEE74D /* CompilationTest1.m in Sources */,
-				E9546C93181E5CE800AEE74D /* SharedExamplesTest4.m in Sources */,
-				E9546C67181E5CE800AEE74D /* CompilationTest6.m in Sources */,
-				E9546C73181E5CE800AEE74D /* DSLTest3.m in Sources */,
-				E9546C65181E5CE800AEE74D /* CompilationTest5.m in Sources */,
-				E9546C8B181E5CE800AEE74D /* SequenceTest.m in Sources */,
-				E9546C83181E5CE800AEE74D /* PendingSpecTest1.m in Sources */,
-				E9272059181FCED7008A6C54 /* SpectaUtilityTest.m in Sources */,
-				E9272051181FC4A6008A6C54 /* AsyncSpecTest3.m in Sources */,
-				E9546C7F181E5CE800AEE74D /* MiscTest.m in Sources */,
-				E9546C75181E5CE800AEE74D /* DSLTest4.m in Sources */,
-				E9546C81181E5CE800AEE74D /* PassingSpecTest.m in Sources */,
-				E9546C5B181E5CE800AEE74D /* CedarDSLTest.m in Sources */,
-				E9546C61181E5CE800AEE74D /* CompilationTest3.m in Sources */,
-				E9546C8D181E5CE800AEE74D /* SharedExamplesTest1.m in Sources */,
-				E9546C95181E5CE800AEE74D /* SharedExamplesTest5.m in Sources */,
-				E9546C6F181E5CE800AEE74D /* DSLTest1.m in Sources */,
-				E9546C91181E5CE800AEE74D /* SharedExamplesTest3.m in Sources */,
-				E927204D181FC49F008A6C54 /* AsyncSpecTest.m in Sources */,
-				E9546C79181E5CE800AEE74D /* FailingSpecTest.m in Sources */,
-				E9546C87181E5CE800AEE74D /* ReRunTest.m in Sources */,
-				E9546C77181E5CE800AEE74D /* DSLTest5.m in Sources */,
-				E9546C9B181E5CE800AEE74D /* UnexpectedExceptionTest.m in Sources */,
-				E927204F181FC4A3008A6C54 /* AsyncSpecTest2.m in Sources */,
-				E9546C85181E5CE800AEE74D /* PendingSpecTest2.m in Sources */,
-				E9546C8F181E5CE800AEE74D /* SharedExamplesTest2.m in Sources */,
-				E927203D181F7EAE008A6C54 /* XCTestLog+SpectaTest.m in Sources */,
-				E9546C5F181E5CE800AEE74D /* CompilationTest2.m in Sources */,
-				E9546C63181E5CE800AEE74D /* CompilationTest4.m in Sources */,
-				E9546C7B181E5CE800AEE74D /* FocusedSpecTest.m in Sources */,
-				E9546C71181E5CE800AEE74D /* DSLTest2.m in Sources */,
-				E9546C69181E5CE800AEE74D /* CompilationTest7.m in Sources */,
+				E93B460518205C9E009F43A2 /* CompilationTest2.m in Sources */,
+				E93B45FD18205C99009F43A2 /* TestHelper.m in Sources */,
+				E93B45FF18205C9E009F43A2 /* AsyncSpecTest.m in Sources */,
+				E93B461518205C9E009F43A2 /* PendingSpecTest1.m in Sources */,
+				E93B460B18205C9E009F43A2 /* CompilationTest8.m in Sources */,
+				E93B461418205C9E009F43A2 /* PassingSpecTest.m in Sources */,
+				E93B461B18205C9E009F43A2 /* SharedExamplesTest3.m in Sources */,
+				E93B460618205C9E009F43A2 /* CompilationTest3.m in Sources */,
+				E93B460E18205C9E009F43A2 /* DSLTest3.m in Sources */,
+				E93B460318205C9E009F43A2 /* CedarDSLTest.m in Sources */,
+				E93B461E18205C9E009F43A2 /* SpectaUtilityTest.m in Sources */,
+				E93B460718205C9E009F43A2 /* CompilationTest4.m in Sources */,
+				E93B460F18205C9E009F43A2 /* DSLTest4.m in Sources */,
+				E93B460018205C9E009F43A2 /* AsyncSpecTest2.m in Sources */,
+				E93B461A18205C9E009F43A2 /* SharedExamplesTest2.m in Sources */,
+				E93B461F18205C9E009F43A2 /* UnexpectedExceptionTest.m in Sources */,
+				E93B460218205C9E009F43A2 /* AsyncSpecTimeoutTest.m in Sources */,
+				E93B461D18205C9E009F43A2 /* SharedExamplesTest5.m in Sources */,
+				E93B460C18205C9E009F43A2 /* DSLTest1.m in Sources */,
+				E93B461818205C9E009F43A2 /* SequenceTest.m in Sources */,
+				E93B460418205C9E009F43A2 /* CompilationTest1.m in Sources */,
+				E93B461718205C9E009F43A2 /* ReRunTest.m in Sources */,
+				E93B461118205C9E009F43A2 /* FailingSpecTest.m in Sources */,
+				E93B461018205C9E009F43A2 /* DSLTest5.m in Sources */,
+				E93B461918205C9E009F43A2 /* SharedExamplesTest1.m in Sources */,
+				E93B460818205C9E009F43A2 /* CompilationTest5.m in Sources */,
+				E93B45FE18205C99009F43A2 /* XCTestLog+SpectaTest.m in Sources */,
+				E93B460118205C9E009F43A2 /* AsyncSpecTest3.m in Sources */,
+				E93B461318205C9E009F43A2 /* MiscTest.m in Sources */,
+				E93B461C18205C9E009F43A2 /* SharedExamplesTest4.m in Sources */,
+				E93B461618205C9E009F43A2 /* PendingSpecTest2.m in Sources */,
+				E93B461218205C9E009F43A2 /* FocusedSpecTest.m in Sources */,
+				E93B460918205C9E009F43A2 /* CompilationTest6.m in Sources */,
+				E93B460D18205C9E009F43A2 /* DSLTest2.m in Sources */,
+				E93B460A18205C9E009F43A2 /* CompilationTest7.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E9546AF0181E5BFF00AEE74D /* PBXTargetDependency */ = {
+		E9901C1418205A3500844A05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E9546AD7181E5BFF00AEE74D /* Specta */;
-			targetProxy = E9546AEF181E5BFF00AEE74D /* PBXContainerItemProxy */;
+			target = E9901BFC18205A3500844A05 /* Specta-iOS */;
+			targetProxy = E9901C1318205A3500844A05 /* PBXContainerItemProxy */;
 		};
-		E9546B1A181E5C0900AEE74D /* PBXTargetDependency */ = {
+		E9901C3F18205AB100844A05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E9546B05181E5C0800AEE74D /* Specta-iOS */;
-			targetProxy = E9546B19181E5C0900AEE74D /* PBXContainerItemProxy */;
+			target = E9901C2918205AB100844A05 /* Specta-OSX */;
+			targetProxy = E9901C3E18205AB100844A05 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		E9546AFA181E5BFF00AEE74D /* Debug */ = {
+		E9901C1E18205A3500844A05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -712,7 +710,6 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -725,18 +722,20 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
-		E9546AFB181E5BFF00AEE74D /* Release */ = {
+		E9901C1F18205A3500844A05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
@@ -747,56 +746,152 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E9901C2118205A3500844A05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				DSTROOT = /tmp/Specta.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E9901C2218205A3500844A05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				DSTROOT = /tmp/Specta.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E9901C2418205A3500844A05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "test/support/SpectaTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		E9901C2518205A3500844A05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
+				INFOPLIST_FILE = "test/support/SpectaTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+		E9901C4A18205AB100844A05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E9901C4B18205AB100844A05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		E9546AFD181E5BFF00AEE74D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "-ObjC";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-			};
-			name = Debug;
-		};
-		E9546AFE181E5BFF00AEE74D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "-ObjC";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-			};
-			name = Release;
-		};
-		E9546B00181E5BFF00AEE74D /* Debug */ = {
+		E9901C4D18205AB100844A05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
@@ -804,152 +899,45 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "test/support/Test-info.plist";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "test/support/SpectaTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-framework",
-					XCTest,
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		E9546B01181E5BFF00AEE74D /* Release */ = {
+		E9901C4E18205AB100844A05 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
-				INFOPLIST_FILE = "test/support/Test-info.plist";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "test/support/SpectaTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-framework",
-					XCTest,
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
-		E9546B25181E5C0900AEE74D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				CLANG_ENABLE_MODULES = YES;
-				DSTROOT = /tmp/Specta_iOS.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "-ObjC";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		E9546B26181E5C0900AEE74D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				CLANG_ENABLE_MODULES = YES;
-				DSTROOT = /tmp/Specta_iOS.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "-ObjC";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		E9546B28181E5C0900AEE74D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "test/support/Test-info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					XCTest,
-					"-ObjC",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		E9546B29181E5C0900AEE74D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				CLANG_ENABLE_MODULES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
-				INFOPLIST_FILE = "test/support/Test-info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					"-framework",
-					XCTest,
-					"-ObjC",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -957,52 +945,52 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E9546AD3181E5BFF00AEE74D /* Build configuration list for PBXProject "Specta" */ = {
+		E9901BF818205A3500844A05 /* Build configuration list for PBXProject "Specta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E9546AFA181E5BFF00AEE74D /* Debug */,
-				E9546AFB181E5BFF00AEE74D /* Release */,
+				E9901C1E18205A3500844A05 /* Debug */,
+				E9901C1F18205A3500844A05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E9546AFC181E5BFF00AEE74D /* Build configuration list for PBXNativeTarget "Specta" */ = {
+		E9901C2018205A3500844A05 /* Build configuration list for PBXNativeTarget "Specta-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E9546AFD181E5BFF00AEE74D /* Debug */,
-				E9546AFE181E5BFF00AEE74D /* Release */,
+				E9901C2118205A3500844A05 /* Debug */,
+				E9901C2218205A3500844A05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E9546AFF181E5BFF00AEE74D /* Build configuration list for PBXNativeTarget "SpectaTests" */ = {
+		E9901C2318205A3500844A05 /* Build configuration list for PBXNativeTarget "SpectaTests-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E9546B00181E5BFF00AEE74D /* Debug */,
-				E9546B01181E5BFF00AEE74D /* Release */,
+				E9901C2418205A3500844A05 /* Debug */,
+				E9901C2518205A3500844A05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E9546B24181E5C0900AEE74D /* Build configuration list for PBXNativeTarget "Specta-iOS" */ = {
+		E9901C4918205AB100844A05 /* Build configuration list for PBXNativeTarget "Specta-OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E9546B25181E5C0900AEE74D /* Debug */,
-				E9546B26181E5C0900AEE74D /* Release */,
+				E9901C4A18205AB100844A05 /* Debug */,
+				E9901C4B18205AB100844A05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E9546B27181E5C0900AEE74D /* Build configuration list for PBXNativeTarget "Specta-iOSTests" */ = {
+		E9901C4C18205AB100844A05 /* Build configuration list for PBXNativeTarget "Specta-OSXTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E9546B28181E5C0900AEE74D /* Debug */,
-				E9546B29181E5C0900AEE74D /* Release */,
+				E9901C4D18205AB100844A05 /* Debug */,
+				E9901C4E18205AB100844A05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E9546AD0181E5BFF00AEE74D /* Project object */;
+	rootObject = E9901BF518205A3500844A05 /* Project object */;
 }
