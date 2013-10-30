@@ -233,21 +233,23 @@ static void InvokeClassMethod(NSArray * classes, SEL selector) {
 - (void)runGlobalBeforeEachHooks:(NSString *)compiledName {
   static NSArray * globalBeforeEachClasses;
   static dispatch_once_t onceToken;
+  SEL beforeEach = NSSelectorFromString(@"beforeEach");
   dispatch_once(&onceToken, ^{
-    globalBeforeEachClasses = ClassesWithClassMethod(@selector(beforeEach));
+    globalBeforeEachClasses = ClassesWithClassMethod(beforeEach);
   });
   
-  InvokeClassMethod(globalBeforeEachClasses, @selector(beforeEach));
+  InvokeClassMethod(globalBeforeEachClasses, beforeEach);
 }
 
 - (void)runGlobalAfterEachHooks:(NSString *)compiledName {
   static NSArray * globalAfterEachClasses;
   static dispatch_once_t onceToken;
+  SEL afterEach = NSSelectorFromString(@"afterEach");
   dispatch_once(&onceToken, ^{
-    globalAfterEachClasses = ClassesWithClassMethod(@selector(afterEach));
+    globalAfterEachClasses = ClassesWithClassMethod(afterEach);
   });
   
-  InvokeClassMethod(globalAfterEachClasses, @selector(afterEach));
+  InvokeClassMethod(globalAfterEachClasses, afterEach);
 }
 
 - (void)runBeforeHooks:(NSString *)compiledName {
