@@ -9,11 +9,11 @@ Pod::Spec.new do |s|
   s.source   = { :git => 'https://github.com/petejkim/specta.git', :tag => 'v0.1.11' }
 
   s.description = %{
-    Specta is a light-weight testing framework for Objective-C and Cocoa that
-    adds RSpec-like DSL to OCUnit. It is super quick and easy to set up, and
-    because it runs on top of OCUnit, it has an excellent Xcode integration and
-    accurate error site reporting. Use your preferred matcher and mocking
-    framework. Expecta and OCMock are recommended.
+    Specta is a light-weight testing framework for Objective-C Cocoa and
+    Cocoa-Touch that adds RSpec-like DSL to XCTest. It is super quick and easy
+    to set up, and because it runs on top of XCTest, it has an excellent Xcode
+    integration and accurate error site reporting. Use your preferred matcher
+    and mocking framework. Expecta and OCMock are recommended.
   }
 
   s.source_files = 'src/**/*.{h,m}'
