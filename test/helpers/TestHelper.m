@@ -1,10 +1,16 @@
 #import "TestHelper.h"
-#import "XCTestLog+SpectaTest.h"
+#import "SPTReporter.h"
+#import "XCTestLog+Specta.h"
 
 XCTestSuiteRun *RunSpecClass(Class testClass) {
-  XCTestLog *testLog = [XCTestLog spt_sharedTestLog];
-  [testLog stopObserving];
-  XCTestSuiteRun *result = (id)[(XCTestSuite *)[XCTestSuite testSuiteForTestCaseClass:testClass] run];
-  [testLog startObserving];
+  
+  __block XCTestSuiteRun *result;
+  
+  [[SPTReporter sharedReporter] pauseObservationInBlock:^{
+    
+    result = (id)[(XCTestSuite *)[XCTestSuite testSuiteForTestCaseClass:testClass] run];
+    
+  }];
+  
   return result;
 }
