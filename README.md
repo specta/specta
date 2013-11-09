@@ -133,15 +133,7 @@ SpecEnd
 * `(before|after)(Each/All)` also accept `^AsyncBlock`s.
 * Do `#define SPT_CEDAR_SYNTAX` before importing Specta if you prefer to write `SPEC_BEGIN` and `SPEC_END` instead of `SpecBegin` and `SpecEnd`.
 * Prepend `f` to your `describe`, `context`, `example`, `it`, and `specify` to set focus on examples or groups. When specs are focused, all unfocused specs are skipped.
-
-### RUNNING SPECS FROM COMMAND LINE / CI
-
-~~Refer to
-[this blog post](http://www.raingrove.com/2012/03/28/running-ocunit-and-specta-tests-from-command-line.html)
-on how to run specs from command line or in continuous integration
-servers.~~
-
-Check out Facebook's [xctool](https://github.com/facebook/xctool).
+* To use original XCTest reporter, set an environment variable named `SPECTA_REPORTER_CLASS` to `SPTXCTestReporter` in your test scheme.
 
 ### CONTRIBUTION GUIDELINES
 

@@ -2,10 +2,10 @@ v0.2.0
 ======
 
 * Added support for XCTest and dropped support for OCUnit (SenTestingKit). [petejkim]
-* Temporarily removed custom reporter support. [petejkim]
 * ARC [tonyarnold]
 * Modern Objective-C syntax [tonyarnold]
 * Fixed after hooks not running when an exception is raised in an example. [nerdyc]
+* New nested custom reporter [nerdyc]
 
 v0.1.11
 =======
