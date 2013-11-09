@@ -11,8 +11,7 @@
 
 @implementation SPTReporter
 
-+ (instancetype)sharedReporter
-{
++ (instancetype)sharedReporter {
   static SPTReporter * sharedReporter;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
@@ -22,14 +21,11 @@
   return sharedReporter;
 }
 
-+ (SPTReporter *)loadSharedReporter
-{
++ (SPTReporter *)loadSharedReporter {
   NSString * customReporterClassName = [[NSProcessInfo processInfo] environment][@"SPECTA_REPORTER_CLASS"];
-  if (customReporterClassName != nil)
-  {
+  if (customReporterClassName != nil) {
     Class customReporterClass = NSClassFromString(customReporterClassName);
-    if (customReporterClass != nil)
-    {
+    if (customReporterClass != nil) {
       return [[customReporterClass alloc] init];
     }
   }
@@ -37,23 +33,18 @@
   return [[SPTNestedReporter alloc] init];
 }
 
-// ===== RUN STACK =====================================================================================================
 #pragma mark - Run Stack
 
-- (NSUInteger)runStackCount
-{
+- (NSUInteger)runStackCount {
   return self.runStack.count;
 }
 
-- (void)pushRunStack:(XCTestRun *)run
-{
+- (void)pushRunStack:(XCTestRun *)run {
   [(NSMutableArray *)self.runStack addObject:run];
 }
 
-- (void)popRunStack:(XCTestRun *)run
-{
-  NSAssert(run != nil,
-           @"Attempt to pop nil test run");
+- (void)popRunStack:(XCTestRun *)run {
+  NSAssert(run != nil, @"Attempt to pop nil test run");
   
   NSAssert([self.runStack lastObject] == run,
            @"Attempt to pop test run (%@) out of order: %@",
@@ -63,8 +54,7 @@
   [(NSMutableArray *)self.runStack removeLastObject];
 }
 
-- (NSInteger)numberOfTestCases
-{
+- (NSInteger)numberOfTestCases {
   XCTestRun * rootRun = self.runStack.firstObject;
   if (rootRun) {
     return rootRun.testCaseCount;
@@ -73,16 +63,13 @@
   }
 }
 
-// ===== PRINTING ======================================================================================================
 #pragma mark - Printing
 
-- (void)printString:(NSString *)string
-{
+- (void)printString:(NSString *)string {
   [[self logFileHandle] writeData:[string dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
-- (void)printStringWithFormat:(NSString *)formatString, ...
-{
+- (void)printStringWithFormat:(NSString *)formatString, ... {
   va_list args;
   va_start(args, formatString);
   NSString * formattedString = [[NSString alloc] initWithFormat:formatString arguments:args];
@@ -91,18 +78,15 @@
   [self printString:formattedString];
 }
 
-- (void)printLine
-{
+- (void)printLine {
   [self printString:@"\n"];
 }
 
-- (void)printLine:(NSString *)line
-{
+- (void)printLine:(NSString *)line {
   [self printStringWithFormat:@"%@\n", line];
 }
 
-- (void)printLineWithFormat:(NSString *)formatString, ...
-{
+- (void)printLineWithFormat:(NSString *)formatString, ... {
   va_list args;
   va_start(args, formatString);
   NSString * formattedString = [[NSString alloc] initWithFormat:formatString arguments:args];
@@ -111,43 +95,36 @@
   [self printLine:formattedString];
 }
 
-// ========== XCTestObserver ===========================================================================================
 #pragma mark - XCTestObserver
 
-- (void)startObserving
-{
+- (void)startObserving {
   [super startObserving];
   
   self.runStack = [[NSMutableArray alloc] init];
 }
 
-- (void)stopObserving
-{
+- (void)stopObserving {
   [super stopObserving];
   
   self.runStack = nil;
 }
 
-- (void)testSuiteDidStart:(XCTestRun *)testRun
-{
+- (void)testSuiteDidStart:(XCTestRun *)testRun {
   [super testSuiteDidStart:testRun];
   [self pushRunStack:testRun];
 }
 
-- (void)testSuiteDidStop:(XCTestRun *)testRun
-{
+- (void)testSuiteDidStop:(XCTestRun *)testRun {
   [super testSuiteDidStop:testRun];
   [self popRunStack:testRun];
 }
 
-- (void)testCaseDidStart:(XCTestRun *)testRun
-{
+- (void)testCaseDidStart:(XCTestRun *)testRun {
   [super testCaseDidStart:testRun];
   [self pushRunStack:testRun];
 }
 
-- (void)testCaseDidStop:(XCTestRun *)testRun
-{
+- (void)testCaseDidStop:(XCTestRun *)testRun {
   [super testCaseDidStop:testRun];
   [self popRunStack:testRun];
   

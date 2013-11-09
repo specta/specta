@@ -3,11 +3,9 @@
 
 @implementation XCTestRun (Specta)
 
-// ===== PENDING TEST CASES ============================================================================================
 #pragma mark - Pending Test Cases
 
-- (NSUInteger)spt_pendingTestCaseCount
-{
+- (NSUInteger)spt_pendingTestCaseCount {
   NSUInteger pendingTestCaseCount = 0;
   
   if ([self isKindOfClass:[XCTestSuiteRun class]]) {
@@ -24,11 +22,9 @@
   return pendingTestCaseCount;
 }
 
-// ===== SKIPPED TEST CASES ============================================================================================
 #pragma mark - Skipped Test Cases
 
-- (NSUInteger)spt_skippedTestCaseCount
-{
+- (NSUInteger)spt_skippedTestCaseCount {
   NSUInteger skippedTestCaseCount = 0;
   
   if ([self isKindOfClass:[XCTestSuiteRun class]]) {

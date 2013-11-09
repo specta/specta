@@ -10,13 +10,10 @@
 
 @implementation SPTNestedReporter
 
-// ========== PRINTING =================================================================================================
 #pragma mark - Printing
 
-- (NSString *)indentation
-{
-  // XCode does not strip whitespace from the beginning of lines that report an error. Indentation should only enabled
-  // for non-error text.
+- (NSString *)indentation {
+  // XCode does not strip whitespace from the beginning of lines that report an error. Indentation should only enabled for non-error text.
   
   if (self.indentationEnabled) {
     return [@"" stringByPaddingToLength:(self.nestingLevel * 2)
@@ -27,38 +24,31 @@
   }
 }
 
-- (void)withIndentationEnabled:(void(^)(void))block
-{
+- (void)withIndentationEnabled:(void(^)(void))block {
   [self withIndentationEnabled:YES block:block];
 }
 
-- (void)withIndentationEnabled:(BOOL)indentationEnabled
-                         block:(void(^)(void))block
-{
+- (void)withIndentationEnabled:(BOOL)indentationEnabled block:(void(^)(void))block {
   BOOL originalValue = self.indentationEnabled;
   
   self.indentationEnabled = indentationEnabled;
   @try {
     block();
-  }
-  @finally {
+  } @finally {
     self.indentationEnabled = originalValue;
   }
 }
 
-- (void)printIndentation
-{
+- (void)printIndentation {
   [self printString:self.indentation];
 }
 
-- (void)printTestSuiteHeader:(XCTestRun *)testRun
-{
+- (void)printTestSuiteHeader:(XCTestRun *)testRun {
   [self printIndentation];
   [self printLineWithFormat:@"= %@", testRun.test.name];
 }
 
-- (void)printTestSuiteFooter:(XCTestRun *)testRun
-{
+- (void)printTestSuiteFooter:(XCTestRun *)testRun {
   [self printIndentation];
   [self printLine];
   
@@ -67,8 +57,7 @@
   }
 }
 
-- (void)printConciseSummaryOfTestRun:(XCTestRun *)testRun
-{
+- (void)printConciseSummaryOfTestRun:(XCTestRun *)testRun {
   NSUInteger numberOfTests = testRun.testCaseCount;
   NSUInteger numberOfFailures = testRun.totalFailureCount;
   NSUInteger numberOfExceptions = testRun.unexpectedExceptionCount;
@@ -85,22 +74,19 @@
   [self printLine:runInfo];
 }
 
-- (void)printTestCaseHeader:(XCTestRun *)testRun
-{
+- (void)printTestCaseHeader:(XCTestRun *)testRun {
   [self printIndentation];
   [self printLineWithFormat:@"%@", testRun.test.name];
 }
 
-- (void)printTestCaseFooter:(XCTestRun *)testRun
-{
+- (void)printTestCaseFooter:(XCTestRun *)testRun {
   [self printIndentation];
   [self printLine];
 }
 
 + (NSString *)pluralizeString:(NSString *)singularString
                  pluralString:(NSString *)pluralString
-                        count:(NSInteger)count
-{
+                        count:(NSInteger)count {
   return (count == 1 || count == -1) ? singularString : pluralString;
 }
 
@@ -108,8 +94,7 @@
                          numberOfSkippedTests:(NSUInteger)numberOfSkippedTests
                              numberOfFailures:(NSUInteger)numberOfFailures
                            numberOfExceptions:(NSUInteger)numberOfExceptions
-                         numberOfPendingTests:(NSUInteger)numberOfPendingTests
-{
+                         numberOfPendingTests:(NSUInteger)numberOfPendingTests {
   NSString * testLabel = [[self class] pluralizeString:@"test"
                                           pluralString:@"tests"
                                                  count:numberOfTests];
@@ -133,22 +118,19 @@
                                     (unsigned long)numberOfPendingTests];
 }
 
-// ========== XCTestObserver ===========================================================================================
 #pragma mark - XCTestObserver
 
-- (void)startObserving
-{
+- (void)startObserving {
   [super startObserving];
   
   self.nestingLevel = 0;
 }
 
-- (void)testSuiteDidStart:(XCTestRun *)testRun
-{
+- (void)testSuiteDidStart:(XCTestRun *)testRun {
   [self withIndentationEnabled:^{
     
     [self printTestSuiteHeader:testRun];
-    self.nestingLevel++;
+    self.nestingLevel ++;
     
     [super testSuiteDidStart:testRun];
     [self printLine];
@@ -156,50 +138,44 @@
   }];
 }
 
-- (void)testSuiteDidStop:(XCTestRun *)testRun
-{
+- (void)testSuiteDidStop:(XCTestRun *)testRun {
   [self withIndentationEnabled:^{
 
     [super testSuiteDidStop:testRun];
     
-    self.nestingLevel--;
+    self.nestingLevel --;
     [self printTestSuiteFooter:testRun];
     
   }];
 }
 
-- (void)testCaseDidStart:(XCTestRun *)testRun
-{
+- (void)testCaseDidStart:(XCTestRun *)testRun {
   [self withIndentationEnabled:^{
 
     [self printTestCaseHeader:testRun];
-    self.nestingLevel++;
+    self.nestingLevel ++;
     
     [super testCaseDidStart:testRun];
     
   }];
 }
 
-- (void)testCaseDidStop:(XCTestRun *)testRun
-{
+- (void)testCaseDidStop:(XCTestRun *)testRun {
   [self withIndentationEnabled:^{
 
     [super testCaseDidStop:testRun];
     
-    self.nestingLevel--;
+    self.nestingLevel --;
     [self printTestCaseFooter:testRun];
     
   }];
 }
 
-- (void)testLogWithFormat:(NSString *)format
-                arguments:(va_list)arguments
-{
+- (void)testLogWithFormat:(NSString *)format arguments:(va_list)arguments {
   NSString * indentation = self.indentation;
   
   NSMutableString * indentedFormat = [[NSMutableString alloc] initWithString:format];
-  [indentedFormat insertString:indentation
-                       atIndex:0];
+  [indentedFormat insertString:indentation atIndex:0];
   
   NSRange replacementRange = NSMakeRange(0, [indentedFormat length]);
   if ([indentedFormat hasSuffix:@"\n"]) {
