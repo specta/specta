@@ -1,30 +1,18 @@
 #import "TestHelper.h"
-#import <objc/runtime.h>
+
+static NSMutableArray *sequence = nil;
 
 @interface SequenceTestHelper : NSObject
-+ (NSMutableArray *)array;
 @end
 
 @implementation SequenceTestHelper
 
-+ (void)beforeEach
-{
-  [[self array] addObject:@"+beforeEach"];
++ (void)beforeEach {
+  [sequence addObject:@"+beforeEach"];
 }
 
-+ (void)afterEach
-{
-  [[self array] addObject:@"+afterEach"];
-}
-
-+ (void)initialize {
-  [super initialize];
-  NSMutableArray *array = [NSMutableArray array];
-  objc_setAssociatedObject(self, "SPT_array", array, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-+ (NSMutableArray *)array {
-  return objc_getAssociatedObject(self, "SPT_array");
++ (void)afterEach {
+  [sequence addObject:@"+afterEach"];
 }
 
 @end
@@ -32,8 +20,6 @@
 SpecBegin(_SequenceTest)
 
 describe(@"root", ^{
-  NSMutableArray *sequence = [SequenceTestHelper array];
-
   beforeAll(^{ [sequence addObject:@"/beforeAll"]; });
   beforeEach(^{ [sequence addObject:@"/beforeEach"]; });
 
@@ -78,28 +64,28 @@ describe(@"root", ^{
 
 SpecEnd
 
-#define assertSequence(i, obj) expect(sequence[(i)]).toEqual((obj)); i++
+#define assertSequence(i, obj) SPTAssertEqualObjects(sequence[i], obj); i++
 
-@interface SequenceTest : SenTestCase
+@interface SequenceTest : XCTestCase
 @end
 
 @implementation SequenceTest
 
 - (void)test_Tests_should_run_in_correct_sequence {
-  NSMutableArray *sequence = [SequenceTestHelper array];
+  sequence = [NSMutableArray array];
   [sequence removeAllObjects];
 
   RunSpec(_SequenceTestSpec);
 
-  expect([sequence count]).Not.toEqual(0);
+  SPTAssertNotEqual([sequence count], 0);
   int i = 0;
-  
+
   assertSequence(i, @"/beforeAll");
   // /foo
   assertSequence(i, @"/foo/beforeAll");
   // /foo/bar
   assertSequence(i, @"/foo/bar/beforeAll");
-  
+
   // /foo/bar/example1
   assertSequence(i, @"+beforeEach");
   assertSequence(i, @"/beforeEach");
@@ -110,7 +96,7 @@ SpecEnd
   assertSequence(i, @"/foo/afterEach");
   assertSequence(i, @"/afterEach");
   assertSequence(i, @"+afterEach");
-  
+
   // /foo/bar/example2
   assertSequence(i, @"+beforeEach");
   assertSequence(i, @"/beforeEach");

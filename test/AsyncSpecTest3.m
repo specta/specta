@@ -10,66 +10,67 @@ SpecBegin(_AsyncSpecTest3)
 describe(@"beforeEach", ^{
   beforeEach(^AsyncBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
-      expect(foo).toEqual(@"foo");
+      SPTAssertEqualObjects(foo, @"foo");
       done();
     });
   });
 
   it(@"example", ^{
-    expect(NO).toBeFalsy();
+    SPTAssertFalse(NO);
   });
 });
 
 describe(@"afterEach", ^{
   afterEach(^AsyncBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
-      expect(foo).toEqual(@"foo");
+      SPTAssertEqualObjects(foo, @"foo");
       done();
     });
   });
 
   it(@"example", ^{
-    expect(NO).toBeFalsy();
+    SPTAssertFalse(NO);
   });
 });
 
 describe(@"beforeAll", ^{
   beforeAll(^AsyncBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
-      expect(foo).toEqual(@"foo");
+      SPTAssertEqualObjects(foo, @"foo");
       done();
     });
   });
 
   it(@"example", ^{
-    expect(NO).toBeFalsy();
+    SPTAssertFalse(NO);
   });
 });
 
 describe(@"afterAll", ^{
   beforeAll(^AsyncBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
-      expect(foo).toEqual(@"foo");
+      SPTAssertEqualObjects(foo, @"foo");
       done();
     });
   });
 
   it(@"example", ^{
-    expect(NO).toBeFalsy();
+    SPTAssertFalse(NO);
   });
 });
 
 SpecEnd
 
-@interface AsyncSpecTest3 : SenTestCase; @end
+@interface AsyncSpecTest3 : XCTestCase; @end
 @implementation AsyncSpecTest3
 
 - (void)testFailingHooks {
   foo = @"not foo";
   bar = @"not bar";
-  SenTestRun *result = RunSpec(_AsyncSpecTest3Spec);
-  expect([result failureCount]).toEqual(4);
-  expect([result hasSucceeded]).toEqual(NO);
+  XCTestRun *result = RunSpec(_AsyncSpecTest3Spec);
+  SPTAssertEqual([result unexpectedExceptionCount], 0);
+  SPTAssertEqual([result failureCount], 4);
+  SPTAssertFalse([result hasSucceeded]);
   foo = @"foo";
   bar = @"bar";
 }

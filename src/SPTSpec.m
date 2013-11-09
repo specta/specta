@@ -6,7 +6,7 @@
 
 - (id)init {
   self = [super init];
-  if(self) {
+  if (self) {
     self.rootGroup = [[SPTExampleGroup alloc] init];
     self.rootGroup.root = self.rootGroup;
     self.groupStack = [NSMutableArray arrayWithObject:self.rootGroup];
@@ -20,7 +20,7 @@
 
 - (void)compile {
   self.compiledExamples = [self.rootGroup compileExamplesWithNameStack:@[]];
-  for (SPTExample * example in self.compiledExamples) {
+  for (SPTExample *example in self.compiledExamples) {
     if (example.focused) {
       self.hasFocusedExamples = YES;
       break;

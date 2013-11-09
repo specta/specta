@@ -4,23 +4,24 @@ SpecBegin(_PassingSpecTest)
 
 describe(@"group", ^{
   it(@"example 1", ^{
-    expect(@"foo").toEqual(@"foo");
+    SPTAssertEqualObjects(@"foo", ([NSString stringWithFormat:@"f%@", @"oo"]));
   });
 
   it(@"example 2", ^{
-    expect(123).toEqual(123);
+    SPTAssertEqual(123, 100 + 23);
   });
 });
 
 SpecEnd
 
-@interface PassingSpecTest : SenTestCase; @end
+@interface PassingSpecTest : XCTestCase; @end
 @implementation PassingSpecTest
 
 - (void)testPassingSpec {
-  SenTestRun *result = RunSpec(_PassingSpecTestSpec);
-  expect([result failureCount]).toEqual(0);
-  expect([result hasSucceeded]).toEqual(YES);
+  XCTestRun *result = RunSpec(_PassingSpecTestSpec);
+  SPTAssertEqual([result unexpectedExceptionCount], 0);
+  SPTAssertEqual([result failureCount], 0);
+  SPTAssertTrue([result hasSucceeded]);
 }
 
 @end

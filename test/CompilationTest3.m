@@ -33,7 +33,7 @@ describe(@"group 1", ^{
 
 SpecEnd
 
-@interface CompilationTest3 : SenTestCase; @end
+@interface CompilationTest3 : XCTestCase; @end
 @implementation CompilationTest3
 
 - (void)testNestedExamples {
@@ -41,10 +41,10 @@ SpecEnd
 
   RunSpec(_CompilationTest3Spec);
 
-  expect(example1Ran).toEqual(1);
-  expect(example2Ran).toEqual(1);
-  expect(example3Ran).toEqual(1);
-  expect(example4Ran).toEqual(1);
+  SPTAssertEqual(example1Ran, 1);
+  SPTAssertEqual(example2Ran, 1);
+  SPTAssertEqual(example3Ran, 1);
+  SPTAssertEqual(example4Ran, 1);
 }
 
 @end

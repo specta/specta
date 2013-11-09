@@ -6,21 +6,21 @@ describe(@"group", ^{});
 
 SpecEnd
 
-@interface DSLTest1 : SenTestCase; @end
+@interface DSLTest1 : XCTestCase; @end
 @implementation DSLTest1
 
 - (void)testSingleExampleGroup {
-  SPTExampleGroup *rootGroup = [_DSLTest1Spec SPT_spec].rootGroup;
+  SPTExampleGroup *rootGroup = [_DSLTest1Spec spt_spec].rootGroup;
 
-  expect(rootGroup).toBeKindOf([SPTExampleGroup class]);
-  expect(rootGroup.root).toEqual(rootGroup);
-  expect(rootGroup.parent).toEqual(nil);
+  SPTAssertTrue([rootGroup isKindOfClass:[SPTExampleGroup class]]);
+  SPTAssertEqualObjects(rootGroup.root, rootGroup);
+  SPTAssertNil(rootGroup.parent);
 
-  expect([rootGroup.children count]).toEqual(1);
+  SPTAssertEqual([rootGroup.children count], 1);
   SPTExampleGroup *group = rootGroup.children[0];
-  expect(group.name).toEqual(@"group");
-  expect(group.parent).toEqual(rootGroup);
-  expect(group.root).toEqual(rootGroup);
+  SPTAssertEqualObjects(group.name, @"group");
+  SPTAssertEqualObjects(group.parent, rootGroup);
+  SPTAssertEqualObjects(group.root, rootGroup);
 }
 
 @end

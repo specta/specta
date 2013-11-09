@@ -1,23 +1,25 @@
 #ifndef SPT_SUBCLASS
-#define SPT_SUBCLASS SPTSenTestCase
+#define SPT_SUBCLASS SPTXCTestCase
 #endif
 
-#define _SPT_SpecBegin(name, file, line) \
+
+
+#define _SPTSpecBegin(name, file, line) \
 @interface name##Spec : SPT_SUBCLASS \
 @end \
 @implementation name##Spec \
-- (void)SPT_defineSpec { \
-  const char *SPT_specFileName = file; \
+- (void)spt_defineSpec { \
+  const char *specFileName = file; \
   @try { \
-    [self SPT_setCurrentSpecWithFileName:(file) lineNumber:(line)];
+    [self spt_setCurrentSpecWithFileName:(file) lineNumber:(line)];
 
-#define _SPT_SpecEnd \
-    [self SPT_unsetCurrentSpec]; \
+#define _SPTSpecEnd \
+    [self spt_unsetCurrentSpec]; \
   } @catch(NSException *exception) { \
-    fprintf(stderr, "%s: An exception has occured outside of tests, aborting.\n\n%s (%s) \n", SPT_specFileName, [[exception name] UTF8String], [[exception reason] UTF8String]); \
-    if([exception respondsToSelector:@selector(callStackSymbols)]) { \
+    fprintf(stderr, "%s: An exception has occured outside of tests, aborting.\n\n%s (%s) \n", specFileName, [[exception name] UTF8String], [[exception reason] UTF8String]); \
+    if ([exception respondsToSelector:@selector(callStackSymbols)]) { \
       NSArray *callStackSymbols = [exception callStackSymbols]; \
-      if(callStackSymbols) { \
+      if (callStackSymbols) { \
         NSString *callStack = [NSString stringWithFormat:@"\n  Call Stack:\n    %@\n", [callStackSymbols componentsJoinedByString:@"\n    "]]; \
         fprintf(stderr, "%s", [callStack UTF8String]); \
       } \
@@ -27,12 +29,18 @@
 } \
 @end
 
-#define _SPT_SharedExampleGroupsBegin(name) \
+#define _SPTSharedExampleGroupsBegin(name) \
 @interface name##SharedExampleGroups : SPTSharedExampleGroups \
 @end \
 @implementation name##SharedExampleGroups \
 + (void)defineSharedExampleGroups {
 
-#define _SPT_SharedExampleGroupsEnd \
+#define _SPTSharedExampleGroupsEnd \
 } \
 @end
+
+#undef _XCTRegisterFailure
+#define _XCTRegisterFailure(condition, format...) \
+({ \
+_XCTFailureHandler((id)self, YES, __FILE__, __LINE__, condition, @"" format); \
+})

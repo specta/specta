@@ -1,6 +1,14 @@
 #import <Foundation/Foundation.h>
+extern NSString * const SPTCurrentSpecKey;
+extern NSString * const SPTCurrentTestCaseKey;
 
-#define SPT_isBlock(obj) [(obj) isKindOfClass:NSClassFromString(@"NSBlock")]
+#define SPTCurrentSpec     [[NSThread currentThread] threadDictionary][SPTCurrentSpecKey]
+#define SPTCurrentTestCase [[NSThread currentThread] threadDictionary][SPTCurrentTestCaseKey]
+#define SPTCurrentGroup    [SPTCurrentSpec currentGroup]
+#define SPTGroupStack      [SPTCurrentSpec groupStack]
 
-const char *SPT_getBlockSignature(id blockObject);
-BOOL SPT_IsSpecClass(Class aClass);
+#define SPTReturnUnlessBlockOrNil(block) if ((block) && !SPTIsBlock((block))) return;
+#define SPTIsBlock(obj) [(obj) isKindOfClass:NSClassFromString(@"NSBlock")]
+
+const char *SPTGetBlockSignature(id blockObject);
+BOOL SPTIsSpecClass(Class aClass);

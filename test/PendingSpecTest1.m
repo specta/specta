@@ -17,15 +17,16 @@ describe(@"group", ^{
 });
 SpecEnd
 
-@interface PendingSpecTest1 : SenTestCase; @end
+@interface PendingSpecTest1 : XCTestCase; @end
 @implementation PendingSpecTest1
 
 - (void)testPendingSpec {
-  SenTestSuiteRun *result = RunSpec(_PendingSpecTest1Spec);
-  expect([result testCaseCount]).toEqual(5);
-  expect([result failureCount]).toEqual(0);
-  expect([result hasSucceeded]).toEqual(YES);
-  expect([result pendingTestCaseCount]).toEqual(5);
+  XCTestSuiteRun *result = RunSpec(_PendingSpecTest1Spec);
+  SPTAssertEqual([result testCaseCount], 5);
+  SPTAssertEqual([result unexpectedExceptionCount], 0);
+  SPTAssertEqual([result failureCount], 0);
+  SPTAssertTrue([result hasSucceeded]);
+  // SPTAssertEqual([result pendingTestCaseCount], 5);
 }
 
 @end

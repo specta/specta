@@ -11,37 +11,37 @@ context(@"group 4", ^{});
 
 SpecEnd
 
-@interface DSLTest3 : SenTestCase; @end
+@interface DSLTest3 : XCTestCase; @end
 @implementation DSLTest3
 
 - (void)testNestedExampleGroups {
-  SPTExampleGroup *rootGroup = [_DSLTest3Spec SPT_spec].rootGroup;
-  expect([rootGroup.children count]).toEqual(2);
+  SPTExampleGroup *rootGroup = [_DSLTest3Spec spt_spec].rootGroup;
+  SPTAssertEqual([rootGroup.children count], 2);
 
   SPTExampleGroup *group1 = rootGroup.children[0];
-  expect(group1).toBeKindOf([SPTExampleGroup class]);
-  expect(group1.name).toEqual(@"group 1");
-  expect(group1.parent).toEqual(rootGroup);
-  expect(group1.root).toEqual(rootGroup);
-  expect([group1.children count]).toEqual(2);
+  SPTAssertTrue([group1 isKindOfClass:[SPTExampleGroup class]]);
+  SPTAssertEqualObjects(group1.name, @"group 1");
+  SPTAssertEqualObjects(group1.parent, rootGroup);
+  SPTAssertEqualObjects(group1.root, rootGroup);
+  SPTAssertEqual([group1.children count], 2);
 
   SPTExampleGroup *group2 = group1.children[0];
   SPTExampleGroup *group3 = group1.children[1];
 
-  expect(group2).toBeKindOf([SPTExampleGroup class]);
-  expect(group3).toBeKindOf([SPTExampleGroup class]);
-  expect(group2.name).toEqual(@"group 2");
-  expect(group3.name).toEqual(@"group 3");
-  expect(group2.parent).toEqual(group1);
-  expect(group3.parent).toEqual(group1);
-  expect(group2.root).toEqual(rootGroup);
-  expect(group3.root).toEqual(rootGroup);
+  SPTAssertTrue([group2 isKindOfClass:[SPTExampleGroup class]]);
+  SPTAssertTrue([group3 isKindOfClass:[SPTExampleGroup class]]);
+  SPTAssertEqualObjects(group2.name, @"group 2");
+  SPTAssertEqualObjects(group3.name, @"group 3");
+  SPTAssertEqualObjects(group2.parent, group1);
+  SPTAssertEqualObjects(group3.parent, group1);
+  SPTAssertEqualObjects(group2.root, rootGroup);
+  SPTAssertEqualObjects(group3.root, rootGroup);
 
   SPTExampleGroup *group4 = rootGroup.children[1];
-  expect(group4).toBeKindOf([SPTExampleGroup class]);
-  expect(group4.name).toEqual(@"group 4");
-  expect(group4.parent).toEqual(rootGroup);
-  expect(group4.root).toEqual(rootGroup);
+  SPTAssertTrue([group4 isKindOfClass:[SPTExampleGroup class]]);
+  SPTAssertEqualObjects(group4.name, @"group 4");
+  SPTAssertEqualObjects(group4.parent, rootGroup);
+  SPTAssertEqualObjects(group4.root, rootGroup);
 }
 
 @end

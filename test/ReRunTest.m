@@ -39,7 +39,7 @@ describe(@"group", ^{
 
 SpecEnd
 
-@interface ReRunTest : SenTestCase; @end
+@interface ReRunTest : XCTestCase; @end
 @implementation ReRunTest
 
 - (void)test_Tests_should_be_able_to_run_multiple_times {
@@ -47,23 +47,23 @@ SpecEnd
 
   RunSpec(_ReRunTestSpec);
 
-  expect(example1Ran).toEqual(1);
-  expect(example2Ran).toEqual(1);
+  SPTAssertEqual(example1Ran, 1);
+  SPTAssertEqual(example2Ran, 1);
 
-  expect(beforeAllRan).toEqual(1);
-  expect(beforeEachRan).toEqual(2);
-  expect(afterEachRan).toEqual(2);
-  expect(afterAllRan).toEqual(1);
+  SPTAssertEqual(beforeAllRan, 1);
+  SPTAssertEqual(beforeEachRan, 2);
+  SPTAssertEqual(afterEachRan, 2);
+  SPTAssertEqual(afterAllRan, 1);
 
   RunSpec(_ReRunTestSpec);
 
-  expect(example1Ran).toEqual(2);
-  expect(example2Ran).toEqual(2);
+  SPTAssertEqual(example1Ran, 2);
+  SPTAssertEqual(example2Ran, 2);
 
-  expect(beforeAllRan).toEqual(2);
-  expect(beforeEachRan).toEqual(4);
-  expect(afterEachRan).toEqual(4);
-  expect(afterAllRan).toEqual(2);
+  SPTAssertEqual(beforeAllRan, 2);
+  SPTAssertEqual(beforeEachRan, 4);
+  SPTAssertEqual(afterEachRan, 4);
+  SPTAssertEqual(afterAllRan, 2);
 }
 
 @end

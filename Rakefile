@@ -20,10 +20,10 @@ desc 'build'
 task :build => :clean do |t|
   puts "=== BUILD ==="
   configuration = 'Release'
-  execute xcodebuild('Specta', 'macosx', configuration)
+  execute xcodebuild('Specta-OSX', 'macosx', configuration)
   execute xcodebuild('Specta-iOS', 'iphonesimulator', configuration)
   execute xcodebuild('Specta-iOS', 'iphoneos', configuration)
-  macosx_binary = "build/#{configuration}/libSpecta.a"
+  macosx_binary = "build/#{configuration}/libSpecta-OSX.a"
   iphoneos_binary = "build/#{configuration}-iphoneos/libSpecta-ios.a"
   iphonesimulator_binary = "build/#{configuration}-iphonesimulator/libSpecta-ios.a"
   universal_binary = "build/libSpecta-ios-universal.a"

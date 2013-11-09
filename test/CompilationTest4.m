@@ -15,13 +15,13 @@ describe(@"group", ^{
   });
 
   it(@"example 1", ^{
-    if(beforeEachRan == 1 && afterEachRan == 0) {
+    if (beforeEachRan == 1 && afterEachRan == 0) {
       example1RanCorrectly ++;
     }
   });
 
   it(@"example 2", ^{
-    if(beforeEachRan == 2 && afterEachRan == 1) {
+    if (beforeEachRan == 2 && afterEachRan == 1) {
       example2RanCorrectly ++;
     }
   });
@@ -33,7 +33,7 @@ describe(@"group", ^{
 
 SpecEnd
 
-@interface CompilationTest4 : SenTestCase; @end
+@interface CompilationTest4 : XCTestCase; @end
 @implementation CompilationTest4
 
 - (void)testBeforeEachAndAfterEachHooks {
@@ -41,11 +41,11 @@ SpecEnd
 
   RunSpec(_CompilationTest4Spec);
 
-  expect(example1RanCorrectly).toEqual(1);
-  expect(example2RanCorrectly).toEqual(1);
+  SPTAssertEqual(example1RanCorrectly, 1);
+  SPTAssertEqual(example2RanCorrectly, 1);
 
-  expect(beforeEachRan).toEqual(2);
-  expect(afterEachRan).toEqual(2);
+  SPTAssertEqual(beforeEachRan, 2);
+  SPTAssertEqual(afterEachRan, 2);
 }
 
 @end
