@@ -1,7 +1,6 @@
 #import "SPTXCTestCase.h"
 #import "SPTSpec.h"
 #import "SPTExample.h"
-#import "SPTXCTestInvocation.h"
 #import "SPTSharedExampleGroups.h"
 #import "SpectaUtility.h"
 #import <objc/runtime.h>
@@ -116,17 +115,10 @@
 + (NSArray *)testInvocations {
   NSMutableArray *invocations = [NSMutableArray array];
   for(NSUInteger i = 0; i < [[self spt_spec].compiledExamples count]; i ++) {
-    SPTXCTestInvocation *invocation = (SPTXCTestInvocation *)[SPTXCTestInvocation invocationWithMethodSignature:[self instanceMethodSignatureForSelector:@selector(spt_runExampleAtIndex:)]];
-
-    __weak typeof(invocation) weakInvocation = invocation;
-
-    invocation.spt_invocationBlock = ^{
-      __strong typeof(weakInvocation) strongInvocation = weakInvocation;
-
-      [(SPTXCTestCase *)[strongInvocation target] spt_runExampleAtIndex:i];
-    };
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self instanceMethodSignatureForSelector:@selector(spt_runExampleAtIndex:)]];
+    NSUInteger j = i;
     [invocation setSelector:@selector(spt_runExampleAtIndex:)];
-    [invocation setArgument:&i atIndex:2];
+    [invocation setArgument:&j atIndex:2];
     [invocations addObject:invocation];
   }
   return invocations;
