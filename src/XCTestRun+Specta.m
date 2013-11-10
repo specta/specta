@@ -7,7 +7,7 @@
 
 - (NSUInteger)spt_pendingTestCaseCount {
   NSUInteger pendingTestCaseCount = 0;
-  
+
   if ([self isKindOfClass:[XCTestSuiteRun class]]) {
     for (XCTestRun * testRun in [(XCTestSuiteRun *)self testRuns]) {
       pendingTestCaseCount += [testRun spt_pendingTestCaseCount];
@@ -18,7 +18,7 @@
       pendingTestCaseCount++;
     }
   }
-  
+
   return pendingTestCaseCount;
 }
 
@@ -26,7 +26,7 @@
 
 - (NSUInteger)spt_skippedTestCaseCount {
   NSUInteger skippedTestCaseCount = 0;
-  
+
   if ([self isKindOfClass:[XCTestSuiteRun class]]) {
     for (XCTestRun * testRun in [(XCTestSuiteRun *)self testRuns]) {
       skippedTestCaseCount += [testRun spt_skippedTestCaseCount];
@@ -37,7 +37,7 @@
       skippedTestCaseCount++;
     }
   }
-  
+
   return skippedTestCaseCount;
 }
 

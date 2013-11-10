@@ -203,7 +203,7 @@ static void runExampleBlock(id block, NSString *name) {
   dispatch_once(&onceToken, ^{
     globalBeforeEachClasses = ClassesWithClassMethod(@selector(beforeEach));
   });
-  
+
   for (Class class in globalBeforeEachClasses) {
     [class beforeEach];
   }
@@ -215,7 +215,7 @@ static void runExampleBlock(id block, NSString *name) {
   dispatch_once(&onceToken, ^{
     globalAfterEachClasses = ClassesWithClassMethod(@selector(afterEach));
   });
-  
+
   for (Class class in globalAfterEachClasses) {
     [class afterEach];
   }

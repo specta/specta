@@ -14,7 +14,7 @@
 
 - (NSString *)indentation {
   // XCode does not strip whitespace from the beginning of lines that report an error. Indentation should only enabled for non-error text.
-  
+
   if (self.indentationEnabled) {
     return [@"" stringByPaddingToLength:(self.nestingLevel * 2)
                              withString:@" "
@@ -30,7 +30,7 @@
 
 - (void)withIndentationEnabled:(BOOL)indentationEnabled block:(void(^)(void))block {
   BOOL originalValue = self.indentationEnabled;
-  
+
   self.indentationEnabled = indentationEnabled;
   @try {
     block();
@@ -51,7 +51,7 @@
 - (void)printTestSuiteFooter:(XCTestRun *)testRun {
   [self printIndentation];
   [self printLine];
-  
+
   if (self.nestingLevel == 0) {
     [self printConciseSummaryOfTestRun:testRun];
   }
@@ -63,13 +63,13 @@
   NSUInteger numberOfExceptions = testRun.unexpectedExceptionCount;
   NSUInteger numberOfSkippedTests = testRun.spt_skippedTestCaseCount;
   NSUInteger numberOfPendingTests = testRun.spt_pendingTestCaseCount;
-  
+
   NSString * runInfo = [[self class] conciseRunInfoWithNumberOfTests:numberOfTests
                                                 numberOfSkippedTests:numberOfSkippedTests
                                                     numberOfFailures:numberOfFailures
                                                   numberOfExceptions:numberOfExceptions
                                                 numberOfPendingTests:numberOfPendingTests];
-  
+
   [self printIndentation];
   [self printLine:runInfo];
 }
@@ -98,15 +98,15 @@
   NSString * testLabel = [[self class] pluralizeString:@"test"
                                           pluralString:@"tests"
                                                  count:numberOfTests];
-  
+
   NSString * failureLabel = [[self class] pluralizeString:@"failure"
                                              pluralString:@"failures"
                                                     count:numberOfFailures];
-  
+
   NSString * exceptionLabel = [[self class] pluralizeString:@"exception"
                                                pluralString:@"exceptions"
                                                       count:numberOfExceptions];
-  
+
   return [NSString stringWithFormat:@"%lu %@; %lu skipped; %lu %@; %lu %@; %lu pending",
                                     (unsigned long)numberOfTests,
                                     testLabel,
@@ -122,19 +122,19 @@
 
 - (void)startObserving {
   [super startObserving];
-  
+
   self.nestingLevel = 0;
 }
 
 - (void)testSuiteDidStart:(XCTestRun *)testRun {
   [self withIndentationEnabled:^{
-    
+
     [self printTestSuiteHeader:testRun];
     self.nestingLevel ++;
-    
+
     [super testSuiteDidStart:testRun];
     [self printLine];
-    
+
   }];
 }
 
@@ -142,10 +142,10 @@
   [self withIndentationEnabled:^{
 
     [super testSuiteDidStop:testRun];
-    
+
     self.nestingLevel --;
     [self printTestSuiteFooter:testRun];
-    
+
   }];
 }
 
@@ -154,9 +154,9 @@
 
     [self printTestCaseHeader:testRun];
     self.nestingLevel ++;
-    
+
     [super testCaseDidStart:testRun];
-    
+
   }];
 }
 
@@ -164,29 +164,29 @@
   [self withIndentationEnabled:^{
 
     [super testCaseDidStop:testRun];
-    
+
     self.nestingLevel --;
     [self printTestCaseFooter:testRun];
-    
+
   }];
 }
 
 - (void)testLogWithFormat:(NSString *)format arguments:(va_list)arguments {
   NSString * indentation = self.indentation;
-  
+
   NSMutableString * indentedFormat = [[NSMutableString alloc] initWithString:format];
   [indentedFormat insertString:indentation atIndex:0];
-  
+
   NSRange replacementRange = NSMakeRange(0, [indentedFormat length]);
   if ([indentedFormat hasSuffix:@"\n"]) {
     replacementRange.length -= [@"\n" length];
   }
-  
+
   [indentedFormat replaceOccurrencesOfString:@"\n"
                                   withString:[@"\n" stringByAppendingString:indentation]
                                      options:0
                                        range:replacementRange];
-  
+
   [super testLogWithFormat:indentedFormat
                  arguments:arguments];
 }

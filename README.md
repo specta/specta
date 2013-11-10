@@ -23,7 +23,7 @@ target :MyApp do
 end
 
 target :MyAppTests do
-  pod 'Specta',      '~> 0.2.0'
+  pod 'Specta',      '~> 0.2.1'
   # pod 'Expecta',     '~> 0.2.3'   # expecta matchers
   # pod 'OCMock',      '~> 2.2.1'   # OCMock
   # pod 'OCHamcrest',  '~> 3.0.0'   # hamcrest matchers

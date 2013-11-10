@@ -1,3 +1,8 @@
+V0.2.1
+======
+
+* Workaround for Xcode truncating console output when tests run too quickly. [petejkim]
+
 v0.2.0
 ======
 

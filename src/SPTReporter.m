@@ -17,7 +17,7 @@
   dispatch_once(&onceToken, ^{
     sharedReporter = [self loadSharedReporter];
   });
-  
+
   return sharedReporter;
 }
 
@@ -29,7 +29,7 @@
       return [[customReporterClass alloc] init];
     }
   }
-  
+
   return [[SPTNestedReporter alloc] init];
 }
 
@@ -45,12 +45,12 @@
 
 - (void)popRunStack:(XCTestRun *)run {
   NSAssert(run != nil, @"Attempt to pop nil test run");
-  
+
   NSAssert([self.runStack lastObject] == run,
            @"Attempt to pop test run (%@) out of order: %@",
            run,
            self.runStack);
-  
+
   [(NSMutableArray *)self.runStack removeLastObject];
 }
 
@@ -74,7 +74,7 @@
   va_start(args, formatString);
   NSString * formattedString = [[NSString alloc] initWithFormat:formatString arguments:args];
   va_end(args);
-  
+
   [self printString:formattedString];
 }
 
@@ -91,7 +91,7 @@
   va_start(args, formatString);
   NSString * formattedString = [[NSString alloc] initWithFormat:formatString arguments:args];
   va_end(args);
-  
+
   [self printLine:formattedString];
 }
 
@@ -99,13 +99,13 @@
 
 - (void)startObserving {
   [super startObserving];
-  
+
   self.runStack = [[NSMutableArray alloc] init];
 }
 
 - (void)stopObserving {
   [super stopObserving];
-  
+
   self.runStack = nil;
 }
 
@@ -127,7 +127,7 @@
 - (void)testCaseDidStop:(XCTestRun *)testRun {
   [super testCaseDidStop:testRun];
   [self popRunStack:testRun];
-  
+
   self.numberOfCompletedTestCases++;
 }
 
