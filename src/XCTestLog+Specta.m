@@ -42,6 +42,7 @@ static void spt_swizzleInstanceMethod(Class class, SEL originalSelector, SEL swi
     [[SPTReporter sharedReporter] stopObserving];
   } else {
     [self XCTestLog_stopObserving];
+    usleep(100000);
   }
 }
 
