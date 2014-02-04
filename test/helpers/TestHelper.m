@@ -1,6 +1,6 @@
 #import "TestHelper.h"
 #import "SPTReporter.h"
-#import "XCTestLog+Specta.h"
+#import "XCTestObserver+Specta.h"
 
 XCTestSuiteRun *RunSpecClass(Class testClass) {
 
