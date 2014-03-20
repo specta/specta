@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSMutableDictionary *sharedExamples;
 @property (nonatomic) unsigned int exampleCount;
 @property (nonatomic) unsigned int ranExampleCount;
+@property (nonatomic) unsigned int pendingExampleCount;
 @property (nonatomic, getter=isFocused) BOOL focused;
 
 + (void)setAsyncSpecTimeout:(NSTimeInterval)timeout;

@@ -27,6 +27,8 @@
 		CDF76B5B182617DB008BA160 /* XCTestRun+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF76B58182617DB008BA160 /* XCTestRun+Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDF76B5C182617DB008BA160 /* XCTestRun+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF76B59182617DB008BA160 /* XCTestRun+Specta.m */; };
 		CDF76B5D182617DB008BA160 /* XCTestRun+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF76B59182617DB008BA160 /* XCTestRun+Specta.m */; };
+		DA2966A318DB180F0085E9C2 /* PendingSpecTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2966A218DB180F0085E9C2 /* PendingSpecTest3.m */; };
+		DA2966A418DB21FF0085E9C2 /* PendingSpecTest3.m in Sources */ = {isa = PBXBuildFile; fileRef = DA2966A218DB180F0085E9C2 /* PendingSpecTest3.m */; };
 		E93B45A318205B91009F43A2 /* Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5218205B6600844A05 /* Specta.m */; };
 		E93B45A418205B91009F43A2 /* SpectaUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5618205B6600844A05 /* SpectaUtility.m */; };
 		E93B45A518205B91009F43A2 /* SPTExample.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5818205B6600844A05 /* SPTExample.m */; };
@@ -169,6 +171,7 @@
 		CDF76B5318260AA5008BA160 /* SPTXCTestReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTXCTestReporter.m; sourceTree = "<group>"; };
 		CDF76B58182617DB008BA160 /* XCTestRun+Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestRun+Specta.h"; sourceTree = "<group>"; };
 		CDF76B59182617DB008BA160 /* XCTestRun+Specta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestRun+Specta.m"; sourceTree = "<group>"; };
+		DA2966A218DB180F0085E9C2 /* PendingSpecTest3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest3.m; sourceTree = "<group>"; };
 		E93B45D018205C2B009F43A2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		E93B45D318205C77009F43A2 /* AsyncSpecTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTest.m; sourceTree = "<group>"; };
 		E93B45D418205C77009F43A2 /* AsyncSpecTest2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTest2.m; sourceTree = "<group>"; };
@@ -323,6 +326,7 @@
 				E93B45ED18205C77009F43A2 /* PassingSpecTest.m */,
 				E93B45EE18205C77009F43A2 /* PendingSpecTest1.m */,
 				E93B45EF18205C77009F43A2 /* PendingSpecTest2.m */,
+				DA2966A218DB180F0085E9C2 /* PendingSpecTest3.m */,
 				E93B45F018205C77009F43A2 /* ReRunTest.m */,
 				E93B45F118205C77009F43A2 /* SequenceTest.m */,
 				E93B45F218205C77009F43A2 /* SharedExamplesTest1.m */,
@@ -629,6 +633,7 @@
 				E93B463F18205C9E009F43A2 /* SpectaUtilityTest.m in Sources */,
 				E93B462818205C9E009F43A2 /* CompilationTest4.m in Sources */,
 				E93B463018205C9E009F43A2 /* DSLTest4.m in Sources */,
+				DA2966A318DB180F0085E9C2 /* PendingSpecTest3.m in Sources */,
 				E93B462118205C9E009F43A2 /* AsyncSpecTest2.m in Sources */,
 				E93B463B18205C9E009F43A2 /* SharedExamplesTest2.m in Sources */,
 				E93B464018205C9E009F43A2 /* UnexpectedExceptionTest.m in Sources */,
@@ -690,6 +695,7 @@
 				E93B461E18205C9E009F43A2 /* SpectaUtilityTest.m in Sources */,
 				E93B460718205C9E009F43A2 /* CompilationTest4.m in Sources */,
 				E93B460F18205C9E009F43A2 /* DSLTest4.m in Sources */,
+				DA2966A418DB21FF0085E9C2 /* PendingSpecTest3.m in Sources */,
 				E93B460018205C9E009F43A2 /* AsyncSpecTest2.m in Sources */,
 				E93B461A18205C9E009F43A2 /* SharedExamplesTest2.m in Sources */,
 				E93B461F18205C9E009F43A2 /* UnexpectedExceptionTest.m in Sources */,

@@ -74,6 +74,7 @@ static void runExampleBlock(id block, NSString *name) {
 @interface SPTExampleGroup ()
 
 - (void)incrementExampleCount;
+- (void)incrementPendingExampleCount;
 - (void)resetRanExampleCountIfNeeded;
 - (void)incrementRanExampleCount;
 - (void)runBeforeHooks:(NSString *)compiledName;
@@ -102,6 +103,7 @@ static void runExampleBlock(id block, NSString *name) {
     self.afterEachArray = [NSMutableArray array];
     self.sharedExamples = [NSMutableDictionary dictionary];
     self.exampleCount = 0;
+    self.pendingExampleCount = 0;
     self.ranExampleCount = 0;
   }
   return self;
@@ -146,7 +148,11 @@ static void runExampleBlock(id block, NSString *name) {
     example = [[SPTExample alloc] initWithName:name block:block];
     example.focused = focused;
     [self.children addObject:example];
+
     [self incrementExampleCount];
+    if (example.pending) {
+      [self incrementPendingExampleCount];
+    }
   }
   return example;
 }
@@ -155,6 +161,14 @@ static void runExampleBlock(id block, NSString *name) {
   SPTExampleGroup *group = self;
   while (group != nil) {
     group.exampleCount ++;
+    group = group.parent;
+  }
+}
+
+- (void)incrementPendingExampleCount {
+  SPTExampleGroup *group = self;
+  while (group != nil) {
+    group.pendingExampleCount ++;
     group = group.parent;
   }
 }
@@ -264,7 +278,7 @@ static void runExampleBlock(id block, NSString *name) {
 
   // run afterAll hooks
   for(group in groups) {
-    if (group.ranExampleCount == group.exampleCount) {
+    if (group.ranExampleCount + group.pendingExampleCount == group.exampleCount) {
       for(id afterAllBlock in group.afterAllArray) {
         runExampleBlock(afterAllBlock, [NSString stringWithFormat:@"%@ - after all block", compiledName]);
       }
