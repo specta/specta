@@ -1,6 +1,6 @@
 #import "SPTReporter.h"
 #import "SPTNestedReporter.h"
-#import "XCTestLog+Specta.h"
+#import "XCTestObserver+Specta.h"
 
 @interface SPTReporter ()
 

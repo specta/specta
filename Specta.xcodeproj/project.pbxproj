@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B91EE39D18A0F41B0074E17C /* MultipleTestObserverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B91EE39C18A0F41B0074E17C /* MultipleTestObserverTest.m */; };
+		B91EE39E18A0F4210074E17C /* MultipleTestObserverTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B91EE39C18A0F41B0074E17C /* MultipleTestObserverTest.m */; };
 		CD77236F1825A67A00719E93 /* SPTReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = CD7723671825A67A00719E93 /* SPTReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD7723701825A67A00719E93 /* SPTReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = CD7723671825A67A00719E93 /* SPTReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CD7723711825A67A00719E93 /* SPTReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7723681825A67A00719E93 /* SPTReporter.m */; };
 		CD7723721825A67A00719E93 /* SPTReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7723681825A67A00719E93 /* SPTReporter.m */; };
-		CDF76B481825B4BE008BA160 /* XCTestLog+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF76B461825B4BE008BA160 /* XCTestLog+Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CDF76B491825B4BE008BA160 /* XCTestLog+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF76B461825B4BE008BA160 /* XCTestLog+Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CDF76B4A1825B4BE008BA160 /* XCTestLog+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF76B471825B4BE008BA160 /* XCTestLog+Specta.m */; };
-		CDF76B4B1825B4BE008BA160 /* XCTestLog+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF76B471825B4BE008BA160 /* XCTestLog+Specta.m */; };
+		CDF76B481825B4BE008BA160 /* XCTestObserver+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF76B461825B4BE008BA160 /* XCTestObserver+Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDF76B491825B4BE008BA160 /* XCTestObserver+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF76B461825B4BE008BA160 /* XCTestObserver+Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDF76B4A1825B4BE008BA160 /* XCTestObserver+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF76B471825B4BE008BA160 /* XCTestObserver+Specta.m */; };
+		CDF76B4B1825B4BE008BA160 /* XCTestObserver+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF76B471825B4BE008BA160 /* XCTestObserver+Specta.m */; };
 		CDF76B4E1825C8B1008BA160 /* SPTNestedReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF76B4C1825C8B1008BA160 /* SPTNestedReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDF76B4F1825C8B1008BA160 /* SPTNestedReporter.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF76B4C1825C8B1008BA160 /* SPTNestedReporter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDF76B501825C8B1008BA160 /* SPTNestedReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF76B4D1825C8B1008BA160 /* SPTNestedReporter.m */; };
@@ -159,10 +161,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B91EE39C18A0F41B0074E17C /* MultipleTestObserverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleTestObserverTest.m; sourceTree = "<group>"; };
 		CD7723671825A67A00719E93 /* SPTReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTReporter.h; sourceTree = "<group>"; };
 		CD7723681825A67A00719E93 /* SPTReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTReporter.m; sourceTree = "<group>"; };
-		CDF76B461825B4BE008BA160 /* XCTestLog+Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestLog+Specta.h"; sourceTree = "<group>"; };
-		CDF76B471825B4BE008BA160 /* XCTestLog+Specta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestLog+Specta.m"; sourceTree = "<group>"; };
+		CDF76B461825B4BE008BA160 /* XCTestObserver+Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestObserver+Specta.h"; sourceTree = "<group>"; };
+		CDF76B471825B4BE008BA160 /* XCTestObserver+Specta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestObserver+Specta.m"; sourceTree = "<group>"; };
 		CDF76B4C1825C8B1008BA160 /* SPTNestedReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTNestedReporter.h; sourceTree = "<group>"; };
 		CDF76B4D1825C8B1008BA160 /* SPTNestedReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTNestedReporter.m; sourceTree = "<group>"; };
 		CDF76B5218260AA5008BA160 /* SPTXCTestReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTXCTestReporter.h; sourceTree = "<group>"; };
@@ -332,6 +335,7 @@
 				E93B45F618205C77009F43A2 /* SharedExamplesTest5.m */,
 				E93B45F718205C77009F43A2 /* SpectaUtilityTest.m */,
 				E93B45FA18205C77009F43A2 /* UnexpectedExceptionTest.m */,
+				B91EE39C18A0F41B0074E17C /* MultipleTestObserverTest.m */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -411,8 +415,8 @@
 				E9901C6018205B6600844A05 /* SPTXCTestCase.m */,
 				E9901C6318205B6600844A05 /* XCTestCase+Specta.h */,
 				E9901C6418205B6600844A05 /* XCTestCase+Specta.m */,
-				CDF76B461825B4BE008BA160 /* XCTestLog+Specta.h */,
-				CDF76B471825B4BE008BA160 /* XCTestLog+Specta.m */,
+				CDF76B461825B4BE008BA160 /* XCTestObserver+Specta.h */,
+				CDF76B471825B4BE008BA160 /* XCTestObserver+Specta.m */,
 				CDF76B58182617DB008BA160 /* XCTestRun+Specta.h */,
 				CDF76B59182617DB008BA160 /* XCTestRun+Specta.m */,
 				CD7723671825A67A00719E93 /* SPTReporter.h */,
@@ -440,7 +444,7 @@
 				E93B45BB18205BC0009F43A2 /* SPTExampleGroup.h in Headers */,
 				E93B45BC18205BC0009F43A2 /* SPTSharedExampleGroups.h in Headers */,
 				CDF76B5A182617DB008BA160 /* XCTestRun+Specta.h in Headers */,
-				CDF76B481825B4BE008BA160 /* XCTestLog+Specta.h in Headers */,
+				CDF76B481825B4BE008BA160 /* XCTestObserver+Specta.h in Headers */,
 				CDF76B5418260AA5008BA160 /* SPTXCTestReporter.h in Headers */,
 				CDF76B4E1825C8B1008BA160 /* SPTNestedReporter.h in Headers */,
 				CD77236F1825A67A00719E93 /* SPTReporter.h in Headers */,
@@ -462,7 +466,7 @@
 				E93B45C618205BC4009F43A2 /* SPTExampleGroup.h in Headers */,
 				E93B45C718205BC4009F43A2 /* SPTSharedExampleGroups.h in Headers */,
 				CDF76B5B182617DB008BA160 /* XCTestRun+Specta.h in Headers */,
-				CDF76B491825B4BE008BA160 /* XCTestLog+Specta.h in Headers */,
+				CDF76B491825B4BE008BA160 /* XCTestObserver+Specta.h in Headers */,
 				CDF76B5518260AA5008BA160 /* SPTXCTestReporter.h in Headers */,
 				CDF76B4F1825C8B1008BA160 /* SPTNestedReporter.h in Headers */,
 				CD7723701825A67A00719E93 /* SPTReporter.h in Headers */,
@@ -597,7 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E93B45B118205B92009F43A2 /* SPTSpec.m in Sources */,
-				CDF76B4A1825B4BE008BA160 /* XCTestLog+Specta.m in Sources */,
+				CDF76B4A1825B4BE008BA160 /* XCTestObserver+Specta.m in Sources */,
 				E93B45AF18205B92009F43A2 /* SPTExampleGroup.m in Sources */,
 				E93B45B418205B92009F43A2 /* XCTestCase+Specta.m in Sources */,
 				E93B45AE18205B92009F43A2 /* SPTExample.m in Sources */,
@@ -643,6 +647,7 @@
 				E93B463A18205C9E009F43A2 /* SharedExamplesTest1.m in Sources */,
 				E93B462918205C9E009F43A2 /* CompilationTest5.m in Sources */,
 				E93B462218205C9E009F43A2 /* AsyncSpecTest3.m in Sources */,
+				B91EE39D18A0F41B0074E17C /* MultipleTestObserverTest.m in Sources */,
 				E93B463418205C9E009F43A2 /* MiscTest.m in Sources */,
 				E93B463D18205C9E009F43A2 /* SharedExamplesTest4.m in Sources */,
 				E93B463718205C9E009F43A2 /* PendingSpecTest2.m in Sources */,
@@ -658,7 +663,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E93B45A818205B91009F43A2 /* SPTSpec.m in Sources */,
-				CDF76B4B1825B4BE008BA160 /* XCTestLog+Specta.m in Sources */,
+				CDF76B4B1825B4BE008BA160 /* XCTestObserver+Specta.m in Sources */,
 				E93B45A618205B91009F43A2 /* SPTExampleGroup.m in Sources */,
 				E93B45AB18205B91009F43A2 /* XCTestCase+Specta.m in Sources */,
 				E93B45A518205B91009F43A2 /* SPTExample.m in Sources */,
@@ -704,6 +709,7 @@
 				E93B461918205C9E009F43A2 /* SharedExamplesTest1.m in Sources */,
 				E93B460818205C9E009F43A2 /* CompilationTest5.m in Sources */,
 				E93B460118205C9E009F43A2 /* AsyncSpecTest3.m in Sources */,
+				B91EE39E18A0F4210074E17C /* MultipleTestObserverTest.m in Sources */,
 				E93B461318205C9E009F43A2 /* MiscTest.m in Sources */,
 				E93B461C18205C9E009F43A2 /* SharedExamplesTest4.m in Sources */,
 				E93B461618205C9E009F43A2 /* PendingSpecTest2.m in Sources */,

@@ -1,4 +1,4 @@
-#import "XCTestLog+Specta.h"
+#import "XCTestObserver+Specta.h"
 #import "SPTReporter.h"
 #import <objc/runtime.h>
 
@@ -9,11 +9,11 @@ static void spt_swizzleInstanceMethod(Class class, SEL originalSelector, SEL swi
   method_exchangeImplementations(originalMethod, swizzledMethod);
 }
 
-@implementation XCTestLog (Specta)
+@implementation XCTestObserver (Specta)
 
 + (void)load {
-  spt_swizzleInstanceMethod(self, @selector(startObserving), @selector(XCTestLog_startObserving));
-  spt_swizzleInstanceMethod(self, @selector(stopObserving), @selector(XCTestLog_stopObserving));
+  spt_swizzleInstanceMethod(self, @selector(startObserving), @selector(XCTestObserver_startObserving));
+  spt_swizzleInstanceMethod(self, @selector(stopObserving), @selector(XCTestObserver_stopObserving));
 }
 
 - (BOOL)spt_shouldProxyToSPTReporter {
@@ -22,26 +22,26 @@ static void spt_swizzleInstanceMethod(Class class, SEL originalSelector, SEL swi
 }
 
 - (void)spt_pauseObservationInBlock:(void (^)(void))block {
-  [self XCTestLog_stopObserving];
+  [self XCTestObserver_stopObserving];
   block();
-  [self XCTestLog_startObserving];
+  [self XCTestObserver_startObserving];
 }
 
 #pragma mark - XCTestObserver
 
-- (void)XCTestLog_startObserving {
+- (void)XCTestObserver_startObserving {
   if ([self spt_shouldProxyToSPTReporter]) {
     [[SPTReporter sharedReporter] startObserving];
   } else {
-    [self XCTestLog_startObserving];
+    [self XCTestObserver_startObserving];
   }
 }
 
-- (void)XCTestLog_stopObserving {
+- (void)XCTestObserver_stopObserving {
   if ([self spt_shouldProxyToSPTReporter]) {
     [[SPTReporter sharedReporter] stopObserving];
   } else {
-    [self XCTestLog_stopObserving];
+    [self XCTestObserver_stopObserving];
     usleep(100000);
   }
 }
