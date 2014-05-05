@@ -123,10 +123,12 @@
 		E963AC4B1968E15400A592DF /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AC061968E15400A592DF /* TestHelper.m */; };
 		E963AC4C1968E15400A592DF /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */; };
 		E963AC4D1968E15400A592DF /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */; };
+		E982173219C758AB0056C9BF /* SharedExamplesTest6.m in Sources */ = {isa = PBXBuildFile; fileRef = E982173119C758AB0056C9BF /* SharedExamplesTest6.m */; };
+		E982173319C758AB0056C9BF /* SharedExamplesTest6.m in Sources */ = {isa = PBXBuildFile; fileRef = E982173119C758AB0056C9BF /* SharedExamplesTest6.m */; };
+		E982173519C758B90056C9BF /* PendingSpecTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E982173419C758B90056C9BF /* PendingSpecTest4.m */; };
+		E982173619C758B90056C9BF /* PendingSpecTest4.m in Sources */ = {isa = PBXBuildFile; fileRef = E982173419C758B90056C9BF /* PendingSpecTest4.m */; };
 		E9BDA795197989680012C202 /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E963ABF81968E15400A592DF /* MiscTest.m */; };
 		E9BDA796197989690012C202 /* MiscTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E963ABF81968E15400A592DF /* MiscTest.m */; };
-		E9E46A2319C752870094C5CD /* SharedExamplesTest6.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E46A2219C752870094C5CD /* SharedExamplesTest6.m */; };
-		E9E46A2419C752870094C5CD /* SharedExamplesTest6.m in Sources */ = {isa = PBXBuildFile; fileRef = E9E46A2219C752870094C5CD /* SharedExamplesTest6.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,7 +278,8 @@
 		E963AC051968E15400A592DF /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		E963AC061968E15400A592DF /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 		E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnexpectedExceptionTest.m; sourceTree = "<group>"; };
-		E9E46A2219C752870094C5CD /* SharedExamplesTest6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SharedExamplesTest6.m; path = ../../test/SharedExamplesTest6.m; sourceTree = "<group>"; };
+		E982173119C758AB0056C9BF /* SharedExamplesTest6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedExamplesTest6.m; sourceTree = "<group>"; };
+		E982173419C758B90056C9BF /* PendingSpecTest4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest4.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +401,7 @@
 				E963ABFA1968E15400A592DF /* PendingSpecTest1.m */,
 				E963ABFB1968E15400A592DF /* PendingSpecTest2.m */,
 				E963ABFC1968E15400A592DF /* PendingSpecTest3.m */,
+				E982173419C758B90056C9BF /* PendingSpecTest4.m */,
 				E963ABFD1968E15400A592DF /* ReRunTest.m */,
 				E963ABFE1968E15400A592DF /* SequenceTest.m */,
 				E963ABFF1968E15400A592DF /* SharedExamplesTest1.m */,
@@ -405,7 +409,7 @@
 				E963AC011968E15400A592DF /* SharedExamplesTest3.m */,
 				E963AC021968E15400A592DF /* SharedExamplesTest4.m */,
 				E963AC031968E15400A592DF /* SharedExamplesTest5.m */,
-				E9E46A2219C752870094C5CD /* SharedExamplesTest6.m */,
+				E982173119C758AB0056C9BF /* SharedExamplesTest6.m */,
 				E963AC041968E15400A592DF /* SpectaUtilityTest.m */,
 				E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */,
 			);
@@ -642,7 +646,7 @@
 				E963AC1A1968E15400A592DF /* CompilationTest6.m in Sources */,
 				E963AC161968E15400A592DF /* CompilationTest4.m in Sources */,
 				E963AC221968E15400A592DF /* DSLTest2.m in Sources */,
-				E9E46A2319C752870094C5CD /* SharedExamplesTest6.m in Sources */,
+				E982173219C758AB0056C9BF /* SharedExamplesTest6.m in Sources */,
 				E963AC261968E15400A592DF /* DSLTest4.m in Sources */,
 				E963AC321968E15400A592DF /* PassingSpecTest.m in Sources */,
 				E963AC3E1968E15400A592DF /* SharedExamplesTest1.m in Sources */,
@@ -666,6 +670,7 @@
 				E963AC201968E15400A592DF /* DSLTest1.m in Sources */,
 				E963AC3A1968E15400A592DF /* ReRunTest.m in Sources */,
 				E963AC461968E15400A592DF /* SharedExamplesTest5.m in Sources */,
+				E982173519C758B90056C9BF /* PendingSpecTest4.m in Sources */,
 				E9BDA795197989680012C202 /* MiscTest.m in Sources */,
 				E963AC141968E15400A592DF /* CompilationTest3.m in Sources */,
 				E963AC1E1968E15400A592DF /* CompilationTest8.m in Sources */,
@@ -701,7 +706,7 @@
 				E963AC1B1968E15400A592DF /* CompilationTest6.m in Sources */,
 				E963AC171968E15400A592DF /* CompilationTest4.m in Sources */,
 				E963AC231968E15400A592DF /* DSLTest2.m in Sources */,
-				E9E46A2419C752870094C5CD /* SharedExamplesTest6.m in Sources */,
+				E982173319C758AB0056C9BF /* SharedExamplesTest6.m in Sources */,
 				E963AC271968E15400A592DF /* DSLTest4.m in Sources */,
 				E963AC331968E15400A592DF /* PassingSpecTest.m in Sources */,
 				E963AC3F1968E15400A592DF /* SharedExamplesTest1.m in Sources */,
@@ -725,6 +730,7 @@
 				E963AC211968E15400A592DF /* DSLTest1.m in Sources */,
 				E963AC3B1968E15400A592DF /* ReRunTest.m in Sources */,
 				E963AC471968E15400A592DF /* SharedExamplesTest5.m in Sources */,
+				E982173619C758B90056C9BF /* PendingSpecTest4.m in Sources */,
 				E9BDA796197989690012C202 /* MiscTest.m in Sources */,
 				E963AC151968E15400A592DF /* CompilationTest3.m in Sources */,
 				E963AC1F1968E15400A592DF /* CompilationTest8.m in Sources */,

@@ -131,18 +131,19 @@
 
 - (void)spec {}
 
+- (BOOL)spt_shouldRunExample:(SPTCompiledExample *)example {
+  return [[self class] spt_isDisabled] == NO &&
+         (example.focused || [[self class] spt_focusedExamplesExist] == NO);
+}
+
 - (void)spt_runExample:(SPTCompiledExample *)example {
   [[NSThread currentThread] threadDictionary][spt_kCurrentSpecKey] = self;
 
-  if (example.pending) {
-    self.spt_pending = YES;
-  } else {
-    if ([[self class] spt_isDisabled] == NO &&
-        (example.focused || [[self class] spt_focusedExamplesExist] == NO)) {
-      example.block(self);
-    } else {
-      self.spt_skipped = YES;
-    }
+  if ([self spt_shouldRunExample:example]) {
+    self.spt_pending = example.pending;
+    example.block(self);
+  } else if (!example.pending) {
+    self.spt_skipped = YES;
   }
 
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:spt_kCurrentSpecKey];
@@ -168,7 +169,7 @@
   // look for any other test methods that may be present in class.
   unsigned int n;
   Method *imethods = class_copyMethodList(self, &n);
-  
+
   for (NSUInteger i = 0; i < n; i++) {
     struct objc_method_description *desc = method_getDescription(imethods[i]);
 

@@ -22,6 +22,7 @@
 + (void)spt_setCurrentTestSuiteFileName:(NSString *)fileName lineNumber:(NSUInteger)lineNumber;
 
 - (void)spec;
+- (BOOL)spt_shouldRunExample:(SPTCompiledExample *)example;
 - (void)spt_runExample:(SPTCompiledExample *)example;
 
 @end
