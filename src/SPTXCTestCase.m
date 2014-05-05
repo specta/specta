@@ -86,16 +86,19 @@
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentSpecKey];
 }
 
+- (BOOL)spt_shouldRunExample:(SPTExample *)example {
+  return [[self class] spt_isDisabled] == NO &&
+         (example.focused || [[self class] spt_focusedExamplesExist] == NO);
+}
+
 - (void)spt_runExampleAtIndex:(NSUInteger)index {
   [[NSThread currentThread] threadDictionary][SPTCurrentTestCaseKey] = self;
-  SPTExample *compiledExample = ([[self class] spt_spec].compiledExamples)[index];
-  if (!compiledExample.pending) {
-    if ([[self class] spt_isDisabled] == NO &&
-        (compiledExample.focused || [[self class] spt_focusedExamplesExist] == NO)) {
-      ((SPTVoidBlock)compiledExample.block)();
-    } else {
-      self.spt_skipped = YES;
-    }
+
+  SPTExample *example = [[self class] spt_spec].compiledExamples[index];
+  if ([self spt_shouldRunExample:example]) {
+    ((SPTVoidBlock)example.block)();
+  } else if (!example.pending) {
+    self.spt_skipped = YES;
   }
 
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentTestCaseKey];

@@ -71,6 +71,11 @@ static void runExampleBlock(id block, NSString *name) {
   }
 }
 
+typedef NS_ENUM(NSInteger, SPTExampleGroupOrder) {
+  SPTExampleGroupOrderOutermostFirst = 1,
+  SPTExampleGroupOrderInnermostFirst
+};
+
 @interface SPTExampleGroup ()
 
 - (void)incrementExampleCount;
@@ -78,7 +83,11 @@ static void runExampleBlock(id block, NSString *name) {
 - (void)resetRanExampleCountIfNeeded;
 - (void)incrementRanExampleCount;
 - (void)runBeforeHooks:(NSString *)compiledName;
+- (void)runBeforeAllHooks:(NSString *)compiledName;
+- (void)runBeforeEachHooks:(NSString *)compiledName;
 - (void)runAfterHooks:(NSString *)compiledName;
+- (void)runAfterEachHooks:(NSString *)compiledName;
+- (void)runAfterAllHooks:(NSString *)compiledName;
 
 @end
 
@@ -122,6 +131,8 @@ static void runExampleBlock(id block, NSString *name) {
   }
   return self;
 }
+
+#pragma mark - Adding Examples and Example Groups
 
 - (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name {
   return [self addExampleGroupWithName:name
@@ -211,6 +222,8 @@ static void runExampleBlock(id block, NSString *name) {
   [self.afterEachArray addObject:[block copy]];
 }
 
+#pragma mark - Running Before/After Hooks
+
 - (void)runGlobalBeforeEachHooks:(NSString *)compiledName {
   static NSArray *globalBeforeEachClasses;
   static dispatch_once_t onceToken;
@@ -235,51 +248,71 @@ static void runExampleBlock(id block, NSString *name) {
   }
 }
 
-- (void)runBeforeHooks:(NSString *)compiledName {
+// Builds an array of example groups that enclose the current group.
+// When in innermost-first order, the most deeply nested example groups,
+// beginning with self, are placed at the beginning of the array.
+// When in outermost-first order, the opposite is true, and the last
+// group in the array (self) is the most deeply nested.
+- (NSArray *)exampleGroupStackInOrder:(SPTExampleGroupOrder)order {
   NSMutableArray *groups = [NSMutableArray array];
   SPTExampleGroup *group = self;
   while (group != nil) {
-    [groups insertObject:group atIndex:0];
+    switch (order) {
+      case SPTExampleGroupOrderOutermostFirst:
+        [groups insertObject:group atIndex:0];
+        break;
+      case SPTExampleGroupOrderInnermostFirst:
+        [groups addObject:group];
+        break;
+    }
     group = group.parent;
   }
 
-  // run beforeAll hooks
-  for(group in groups) {
+  return [groups copy];
+}
+
+- (void)runBeforeHooks:(NSString *)compiledName {
+  [self runBeforeAllHooks:compiledName];
+  [self runBeforeEachHooks:compiledName];
+}
+
+- (void)runBeforeAllHooks:(NSString *)compiledName {
+  for(SPTExampleGroup *group in [self exampleGroupStackInOrder:SPTExampleGroupOrderOutermostFirst]) {
     if (group.ranExampleCount == 0) {
-      for(id beforeAllBlock in group.beforeAllArray) {
+      for (id beforeAllBlock in group.beforeAllArray) {
         runExampleBlock(beforeAllBlock, [NSString stringWithFormat:@"%@ - before all block", compiledName]);
       }
     }
   }
+}
 
-  // run beforeEach hooks
+- (void)runBeforeEachHooks:(NSString *)compiledName {
   [self runGlobalBeforeEachHooks:compiledName];
-  for(group in groups) {
-    for(id beforeEachBlock in group.beforeEachArray) {
+  for (SPTExampleGroup *group in [self exampleGroupStackInOrder:SPTExampleGroupOrderOutermostFirst]) {
+    for (id beforeEachBlock in group.beforeEachArray) {
       runExampleBlock(beforeEachBlock, [NSString stringWithFormat:@"%@ - before each block", compiledName]);
     }
   }
 }
 
 - (void)runAfterHooks:(NSString *)compiledName {
-  NSMutableArray *groups = [NSMutableArray array];
-  SPTExampleGroup *group = self;
-  while (group != nil) {
-    [groups addObject:group];
-    group = group.parent;
-  }
-  // run afterEach hooks
-  for(group in groups) {
-    for(id afterEachBlock in group.afterEachArray) {
+  [self runAfterEachHooks:compiledName];
+  [self runAfterAllHooks:compiledName];
+}
+
+- (void)runAfterEachHooks:(NSString *)compiledName {
+  for (SPTExampleGroup *group in [self exampleGroupStackInOrder:SPTExampleGroupOrderInnermostFirst]) {
+    for (id afterEachBlock in group.afterEachArray) {
       runExampleBlock(afterEachBlock, [NSString stringWithFormat:@"%@ - after each block", compiledName]);
     }
   }
   [self runGlobalAfterEachHooks:compiledName];
+}
 
-  // run afterAll hooks
-  for(group in groups) {
+- (void)runAfterAllHooks:(NSString *)compiledName {
+  for (SPTExampleGroup *group in [self exampleGroupStackInOrder:SPTExampleGroupOrderInnermostFirst]) {
     if (group.ranExampleCount + group.pendingExampleCount == group.exampleCount) {
-      for(id afterAllBlock in group.afterAllArray) {
+      for (id afterAllBlock in group.afterAllArray) {
         runExampleBlock(afterAllBlock, [NSString stringWithFormat:@"%@ - after all block", compiledName]);
       }
     }
@@ -313,7 +346,14 @@ static void runExampleBlock(id block, NSString *name) {
       NSArray *newNameStack = [nameStack arrayByAddingObject:example.name];
       NSString *compiledName = [newNameStack componentsJoinedByString:@" "];
 
-      SPTVoidBlock compiledBlock = example.pending ? nil : ^{
+      // If example is pending, run only before- and after-all hooks.
+      // Otherwise, run the example and all before and after hooks.
+      SPTVoidBlock compiledBlock = example.pending ? ^{
+        @synchronized(self.root) {
+          [self runBeforeAllHooks:compiledName];
+          [self runAfterAllHooks:compiledName];
+        }
+      } : ^{
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];
           [self runBeforeHooks:compiledName];
