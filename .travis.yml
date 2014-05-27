@@ -1,0 +1,3 @@
+language: objective-c
+osx_image: mavericks
+script: test/support/objc-build-scripts/cibuild
