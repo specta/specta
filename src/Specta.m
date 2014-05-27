@@ -133,7 +133,7 @@ void SPTitShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSString
       [currentTestCase recordFailureWithDescription:@"itShouldBehaveLike should not be invoked inside an example block!" inFile:@(fileName) atLine:lineNumber expected:NO];
     } else {
       it(name, ^{
-        [currentTestCase recordFailureWithDescription:[NSString stringWithFormat:@"Shared example group \"%@\" does not exist.", name] inFile:@(fileName) atLine:lineNumber expected:NO];
+        [SPTCurrentTestCase recordFailureWithDescription:[NSString stringWithFormat:@"Shared example group \"%@\" does not exist.", name] inFile:@(fileName) atLine:lineNumber expected:NO];
       });
     }
   }
