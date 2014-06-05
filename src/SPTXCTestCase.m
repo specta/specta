@@ -139,7 +139,28 @@
 
 - (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected {
   SPTXCTestCase *currentTestCase = SPTCurrentTestCase;
-  [currentTestCase.spt_run recordFailureInTest:currentTestCase withDescription:description inFile:filename atLine:lineNumber expected:expected];
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+  SEL selector = @selector(recordFailureInTest:inFile:atLine:expected:);
+#pragma clang diagnostic pop
+
+  BOOL runningOnPreXcode6 = [currentTestCase.spt_run respondsToSelector:selector];
+  if (runningOnPreXcode6) {
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[currentTestCase.spt_run methodSignatureForSelector:selector]];
+    invocation.target = currentTestCase.spt_run;
+    invocation.selector = selector;
+
+    NSUInteger argumentIndex = 2;
+    [invocation setArgument:&description atIndex:argumentIndex++];
+    [invocation setArgument:&filename atIndex:argumentIndex++];
+    [invocation setArgument:&lineNumber atIndex:argumentIndex++];
+    [invocation setArgument:&expected atIndex:argumentIndex];
+    [invocation invoke];
+  }
+  else {
+    [(XCTestCase *)(currentTestCase.spt_run) recordFailureWithDescription:description inFile:filename atLine:lineNumber expected:expected];
+  }
 }
 
 - (void)performTest:(XCTestRun *)run {
