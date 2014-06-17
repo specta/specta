@@ -5,6 +5,7 @@
 #import "SPTSpec.h"
 #import "SPTExampleGroup.h"
 #import "SPTSharedExampleGroups.h"
+#import "SPTGlobalBeforeAfterEach.h"
 
 @interface Specta : NSObject
 @end

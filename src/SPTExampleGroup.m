@@ -2,12 +2,13 @@
 #import "SPTExample.h"
 #import "SPTXCTestCase.h"
 #import "SPTSpec.h"
+#import "SPTGlobalBeforeAfterEach.h"
 #import "SpectaUtility.h"
 #import <libkern/OSAtomic.h>
 #import <objc/runtime.h>
 
-static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
-  NSMutableArray *classesWithClassMethod = [[NSMutableArray alloc] init];
+static NSArray *ClassesWithProtocol(Protocol *protocol) {
+  NSMutableArray *classesWithProtocol = [[NSMutableArray alloc] init];
 
   int numberOfClasses = objc_getClassList(NULL, 0);
   if (numberOfClasses > 0) {
@@ -16,27 +17,16 @@ static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
 
     for(int classIndex = 0; classIndex < numberOfClasses; classIndex++) {
       Class aClass = classes[classIndex];
-
-      if (strcmp("UIAccessibilitySafeCategory__NSObject", class_getName(aClass))) {
-        Method globalMethod = class_getClassMethod(aClass, classMethodSelector);
-        if (globalMethod) {
-          [classesWithClassMethod addObject:aClass];
-        }
+      if (class_conformsToProtocol(aClass, protocol)) {
+        [classesWithProtocol addObject:aClass];
       }
     }
 
     free(classes);
   }
 
-  return classesWithClassMethod;
+  return classesWithProtocol;
 }
-
-@interface NSObject (SpectaGlobalBeforeAfterEach)
-
-+ (void)beforeEach;
-+ (void)afterEach;
-
-@end
 
 static NSTimeInterval asyncSpecTimeout = 10.0;
 static const char *asyncBlockSignature = NULL;
@@ -215,7 +205,7 @@ static void runExampleBlock(id block, NSString *name) {
   static NSArray *globalBeforeEachClasses;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    globalBeforeEachClasses = ClassesWithClassMethod(@selector(beforeEach));
+    globalBeforeEachClasses = ClassesWithProtocol(@protocol(SPTGlobalBeforeAfterEach));
   });
 
   for (Class class in globalBeforeEachClasses) {
@@ -227,7 +217,7 @@ static void runExampleBlock(id block, NSString *name) {
   static NSArray *globalAfterEachClasses;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    globalAfterEachClasses = ClassesWithClassMethod(@selector(afterEach));
+    globalAfterEachClasses = ClassesWithProtocol(@protocol(SPTGlobalBeforeAfterEach));
   });
 
   for (Class class in globalAfterEachClasses) {
