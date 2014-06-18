@@ -8,10 +8,12 @@ static NSString
 SpecBegin(_AsyncSpecTest3)
 
 describe(@"beforeEach", ^{
-  beforeEach(^AsyncBlock {
-    dispatch_async(dispatch_get_main_queue(), ^{
-      SPTAssertEqualObjects(foo, @"foo");
-      done();
+  beforeEach(^{
+    waitUntil(^(DoneCallback done) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        SPTAssertEqualObjects(foo, @"foo");
+        done();
+      });
     });
   });
 
@@ -21,10 +23,12 @@ describe(@"beforeEach", ^{
 });
 
 describe(@"afterEach", ^{
-  afterEach(^AsyncBlock {
-    dispatch_async(dispatch_get_main_queue(), ^{
-      SPTAssertEqualObjects(foo, @"foo");
-      done();
+  afterEach(^{
+    waitUntil(^(DoneCallback done) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        SPTAssertEqualObjects(foo, @"foo");
+        done();
+      });
     });
   });
 
@@ -34,10 +38,12 @@ describe(@"afterEach", ^{
 });
 
 describe(@"beforeAll", ^{
-  beforeAll(^AsyncBlock {
-    dispatch_async(dispatch_get_main_queue(), ^{
-      SPTAssertEqualObjects(foo, @"foo");
-      done();
+  beforeAll(^{
+    waitUntil(^(DoneCallback done) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        SPTAssertEqualObjects(foo, @"foo");
+        done();
+      });
     });
   });
 
@@ -47,10 +53,12 @@ describe(@"beforeAll", ^{
 });
 
 describe(@"afterAll", ^{
-  beforeAll(^AsyncBlock {
-    dispatch_async(dispatch_get_main_queue(), ^{
-      SPTAssertEqualObjects(foo, @"foo");
-      done();
+  beforeAll(^{
+    waitUntil(^(DoneCallback done) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        SPTAssertEqualObjects(foo, @"foo");
+        done();
+      });
     });
   });
 

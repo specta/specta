@@ -12,14 +12,18 @@ static int
 SpecBegin(_AsyncSpecTest2)
 
 describe(@"group", ^{
-  beforeAll(^AsyncBlock {
-    beforeAllRan ++;
-    done();
+  beforeAll(^{
+    waitUntil(^(DoneCallback done) {
+      beforeAllRan ++;
+      done();
+    });
   });
 
-  beforeEach(^AsyncBlock {
-    beforeEachRan ++;
-    done();
+  beforeEach(^{
+    waitUntil(^(DoneCallback done) {
+      beforeEachRan ++;
+      done();
+    });
   });
 
   it(@"example 1", ^{
@@ -36,14 +40,18 @@ describe(@"group", ^{
     }
   });
 
-  afterEach(^AsyncBlock {
-    afterEachRan ++;
-    done();
+  afterEach(^{
+    waitUntil(^(DoneCallback done) {
+      afterEachRan ++;
+      done();
+    });
   });
 
-  afterAll(^AsyncBlock {
-    afterAllRan ++;
-    done();
+  afterAll(^{
+    waitUntil(^(DoneCallback done) {
+      afterAllRan ++;
+      done();
+    });
   });
 });
 

@@ -5,6 +5,8 @@
 @implementation Specta
 @end
 
+static NSTimeInterval asyncSpecTimeout = 10.0;
+
 void SPTdescribe(NSString *name, BOOL focused, void (^block)()) {
   if (block) {
     [SPTGroupStack addObject:[SPTCurrentGroup addExampleGroupWithName:name focused:focused]];
@@ -30,32 +32,32 @@ void fcontext(NSString *name, void (^block)()) {
   SPTdescribe(name, YES, block);
 }
 
-void SPTexample(NSString *name, BOOL focused, id block) {
+void SPTexample(NSString *name, BOOL focused, void (^block)()) {
   SPTReturnUnlessBlockOrNil(block);
   [SPTCurrentGroup addExampleWithName:name block:block focused:focused];
 }
 
-void example(NSString *name, id block) {
+void example(NSString *name, void (^block)()) {
   SPTexample(name, NO, block);
 }
 
-void fexample(NSString *name, id block) {
+void fexample(NSString *name, void (^block)()) {
   SPTexample(name, YES, block);
 }
 
-void it(NSString *name, id block) {
+void it(NSString *name, void (^block)()) {
   SPTexample(name, NO, block);
 }
 
-void fit(NSString *name, id block) {
+void fit(NSString *name, void (^block)()) {
   SPTexample(name, YES, block);
 }
 
-void specify(NSString *name, id block) {
+void specify(NSString *name, void (^block)()) {
   SPTexample(name, NO, block);
 }
 
-void fspecify(NSString *name, id block) {
+void fspecify(NSString *name, void (^block)()) {
   SPTexample(name, YES, block);
 }
 
@@ -140,5 +142,23 @@ void SPTitShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSString
 }
 
 void setAsyncSpecTimeout(NSTimeInterval timeout) {
-  [SPTExampleGroup setAsyncSpecTimeout:timeout];
+  asyncSpecTimeout = timeout;
+}
+
+void waitUntil(void (^block)(DoneCallback done)) {
+  __block uint32_t complete = 0;
+  block(^{
+    OSAtomicOr32Barrier(1, &complete);
+  });
+  NSTimeInterval timeout = asyncSpecTimeout;
+  NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
+  while (!complete && [timeoutDate timeIntervalSinceNow] > 0) {
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.01]];
+  }
+  if (!complete) {
+    NSString *message = [NSString stringWithFormat:@"failed to invoke done() callback before timeout (%f seconds)", timeout];
+    SPTXCTestCase *currentTestCase = SPTCurrentTestCase;
+    SPTSpec *spec = [[currentTestCase class] spt_spec];
+    [currentTestCase recordFailureWithDescription:message inFile:spec.fileName atLine:spec.lineNumber expected:YES];
+  }
 }

@@ -8,24 +8,30 @@ static NSString
 SpecBegin(_AsyncSpecTest)
 
 describe(@"group", ^{
-  it(@"example 1", ^AsyncBlock {
-    dispatch_async(dispatch_get_main_queue(), ^{
-      SPTAssertEqualObjects(foo, @"foo");
-      done();
+  it(@"example 1", ^{
+    waitUntil(^(DoneCallback done) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        SPTAssertEqualObjects(foo, @"foo");
+        done();
+      });
     });
   });
 
-  it(@"example 2", ^AsyncBlock {
-    dispatch_async(dispatch_get_main_queue(), ^{
-      SPTAssertEqualObjects(bar, @"bar");
-      done();
+  it(@"example 2", ^{
+    waitUntil(^(DoneCallback done) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        SPTAssertEqualObjects(bar, @"bar");
+        done();
+      });
     });
   });
 
-  it(@"example 3", ^AsyncBlock {
-    dispatch_async(dispatch_get_main_queue(), ^{
-      SPTAssertFalse(NO);
-      done();
+  it(@"example 3", ^{
+    waitUntil(^(DoneCallback done) {
+      dispatch_async(dispatch_get_main_queue(), ^{
+        SPTAssertFalse(NO);
+        done();
+      });
     });
   });
 });

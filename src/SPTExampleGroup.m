@@ -38,37 +38,12 @@ static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
 
 @end
 
-static NSTimeInterval asyncSpecTimeout = 10.0;
-static const char *asyncBlockSignature = NULL;
-
 static void runExampleBlock(id block, NSString *name) {
   if (!SPTIsBlock(block)) {
     return;
   }
 
-  const char *blockSignature = SPTGetBlockSignature(block);
-
-  BOOL isAsyncBlock = strcmp(blockSignature, asyncBlockSignature) == 0;
-
-  if (isAsyncBlock) {
-    __block uint32_t complete = 0;
-    ((SPTAsyncBlock)block)(^{
-      OSAtomicOr32Barrier(1, &complete);
-    });
-    NSTimeInterval timeout = asyncSpecTimeout;
-    NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
-    while (!complete && [timeoutDate timeIntervalSinceNow] > 0) {
-      [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.01]];
-    }
-    if (!complete) {
-      NSString *message = [NSString stringWithFormat:@"\"%@\" failed to invoke done() callback before timeout (%f seconds)", name, timeout];
-      SPTXCTestCase *currentTestCase = SPTCurrentTestCase;
-      SPTSpec *spec = [[currentTestCase class] spt_spec];
-      [currentTestCase recordFailureWithDescription:message inFile:spec.fileName atLine:spec.lineNumber expected:YES];
-    }
-  } else {
-    ((SPTVoidBlock)block)();
-  }
+  ((SPTVoidBlock)block)();
 }
 
 @interface SPTExampleGroup ()
@@ -83,12 +58,6 @@ static void runExampleBlock(id block, NSString *name) {
 @end
 
 @implementation SPTExampleGroup
-
-+ (void)initialize {
-  if (asyncBlockSignature == NULL) {
-    asyncBlockSignature = SPTGetBlockSignature(^(void (^done)(void)) {});
-  }
-}
 
 - (id)init {
   self = [super init];
@@ -107,10 +76,6 @@ static void runExampleBlock(id block, NSString *name) {
     self.ranExampleCount = 0;
   }
   return self;
-}
-
-+ (void)setAsyncSpecTimeout:(NSTimeInterval)timeout {
-  asyncSpecTimeout = timeout;
 }
 
 - (id)initWithName:(NSString *)name parent:(SPTExampleGroup *)parent root:(SPTExampleGroup *)root {

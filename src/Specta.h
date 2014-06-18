@@ -33,13 +33,13 @@ void   fdescribe(NSString *name, void (^block)());
 void     context(NSString *name, void (^block)());
 void    fcontext(NSString *name, void (^block)());
 
-void SPTexample(NSString *name, BOOL focused, id block);
-void    example(NSString *name, id block);
-void   fexample(NSString *name, id block);
-void         it(NSString *name, id block);
-void        fit(NSString *name, id block);
-void    specify(NSString *name, id block);
-void   fspecify(NSString *name, id block);
+void SPTexample(NSString *name, BOOL focused, void (^block)());
+void    example(NSString *name, void (^block)());
+void   fexample(NSString *name, void (^block)());
+void         it(NSString *name, void (^block)());
+void        fit(NSString *name, void (^block)());
+void    specify(NSString *name, void (^block)());
+void   fspecify(NSString *name, void (^block)());
 
 
 void SPTpending(NSString *name, ...);
@@ -67,4 +67,6 @@ void         itBehavesLike(NSString *name, id dictionaryOrBlockOrNil);
 #define      itBehavesLike(...) SPTitShouldBehaveLike(__FILE__, __LINE__, __VA_ARGS__)
 
 void setAsyncSpecTimeout(NSTimeInterval timeout);
-#define AsyncBlock (void (^done)(void))
+
+typedef void (^DoneCallback)(void);
+void waitUntil(void (^block)(DoneCallback done));

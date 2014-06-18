@@ -22,7 +22,6 @@
 @property (nonatomic) unsigned int pendingExampleCount;
 @property (nonatomic, getter=isFocused) BOOL focused;
 
-+ (void)setAsyncSpecTimeout:(NSTimeInterval)timeout;
 - (id)initWithName:(NSString *)name parent:(SPTExampleGroup *)parent root:(SPTExampleGroup *)root;
 
 - (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name;

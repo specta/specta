@@ -2,18 +2,24 @@
 
 A light-weight TDD / BDD framework for Objective-C & Cocoa.
 
-### FEATURES
+## WHAT'S NEW IN 0.3
+
+## BREAKING CHANGES IN 0.3
+
+* `^AsyncBlock` is replaced by `waitUntil`. See the example for usage.
+
+## FEATURES
 
 * RSpec-like BDD DSL
 * Super quick and easy to set up
 * Runs on top of XCTest
 * Excellent Xcode integration
 
-### SCREENSHOT
+## SCREENSHOT
 
 ![Specta Screenshot](http://github.com/petejkim/stuff/raw/master/images/specta-screenshot.png)
 
-### SETUP
+## SETUP
 
 Use [CocoaPods](http://github.com/CocoaPods/CocoaPods)
 
@@ -47,9 +53,9 @@ or
 #import "Specta.h"
 ```
 
-Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](http://github.com/petejkim/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
+Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](http://github.com/specta/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
 
-## WRITING SPECS
+## EXAMPLE
 
 ```objective-c
 #import "Specta.h"
@@ -86,9 +92,11 @@ describe(@"Thing", ^{
     // This is an example block. Place your assertions here.
   });
 
-  it(@"should do some stuff asynchronously", ^AsyncBlock {
-    // Async example blocks need to invoke done() callback.
-    done();
+  it(@"should do some stuff asynchronously", ^{
+    waitUntil(^(DoneCallback done) {
+      // Async example blocks need to invoke done() callback.
+      done();
+    });
   });
 
   itShouldBehaveLike(@"a shared behavior", @{@"key" : @"obj"});
@@ -129,13 +137,13 @@ SpecEnd
 * `it` is also aliased as `example` and `specify`.
 * `itShouldBehaveLike` is also aliased as `itBehavesLike`.
 * Use `pending` or prepend `x` to `describe`, `context`, `example`, `it`, and `specify` to mark examples or groups as pending.
-* Use `^AsyncBlock` as shown in the example above to make examples wait for completion. `done()` callback needs to be invoked to let Specta know that your test is complete. The default timeout is 10.0 seconds but this can be changed by calling the function `setAsyncSpecTimeout(NSTimeInterval timeout)`.
-* `(before|after)(Each/All)` also accept `^AsyncBlock`s.
+* Use `^(DoneCallback done)` as shown in the example above to make examples wait for completion. `done()` callback needs to be invoked to let Specta know that your test is complete. The default timeout is 10.0 seconds but this can be changed by calling the function `setAsyncSpecTimeout(NSTimeInterval timeout)`.
+* `(before|after)(Each/All)` also accept `^(DoneCallback done)`s.
 * Do `#define SPT_CEDAR_SYNTAX` before importing Specta if you prefer to write `SPEC_BEGIN` and `SPEC_END` instead of `SpecBegin` and `SpecEnd`.
 * Prepend `f` to your `describe`, `context`, `example`, `it`, and `specify` to set focus on examples or groups. When specs are focused, all unfocused specs are skipped.
 * To use original XCTest reporter, set an environment variable named `SPECTA_REPORTER_CLASS` to `SPTXCTestReporter` in your test scheme.
 
-### CONTRIBUTION GUIDELINES
+## CONTRIBUTION GUIDELINES
 
 * Please use only spaces and indent 2 spaces at a time.
 * Please prefix instance variable names with a single underscore (`_`).
@@ -143,4 +151,4 @@ SpecEnd
 
 ## LICENSE
 
-Copyright (c) 2012-2013 [Specta Team](https://github.com/specta?tab=members). This software is licensed under the [MIT License](http://github.com/petejkim/specta/raw/master/LICENSE).
+Copyright (c) 2012-2014 [Specta Team](https://github.com/specta?tab=members). This software is licensed under the [MIT License](http://github.com/specta/specta/raw/master/LICENSE).
