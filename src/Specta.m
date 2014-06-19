@@ -1,6 +1,7 @@
 #import "Specta.h"
 #import "SpectaTypes.h"
 #import "SpectaUtility.h"
+#import <libkern/OSAtomic.h>
 
 @implementation Specta
 @end

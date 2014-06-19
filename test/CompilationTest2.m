@@ -5,6 +5,8 @@ static int
 , example2Ran
 , example3Ran
 , example4Ran
+, example5Ran
+, example6Ran
 ;
 
 SpecBegin(_CompilationTest2)
@@ -25,6 +27,14 @@ describe(@"group", ^{
   specify(@"example 4", ^{
     example4Ran ++;
   });
+
+  it(@"example with same name", ^{
+    example5Ran ++;
+  });
+
+  it(@"example with same name", ^{
+    example6Ran ++;
+  });
 });
 
 SpecEnd
@@ -41,6 +51,8 @@ SpecEnd
   SPTAssertEqual(example2Ran, 1);
   SPTAssertEqual(example3Ran, 1);
   SPTAssertEqual(example4Ran, 1);
+  SPTAssertEqual(example5Ran, 1);
+  SPTAssertEqual(example6Ran, 1);
 }
 
 @end

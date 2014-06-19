@@ -29,11 +29,6 @@
   [self spt_spec].disabled = disabled;
 }
 
-- (BOOL)spt_isPending {
-  SPTExample *example = [self spt_getCurrentExample];
-  return example == nil || example.pending;
-}
-
 + (NSArray *)spt_allSpecClasses {
   static NSArray *allSpecClasses = nil;
   static dispatch_once_t onceToken;
@@ -73,6 +68,33 @@
   return NO;
 }
 
++ (SEL)spt_convertToTestMethod:(SPTExample *)example {
+  @synchronized(example) {
+    if (!example.testMethodSelector) {
+      IMP imp = imp_implementationWithBlock(^(SPTXCTestCase *self) {
+        [self spt_runExample:example];
+      });
+
+      SEL sel;
+      unsigned int i = 0;
+
+      do {
+        i++;
+        if (i == 1) {
+          sel = NSSelectorFromString([NSString stringWithFormat:@"test_%@", example.underscoreName]);
+        } else {
+          sel = NSSelectorFromString([NSString stringWithFormat:@"test_%@_%u", example.underscoreName, i]);
+        }
+      } while([self instancesRespondToSelector:sel]);
+
+      class_addMethod(self, sel, imp, "@@:");
+      example.testMethodSelector = sel;
+    }
+  }
+
+  return example.testMethodSelector;
+}
+
 - (void)spt_setCurrentSpecWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber {
   SPTSpec *spec = [[self class] spt_spec];
   spec.fileName = @(fileName);
@@ -86,13 +108,15 @@
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentSpecKey];
 }
 
-- (void)spt_runExampleAtIndex:(NSUInteger)index {
+- (void)spt_runExample:(SPTExample *)example {
   [[NSThread currentThread] threadDictionary][SPTCurrentTestCaseKey] = self;
-  SPTExample *compiledExample = ([[self class] spt_spec].compiledExamples)[index];
-  if (!compiledExample.pending) {
+
+  if (example.pending) {
+    self.spt_pending = YES;
+  } else {
     if ([[self class] spt_isDisabled] == NO &&
-        (compiledExample.focused || [[self class] spt_focusedExamplesExist] == NO)) {
-      ((SPTVoidBlock)compiledExample.block)();
+        (example.focused || [[self class] spt_focusedExamplesExist] == NO)) {
+      ((SPTVoidBlock)example.block)();
     } else {
       self.spt_skipped = YES;
     }
@@ -101,40 +125,51 @@
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentTestCaseKey];
 }
 
-- (SPTExample *)spt_getCurrentExample {
-  if (!self.spt_invocation) {
-    return nil;
-  }
-  NSUInteger i;
-  [self.spt_invocation getArgument:&i atIndex:2];
-  return ([[self class] spt_spec].compiledExamples)[i];
-}
-
 #pragma mark - XCTestCase overrides
 
 + (NSArray *)testInvocations {
-  NSMutableArray *invocations = [NSMutableArray array];
-  for(NSUInteger i = 0; i < [[self spt_spec].compiledExamples count]; i ++) {
-    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self instanceMethodSignatureForSelector:@selector(spt_runExampleAtIndex:)]];
-    NSUInteger j = i;
-    [invocation setSelector:@selector(spt_runExampleAtIndex:)];
-    [invocation setArgument:&j atIndex:2];
-    [invocations addObject:invocation];
+  NSArray *compiledExamples = [self spt_spec].compiledExamples;
+  [NSMutableArray arrayWithCapacity:[compiledExamples count]];
+
+  NSMutableSet *addedSelectors = [NSMutableSet setWithCapacity:[compiledExamples count]];
+  NSMutableArray *selectors = [NSMutableArray arrayWithCapacity:[compiledExamples count]];
+
+  // dynamically generate test methods with compiled examples
+  for (SPTExample *example in compiledExamples) {
+    SEL sel = [self spt_convertToTestMethod:example];
+    NSString *selName = NSStringFromSelector(sel);
+    [selectors addObject: selName];
+    [addedSelectors addObject: selName];
   }
+
+  // look for any other test methods that may be present in class.
+  unsigned int n;
+  Method *imethods = class_copyMethodList(self, &n);
+  
+  for (NSUInteger i = 0; i < n; i++) {
+    struct objc_method_description *desc = method_getDescription(imethods[i]);
+
+    char *types = desc->types;
+    SEL sel = desc->name;
+    NSString *selName = NSStringFromSelector(sel);
+
+    if (strcmp(types, "@@:") == 0 && [selName hasPrefix:@"test"] && ![addedSelectors containsObject:selName]) {
+      [selectors addObject:NSStringFromSelector(sel)];
+    }
+  }
+
+  free(imethods);
+
+  // create invocations from test method selectors
+  NSMutableArray *invocations = [NSMutableArray arrayWithCapacity:[selectors count]];
+  for (NSString *selName in selectors) {
+    SEL sel = NSSelectorFromString(selName);
+    NSInvocation *inv = [NSInvocation invocationWithMethodSignature:[self instanceMethodSignatureForSelector:sel]];
+    [inv setSelector:sel];
+    [invocations addObject:inv];
+  }
+
   return invocations;
-}
-
-- (void)setInvocation:(NSInvocation *)invocation {
-  self.spt_invocation = invocation;
-  [super setInvocation:invocation];
-}
-
-- (NSString *)name {
-  NSString *specName = NSStringFromClass([self class]);
-  SPTExample *compiledExample = [self spt_getCurrentExample];
-  NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_"];
-  NSString *exampleName = [[compiledExample.name componentsSeparatedByCharactersInSet:[charSet invertedSet]] componentsJoinedByString:@"_"];
-  return [NSString stringWithFormat:@"-[%@ %@]", specName, exampleName];
 }
 
 - (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected {
@@ -145,7 +180,6 @@
 - (void)performTest:(XCTestRun *)run {
   self.spt_run = (XCTestCaseRun *)run;
   [super performTest:run];
-  self.spt_run = nil;
 }
 
 @end

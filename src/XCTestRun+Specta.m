@@ -14,7 +14,7 @@
     }
   } else if ([[self test] isKindOfClass:[SPTXCTestCase class]]) {
     SPTXCTestCase * testCase = (SPTXCTestCase *)[self test];
-    if (testCase != nil && [testCase spt_isPending]) {
+    if (testCase != nil && testCase.spt_pending) {
       pendingTestCaseCount++;
     }
   }
