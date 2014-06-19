@@ -42,7 +42,18 @@
   #undef _XCTRegisterFailure
   #define _XCTRegisterFailure(test, condition, format...) \
   ({ \
-    _XCTFailureHandler((id)test, YES, __FILE__, __LINE__, condition, @"" format); \
+    @try { \
+      _XCTFailureHandler((id)test, YES, __FILE__, __LINE__, condition, @"" format); \
+    } @catch(NSException *e) { \
+      NSString *description = [e reason]; \
+      id line = [e userInfo][@"line"]; \
+      id file = [e userInfo][@"file"]; \
+      if ([line isKindOfClass:[NSNumber class]] && [file isKindOfClass:[NSString class]]) { \
+        [test recordFailureWithDescription:description inFile:file atLine:[line unsignedIntegerValue] expected:YES]; \
+      } else { \
+        [test _recordUnexpectedFailureWithDescription:description exception:e]; \
+      } \
+    } \
   })
 #else
   #undef _XCTRegisterFailure
