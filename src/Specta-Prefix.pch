@@ -2,3 +2,7 @@
 #  import <Foundation/Foundation.h>
 #  import <XCTest/XCTest.h>
 #endif
+
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 1100 || __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
+#  define _SPT_XCODE6
+#endif

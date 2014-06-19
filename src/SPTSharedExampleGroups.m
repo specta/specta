@@ -59,4 +59,14 @@ BOOL initialized = NO;
   [SPTCurrentTestCase recordFailureWithDescription:description inFile:filename atLine:lineNumber expected:expected];
 }
 
++ (void)_recordUnexpectedFailureWithDescription:(NSString *)description exception:(NSException *)exception {
+  [SPTCurrentTestCase _recordUnexpectedFailureWithDescription:description exception:exception];
+}
+
+#ifdef _SPT_XCODE6
++ (_XCTestCaseImplementation *)internalImplementation {
+  return [SPTCurrentTestCase internalImplementation];
+}
+#endif
+
 @end

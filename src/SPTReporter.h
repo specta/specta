@@ -1,4 +1,11 @@
 #import <XCTest/XCTest.h>
+#import "XCTestPrivate.h"
+
+#ifdef _SPT_XCODE6
+  #define SPTXCTestLogClass _XCTestDriverTestObserver
+#else
+  #define SPTXCTestLogClass XCTestLog
+#endif
 
 @interface SPTReporter : XCTestLog
 

@@ -1,8 +1,14 @@
 #import "TestHelper.h"
 
+#ifdef _SPT_XCODE6
+  #define spt_allSubclasses allSubclasses
+#else
+  #define spt_allSubclasses xct_allSubclasses
+#endif
+
 @interface XCTestCase (MiscTest)
 
-+ (NSArray *)xct_allSubclasses;
++ (NSArray *)spt_allSubclasses;
 
 @end
 
@@ -17,12 +23,12 @@ SpecEnd
 @implementation MiscTest
 
 - (void)test_MiscTestSpecInXCTestCaseSubClassList {
-  SPTAssertTrue([[XCTestCase xct_allSubclasses] indexOfObject:[_MiscTestSpec class]] != NSNotFound);
+  SPTAssertTrue([[XCTestCase spt_allSubclasses] indexOfObject:[_MiscTestSpec class]] != NSNotFound);
 }
 
 - (void)testSPTXCTestCaseNotInXCTestCaseSubClassList {
   // trick XCTestCase into thinking SPTXCTestCase is not a subclass of XCTestCase
-  SPTAssertTrue([[XCTestCase xct_allSubclasses] indexOfObject:[SPTXCTestCase class]] == NSNotFound);
+  SPTAssertTrue([[XCTestCase spt_allSubclasses] indexOfObject:[SPTXCTestCase class]] == NSNotFound);
 }
 
 @end

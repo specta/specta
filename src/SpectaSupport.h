@@ -2,8 +2,6 @@
 #define SPT_SUBCLASS SPTXCTestCase
 #endif
 
-
-
 #define _SPTSpecBegin(name, file, line) \
 @interface name##Spec : SPT_SUBCLASS \
 @end \
@@ -39,8 +37,17 @@
 } \
 @end
 
-#undef _XCTRegisterFailure
-#define _XCTRegisterFailure(condition, format...) \
-({ \
-_XCTFailureHandler((id)self, YES, __FILE__, __LINE__, condition, @"" format); \
-})
+
+#ifdef _SPT_XCODE6
+  #undef _XCTRegisterFailure
+  #define _XCTRegisterFailure(test, condition, format...) \
+  ({ \
+    _XCTFailureHandler((id)test, YES, __FILE__, __LINE__, condition, @"" format); \
+  })
+#else
+  #undef _XCTRegisterFailure
+  #define _XCTRegisterFailure(condition, format...) \
+  ({ \
+    _XCTFailureHandler((id)self, YES, __FILE__, __LINE__, condition, @"" format); \
+  })
+#endif

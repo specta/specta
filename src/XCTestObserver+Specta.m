@@ -9,7 +9,7 @@ static void spt_swizzleInstanceMethod(Class class, SEL originalSelector, SEL swi
   method_exchangeImplementations(originalMethod, swizzledMethod);
 }
 
-@implementation XCTestObserver (Specta)
+@implementation SPTXCTestObserverClass (Specta)
 
 + (void)load {
   spt_swizzleInstanceMethod(self, @selector(startObserving), @selector(XCTestObserver_startObserving));

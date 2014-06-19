@@ -10,9 +10,9 @@
 @implementation MultipleTestObserverTest
 
 - (void)testAnotherObserverWorksWithoutCrash {
-    XCTestObserver *observer = [[XCTestObserver alloc] init];
-    [observer startObserving];
-    [observer stopObserving];
+  XCTestObserver *observer = [[XCTestObserver alloc] init];
+  [observer startObserving];
+  [observer stopObserving];
 }
 
 @end

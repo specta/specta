@@ -4,6 +4,7 @@
 #import "SPTSharedExampleGroups.h"
 #import "SpectaUtility.h"
 #import <objc/runtime.h>
+#import "XCTestPrivate.h"
 
 @implementation SPTXCTestCase
 
@@ -172,9 +173,26 @@
   return invocations;
 }
 
+
+#ifdef _SPT_XCODE6
+- (void)_recordUnexpectedFailureWithDescription:(NSString *)description exception:(NSException *)exception {
+  id line = [exception userInfo][@"line"];
+  id file = [exception userInfo][@"file"];
+  if ([line isKindOfClass:[NSNumber class]] && [file isKindOfClass:[NSString class]]) {
+    [self recordFailureWithDescription:description inFile:file atLine:[line unsignedIntegerValue] expected:YES];
+  } else {
+    [super _recordUnexpectedFailureWithDescription:description exception:exception];
+  }
+}
+#endif
+
 - (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected {
   SPTXCTestCase *currentTestCase = SPTCurrentTestCase;
+#ifdef _SPT_XCODE6
+  [currentTestCase.spt_run recordFailureWithDescription:description inFile:filename atLine:lineNumber expected:expected];
+#else
   [currentTestCase.spt_run recordFailureInTest:currentTestCase withDescription:description inFile:filename atLine:lineNumber expected:expected];
+#endif
 }
 
 - (void)performTest:(XCTestRun *)run {

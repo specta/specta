@@ -1,4 +1,5 @@
 #import "TestHelper.h"
+#import "XCTestPrivate.h"
 
 static NSString
   *foo = @"foo"
