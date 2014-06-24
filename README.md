@@ -47,7 +47,7 @@ or
 #import "Specta.h"
 ```
 
-Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](http://github.com/petejkim/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
+Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](https://github.com/specta/expecta) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/hamcrest/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
 
 ## WRITING SPECS
 
@@ -143,4 +143,4 @@ SpecEnd
 
 ## LICENSE
 
-Copyright (c) 2012-2013 [Specta Team](https://github.com/specta?tab=members). This software is licensed under the [MIT License](http://github.com/petejkim/specta/raw/master/LICENSE).
+Copyright (c) 2012-2013 [Specta Team](https://github.com/specta?tab=members). This software is licensed under the [MIT License](http://github.com/specta/specta/raw/master/LICENSE).
