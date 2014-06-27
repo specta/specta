@@ -559,7 +559,7 @@
 		E9901BF518205A3500844A05 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Specta Team";
 			};
 			buildConfigurationList = E9901BF818205A3500844A05 /* Build configuration list for PBXProject "Specta" */;
