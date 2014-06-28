@@ -2,7 +2,7 @@
 
 static NSMutableArray *sequence = nil;
 
-@interface SequenceTestHelper : NSObject
+@interface SequenceTestHelper : NSObject <SPTGlobalBeforeAfterEach>
 @end
 
 @implementation SequenceTestHelper
@@ -13,6 +13,27 @@ static NSMutableArray *sequence = nil;
 
 + (void)afterEach {
   [sequence addObject:@"+afterEach"];
+}
+
+@end
+
+// This class should not have its +beforeEach and +afterEach methods run, because it does not
+// conform to SPTGlobalBeforeAfterEach
+@interface FakeGlobalBeforeAfterEach : NSObject
+
++ (void)beforeEach;
++ (void)afterEach;
+
+@end
+
+@implementation FakeGlobalBeforeAfterEach
+
++ (void)beforeEach {
+  [sequence addObject:@"+beforeEach (should not run)"];
+}
+
++ (void)afterEach {
+  [sequence addObject:@"+afterEach (should not run)"];
 }
 
 @end

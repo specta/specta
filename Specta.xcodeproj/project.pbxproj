@@ -163,6 +163,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		510C2478195081610071224C /* SPTGlobalBeforeAfterEach.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTGlobalBeforeAfterEach.h; sourceTree = "<group>"; };
 		B91EE39C18A0F41B0074E17C /* MultipleTestObserverTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleTestObserverTest.m; sourceTree = "<group>"; };
 		CD7723671825A67A00719E93 /* SPTReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTReporter.h; sourceTree = "<group>"; };
 		CD7723681825A67A00719E93 /* SPTReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTReporter.m; sourceTree = "<group>"; };
@@ -429,6 +430,7 @@
 				CDF76B5318260AA5008BA160 /* SPTXCTestReporter.m */,
 				CDF76B4C1825C8B1008BA160 /* SPTNestedReporter.h */,
 				CDF76B4D1825C8B1008BA160 /* SPTNestedReporter.m */,
+				510C2478195081610071224C /* SPTGlobalBeforeAfterEach.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
