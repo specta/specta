@@ -21,6 +21,7 @@
 - (void)spt_setCurrentSpecWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber;
 - (void)spt_defineSpec;
 - (void)spt_unsetCurrentSpec;
+- (BOOL)spt_shouldRunExample:(SPTExample *)example;
 - (void)spt_runExampleAtIndex:(NSUInteger)index;
 - (SPTExample *)spt_getCurrentExample;
 
