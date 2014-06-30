@@ -4,6 +4,7 @@
 @class
   SPTSpec
 , SPTExample
+, SPTCompiledExample
 ;
 
 @interface SPTXCTestCase : XCTestCase
@@ -15,13 +16,13 @@
 + (BOOL)spt_isDisabled;
 + (void)spt_setDisabled:(BOOL)disabled;
 + (BOOL)spt_focusedExamplesExist;
-+ (SEL)spt_convertToTestMethod:(SPTExample *)example;
++ (SEL)spt_convertToTestMethod:(SPTCompiledExample *)example;
 + (SPTSpec *)spt_spec;
 
 - (void)spt_setCurrentSpecWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber;
 - (void)spt_defineSpec;
 - (void)spt_unsetCurrentSpec;
-- (void)spt_runExample:(SPTExample *)example;
+- (void)spt_runExample:(SPTCompiledExample *)example;
 
 
 @end

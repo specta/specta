@@ -1,5 +1,6 @@
 #import "SPTExampleGroup.h"
 #import "SPTExample.h"
+#import "SPTCompiledExample.h"
 #import "SPTXCTestCase.h"
 #import "SPTSpec.h"
 #import "SpectaUtility.h"
@@ -278,7 +279,7 @@ static void runExampleBlock(id block, NSString *name) {
       NSArray *newNameStack = [nameStack arrayByAddingObject:example.name];
       NSString *compiledName = [newNameStack componentsJoinedByString:@" "];
 
-      SPTVoidBlock compiledBlock = example.pending ? nil : ^{
+      SPTTestCaseBlock compiledBlock = example.pending ? nil : ^(SPTXCTestCase *testCase) {
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];
           [self runBeforeHooks:compiledName];
@@ -293,9 +294,7 @@ static void runExampleBlock(id block, NSString *name) {
           }
         }
       };
-      SPTExample *compiledExample = [[SPTExample alloc] initWithName:compiledName block:compiledBlock];
-      compiledExample.pending = example.pending;
-      compiledExample.focused = (groupIsFocusedOrHasFocusedAncestor || example.focused);
+      SPTCompiledExample *compiledExample = [[SPTCompiledExample alloc] initWithName:compiledName block:compiledBlock pending:example.pending focused:(groupIsFocusedOrHasFocusedAncestor || example.focused)];
       compiled = [compiled arrayByAddingObject:compiledExample];
     }
   }

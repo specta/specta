@@ -1,6 +1,6 @@
 #import "SPTXCTestCase.h"
 #import "SPTSpec.h"
-#import "SPTExample.h"
+#import "SPTCompiledExample.h"
 #import "SPTSharedExampleGroups.h"
 #import "SpectaUtility.h"
 #import <objc/runtime.h>
@@ -68,7 +68,7 @@
   return NO;
 }
 
-+ (SEL)spt_convertToTestMethod:(SPTExample *)example {
++ (SEL)spt_convertToTestMethod:(SPTCompiledExample *)example {
   @synchronized(example) {
     if (!example.testMethodSelector) {
       IMP imp = imp_implementationWithBlock(^(SPTXCTestCase *self) {
@@ -108,7 +108,7 @@
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentSpecKey];
 }
 
-- (void)spt_runExample:(SPTExample *)example {
+- (void)spt_runExample:(SPTCompiledExample *)example {
   [[NSThread currentThread] threadDictionary][SPTCurrentTestCaseKey] = self;
 
   if (example.pending) {
@@ -116,7 +116,7 @@
   } else {
     if ([[self class] spt_isDisabled] == NO &&
         (example.focused || [[self class] spt_focusedExamplesExist] == NO)) {
-      ((SPTVoidBlock)example.block)();
+      example.block(self);
     } else {
       self.spt_skipped = YES;
     }
@@ -135,7 +135,7 @@
   NSMutableArray *selectors = [NSMutableArray arrayWithCapacity:[compiledExamples count]];
 
   // dynamically generate test methods with compiled examples
-  for (SPTExample *example in compiledExamples) {
+  for (SPTCompiledExample *example in compiledExamples) {
     SEL sel = [self spt_convertToTestMethod:example];
     NSString *selName = NSStringFromSelector(sel);
     [selectors addObject: selName];

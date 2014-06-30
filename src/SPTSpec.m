@@ -1,6 +1,6 @@
 #import "SPTSpec.h"
 #import "SPTExampleGroup.h"
-#import "SPTExample.h"
+#import "SPTCompiledExample.h"
 
 @implementation SPTSpec
 
@@ -20,7 +20,7 @@
 
 - (void)compile {
   self.compiledExamples = [self.rootGroup compileExamplesWithNameStack:@[]];
-  for (SPTExample *example in self.compiledExamples) {
+  for (SPTCompiledExample *example in self.compiledExamples) {
     if (example.focused) {
       self.hasFocusedExamples = YES;
       break;
