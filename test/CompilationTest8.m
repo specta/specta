@@ -1,4 +1,6 @@
 #import "TestHelper.h"
+#import "SPTTestCase.h"
+#import "SPTTestSuite.h"
 
 SpecBegin(_CompilationTest8)
 
@@ -24,8 +26,8 @@ SpecEnd
 
 - (void)testCompiledExampleNames {
   RunSpec(_CompilationTest8Spec);
-  SPTSpec *spec = [_CompilationTest8Spec spt_spec];
-  NSArray *compiledExamples = spec.compiledExamples;
+  SPTTestSuite *testSuite = [_CompilationTest8Spec spt_testSuite];
+  NSArray *compiledExamples = testSuite.compiledExamples;
 
   SPTAssertEqualObjects([compiledExamples[0] name], @"group 1 group 2 group 3 example 1");
   SPTAssertEqualObjects([compiledExamples[1] name], @"group 1 group 2 group 3 example 2");

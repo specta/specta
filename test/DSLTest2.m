@@ -30,7 +30,7 @@ SpecEnd
 @implementation DSLTest2
 
 - (void)testBeforeAndAfterHooks {
-  SPTExampleGroup *rootGroup = [_DSLTest2Spec spt_spec].rootGroup;
+  SPTExampleGroup *rootGroup = [_DSLTest2Spec spt_testSuite].rootGroup;
   SPTExampleGroup *group = rootGroup.children[0];
 
   SPTAssertEqual([group.beforeAllArray count], 2);

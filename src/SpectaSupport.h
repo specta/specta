@@ -2,17 +2,17 @@
 #define SPT_SUBCLASS SPTTestCase
 #endif
 
-#define _SPTSpecBegin(name, file, line) \
+#define _SPTTestSuiteBegin(name, file, line) \
 @interface name##Spec : SPT_SUBCLASS \
 @end \
 @implementation name##Spec \
 - (void)spt_defineSpec { \
   const char *specFileName = file; \
   @try { \
-    [self spt_setCurrentSpecWithFileName:(file) lineNumber:(line)];
+    [self spt_setCurrentTestSuiteWithFileName:(file) lineNumber:(line)];
 
-#define _SPTSpecEnd \
-    [self spt_unsetCurrentSpec]; \
+#define _SPTTestSuiteEnd \
+    [self spt_unsetCurrentTestSuite]; \
   } @catch(NSException *exception) { \
     fprintf(stderr, "%s: An exception has occured outside of tests, aborting.\n\n%s (%s) \n", specFileName, [[exception name] UTF8String], [[exception reason] UTF8String]); \
     if ([exception respondsToSelector:@selector(callStackSymbols)]) { \

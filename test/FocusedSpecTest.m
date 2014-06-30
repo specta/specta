@@ -33,10 +33,10 @@ SpecEnd
 - (void)test_focused_examples_are_focused {
   XCTAssertFalse([SPTTestCase spt_focusedExamplesExist], @"Focused examples should not exist if the spec is disabled");
 
-  SPTSpec *spec = [_FocusedSpecTestSpec spt_spec];
-  SPTAssertTrue(spec.hasFocusedExamples);
+  SPTTestSuite *testSuite = [_FocusedSpecTestSpec spt_testSuite];
+  SPTAssertTrue(testSuite.hasFocusedExamples);
 
-  SPTExampleGroup *specGroup = spec.rootGroup;
+  SPTExampleGroup *specGroup = testSuite.rootGroup;
 
   SPTExampleGroup *rootGroup = specGroup.children[0];
 
@@ -51,16 +51,16 @@ SpecEnd
 }
 
 - (void)test_compiled_examples_are_focused {
-  SPTSpec *spec = [_FocusedSpecTestSpec spt_spec];
-  XCTAssert([spec.compiledExamples count] == 3, @"All examples are compiled, focused or not");
+  SPTTestSuite *testSuite = [_FocusedSpecTestSpec spt_testSuite];
+  XCTAssert([testSuite.compiledExamples count] == 3, @"All examples are compiled, focused or not");
 
-  SPTExample *compiledUnfocusedExample = (spec.compiledExamples)[0];
+  SPTExample *compiledUnfocusedExample = (testSuite.compiledExamples)[0];
   XCTAssertFalse([compiledUnfocusedExample isFocused], @"unfocused examples are not focused when compiled");
 
-  SPTExample *compiledFocusedExample = (spec.compiledExamples)[1];
+  SPTExample *compiledFocusedExample = (testSuite.compiledExamples)[1];
   XCTAssertTrue([compiledFocusedExample isFocused], @"focused examples are focused when compiled");
 
-  SPTExample *compiledInheritedFocusedExample = (spec.compiledExamples)[2];
+  SPTExample *compiledInheritedFocusedExample = (testSuite.compiledExamples)[2];
   XCTAssertTrue([compiledInheritedFocusedExample isFocused], @"examples within focused groups are focused when compiled");
 }
 

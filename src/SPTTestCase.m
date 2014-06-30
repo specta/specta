@@ -1,5 +1,5 @@
 #import "SPTTestCase.h"
-#import "SPTSpec.h"
+#import "SPTTestSuite.h"
 #import "SPTCompiledExample.h"
 #import "SPTSharedExampleGroups.h"
 #import "SpectaUtility.h"
@@ -9,24 +9,24 @@
 
 + (void)initialize {
   [SPTSharedExampleGroups initialize];
-  SPTSpec *spec = [[SPTSpec alloc] init];
+  SPTTestSuite *testSuite = [[SPTTestSuite alloc] init];
   SPTTestCase *testCase = [[[self class] alloc] init];
-  objc_setAssociatedObject(self, "spt_spec", spec, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+  objc_setAssociatedObject(self, "spt_testSuite", testSuite, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
   [testCase spt_defineSpec];
-  [spec compile];
+  [testSuite compile];
   [super initialize];
 }
 
-+ (SPTSpec *)spt_spec {
-  return objc_getAssociatedObject(self, "spt_spec");
++ (SPTTestSuite *)spt_testSuite {
+  return objc_getAssociatedObject(self, "spt_testSuite");
 }
 
 + (BOOL)spt_isDisabled {
-  return [self spt_spec].disabled;
+  return [self spt_testSuite].disabled;
 }
 
 + (void)spt_setDisabled:(BOOL)disabled {
-  [self spt_spec].disabled = disabled;
+  [self spt_testSuite].disabled = disabled;
 }
 
 + (NSArray *)spt_allSpecClasses {
@@ -59,8 +59,8 @@
 
 + (BOOL)spt_focusedExamplesExist {
   for (Class specClass in [self spt_allSpecClasses]) {
-    SPTSpec *spec = [specClass spt_spec];
-    if (spec.disabled == NO && [spec hasFocusedExamples]) {
+    SPTTestSuite *testSuite = [specClass spt_testSuite];
+    if (testSuite.disabled == NO && [testSuite hasFocusedExamples]) {
       return YES;
     }
   }
@@ -95,17 +95,17 @@
   return example.testMethodSelector;
 }
 
-- (void)spt_setCurrentSpecWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber {
-  SPTSpec *spec = [[self class] spt_spec];
-  spec.fileName = @(fileName);
-  spec.lineNumber = lineNumber;
-  [[NSThread currentThread] threadDictionary][SPTCurrentSpecKey] = spec;
+- (void)spt_setCurrentTestSuiteWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber {
+  SPTTestSuite *testSuite = [[self class] spt_testSuite];
+  testSuite.fileName = @(fileName);
+  testSuite.lineNumber = lineNumber;
+  [[NSThread currentThread] threadDictionary][SPTCurrentTestSuiteKey] = testSuite;
 }
 
 - (void)spt_defineSpec {}
 
-- (void)spt_unsetCurrentSpec {
-  [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentSpecKey];
+- (void)spt_unsetCurrentTestSuite {
+  [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentTestSuiteKey];
 }
 
 - (void)spt_runExample:(SPTCompiledExample *)example {
@@ -128,7 +128,7 @@
 #pragma mark - XCTestCase overrides
 
 + (NSArray *)testInvocations {
-  NSArray *compiledExamples = [self spt_spec].compiledExamples;
+  NSArray *compiledExamples = [self spt_testSuite].compiledExamples;
   [NSMutableArray arrayWithCapacity:[compiledExamples count]];
 
   NSMutableSet *addedSelectors = [NSMutableSet setWithCapacity:[compiledExamples count]];

@@ -2,15 +2,15 @@
 #import <XCTest/XCTest.h>
 #import "SpectaSupport.h"
 #import "SPTTestCase.h"
-#import "SPTSpec.h"
+#import "SPTTestSuite.h"
 #import "SPTExampleGroup.h"
 #import "SPTSharedExampleGroups.h"
 
 @interface Specta : NSObject
 @end
 
-#define SpecBegin(name)    _SPTSpecBegin(name, __FILE__, __LINE__)
-#define SpecEnd            _SPTSpecEnd
+#define SpecBegin(name)    _SPTTestSuiteBegin(name, __FILE__, __LINE__)
+#define SpecEnd            _SPTTestSuiteEnd
 
 #define SharedExamplesBegin(name)      _SPTSharedExampleGroupsBegin(name)
 #define SharedExamplesEnd              _SPTSharedExampleGroupsEnd

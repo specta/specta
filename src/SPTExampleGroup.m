@@ -2,7 +2,7 @@
 #import "SPTExample.h"
 #import "SPTCompiledExample.h"
 #import "SPTTestCase.h"
-#import "SPTSpec.h"
+#import "SPTTestSuite.h"
 #import "SpectaUtility.h"
 #import <libkern/OSAtomic.h>
 #import <objc/runtime.h>

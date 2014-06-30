@@ -15,7 +15,7 @@ SpecEnd
 @implementation DSLTest3
 
 - (void)testNestedExampleGroups {
-  SPTExampleGroup *rootGroup = [_DSLTest3Spec spt_spec].rootGroup;
+  SPTExampleGroup *rootGroup = [_DSLTest3Spec spt_testSuite].rootGroup;
   SPTAssertEqual([rootGroup.children count], 2);
 
   SPTExampleGroup *group1 = rootGroup.children[0];

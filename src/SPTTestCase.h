@@ -2,7 +2,7 @@
 #import "XCTestCase+Specta.h"
 
 @class
-  SPTSpec
+  SPTTestSuite
 , SPTExample
 , SPTCompiledExample
 ;
@@ -17,11 +17,11 @@
 + (void)spt_setDisabled:(BOOL)disabled;
 + (BOOL)spt_focusedExamplesExist;
 + (SEL)spt_convertToTestMethod:(SPTCompiledExample *)example;
-+ (SPTSpec *)spt_spec;
++ (SPTTestSuite *)spt_testSuite;
 
-- (void)spt_setCurrentSpecWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber;
+- (void)spt_setCurrentTestSuiteWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber;
 - (void)spt_defineSpec;
-- (void)spt_unsetCurrentSpec;
+- (void)spt_unsetCurrentTestSuite;
 - (void)spt_runExample:(SPTCompiledExample *)example;
 
 

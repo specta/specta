@@ -5,7 +5,7 @@
 , SPTExampleGroup
 ;
 
-@interface SPTSpec : NSObject
+@interface SPTTestSuite : NSObject
 
 @property (nonatomic, strong) SPTExampleGroup *rootGroup;
 @property (nonatomic, strong) NSMutableArray *groupStack;

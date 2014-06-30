@@ -2,7 +2,7 @@
 #import "SPTTestCase.h"
 #import <objc/runtime.h>
 
-NSString * const SPTCurrentSpecKey = @"SPTCurrentSpec";
+NSString * const SPTCurrentTestSuiteKey = @"SPTCurrentTestSuite";
 NSString * const SPTCurrentTestCaseKey = @"SPTCurrentTestCase";
 
 BOOL SPTIsSpecClass(Class aClass) {

@@ -1,8 +1,8 @@
-#import "SPTSpec.h"
+#import "SPTTestSuite.h"
 #import "SPTExampleGroup.h"
 #import "SPTCompiledExample.h"
 
-@implementation SPTSpec
+@implementation SPTTestSuite
 
 - (id)init {
   self = [super init];

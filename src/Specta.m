@@ -159,7 +159,7 @@ void waitUntil(void (^block)(DoneCallback done)) {
   if (!complete) {
     NSString *message = [NSString stringWithFormat:@"failed to invoke done() callback before timeout (%f seconds)", timeout];
     SPTTestCase *currentTestCase = SPTCurrentTestCase;
-    SPTSpec *spec = [[currentTestCase class] spt_spec];
+    SPTTestSuite *spec = [[currentTestCase class] spt_testSuite];
     [currentTestCase recordFailureWithDescription:message inFile:spec.fileName atLine:spec.lineNumber expected:YES];
   }
 }

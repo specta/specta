@@ -21,7 +21,7 @@ SpecEnd
 @implementation DSLTest4
 
 - (void)testExamples {
-  SPTExampleGroup *rootGroup = [_DSLTest4Spec spt_spec].rootGroup;
+  SPTExampleGroup *rootGroup = [_DSLTest4Spec spt_testSuite].rootGroup;
   SPTExampleGroup *group = rootGroup.children[0];
 
   SPTAssertEqual([group.children count], 3);

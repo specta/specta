@@ -16,14 +16,14 @@
 		E93B45A518205B91009F43A2 /* SPTExample.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5818205B6600844A05 /* SPTExample.m */; };
 		E93B45A618205B91009F43A2 /* SPTExampleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5A18205B6600844A05 /* SPTExampleGroup.m */; };
 		E93B45A718205B91009F43A2 /* SPTSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5C18205B6600844A05 /* SPTSharedExampleGroups.m */; };
-		E93B45A818205B91009F43A2 /* SPTSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5E18205B6600844A05 /* SPTSpec.m */; };
+		E93B45A818205B91009F43A2 /* SPTTestSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5E18205B6600844A05 /* SPTTestSuite.m */; };
 		E93B45AB18205B91009F43A2 /* XCTestCase+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C6418205B6600844A05 /* XCTestCase+Specta.m */; };
 		E93B45AC18205B92009F43A2 /* Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5218205B6600844A05 /* Specta.m */; };
 		E93B45AD18205B92009F43A2 /* SpectaUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5618205B6600844A05 /* SpectaUtility.m */; };
 		E93B45AE18205B92009F43A2 /* SPTExample.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5818205B6600844A05 /* SPTExample.m */; };
 		E93B45AF18205B92009F43A2 /* SPTExampleGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5A18205B6600844A05 /* SPTExampleGroup.m */; };
 		E93B45B018205B92009F43A2 /* SPTSharedExampleGroups.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5C18205B6600844A05 /* SPTSharedExampleGroups.m */; };
-		E93B45B118205B92009F43A2 /* SPTSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5E18205B6600844A05 /* SPTSpec.m */; };
+		E93B45B118205B92009F43A2 /* SPTTestSuite.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C5E18205B6600844A05 /* SPTTestSuite.m */; };
 		E93B45B418205B92009F43A2 /* XCTestCase+Specta.m in Sources */ = {isa = PBXBuildFile; fileRef = E9901C6418205B6600844A05 /* XCTestCase+Specta.m */; };
 		E93B45B618205BC0009F43A2 /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5118205B6600844A05 /* Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93B45B718205BC0009F43A2 /* SpectaSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5318205B6600844A05 /* SpectaSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -32,7 +32,7 @@
 		E93B45BA18205BC0009F43A2 /* SPTExample.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5718205B6600844A05 /* SPTExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93B45BB18205BC0009F43A2 /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5918205B6600844A05 /* SPTExampleGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93B45BC18205BC0009F43A2 /* SPTSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5B18205B6600844A05 /* SPTSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E93B45BD18205BC0009F43A2 /* SPTSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5D18205B6600844A05 /* SPTSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45BD18205BC0009F43A2 /* SPTTestSuite.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5D18205B6600844A05 /* SPTTestSuite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93B45BE18205BC0009F43A2 /* SPTTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5F18205B6600844A05 /* SPTTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93B45C018205BC1009F43A2 /* XCTestCase+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C6318205B6600844A05 /* XCTestCase+Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93B45C118205BC4009F43A2 /* Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5118205B6600844A05 /* Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -42,7 +42,7 @@
 		E93B45C518205BC4009F43A2 /* SPTExample.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5718205B6600844A05 /* SPTExample.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93B45C618205BC4009F43A2 /* SPTExampleGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5918205B6600844A05 /* SPTExampleGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93B45C718205BC4009F43A2 /* SPTSharedExampleGroups.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5B18205B6600844A05 /* SPTSharedExampleGroups.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E93B45C818205BC4009F43A2 /* SPTSpec.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5D18205B6600844A05 /* SPTSpec.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E93B45C818205BC4009F43A2 /* SPTTestSuite.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5D18205B6600844A05 /* SPTTestSuite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93B45C918205BC5009F43A2 /* SPTTestCase.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C5F18205B6600844A05 /* SPTTestCase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93B45CB18205BC5009F43A2 /* XCTestCase+Specta.h in Headers */ = {isa = PBXBuildFile; fileRef = E9901C6318205B6600844A05 /* XCTestCase+Specta.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E93B45CC18205C07009F43A2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9901C0E18205A3500844A05 /* XCTest.framework */; };
@@ -205,8 +205,8 @@
 		E9901C5A18205B6600844A05 /* SPTExampleGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTExampleGroup.m; sourceTree = "<group>"; };
 		E9901C5B18205B6600844A05 /* SPTSharedExampleGroups.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTSharedExampleGroups.h; sourceTree = "<group>"; };
 		E9901C5C18205B6600844A05 /* SPTSharedExampleGroups.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTSharedExampleGroups.m; sourceTree = "<group>"; };
-		E9901C5D18205B6600844A05 /* SPTSpec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTSpec.h; sourceTree = "<group>"; };
-		E9901C5E18205B6600844A05 /* SPTSpec.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTSpec.m; sourceTree = "<group>"; };
+		E9901C5D18205B6600844A05 /* SPTTestSuite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTTestSuite.h; sourceTree = "<group>"; };
+		E9901C5E18205B6600844A05 /* SPTTestSuite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTTestSuite.m; sourceTree = "<group>"; };
 		E9901C5F18205B6600844A05 /* SPTTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTTestCase.h; sourceTree = "<group>"; };
 		E9901C6018205B6600844A05 /* SPTTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPTTestCase.m; sourceTree = "<group>"; };
 		E9901C6318205B6600844A05 /* XCTestCase+Specta.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+Specta.h"; sourceTree = "<group>"; };
@@ -388,8 +388,8 @@
 				E9901C5A18205B6600844A05 /* SPTExampleGroup.m */,
 				E9901C5B18205B6600844A05 /* SPTSharedExampleGroups.h */,
 				E9901C5C18205B6600844A05 /* SPTSharedExampleGroups.m */,
-				E9901C5D18205B6600844A05 /* SPTSpec.h */,
-				E9901C5E18205B6600844A05 /* SPTSpec.m */,
+				E9901C5D18205B6600844A05 /* SPTTestSuite.h */,
+				E9901C5E18205B6600844A05 /* SPTTestSuite.m */,
 				E9901C5F18205B6600844A05 /* SPTTestCase.h */,
 				E9901C6018205B6600844A05 /* SPTTestCase.m */,
 				E9901C6318205B6600844A05 /* XCTestCase+Specta.h */,
@@ -414,7 +414,7 @@
 				E93B45BA18205BC0009F43A2 /* SPTExample.h in Headers */,
 				E93B45BB18205BC0009F43A2 /* SPTExampleGroup.h in Headers */,
 				E93B45BC18205BC0009F43A2 /* SPTSharedExampleGroups.h in Headers */,
-				E93B45BD18205BC0009F43A2 /* SPTSpec.h in Headers */,
+				E93B45BD18205BC0009F43A2 /* SPTTestSuite.h in Headers */,
 				E93B45BE18205BC0009F43A2 /* SPTTestCase.h in Headers */,
 				E93B45C018205BC1009F43A2 /* XCTestCase+Specta.h in Headers */,
 			);
@@ -432,7 +432,7 @@
 				E93B45C518205BC4009F43A2 /* SPTExample.h in Headers */,
 				E93B45C618205BC4009F43A2 /* SPTExampleGroup.h in Headers */,
 				E93B45C718205BC4009F43A2 /* SPTSharedExampleGroups.h in Headers */,
-				E93B45C818205BC4009F43A2 /* SPTSpec.h in Headers */,
+				E93B45C818205BC4009F43A2 /* SPTTestSuite.h in Headers */,
 				E93B45C918205BC5009F43A2 /* SPTTestCase.h in Headers */,
 				E93B45CB18205BC5009F43A2 /* XCTestCase+Specta.h in Headers */,
 			);
@@ -562,7 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E93B45B118205B92009F43A2 /* SPTSpec.m in Sources */,
+				E93B45B118205B92009F43A2 /* SPTTestSuite.m in Sources */,
 				E93B45AF18205B92009F43A2 /* SPTExampleGroup.m in Sources */,
 				E93B45B418205B92009F43A2 /* XCTestCase+Specta.m in Sources */,
 				E93B45AE18205B92009F43A2 /* SPTExample.m in Sources */,
@@ -620,7 +620,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E93B45A818205B91009F43A2 /* SPTSpec.m in Sources */,
+				E93B45A818205B91009F43A2 /* SPTTestSuite.m in Sources */,
 				E93B45A618205B91009F43A2 /* SPTExampleGroup.m in Sources */,
 				E93B45AB18205B91009F43A2 /* XCTestCase+Specta.m in Sources */,
 				E93B45A518205B91009F43A2 /* SPTExample.m in Sources */,

@@ -10,7 +10,7 @@ SpecEnd
 @implementation DSLTest1
 
 - (void)testSingleExampleGroup {
-  SPTExampleGroup *rootGroup = [_DSLTest1Spec spt_spec].rootGroup;
+  SPTExampleGroup *rootGroup = [_DSLTest1Spec spt_testSuite].rootGroup;
 
   SPTAssertTrue([rootGroup isKindOfClass:[SPTExampleGroup class]]);
   SPTAssertEqualObjects(rootGroup.root, rootGroup);
