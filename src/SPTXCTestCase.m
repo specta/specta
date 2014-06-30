@@ -4,7 +4,6 @@
 #import "SPTSharedExampleGroups.h"
 #import "SpectaUtility.h"
 #import <objc/runtime.h>
-#import "XCTestPrivate.h"
 
 @implementation SPTXCTestCase
 

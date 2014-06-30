@@ -1,10 +1,11 @@
 #import <Foundation/Foundation.h>
 #import "SpectaTypes.h"
-#import "XCTestPrivate.h"
 
-@class
-  SPTExampleGroup
-;
+#ifdef _SPT_XCODE6
+@class _XCTestCaseImplementation;
+#endif
+
+@class SPTExampleGroup;
 
 @interface SPTSharedExampleGroups : NSObject
 

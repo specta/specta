@@ -1,7 +1,4 @@
 #import "TestHelper.h"
-#import "SPTReporter.h"
-#import "XCTestObserver+Specta.h"
-#import "XCTestPrivate.h"
 
 XCTestSuiteRun *RunSpecClass(Class testClass) {
   __block XCTestSuiteRun *result;
@@ -12,9 +9,9 @@ XCTestSuiteRun *RunSpecClass(Class testClass) {
     result = (id)[(XCTestSuite *)[XCTestSuite testSuiteForTestCaseClass:testClass] run];
   }];
 #else
-  [[SPTReporter sharedReporter] spt_pauseObservationInBlock:^{
-    result = (id)[(XCTestSuite *)[XCTestSuite testSuiteForTestCaseClass:testClass] run];
-  }];
+//  [[SPTReporter sharedReporter] spt_pauseObservationInBlock:^{
+//    result = (id)[(XCTestSuite *)[XCTestSuite testSuiteForTestCaseClass:testClass] run];
+//  }];
 #endif
 
   return result;

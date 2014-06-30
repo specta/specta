@@ -1,6 +1,14 @@
 #import <XCTest/XCTest.h>
 #define SPT_CEDAR_SYNTAX
 #import "Specta.h"
+#import "XCTest+Private.h"
+
+@interface XCTestObservationCenter
+
++ (id)sharedObservationCenter;
+- (void)_suspendObservationForBlock:(void (^)(void))block;
+
+@end
 
 #define RunSpec(TestClass) RunSpecClass([TestClass class])
 
