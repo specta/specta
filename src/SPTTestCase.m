@@ -1,16 +1,16 @@
-#import "SPTXCTestCase.h"
+#import "SPTTestCase.h"
 #import "SPTSpec.h"
 #import "SPTCompiledExample.h"
 #import "SPTSharedExampleGroups.h"
 #import "SpectaUtility.h"
 #import <objc/runtime.h>
 
-@implementation SPTXCTestCase
+@implementation SPTTestCase
 
 + (void)initialize {
   [SPTSharedExampleGroups initialize];
   SPTSpec *spec = [[SPTSpec alloc] init];
-  SPTXCTestCase *testCase = [[[self class] alloc] init];
+  SPTTestCase *testCase = [[[self class] alloc] init];
   objc_setAssociatedObject(self, "spt_spec", spec, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
   [testCase spt_defineSpec];
   [spec compile];
@@ -71,7 +71,7 @@
 + (SEL)spt_convertToTestMethod:(SPTCompiledExample *)example {
   @synchronized(example) {
     if (!example.testMethodSelector) {
-      IMP imp = imp_implementationWithBlock(^(SPTXCTestCase *self) {
+      IMP imp = imp_implementationWithBlock(^(SPTTestCase *self) {
         [self spt_runExample:example];
       });
 
@@ -173,7 +173,7 @@
 }
 
 - (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected {
-  SPTXCTestCase *currentTestCase = SPTCurrentTestCase;
+  SPTTestCase *currentTestCase = SPTCurrentTestCase;
 #ifdef _SPT_XCODE6
   [currentTestCase.spt_run recordFailureWithDescription:description inFile:filename atLine:lineNumber expected:expected];
 #else

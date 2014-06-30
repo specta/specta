@@ -1,7 +1,8 @@
-#import "XCTestCase+Specta.h"
-#import "SPTXCTestCase.h"
-#import "SPTExample.h"
 #import <objc/runtime.h>
+#import "XCTestCase+Specta.h"
+#import "SPTTestCase.h"
+#import "SPTExample.h"
+#import "XCTest+Private.h"
 
 #ifdef _SPT_XCODE6
   #define spt_allSubclasses allSubclasses
@@ -25,8 +26,21 @@
 
 + (NSArray *)spt_allSubclasses_swizzle {
   NSMutableArray *subclasses = [[self spt_allSubclasses_swizzle] mutableCopy]; // call original
-  [subclasses removeObject:[SPTXCTestCase class]];
+  [subclasses removeObject:[SPTTestCase class]];
   return subclasses;
+}
+
+- (void)spt_handleException:(NSException *)exception {
+  NSString *description = [exception reason];
+  if ([exception userInfo]) {
+    id line = [exception userInfo][@"line"];
+    id file = [exception userInfo][@"file"];
+    if ([line isKindOfClass:[NSNumber class]] && [file isKindOfClass:[NSString class]]) {
+      [self recordFailureWithDescription:description inFile:file atLine:[line unsignedIntegerValue] expected:YES];
+      return;
+    }
+  }
+  [self _recordUnexpectedFailureWithDescription:description exception:exception];
 }
 
 @end

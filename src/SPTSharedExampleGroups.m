@@ -1,6 +1,6 @@
 #import "SPTSharedExampleGroups.h"
 #import "SPTExampleGroup.h"
-#import "SPTXCTestCase.h"
+#import "SPTTestCase.h"
 #import "SpectaUtility.h"
 #import <objc/runtime.h>
 
@@ -54,6 +54,10 @@ BOOL initialized = NO;
 }
 
 + (void)defineSharedExampleGroups {}
+
++ (void)spt_handleException:(NSException *)exception {
+  [SPTCurrentTestCase spt_handleException:exception];
+}
 
 + (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected {
   [SPTCurrentTestCase recordFailureWithDescription:description inFile:filename atLine:lineNumber expected:expected];

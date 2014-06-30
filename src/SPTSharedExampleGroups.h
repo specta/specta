@@ -13,8 +13,8 @@
 + (SPTDictionaryBlock)sharedExampleGroupWithName:(NSString *)name exampleGroup:(SPTExampleGroup *)exampleGroup;
 + (void)defineSharedExampleGroups;
 
++ (void)spt_handleException:(NSException *)exception;
 + (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected;
-
 + (void)_recordUnexpectedFailureWithDescription:(NSString *)description exception:(NSException *)exception;
 
 #ifdef _SPT_XCODE6

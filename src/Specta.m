@@ -131,7 +131,7 @@ void SPTitShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSString
       });
     }
   } else {
-    SPTXCTestCase *currentTestCase = SPTCurrentTestCase;
+    SPTTestCase *currentTestCase = SPTCurrentTestCase;
     if (currentTestCase) {
       [currentTestCase recordFailureWithDescription:@"itShouldBehaveLike should not be invoked inside an example block!" inFile:@(fileName) atLine:lineNumber expected:NO];
     } else {
@@ -158,7 +158,7 @@ void waitUntil(void (^block)(DoneCallback done)) {
   }
   if (!complete) {
     NSString *message = [NSString stringWithFormat:@"failed to invoke done() callback before timeout (%f seconds)", timeout];
-    SPTXCTestCase *currentTestCase = SPTCurrentTestCase;
+    SPTTestCase *currentTestCase = SPTCurrentTestCase;
     SPTSpec *spec = [[currentTestCase class] spt_spec];
     [currentTestCase recordFailureWithDescription:message inFile:spec.fileName atLine:spec.lineNumber expected:YES];
   }

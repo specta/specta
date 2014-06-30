@@ -7,7 +7,7 @@
 , SPTCompiledExample
 ;
 
-@interface SPTXCTestCase : XCTestCase
+@interface SPTTestCase : XCTestCase
 
 @property (strong) XCTestCaseRun *spt_run;
 @property (nonatomic) BOOL spt_pending;

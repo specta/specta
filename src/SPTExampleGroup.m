@@ -1,7 +1,7 @@
 #import "SPTExampleGroup.h"
 #import "SPTExample.h"
 #import "SPTCompiledExample.h"
-#import "SPTXCTestCase.h"
+#import "SPTTestCase.h"
 #import "SPTSpec.h"
 #import "SpectaUtility.h"
 #import <libkern/OSAtomic.h>
@@ -279,13 +279,16 @@ static void runExampleBlock(id block, NSString *name) {
       NSArray *newNameStack = [nameStack arrayByAddingObject:example.name];
       NSString *compiledName = [newNameStack componentsJoinedByString:@" "];
 
-      SPTTestCaseBlock compiledBlock = example.pending ? nil : ^(SPTXCTestCase *testCase) {
+      SPTTestCaseBlock compiledBlock = example.pending ? nil : ^(SPTTestCase *testCase) {
         @synchronized(self.root) {
           [self resetRanExampleCountIfNeeded];
           [self runBeforeHooks:compiledName];
         }
         @try {
           runExampleBlock(example.block, compiledName);
+        }
+        @catch(NSException *e) {
+          [testCase spt_handleException:e];
         }
         @finally {
           @synchronized(self.root) {
