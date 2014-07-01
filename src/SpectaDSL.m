@@ -1,69 +1,70 @@
-#import "Specta.h"
+#import "SpectaDSL.h"
 #import "SpectaTypes.h"
 #import "SpectaUtility.h"
+#import "SPTTestSuite.h"
+#import "SPTExampleGroup.h"
+#import "SPTSharedExampleGroups.h"
+#import "SPTTestCase.h"
 #import <libkern/OSAtomic.h>
-
-@implementation Specta
-@end
 
 static NSTimeInterval asyncSpecTimeout = 10.0;
 
-void SPTdescribe(NSString *name, BOOL focused, void (^block)()) {
+void spt_describe(NSString *name, BOOL focused, void (^block)()) {
   if (block) {
     [SPTGroupStack addObject:[SPTCurrentGroup addExampleGroupWithName:name focused:focused]];
     block();
     [SPTGroupStack removeLastObject];
   } else {
-    SPTexample(name, focused, nil);
+    spt_example(name, focused, nil);
   }
 }
 
 void describe(NSString *name, void (^block)()) {
-  SPTdescribe(name, NO, block);
+  spt_describe(name, NO, block);
 }
 
 void fdescribe(NSString *name, void (^block)()) {
-  SPTdescribe(name, YES, block);
+  spt_describe(name, YES, block);
 }
 
 void context(NSString *name, void (^block)()) {
-  SPTdescribe(name, NO, block);
+  spt_describe(name, NO, block);
 }
 void fcontext(NSString *name, void (^block)()) {
-  SPTdescribe(name, YES, block);
+  spt_describe(name, YES, block);
 }
 
-void SPTexample(NSString *name, BOOL focused, void (^block)()) {
+void spt_example(NSString *name, BOOL focused, void (^block)()) {
   SPTReturnUnlessBlockOrNil(block);
   [SPTCurrentGroup addExampleWithName:name block:block focused:focused];
 }
 
 void example(NSString *name, void (^block)()) {
-  SPTexample(name, NO, block);
+  spt_example(name, NO, block);
 }
 
 void fexample(NSString *name, void (^block)()) {
-  SPTexample(name, YES, block);
+  spt_example(name, YES, block);
 }
 
 void it(NSString *name, void (^block)()) {
-  SPTexample(name, NO, block);
+  spt_example(name, NO, block);
 }
 
 void fit(NSString *name, void (^block)()) {
-  SPTexample(name, YES, block);
+  spt_example(name, YES, block);
 }
 
 void specify(NSString *name, void (^block)()) {
-  SPTexample(name, NO, block);
+  spt_example(name, NO, block);
 }
 
 void fspecify(NSString *name, void (^block)()) {
-  SPTexample(name, YES, block);
+  spt_example(name, YES, block);
 }
 
-void SPTpending(NSString *name, ...) {
-  SPTexample(name, NO, nil);
+void spt_pending(NSString *name, ...) {
+  spt_example(name, NO, nil);
 }
 
 void beforeAll(id block) {
@@ -102,7 +103,7 @@ void sharedExamples(NSString *name, void (^block)(NSDictionary *data)) {
   sharedExamplesFor(name, block);
 }
 
-void SPTitShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSString *name, id dictionaryOrBlock) {
+void spt_itShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSString *name, id dictionaryOrBlock) {
   SPTDictionaryBlock block = [SPTSharedExampleGroups sharedExampleGroupWithName:name exampleGroup:SPTCurrentGroup];
   if (block) {
     if (SPTIsBlock(dictionaryOrBlock)) {
@@ -159,7 +160,7 @@ void waitUntil(void (^block)(DoneCallback done)) {
   if (!complete) {
     NSString *message = [NSString stringWithFormat:@"failed to invoke done() callback before timeout (%f seconds)", timeout];
     SPTTestCase *currentTestCase = SPTCurrentTestCase;
-    SPTTestSuite *spec = [[currentTestCase class] spt_testSuite];
-    [currentTestCase recordFailureWithDescription:message inFile:spec.fileName atLine:spec.lineNumber expected:YES];
+    SPTTestSuite *testSuite = [[currentTestCase class] spt_testSuite];
+    [currentTestCase recordFailureWithDescription:message inFile:testSuite.fileName atLine:testSuite.lineNumber expected:YES];
   }
 }

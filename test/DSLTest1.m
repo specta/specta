@@ -1,4 +1,6 @@
 #import "TestHelper.h"
+#import "SPTTestSuite.h"
+#import "SPTExampleGroup.h"
 
 SpecBegin(_DSLTest1)
 

@@ -1,4 +1,7 @@
 #import "TestHelper.h"
+#import "SPTTestSuite.h"
+#import "SPTExampleGroup.h"
+#import "SPTExample.h"
 
 static SPTVoidBlock
   block1 = ^{}
