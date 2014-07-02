@@ -11,11 +11,11 @@ SpecBegin(_FocusedSpecTest)
 describe(@"root", ^{
 
   it(@"unfocused example", ^{
-    SPTAssertFalse(YES);
+    assertFalse(YES);
   });
 
   fit(@"focused example", ^{
-    SPTAssertTrue(YES);
+    assertTrue(YES);
   });
 
   fdescribe(@"focused group", ^{
@@ -36,7 +36,7 @@ SpecEnd
   XCTAssertFalse([SPTTestCase spt_focusedExamplesExist], @"Focused examples should not exist if the spec is disabled");
 
   SPTTestSuite *testSuite = [_FocusedSpecTestSpec spt_testSuite];
-  SPTAssertTrue(testSuite.hasFocusedExamples);
+  assertTrue(testSuite.hasFocusedExamples);
 
   SPTExampleGroup *specGroup = testSuite.rootGroup;
 
@@ -71,12 +71,12 @@ SpecEnd
   XCTestSuiteRun *result = RunSpec(_FocusedSpecTestSpec);
   [_FocusedSpecTestSpec spt_setDisabled:YES];
 
-  SPTAssertEqual([result testCaseCount], 3);
-  SPTAssertEqual([result unexpectedExceptionCount], 0);
-  SPTAssertEqual([result failureCount], 0);
-  SPTAssertTrue([result hasSucceeded]);
-  // SPTAssertEqual([result pendingTestCaseCount], 0);
-  // SPTAssertEqual([result skippedTestCaseCount], 1);
+  assertEqual([result testCaseCount], 3);
+  assertEqual([result unexpectedExceptionCount], 0);
+  assertEqual([result failureCount], 0);
+  assertTrue([result hasSucceeded]);
+  // assertEqual([result pendingTestCaseCount], 0);
+  // assertEqual([result skippedTestCaseCount], 1);
 }
 
 @end

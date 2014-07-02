@@ -53,13 +53,13 @@ SpecEnd
 
   RunSpec(_CompilationTest6Spec);
 
-  SPTAssertEqual(example1RanCorrectly, 1);
-  SPTAssertEqual(example2RanCorrectly, 1);
+  assertEqual(example1RanCorrectly, 1);
+  assertEqual(example2RanCorrectly, 1);
 
-  SPTAssertEqual(beforeAllRan, 1);
-  SPTAssertEqual(beforeEachRan, 2);
-  SPTAssertEqual(afterEachRan, 2);
-  SPTAssertEqual(afterAllRan, 1);
+  assertEqual(beforeAllRan, 1);
+  assertEqual(beforeEachRan, 2);
+  assertEqual(afterEachRan, 2);
+  assertEqual(afterAllRan, 1);
 }
 
 @end

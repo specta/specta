@@ -26,23 +26,23 @@ SpecEnd
   SPTExampleGroup *rootGroup = [_DSLTest4Spec spt_testSuite].rootGroup;
   SPTExampleGroup *group = rootGroup.children[0];
 
-  SPTAssertEqual([group.children count], 3);
+  assertEqual([group.children count], 3);
 
   SPTExample *example1 = group.children[0];
   SPTExample *example2 = group.children[1];
   SPTExample *example3 = group.children[2];
 
-  SPTAssertTrue([example1 isKindOfClass:[SPTExample class]]);
-  SPTAssertTrue([example2 isKindOfClass:[SPTExample class]]);
-  SPTAssertTrue([example3 isKindOfClass:[SPTExample class]]);
+  assertTrue([example1 isKindOfClass:[SPTExample class]]);
+  assertTrue([example2 isKindOfClass:[SPTExample class]]);
+  assertTrue([example3 isKindOfClass:[SPTExample class]]);
 
-  SPTAssertEqualObjects(example1.name, @"example 1");
-  SPTAssertEqualObjects(example2.name, @"example 2");
-  SPTAssertEqualObjects(example3.name, @"example 3");
+  assertEqualObjects(example1.name, @"example 1");
+  assertEqualObjects(example2.name, @"example 2");
+  assertEqualObjects(example3.name, @"example 3");
 
-  SPTAssertEqualObjects(example1.block, block1);
-  SPTAssertEqualObjects(example2.block, block2);
-  SPTAssertEqualObjects(example3.block, block3);
+  assertEqualObjects(example1.block, block1);
+  assertEqualObjects(example2.block, block2);
+  assertEqualObjects(example3.block, block3);
 }
 
 @end

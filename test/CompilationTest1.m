@@ -20,7 +20,7 @@ SpecEnd
 
   RunSpec(_CompilationTest1Spec);
 
-  SPTAssertEqual(example1Ran, 1);
+  assertEqual(example1Ran, 1);
 }
 
 @end

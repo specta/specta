@@ -36,20 +36,20 @@ SpecEnd
   SPTExampleGroup *rootGroup = [_DSLTest2Spec spt_testSuite].rootGroup;
   SPTExampleGroup *group = rootGroup.children[0];
 
-  SPTAssertEqual([group.beforeAllArray count], 2);
-  SPTAssertEqual([group.beforeEachArray count], 2);
-  SPTAssertEqual([group.afterEachArray count], 2);
-  SPTAssertEqual([group.afterAllArray count], 2);
+  assertEqual([group.beforeAllArray count], 2);
+  assertEqual([group.beforeEachArray count], 2);
+  assertEqual([group.afterEachArray count], 2);
+  assertEqual([group.afterAllArray count], 2);
 
-  SPTAssertEqualObjects(group.beforeAllArray[0], block1);
-  SPTAssertEqualObjects(group.beforeEachArray[0], block2);
-  SPTAssertEqualObjects(group.afterEachArray[0], block3);
-  SPTAssertEqualObjects(group.afterAllArray[0], block4);
+  assertEqualObjects(group.beforeAllArray[0], block1);
+  assertEqualObjects(group.beforeEachArray[0], block2);
+  assertEqualObjects(group.afterEachArray[0], block3);
+  assertEqualObjects(group.afterAllArray[0], block4);
 
-  SPTAssertEqualObjects(group.beforeAllArray[1], block5);
-  SPTAssertEqualObjects(group.beforeEachArray[1], block6);
-  SPTAssertEqualObjects(group.afterEachArray[1], block7);
-  SPTAssertEqualObjects(group.afterAllArray[1], block8);
+  assertEqualObjects(group.beforeAllArray[1], block5);
+  assertEqualObjects(group.beforeEachArray[1], block6);
+  assertEqualObjects(group.afterEachArray[1], block7);
+  assertEqualObjects(group.afterAllArray[1], block8);
 }
 
 @end

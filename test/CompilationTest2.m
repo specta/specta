@@ -47,12 +47,12 @@ SpecEnd
 
   RunSpec(_CompilationTest2Spec);
 
-  SPTAssertEqual(example1Ran, 1);
-  SPTAssertEqual(example2Ran, 1);
-  SPTAssertEqual(example3Ran, 1);
-  SPTAssertEqual(example4Ran, 1);
-  SPTAssertEqual(example5Ran, 1);
-  SPTAssertEqual(example6Ran, 1);
+  assertEqual(example1Ran, 1);
+  assertEqual(example2Ran, 1);
+  assertEqual(example3Ran, 1);
+  assertEqual(example4Ran, 1);
+  assertEqual(example5Ran, 1);
+  assertEqual(example6Ran, 1);
 }
 
 @end

@@ -11,14 +11,14 @@ describe(@"beforeEach", ^{
   beforeEach(^{
     waitUntil(^(DoneCallback done) {
       dispatch_async(dispatch_get_main_queue(), ^{
-        SPTAssertEqualObjects(foo, @"foo");
+        assertEqualObjects(foo, @"foo");
         done();
       });
     });
   });
 
   it(@"example", ^{
-    SPTAssertFalse(NO);
+    assertFalse(NO);
   });
 });
 
@@ -26,14 +26,14 @@ describe(@"afterEach", ^{
   afterEach(^{
     waitUntil(^(DoneCallback done) {
       dispatch_async(dispatch_get_main_queue(), ^{
-        SPTAssertEqualObjects(foo, @"foo");
+        assertEqualObjects(foo, @"foo");
         done();
       });
     });
   });
 
   it(@"example", ^{
-    SPTAssertFalse(NO);
+    assertFalse(NO);
   });
 });
 
@@ -41,14 +41,14 @@ describe(@"beforeAll", ^{
   beforeAll(^{
     waitUntil(^(DoneCallback done) {
       dispatch_async(dispatch_get_main_queue(), ^{
-        SPTAssertEqualObjects(foo, @"foo");
+        assertEqualObjects(foo, @"foo");
         done();
       });
     });
   });
 
   it(@"example", ^{
-    SPTAssertFalse(NO);
+    assertFalse(NO);
   });
 });
 
@@ -56,14 +56,14 @@ describe(@"afterAll", ^{
   beforeAll(^{
     waitUntil(^(DoneCallback done) {
       dispatch_async(dispatch_get_main_queue(), ^{
-        SPTAssertEqualObjects(foo, @"foo");
+        assertEqualObjects(foo, @"foo");
         done();
       });
     });
   });
 
   it(@"example", ^{
-    SPTAssertFalse(NO);
+    assertFalse(NO);
   });
 });
 
@@ -76,9 +76,9 @@ SpecEnd
   foo = @"not foo";
   bar = @"not bar";
   XCTestRun *result = RunSpec(_AsyncSpecTest3Spec);
-  SPTAssertEqual([result unexpectedExceptionCount], 0);
-  SPTAssertEqual([result failureCount], 4);
-  SPTAssertFalse([result hasSucceeded]);
+  assertEqual([result unexpectedExceptionCount], 0);
+  assertEqual([result failureCount], 4);
+  assertFalse([result hasSucceeded]);
   foo = @"foo";
   bar = @"bar";
 }

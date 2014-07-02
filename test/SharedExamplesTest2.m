@@ -24,13 +24,13 @@ SharedExamplesBegin(GlobalSharedExamples1)
 sharedExamplesFor(@"global shared 1", ^(NSDictionary *data) {
   describe(@"foo", ^{
     it(@"equals string 'Foo'", ^{
-      SPTAssertEqualObjects(data[@"foo"], foo);
+      assertEqualObjects(data[@"foo"], foo);
     });
   });
 
   describe(@"bar", ^{
     it(@"equals string 'Bar'", ^{
-      SPTAssertEqualObjects(data[@"bar"], @"Bar");
+      assertEqualObjects(data[@"bar"], @"Bar");
     });
   });
 });
@@ -54,11 +54,11 @@ SharedExamplesEnd
   foo = @"Not Foo";
   items = [[NSMutableArray alloc] init];
   XCTestSuiteRun *result = RunSpec(_SharedExamplesTest2Spec);
-  SPTAssertEqual([result testCaseCount], 4);
-  SPTAssertEqual([result unexpectedExceptionCount], 0);
-  SPTAssertEqual([result failureCount], 1);
-  SPTAssertFalse([result hasSucceeded]);
-  SPTAssertEqualObjects(items, (@[@"hello", @"world"]));
+  assertEqual([result testCaseCount], 4);
+  assertEqual([result unexpectedExceptionCount], 0);
+  assertEqual([result failureCount], 1);
+  assertFalse([result hasSucceeded]);
+  assertEqualObjects(items, (@[@"hello", @"world"]));
   items = nil;
   foo = @"Foo";
 }

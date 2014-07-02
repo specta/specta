@@ -180,6 +180,8 @@
 		E93B45F718205C77009F43A2 /* SpectaUtilityTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpectaUtilityTest.m; sourceTree = "<group>"; };
 		E93B45F918205C77009F43A2 /* SpectaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpectaTests-Info.plist"; sourceTree = "<group>"; };
 		E93B45FA18205C77009F43A2 /* UnexpectedExceptionTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnexpectedExceptionTest.m; sourceTree = "<group>"; };
+		E964CAA11962A25900337702 /* SPTAssertions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTAssertions.h; sourceTree = "<group>"; };
+		E964CAA21962A26300337702 /* SPTAssertionsImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPTAssertionsImpl.h; sourceTree = "<group>"; };
 		E97FCEC11961EA860092FA30 /* XCTest+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XCTest+Private.h"; sourceTree = "<group>"; };
 		E97FCEC21961EBB10092FA30 /* SPTCompiledExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTCompiledExample.h; sourceTree = "<group>"; };
 		E97FCEC31961EBB10092FA30 /* SPTCompiledExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTCompiledExample.m; sourceTree = "<group>"; };
@@ -391,6 +393,8 @@
 				E9901C6318205B6600844A05 /* XCTestCase+Specta.h */,
 				E9901C6418205B6600844A05 /* XCTestCase+Specta.m */,
 				E97FCEC11961EA860092FA30 /* XCTest+Private.h */,
+				E964CAA11962A25900337702 /* SPTAssertions.h */,
+				E964CAA21962A26300337702 /* SPTAssertionsImpl.h */,
 			);
 			path = src;
 			sourceTree = "<group>";

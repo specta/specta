@@ -11,7 +11,7 @@ describe(@"group", ^{
   it(@"example 1", ^{
     waitUntil(^(DoneCallback done) {
       dispatch_async(dispatch_get_main_queue(), ^{
-        SPTAssertEqualObjects(foo, @"foo");
+        assertEqualObjects(foo, @"foo");
         done();
       });
     });
@@ -20,7 +20,7 @@ describe(@"group", ^{
   it(@"example 2", ^{
     waitUntil(^(DoneCallback done) {
       dispatch_async(dispatch_get_main_queue(), ^{
-        SPTAssertEqualObjects(bar, @"bar");
+        assertEqualObjects(bar, @"bar");
         done();
       });
     });
@@ -29,7 +29,7 @@ describe(@"group", ^{
   it(@"example 3", ^{
     waitUntil(^(DoneCallback done) {
       dispatch_async(dispatch_get_main_queue(), ^{
-        SPTAssertFalse(NO);
+        assertFalse(NO);
         done();
       });
     });
@@ -45,9 +45,9 @@ SpecEnd
   foo = @"not foo";
   bar = @"not bar";
   XCTestRun *result = RunSpec(_AsyncSpecTestSpec);
-  SPTAssertEqual([result unexpectedExceptionCount], 0);
-  SPTAssertEqual([result failureCount], 2);
-  SPTAssertFalse([result hasSucceeded]);
+  assertEqual([result unexpectedExceptionCount], 0);
+  assertEqual([result failureCount], 2);
+  assertFalse([result hasSucceeded]);
   foo = @"foo";
   bar = @"bar";
 }

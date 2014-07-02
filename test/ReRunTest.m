@@ -47,23 +47,23 @@ SpecEnd
 
   RunSpec(_ReRunTestSpec);
 
-  SPTAssertEqual(example1Ran, 1);
-  SPTAssertEqual(example2Ran, 1);
+  assertEqual(example1Ran, 1);
+  assertEqual(example2Ran, 1);
 
-  SPTAssertEqual(beforeAllRan, 1);
-  SPTAssertEqual(beforeEachRan, 2);
-  SPTAssertEqual(afterEachRan, 2);
-  SPTAssertEqual(afterAllRan, 1);
+  assertEqual(beforeAllRan, 1);
+  assertEqual(beforeEachRan, 2);
+  assertEqual(afterEachRan, 2);
+  assertEqual(afterAllRan, 1);
 
   RunSpec(_ReRunTestSpec);
 
-  SPTAssertEqual(example1Ran, 2);
-  SPTAssertEqual(example2Ran, 2);
+  assertEqual(example1Ran, 2);
+  assertEqual(example2Ran, 2);
 
-  SPTAssertEqual(beforeAllRan, 2);
-  SPTAssertEqual(beforeEachRan, 4);
-  SPTAssertEqual(afterEachRan, 4);
-  SPTAssertEqual(afterAllRan, 2);
+  assertEqual(beforeAllRan, 2);
+  assertEqual(beforeEachRan, 4);
+  assertEqual(afterEachRan, 4);
+  assertEqual(afterAllRan, 2);
 }
 
 @end

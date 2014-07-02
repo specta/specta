@@ -28,11 +28,11 @@ SpecEnd
 
 - (void)testPendingSpec {
   XCTestSuiteRun *result = RunSpec(_PendingSpecTest2Spec);
-  SPTAssertEqual([result testCaseCount], 12);
-  SPTAssertEqual([result unexpectedExceptionCount], 0);
-  SPTAssertEqual([result failureCount], 0);
-  SPTAssertTrue([result hasSucceeded]);
-  // SPTAssertEqual([result pendingTestCaseCount], 12);
+  assertEqual([result testCaseCount], 12);
+  assertEqual([result unexpectedExceptionCount], 0);
+  assertEqual([result failureCount], 0);
+  assertTrue([result hasSucceeded]);
+  // assertEqual([result pendingTestCaseCount], 12);
 }
 
 @end

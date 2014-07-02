@@ -14,15 +14,15 @@ SpecEnd
 - (void)testSingleExampleGroup {
   SPTExampleGroup *rootGroup = [_DSLTest1Spec spt_testSuite].rootGroup;
 
-  SPTAssertTrue([rootGroup isKindOfClass:[SPTExampleGroup class]]);
-  SPTAssertEqualObjects(rootGroup.root, rootGroup);
-  SPTAssertNil(rootGroup.parent);
+  assertTrue([rootGroup isKindOfClass:[SPTExampleGroup class]]);
+  assertEqualObjects(rootGroup.root, rootGroup);
+  assertNil(rootGroup.parent);
 
-  SPTAssertEqual([rootGroup.children count], 1);
+  assertEqual([rootGroup.children count], 1);
   SPTExampleGroup *group = rootGroup.children[0];
-  SPTAssertEqualObjects(group.name, @"group");
-  SPTAssertEqualObjects(group.parent, rootGroup);
-  SPTAssertEqualObjects(group.root, rootGroup);
+  assertEqualObjects(group.name, @"group");
+  assertEqualObjects(group.parent, rootGroup);
+  assertEqualObjects(group.root, rootGroup);
 }
 
 @end

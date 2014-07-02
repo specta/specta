@@ -59,7 +59,7 @@ SpecEnd
 - (void)testSharedExamples {
   items = [[NSMutableArray alloc] init];
   RunSpec(_SharedExamplesTest3Spec);
-  SPTAssertEqualObjects(items, (@[@"foo", @"baz", @"qux", @"faz", @"foo", @"baz"]));
+  assertEqualObjects(items, (@[@"foo", @"baz", @"qux", @"faz", @"foo", @"baz"]));
   items = nil;
 }
 

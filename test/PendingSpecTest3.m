@@ -17,11 +17,11 @@ SpecEnd
 
 - (void)testPendingSpec {
   XCTestSuiteRun *result = RunSpec(_PendingSpecTest3Spec);
-  SPTAssertEqual([result testCaseCount], 2);
-  SPTAssertEqual([result unexpectedExceptionCount], 0);
-  SPTAssertEqual([result failureCount], 0);
-  SPTAssertTrue([result hasSucceeded]);
-  SPTAssertTrue(afterAllExecuted);
+  assertEqual([result testCaseCount], 2);
+  assertEqual([result unexpectedExceptionCount], 0);
+  assertEqual([result failureCount], 0);
+  assertTrue([result hasSucceeded]);
+  assertTrue(afterAllExecuted);
 }
 
 @end

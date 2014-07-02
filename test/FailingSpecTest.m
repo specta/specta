@@ -9,11 +9,11 @@ SpecBegin(_FailingSpecTest)
 
 describe(@"group", ^{
   it(@"example 1", ^{
-    SPTAssertEqualObjects(foo, @"foo");
+    assertEqualObjects(foo, @"foo");
   });
 
   it(@"example 2", ^{
-    SPTAssertEqualObjects(bar, @"bar");
+    assertEqualObjects(bar, @"bar");
   });
 });
 
@@ -26,9 +26,9 @@ SpecEnd
   foo = @"not foo";
   bar = @"not bar";
   XCTestSuiteRun *result = RunSpec(_FailingSpecTestSpec);
-  SPTAssertEqual([result unexpectedExceptionCount], 0);
-  SPTAssertEqual([result failureCount], 2);
-  SPTAssertFalse([result hasSucceeded]);
+  assertEqual([result unexpectedExceptionCount], 0);
+  assertEqual([result failureCount], 2);
+  assertFalse([result hasSucceeded]);
   foo = @"foo";
   bar = @"bar";
 }

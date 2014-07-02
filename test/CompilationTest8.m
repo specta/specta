@@ -29,12 +29,12 @@ SpecEnd
   SPTTestSuite *testSuite = [_CompilationTest8Spec spt_testSuite];
   NSArray *compiledExamples = testSuite.compiledExamples;
 
-  SPTAssertEqualObjects([compiledExamples[0] name], @"group 1 group 2 group 3 example 1");
-  SPTAssertEqualObjects([compiledExamples[1] name], @"group 1 group 2 group 3 example 2");
-  SPTAssertEqualObjects([compiledExamples[2] name], @"group 1 group 2 example 3");
-  SPTAssertEqualObjects([compiledExamples[3] name], @"group 1 example 4");
-  SPTAssertEqualObjects([compiledExamples[4] name], @"group 1 example 5");
-  SPTAssertEqualObjects([compiledExamples[5] name], @"group 1 group 4 example 6");
+  assertEqualObjects([compiledExamples[0] name], @"group 1 group 2 group 3 example 1");
+  assertEqualObjects([compiledExamples[1] name], @"group 1 group 2 group 3 example 2");
+  assertEqualObjects([compiledExamples[2] name], @"group 1 group 2 example 3");
+  assertEqualObjects([compiledExamples[3] name], @"group 1 example 4");
+  assertEqualObjects([compiledExamples[4] name], @"group 1 example 5");
+  assertEqualObjects([compiledExamples[5] name], @"group 1 group 4 example 6");
 }
 
 @end

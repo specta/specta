@@ -18,32 +18,32 @@ SpecEnd
 
 - (void)testNestedExampleGroups {
   SPTExampleGroup *rootGroup = [_DSLTest3Spec spt_testSuite].rootGroup;
-  SPTAssertEqual([rootGroup.children count], 2);
+  assertEqual([rootGroup.children count], 2);
 
   SPTExampleGroup *group1 = rootGroup.children[0];
-  SPTAssertTrue([group1 isKindOfClass:[SPTExampleGroup class]]);
-  SPTAssertEqualObjects(group1.name, @"group 1");
-  SPTAssertEqualObjects(group1.parent, rootGroup);
-  SPTAssertEqualObjects(group1.root, rootGroup);
-  SPTAssertEqual([group1.children count], 2);
+  assertTrue([group1 isKindOfClass:[SPTExampleGroup class]]);
+  assertEqualObjects(group1.name, @"group 1");
+  assertEqualObjects(group1.parent, rootGroup);
+  assertEqualObjects(group1.root, rootGroup);
+  assertEqual([group1.children count], 2);
 
   SPTExampleGroup *group2 = group1.children[0];
   SPTExampleGroup *group3 = group1.children[1];
 
-  SPTAssertTrue([group2 isKindOfClass:[SPTExampleGroup class]]);
-  SPTAssertTrue([group3 isKindOfClass:[SPTExampleGroup class]]);
-  SPTAssertEqualObjects(group2.name, @"group 2");
-  SPTAssertEqualObjects(group3.name, @"group 3");
-  SPTAssertEqualObjects(group2.parent, group1);
-  SPTAssertEqualObjects(group3.parent, group1);
-  SPTAssertEqualObjects(group2.root, rootGroup);
-  SPTAssertEqualObjects(group3.root, rootGroup);
+  assertTrue([group2 isKindOfClass:[SPTExampleGroup class]]);
+  assertTrue([group3 isKindOfClass:[SPTExampleGroup class]]);
+  assertEqualObjects(group2.name, @"group 2");
+  assertEqualObjects(group3.name, @"group 3");
+  assertEqualObjects(group2.parent, group1);
+  assertEqualObjects(group3.parent, group1);
+  assertEqualObjects(group2.root, rootGroup);
+  assertEqualObjects(group3.root, rootGroup);
 
   SPTExampleGroup *group4 = rootGroup.children[1];
-  SPTAssertTrue([group4 isKindOfClass:[SPTExampleGroup class]]);
-  SPTAssertEqualObjects(group4.name, @"group 4");
-  SPTAssertEqualObjects(group4.parent, rootGroup);
-  SPTAssertEqualObjects(group4.root, rootGroup);
+  assertTrue([group4 isKindOfClass:[SPTExampleGroup class]]);
+  assertEqualObjects(group4.name, @"group 4");
+  assertEqualObjects(group4.parent, rootGroup);
+  assertEqualObjects(group4.root, rootGroup);
 }
 
 @end

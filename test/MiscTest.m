@@ -23,12 +23,12 @@ SpecEnd
 @implementation MiscTest
 
 - (void)test_MiscTestSpecInXCTestCaseSubClassList {
-  SPTAssertTrue([[XCTestCase spt_allSubclasses] indexOfObject:[_MiscTestSpec class]] != NSNotFound);
+  assertTrue([[XCTestCase spt_allSubclasses] indexOfObject:[_MiscTestSpec class]] != NSNotFound);
 }
 
 - (void)testSPTTestCaseNotInXCTestCaseSubClassList {
   // trick XCTestCase into thinking SPTTestCase is not a subclass of XCTestCase
-  SPTAssertTrue([[XCTestCase spt_allSubclasses] indexOfObject:[SPTTestCase class]] == NSNotFound);
+  assertTrue([[XCTestCase spt_allSubclasses] indexOfObject:[SPTTestCase class]] == NSNotFound);
 }
 
 @end

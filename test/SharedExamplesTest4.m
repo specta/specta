@@ -22,7 +22,7 @@ SharedExamplesBegin(_SharedExamplesTest4)
 
 sharedExamples(@"shared example with data supplied from beforeEach", ^(NSDictionary *data) {
   it(@"inserts data.baz to items", ^{
-    SPTAssertEqualObjects(data[@"foo"], @"bar");
+    assertEqualObjects(data[@"foo"], @"bar");
   });
 });
 
@@ -37,10 +37,10 @@ SharedExamplesEnd
 
 - (void)testSharedExamples {
   XCTestSuiteRun *result = RunSpec(_SharedExamplesTest4Spec);
-  SPTAssertEqual([result testCaseCount], 2);
-  SPTAssertEqual([result unexpectedExceptionCount], 0);
-  SPTAssertEqual([result failureCount], 0);
-  SPTAssertTrue([result hasSucceeded]);
+  assertEqual([result testCaseCount], 2);
+  assertEqual([result unexpectedExceptionCount], 0);
+  assertEqual([result failureCount], 0);
+  assertTrue([result hasSucceeded]);
 }
 
 @end

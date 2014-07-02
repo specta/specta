@@ -10,11 +10,11 @@ SpecEnd
 @implementation SpectaUtilityTest
 
 - (void)test_SPTIsSpecClass_returns_yes_when_provided_a_spec_class {
-  SPTAssertTrue(SPTIsSpecClass([_SpectaUtilityTestSpec class]));
+  assertTrue(SPTIsSpecClass([_SpectaUtilityTestSpec class]));
 }
 
 - (void)test_SPTIsSpecClass_returns_no_when_provided_a_XCTest_class {
-  SPTAssertFalse(SPTIsSpecClass([SpectaUtilityTest class]));
+  assertFalse(SPTIsSpecClass([SpectaUtilityTest class]));
 }
 
 @end

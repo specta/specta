@@ -42,14 +42,14 @@ SpecEnd
   shouldRaiseException = YES;
 
   XCTestSuiteRun *result = RunSpec(_UnexpectedExceptionTestSpec);
-  SPTAssertEqual([result failureCount], 0);
-  SPTAssertEqual([result unexpectedExceptionCount], 1);
-  SPTAssertFalse([result hasSucceeded]);
+  assertEqual([result failureCount], 0);
+  assertEqual([result unexpectedExceptionCount], 1);
+  assertFalse([result hasSucceeded]);
 
   shouldRaiseException = NO;
 
-  SPTAssertTrue(invokedAfterEach);
-  SPTAssertTrue(invokedAfterAll);
+  assertTrue(invokedAfterEach);
+  assertTrue(invokedAfterAll);
 
   invokedAfterAll = NO;
 }

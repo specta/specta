@@ -41,11 +41,11 @@ SpecEnd
 
   RunSpec(_CompilationTest4Spec);
 
-  SPTAssertEqual(example1RanCorrectly, 1);
-  SPTAssertEqual(example2RanCorrectly, 1);
+  assertEqual(example1RanCorrectly, 1);
+  assertEqual(example2RanCorrectly, 1);
 
-  SPTAssertEqual(beforeEachRan, 2);
-  SPTAssertEqual(afterEachRan, 2);
+  assertEqual(beforeEachRan, 2);
+  assertEqual(afterEachRan, 2);
 }
 
 @end

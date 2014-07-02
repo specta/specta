@@ -64,7 +64,7 @@ describe(@"root", ^{
 
 SpecEnd
 
-#define assertSequence(i, obj) SPTAssertEqualObjects(sequence[i], obj); i++
+#define assertSequence(i, obj) assertEqualObjects(sequence[i], obj); i++
 
 @interface SequenceTest : XCTestCase
 @end
@@ -77,7 +77,7 @@ SpecEnd
 
   RunSpec(_SequenceTestSpec);
 
-  SPTAssertNotEqual([sequence count], 0);
+  assertNotEqual([sequence count], 0);
   int i = 0;
 
   assertSequence(i, @"/beforeAll");
