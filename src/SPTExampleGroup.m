@@ -2,8 +2,8 @@
 #import "SPTExample.h"
 #import "SPTCompiledExample.h"
 #import "SPTTestCase.h"
-#import "SPTTestSuite.h"
 #import "SpectaUtility.h"
+#import "XCTest+Private.h"
 #import <libkern/OSAtomic.h>
 #import <objc/runtime.h>
 
@@ -95,7 +95,7 @@ static void runExampleBlock(id block, NSString *name) {
 }
 
 
-- (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name  focused:(BOOL)focused {
+- (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name focused:(BOOL)focused {
   SPTExampleGroup *group = [[SPTExampleGroup alloc] initWithName:name parent:self root:self.root];
   group.focused = focused;
   [self.children addObject:group];

@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import "SpectaTypes.h"
+#import <Specta/SpectaTypes.h>
 
 #ifdef _SPT_XCODE6
 @class _XCTestCaseImplementation;

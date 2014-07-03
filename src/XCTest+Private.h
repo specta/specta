@@ -2,6 +2,13 @@
 
 #ifdef _SPT_XCODE6
 
+@interface XCTestObservationCenter : NSObject
+
++ (id)sharedObservationCenter;
+- (void)_suspendObservationForBlock:(void (^)(void))block;
+
+@end
+
 @protocol XCTestObservation <NSObject>
 @end
 

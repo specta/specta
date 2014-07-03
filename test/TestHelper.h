@@ -1,6 +1,5 @@
 #import <XCTest/XCTest.h>
-#define SPT_CEDAR_SYNTAX
-#import "Specta.h"
+#import <Specta/Specta.h>
 
 @interface XCTestObservationCenter
 

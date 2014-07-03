@@ -4,6 +4,8 @@
 #import "SPTSharedExampleGroups.h"
 #import "SpectaUtility.h"
 #import <objc/runtime.h>
+#import "XCTest+Private.h"
+
 
 @implementation SPTTestCase
 
@@ -43,7 +45,7 @@
 
       for (int classIndex = 0; classIndex < numberOfClasses; classIndex++) {
         Class aClass = classes[classIndex];
-        if (SPTIsSpecClass(aClass)) {
+        if (spt_isTestCaseClass(aClass)) {
           [specClasses addObject:aClass];
         }
       }

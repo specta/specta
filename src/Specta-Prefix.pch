@@ -1,3 +1,6 @@
+#ifndef Specta_pch
+#define Specta_pch
+
 #ifdef __OBJC__
 #  import <Foundation/Foundation.h>
 #  import <XCTest/XCTest.h>
@@ -5,4 +8,6 @@
 
 #if __MAC_OS_X_VERSION_MAX_ALLOWED >= 1100 || __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
 #  define _SPT_XCODE6
+#endif
+
 #endif

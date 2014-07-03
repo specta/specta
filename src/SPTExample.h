@@ -5,9 +5,9 @@
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) SPTVoidBlock block;
+
 @property (nonatomic) BOOL pending;
 @property (nonatomic, getter=isFocused) BOOL focused;
-@property (nonatomic) SEL testMethodSelector;
 
 - (id)initWithName:(NSString *)name block:(SPTVoidBlock)block;
 

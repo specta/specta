@@ -1,9 +1,8 @@
 #import <XCTest/XCTest.h>
-#import "XCTestCase+Specta.h"
+#import <Specta/XCTestCase+Specta.h>
 
 @class
   SPTTestSuite
-, SPTExample
 , SPTCompiledExample
 ;
 
@@ -23,6 +22,5 @@
 - (void)spt_defineSpec;
 - (void)spt_unsetCurrentTestSuite;
 - (void)spt_runExample:(SPTCompiledExample *)example;
-
 
 @end

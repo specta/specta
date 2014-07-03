@@ -31,7 +31,7 @@
 //
 // This notice may not be removed from this file.
 
-#import "SPTAssertionsImpl.h"
+#import <Specta/SPTAssertionsImpl.h>
 
 /*!
  * @function SPTFail(format...)

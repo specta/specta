@@ -1,7 +1,7 @@
 #import "TestHelper.h"
 
 static NSMutableArray *items;
-static NSString *foo;
+static NSString *foo = @"Foo";
 
 SpecBegin(_SharedExamplesTest2)
 
