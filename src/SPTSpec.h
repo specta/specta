@@ -6,7 +6,7 @@
 , SPTCompiledExample
 ;
 
-@interface SPTTestCase : XCTestCase
+@interface SPTSpec : XCTestCase
 
 @property (strong) XCTestCaseRun *spt_run;
 @property (nonatomic) BOOL spt_pending;
@@ -19,7 +19,7 @@
 + (SPTTestSuite *)spt_testSuite;
 
 - (void)spt_setCurrentTestSuiteWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber;
-- (void)spt_defineSpec;
+- (void)spec;
 - (void)spt_unsetCurrentTestSuite;
 - (void)spt_runExample:(SPTCompiledExample *)example;
 

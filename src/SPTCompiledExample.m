@@ -2,7 +2,7 @@
 
 @implementation SPTCompiledExample
 
-- (id)initWithName:(NSString *)name block:(SPTTestCaseBlock)block pending:(BOOL)pending focused:(BOOL)focused {
+- (id)initWithName:(NSString *)name block:(SPTSpecBlock)block pending:(BOOL)pending focused:(BOOL)focused {
   self = [super init];
   if (self) {
     self.name = name;

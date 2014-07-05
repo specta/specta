@@ -26,9 +26,9 @@ SpecEnd
   assertTrue([[XCTestCase spt_allSubclasses] indexOfObject:[_MiscTestSpec class]] != NSNotFound);
 }
 
-- (void)testSPTTestCaseNotInXCTestCaseSubClassList {
-  // trick XCTestCase into thinking SPTTestCase is not a subclass of XCTestCase
-  assertTrue([[XCTestCase spt_allSubclasses] indexOfObject:[SPTTestCase class]] == NSNotFound);
+- (void)testSPTSpecNotInXCTestCaseSubClassList {
+  // trick XCTestCase into thinking SPTSpec is not a subclass of XCTestCase
+  assertTrue([[XCTestCase spt_allSubclasses] indexOfObject:[SPTSpec class]] == NSNotFound);
 }
 
 @end

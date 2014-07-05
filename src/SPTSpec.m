@@ -1,4 +1,4 @@
-#import "SPTTestCase.h"
+#import "SPTSpec.h"
 #import "SPTTestSuite.h"
 #import "SPTCompiledExample.h"
 #import "SPTSharedExampleGroups.h"
@@ -7,14 +7,14 @@
 #import "XCTest+Private.h"
 
 
-@implementation SPTTestCase
+@implementation SPTSpec
 
 + (void)initialize {
   [SPTSharedExampleGroups initialize];
   SPTTestSuite *testSuite = [[SPTTestSuite alloc] init];
-  SPTTestCase *testCase = [[[self class] alloc] init];
+  SPTSpec *spec = [[[self class] alloc] init];
   objc_setAssociatedObject(self, "spt_testSuite", testSuite, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-  [testCase spt_defineSpec];
+  [spec spec];
   [testSuite compile];
   [super initialize];
 }
@@ -73,7 +73,7 @@
 + (SEL)spt_convertToTestMethod:(SPTCompiledExample *)example {
   @synchronized(example) {
     if (!example.testMethodSelector) {
-      IMP imp = imp_implementationWithBlock(^(SPTTestCase *self) {
+      IMP imp = imp_implementationWithBlock(^(SPTSpec *self) {
         [self spt_runExample:example];
       });
 
@@ -104,14 +104,14 @@
   [[NSThread currentThread] threadDictionary][SPTCurrentTestSuiteKey] = testSuite;
 }
 
-- (void)spt_defineSpec {}
+- (void)spec {}
 
 - (void)spt_unsetCurrentTestSuite {
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentTestSuiteKey];
 }
 
 - (void)spt_runExample:(SPTCompiledExample *)example {
-  [[NSThread currentThread] threadDictionary][SPTCurrentTestCaseKey] = self;
+  [[NSThread currentThread] threadDictionary][SPTCurrentSpecKey] = self;
 
   if (example.pending) {
     self.spt_pending = YES;
@@ -124,7 +124,7 @@
     }
   }
 
-  [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentTestCaseKey];
+  [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentSpecKey];
 }
 
 #pragma mark - XCTestCase overrides
@@ -175,11 +175,11 @@
 }
 
 - (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected {
-  SPTTestCase *currentTestCase = SPTCurrentTestCase;
+  SPTSpec *currentSpec = SPTCurrentSpec;
 #ifdef _SPT_XCODE6
-  [currentTestCase.spt_run recordFailureWithDescription:description inFile:filename atLine:lineNumber expected:expected];
+  [currentSpec.spt_run recordFailureWithDescription:description inFile:filename atLine:lineNumber expected:expected];
 #else
-  [currentTestCase.spt_run recordFailureInTest:currentTestCase withDescription:description inFile:filename atLine:lineNumber expected:expected];
+  [currentSpec.spt_run recordFailureInTest:currentSpec withDescription:description inFile:filename atLine:lineNumber expected:expected];
 #endif
 }
 

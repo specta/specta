@@ -1,5 +1,5 @@
 #import "TestHelper.h"
-#import "SPTTestCase.h"
+#import "SPTSpec.h"
 #import "SPTTestSuite.h"
 
 SpecBegin(_CompilationTest8)

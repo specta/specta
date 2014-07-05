@@ -1,14 +1,14 @@
 #import "SpectaUtility.h"
-#import "SPTTestCase.h"
+#import "SPTSpec.h"
 #import <objc/runtime.h>
 
 NSString * const SPTCurrentTestSuiteKey = @"SPTCurrentTestSuite";
-NSString * const SPTCurrentTestCaseKey = @"SPTCurrentTestCase";
+NSString * const SPTCurrentSpecKey = @"SPTCurrentSpec";
 
 BOOL spt_isTestCaseClass(Class aClass) {
   Class superclass = class_getSuperclass(aClass);
   while (superclass != Nil) {
-    if (superclass == [SPTTestCase class]) {
+    if (superclass == [SPTSpec class]) {
       return YES;
     } else {
       superclass = class_getSuperclass(superclass);

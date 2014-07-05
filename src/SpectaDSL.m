@@ -4,7 +4,7 @@
 #import "SPTTestSuite.h"
 #import "SPTExampleGroup.h"
 #import "SPTSharedExampleGroups.h"
-#import "SPTTestCase.h"
+#import "SPTSpec.h"
 #import <libkern/OSAtomic.h>
 
 static NSTimeInterval asyncSpecTimeout = 10.0;
@@ -132,12 +132,12 @@ void spt_itShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSStrin
       });
     }
   } else {
-    SPTTestCase *currentTestCase = SPTCurrentTestCase;
-    if (currentTestCase) {
-      [currentTestCase recordFailureWithDescription:@"itShouldBehaveLike should not be invoked inside an example block!" inFile:@(fileName) atLine:lineNumber expected:NO];
+    SPTSpec *currentSpec = SPTCurrentSpec;
+    if (currentSpec) {
+      [currentSpec recordFailureWithDescription:@"itShouldBehaveLike should not be invoked inside an example block!" inFile:@(fileName) atLine:lineNumber expected:NO];
     } else {
       it(name, ^{
-        [currentTestCase recordFailureWithDescription:[NSString stringWithFormat:@"Shared example group \"%@\" does not exist.", name] inFile:@(fileName) atLine:lineNumber expected:NO];
+        [currentSpec recordFailureWithDescription:[NSString stringWithFormat:@"Shared example group \"%@\" does not exist.", name] inFile:@(fileName) atLine:lineNumber expected:NO];
       });
     }
   }
@@ -159,8 +159,8 @@ void waitUntil(void (^block)(DoneCallback done)) {
   }
   if (!complete) {
     NSString *message = [NSString stringWithFormat:@"failed to invoke done() callback before timeout (%f seconds)", timeout];
-    SPTTestCase *currentTestCase = SPTCurrentTestCase;
-    SPTTestSuite *testSuite = [[currentTestCase class] spt_testSuite];
-    [currentTestCase recordFailureWithDescription:message inFile:testSuite.fileName atLine:testSuite.lineNumber expected:YES];
+    SPTSpec *currentSpec = SPTCurrentSpec;
+    SPTTestSuite *testSuite = [[currentSpec class] spt_testSuite];
+    [currentSpec recordFailureWithDescription:message inFile:testSuite.fileName atLine:testSuite.lineNumber expected:YES];
   }
 }

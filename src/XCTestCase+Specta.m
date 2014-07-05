@@ -1,6 +1,6 @@
 #import <objc/runtime.h>
 #import "XCTestCase+Specta.h"
-#import "SPTTestCase.h"
+#import "SPTSpec.h"
 #import "SPTExample.h"
 #import "XCTest+Private.h"
 
@@ -26,7 +26,7 @@
 
 + (NSArray *)spt_allSubclasses_swizzle {
   NSMutableArray *subclasses = [[self spt_allSubclasses_swizzle] mutableCopy]; // call original
-  [subclasses removeObject:[SPTTestCase class]];
+  [subclasses removeObject:[SPTSpec class]];
   return subclasses;
 }
 

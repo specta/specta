@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
 extern NSString * const SPTCurrentTestSuiteKey;
-extern NSString * const SPTCurrentTestCaseKey;
+extern NSString * const SPTCurrentSpecKey;
 
 #define SPTCurrentTestSuite [[NSThread currentThread] threadDictionary][SPTCurrentTestSuiteKey]
-#define SPTCurrentTestCase  [[NSThread currentThread] threadDictionary][SPTCurrentTestCaseKey]
+#define SPTCurrentSpec  [[NSThread currentThread] threadDictionary][SPTCurrentSpecKey]
 #define SPTCurrentGroup     [SPTCurrentTestSuite currentGroup]
 #define SPTGroupStack       [SPTCurrentTestSuite groupStack]
 

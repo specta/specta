@@ -53,10 +53,10 @@ typedef void (^DoneCallback)(void);
 void waitUntil(void (^block)(DoneCallback done));
 
 #define _SPTSpecBegin(name, file, line) \
-@interface name##Spec : SPTTestCase \
+@interface name##Spec : SPTSpec \
 @end \
 @implementation name##Spec \
-- (void)spt_defineSpec { \
+- (void)spec { \
   const char *specFileName = file; \
   @try { \
     [self spt_setCurrentTestSuiteWithFileName:(file) lineNumber:(line)];

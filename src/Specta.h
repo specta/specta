@@ -14,6 +14,6 @@ FOUNDATION_EXPORT const unsigned char SpectaVersionString[];
 #endif
 
 #import <Specta/SpectaDSL.h>
-#import <Specta/SPTTestCase.h>
+#import <Specta/SPTSpec.h>
 #import <Specta/SPTSharedExampleGroups.h>
 #import <Specta/SPTAssertions.h>
