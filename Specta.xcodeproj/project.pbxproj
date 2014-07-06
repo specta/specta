@@ -250,8 +250,8 @@
 		E9536CCE1968D30B003D1FBA = {
 			isa = PBXGroup;
 			children = (
-				E9536CDA1968D30B003D1FBA /* src */,
-				E9536CE71968D30B003D1FBA /* test */,
+				E9536CDA1968D30B003D1FBA /* Specta */,
+				E9536CE71968D30B003D1FBA /* SpectaTests */,
 				E9536CD91968D30B003D1FBA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E9536CDA1968D30B003D1FBA /* src */ = {
+		E9536CDA1968D30B003D1FBA /* Specta */ = {
 			isa = PBXGroup;
 			children = (
 				E963AB971968E13800A592DF /* Info.plist */,
@@ -296,10 +296,10 @@
 				E963ABAE1968E13800A592DF /* XCTestCase+Specta.h */,
 				E963ABAF1968E13800A592DF /* XCTestCase+Specta.m */,
 			);
-			path = src;
+			path = Specta;
 			sourceTree = "<group>";
 		};
-		E9536CE71968D30B003D1FBA /* test */ = {
+		E9536CE71968D30B003D1FBA /* SpectaTests */ = {
 			isa = PBXGroup;
 			children = (
 				E963ABF71968E15400A592DF /* Info.plist */,
@@ -340,7 +340,7 @@
 				E963AC041968E15400A592DF /* SpectaUtilityTest.m */,
 				E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */,
 			);
-			path = test;
+			path = SpectaTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -764,13 +764,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = src/Info.plist;
+				INFOPLIST_FILE = Specta/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_MODULE_NAME = Specta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "src/Specta-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Specta/Specta-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -786,13 +786,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = src/Info.plist;
+				INFOPLIST_FILE = Specta/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_MODULE_NAME = Specta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "src/Specta-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Specta/Specta-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -809,11 +809,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = SpectaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "test/SpectaTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpectaTests/SpectaTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -827,11 +827,11 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = SpectaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "test/SpectaTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpectaTests/SpectaTests-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -848,7 +848,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = src/Info.plist;
+				INFOPLIST_FILE = Specta/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -857,7 +857,7 @@
 				PRODUCT_NAME = Specta;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "src/Specta-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Specta/Specta-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -871,7 +871,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
-				INFOPLIST_FILE = src/Info.plist;
+				INFOPLIST_FILE = Specta/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -880,7 +880,7 @@
 				PRODUCT_NAME = Specta;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "src/Specta-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Specta/Specta-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -898,13 +898,13 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = SpectaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "test/SpectaTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpectaTests/SpectaTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -917,13 +917,13 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = test/Info.plist;
+				INFOPLIST_FILE = SpectaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "test/SpectaTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpectaTests/SpectaTests-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
