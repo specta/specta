@@ -1,9 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <Specta/SpectaTypes.h>
 
-#ifdef _SPT_XCODE6
 @class _XCTestCaseImplementation;
-#endif
 
 @class SPTExampleGroup;
 
@@ -17,9 +15,7 @@
 + (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected;
 + (void)_recordUnexpectedFailureWithDescription:(NSString *)description exception:(NSException *)exception;
 
-#ifdef _SPT_XCODE6
 + (_XCTestCaseImplementation *)internalImplementation;
-#endif
 
 @end
 

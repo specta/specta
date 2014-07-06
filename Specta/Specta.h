@@ -9,11 +9,8 @@ FOUNDATION_EXPORT const unsigned char SpectaVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Specta/PublicHeader.h>
 
-#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 1100 || __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
-  #define _SPT_XCODE6
-#endif
-
 #import <Specta/SpectaDSL.h>
 #import <Specta/SPTSpec.h>
 #import <Specta/SPTSharedExampleGroups.h>
 #import <Specta/SPTAssertions.h>
+#import <Specta/Specta-Bridging-Header.h>

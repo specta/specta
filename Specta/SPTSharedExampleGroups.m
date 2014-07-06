@@ -67,10 +67,8 @@ BOOL initialized = NO;
   [SPTCurrentSpec _recordUnexpectedFailureWithDescription:description exception:exception];
 }
 
-#ifdef _SPT_XCODE6
 + (_XCTestCaseImplementation *)internalImplementation {
   return [SPTCurrentSpec internalImplementation];
 }
-#endif
 
 @end
