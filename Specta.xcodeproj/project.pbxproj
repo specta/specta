@@ -125,8 +125,6 @@
 		E963AC4B1968E15400A592DF /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AC061968E15400A592DF /* TestHelper.m */; };
 		E963AC4C1968E15400A592DF /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */; };
 		E963AC4D1968E15400A592DF /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */; };
-		E963AC5A1968E3F200A592DF /* Specta-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = E963AC591968E3F200A592DF /* Specta-Prefix.pch */; };
-		E963AC5B1968E3F200A592DF /* Specta-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = E963AC591968E3F200A592DF /* Specta-Prefix.pch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,7 +210,6 @@
 		E963AC051968E15400A592DF /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		E963AC061968E15400A592DF /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 		E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnexpectedExceptionTest.m; sourceTree = "<group>"; };
-		E963AC591968E3F200A592DF /* Specta-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Specta-Prefix.pch"; sourceTree = "<group>"; };
 		E9D4AD1B1968E82E004E66AD /* SpectaTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SpectaTests-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -274,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				E963AB971968E13800A592DF /* Info.plist */,
-				E963AC591968E3F200A592DF /* Specta-Prefix.pch */,
 				E9536CFA1968D388003D1FBA /* Specta-Bridging-Header.h */,
 				E963AB991968E13800A592DF /* Specta.h */,
 				E963AB9A1968E13800A592DF /* SpectaDSL.h */,
@@ -356,7 +352,6 @@
 			files = (
 				E963ABB61968E13800A592DF /* SpectaDSL.h in Headers */,
 				E963ABBC1968E13800A592DF /* SpectaUtility.h in Headers */,
-				E963AC5A1968E3F200A592DF /* Specta-Prefix.pch in Headers */,
 				E963ABCC1968E13800A592DF /* SPTExampleGroup.h in Headers */,
 				E9536CFB1968D3A7003D1FBA /* Specta-Bridging-Header.h in Headers */,
 				E963ABDC1968E13800A592DF /* XCTest+Private.h in Headers */,
@@ -379,7 +374,6 @@
 			files = (
 				E963ABB71968E13800A592DF /* SpectaDSL.h in Headers */,
 				E963ABBD1968E13800A592DF /* SpectaUtility.h in Headers */,
-				E963AC5B1968E3F200A592DF /* Specta-Prefix.pch in Headers */,
 				E963ABCD1968E13800A592DF /* SPTExampleGroup.h in Headers */,
 				E9536D1C1968D45B003D1FBA /* Specta-Bridging-Header.h in Headers */,
 				E963ABDD1968E13800A592DF /* XCTest+Private.h in Headers */,
@@ -770,8 +764,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
 				INFOPLIST_FILE = src/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -794,8 +786,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
 				INFOPLIST_FILE = src/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -854,8 +844,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -883,8 +871,6 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "src/Specta-Prefix.pch";
 				INFOPLIST_FILE = src/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

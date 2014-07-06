@@ -4,22 +4,16 @@
 #import "SPTExample.h"
 #import "XCTest+Private.h"
 
-#ifdef _SPT_XCODE6
-  #define spt_allSubclasses allSubclasses
-#else
-  #define spt_allSubclasses xct_allSubclasses
-#endif
-
 @interface XCTestCase (xct_allSubclasses)
 
-- (NSArray *)spt_allSubclasses;
+- (NSArray *)allSubclasses;
 
 @end
 
 @implementation XCTestCase (Specta)
 
 + (void)load {
-  Method allSubclasses = class_getClassMethod(self, @selector(spt_allSubclasses));
+  Method allSubclasses = class_getClassMethod(self, @selector(allSubclasses));
   Method allSubclasses_swizzle = class_getClassMethod(self , @selector(spt_allSubclasses_swizzle));
   method_exchangeImplementations(allSubclasses, allSubclasses_swizzle);
 }

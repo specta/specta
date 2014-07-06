@@ -176,11 +176,7 @@
 
 - (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected {
   SPTSpec *currentSpec = SPTCurrentSpec;
-#ifdef _SPT_XCODE6
   [currentSpec.spt_run recordFailureWithDescription:description inFile:filename atLine:lineNumber expected:expected];
-#else
-  [currentSpec.spt_run recordFailureInTest:currentSpec withDescription:description inFile:filename atLine:lineNumber expected:expected];
-#endif
 }
 
 - (void)performTest:(XCTestRun *)run {

@@ -1,7 +1,5 @@
 #import <XCTest/XCTest.h>
 
-#ifdef _SPT_XCODE6
-
 @interface XCTestObservationCenter : NSObject
 
 + (id)sharedObservationCenter;
@@ -25,13 +23,6 @@
 @interface XCTestCase ()
 
 - (_XCTestCaseImplementation *)internalImplementation;
-
-@end
-
-#endif
-
-@interface XCTestCase ()
-
 - (void)_recordUnexpectedFailureWithDescription:(NSString *)description exception:(NSException *)exception;
 
 @end
