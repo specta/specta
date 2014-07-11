@@ -39,7 +39,7 @@ static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
 
 @end
 
-static void runExampleBlock(id block, NSString *name) {
+static void runExampleBlock(void (^block)(), NSString *name) {
   if (!SPTIsBlock(block)) {
     return;
   }
@@ -89,12 +89,6 @@ static void runExampleBlock(id block, NSString *name) {
   return self;
 }
 
-- (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name {
-  return [self addExampleGroupWithName:name
-                               focused:NO];
-}
-
-
 - (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name focused:(BOOL)focused {
   SPTExampleGroup *group = [[SPTExampleGroup alloc] initWithName:name parent:self root:self.root];
   group.focused = focused;
@@ -102,17 +96,10 @@ static void runExampleBlock(id block, NSString *name) {
   return group;
 }
 
-- (SPTExample *)addExampleWithName:(NSString *)name block:(id)block {
-  return [self addExampleWithName:name
-                            block:block
-                          focused:NO];
-}
-
-- (SPTExample *)addExampleWithName:(NSString *)name block:(id)block focused:(BOOL)focused {
+- (SPTExample *)addExampleWithName:(NSString *)name callSite:(SPTCallSite *)callSite focused:(BOOL)focused block:(SPTVoidBlock)block {
   SPTExample *example;
   @synchronized(self) {
-    example = [[SPTExample alloc] initWithName:name block:block];
-    example.focused = focused;
+    example = [[SPTExample alloc] initWithName:name callSite:callSite focused:focused block:block];
     [self.children addObject:example];
 
     [self incrementExampleCount];

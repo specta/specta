@@ -17,10 +17,11 @@
 + (BOOL)spt_focusedExamplesExist;
 + (SEL)spt_convertToTestMethod:(SPTCompiledExample *)example;
 + (SPTTestSuite *)spt_testSuite;
++ (void)spt_setCurrentTestSuite;
++ (void)spt_unsetCurrentTestSuite;
++ (void)spt_setCurrentTestSuiteFileName:(NSString *)fileName lineNumber:(NSUInteger)lineNumber;
 
-- (void)spt_setCurrentTestSuiteWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber;
 - (void)spec;
-- (void)spt_unsetCurrentTestSuite;
 - (void)spt_runExample:(SPTCompiledExample *)example;
 
 @end
