@@ -6,15 +6,32 @@
 #import <objc/runtime.h>
 #import "XCTest+Private.h"
 
-
 @implementation SPTSpec
 
 + (void)initialize {
   [SPTSharedExampleGroups initialize];
   SPTTestSuite *testSuite = [[SPTTestSuite alloc] init];
   SPTSpec *spec = [[[self class] alloc] init];
+  NSString *specName = NSStringFromClass([self class]);
   objc_setAssociatedObject(self, "spt_testSuite", testSuite, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-  [spec spec];
+  [self spt_setCurrentTestSuite];
+  @try {
+    [spec spec];
+  }
+  @catch (NSException *exception) {
+    fprintf(stderr, "%s: An exception has occured outside of tests, aborting.\n\n%s (%s) \n", [specName UTF8String], [[exception name] UTF8String], [[exception reason] UTF8String]);
+    if ([exception respondsToSelector:@selector(callStackSymbols)]) {
+      NSArray *callStackSymbols = [exception callStackSymbols];
+      if (callStackSymbols) {
+        NSString *callStack = [NSString stringWithFormat:@"\n  Call Stack:\n    %@\n", [callStackSymbols componentsJoinedByString:@"\n    "]];
+        fprintf(stderr, "%s", [callStack UTF8String]);
+      }
+    }
+    exit(1);
+  }
+  @finally {
+    [self spt_unsetCurrentTestSuite];
+  }
   [testSuite compile];
   [super initialize];
 }
@@ -97,18 +114,22 @@
   return example.testMethodSelector;
 }
 
-- (void)spt_setCurrentTestSuiteWithFileName:(const char *)fileName lineNumber:(NSUInteger)lineNumber {
-  SPTTestSuite *testSuite = [[self class] spt_testSuite];
-  testSuite.fileName = @(fileName);
-  testSuite.lineNumber = lineNumber;
++ (void)spt_setCurrentTestSuite {
+  SPTTestSuite *testSuite = [self spt_testSuite];
   [[NSThread currentThread] threadDictionary][SPTCurrentTestSuiteKey] = testSuite;
 }
 
-- (void)spec {}
-
-- (void)spt_unsetCurrentTestSuite {
++ (void)spt_unsetCurrentTestSuite {
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentTestSuiteKey];
 }
+
++ (void)spt_setCurrentTestSuiteFileName:(NSString *)fileName lineNumber:(NSUInteger)lineNumber {
+  SPTTestSuite *testSuite = [self spt_testSuite];
+  testSuite.fileName = fileName;
+  testSuite.lineNumber = lineNumber;
+}
+
+- (void)spec {}
 
 - (void)spt_runExample:(SPTCompiledExample *)example {
   [[NSThread currentThread] threadDictionary][SPTCurrentSpecKey] = self;

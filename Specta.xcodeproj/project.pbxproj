@@ -125,6 +125,10 @@
 		E963AC4B1968E15400A592DF /* TestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AC061968E15400A592DF /* TestHelper.m */; };
 		E963AC4C1968E15400A592DF /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */; };
 		E963AC4D1968E15400A592DF /* UnexpectedExceptionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */; };
+		E9C534F6196A71B60017D4B9 /* SPTSpec+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C534F5196A71B60017D4B9 /* SPTSpec+Swift.swift */; };
+		E9C534F7196A71B60017D4B9 /* SPTSpec+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C534F5196A71B60017D4B9 /* SPTSpec+Swift.swift */; };
+		E9D4AD1D1968ED03004E66AD /* SwiftDSLTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4AD1C1968ED03004E66AD /* SwiftDSLTest.swift */; };
+		E9D4AD1E1968ED03004E66AD /* SwiftDSLTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4AD1C1968ED03004E66AD /* SwiftDSLTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,7 +214,9 @@
 		E963AC051968E15400A592DF /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		E963AC061968E15400A592DF /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 		E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnexpectedExceptionTest.m; sourceTree = "<group>"; };
+		E9C534F5196A71B60017D4B9 /* SPTSpec+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPTSpec+Swift.swift"; sourceTree = "<group>"; };
 		E9D4AD1B1968E82E004E66AD /* SpectaTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SpectaTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		E9D4AD1C1968ED03004E66AD /* SwiftDSLTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDSLTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +296,7 @@
 				E963ABA81968E13800A592DF /* SPTSharedExampleGroups.m */,
 				E963ABA91968E13800A592DF /* SPTSpec.h */,
 				E963ABAA1968E13800A592DF /* SPTSpec.m */,
+				E9C534F5196A71B60017D4B9 /* SPTSpec+Swift.swift */,
 				E963ABAB1968E13800A592DF /* SPTTestSuite.h */,
 				E963ABAC1968E13800A592DF /* SPTTestSuite.m */,
 				E963ABAD1968E13800A592DF /* XCTest+Private.h */,
@@ -339,6 +346,7 @@
 				E963AC031968E15400A592DF /* SharedExamplesTest5.m */,
 				E963AC041968E15400A592DF /* SpectaUtilityTest.m */,
 				E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */,
+				E9D4AD1C1968ED03004E66AD /* SwiftDSLTest.swift */,
 			);
 			path = SpectaTests;
 			sourceTree = "<group>";
@@ -547,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E963ABC61968E13800A592DF /* SPTCompiledExample.m in Sources */,
+				E9C534F6196A71B60017D4B9 /* SPTSpec+Swift.swift in Sources */,
 				E963ABBE1968E13800A592DF /* SpectaUtility.m in Sources */,
 				E963ABE01968E13800A592DF /* XCTestCase+Specta.m in Sources */,
 				E963ABDA1968E13800A592DF /* SPTTestSuite.m in Sources */,
@@ -595,6 +604,7 @@
 				E963AC1E1968E15400A592DF /* CompilationTest8.m in Sources */,
 				E963AC481968E15400A592DF /* SpectaUtilityTest.m in Sources */,
 				E963AC341968E15400A592DF /* PendingSpecTest1.m in Sources */,
+				E9D4AD1D1968ED03004E66AD /* SwiftDSLTest.swift in Sources */,
 				E963AC3C1968E15400A592DF /* SequenceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,6 +614,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E963ABC71968E13800A592DF /* SPTCompiledExample.m in Sources */,
+				E9C534F7196A71B60017D4B9 /* SPTSpec+Swift.swift in Sources */,
 				E963ABBF1968E13800A592DF /* SpectaUtility.m in Sources */,
 				E963ABE11968E13800A592DF /* XCTestCase+Specta.m in Sources */,
 				E963ABDB1968E13800A592DF /* SPTTestSuite.m in Sources */,
@@ -652,6 +663,7 @@
 				E963AC1F1968E15400A592DF /* CompilationTest8.m in Sources */,
 				E963AC491968E15400A592DF /* SpectaUtilityTest.m in Sources */,
 				E963AC351968E15400A592DF /* PendingSpecTest1.m in Sources */,
+				E9D4AD1E1968ED03004E66AD /* SwiftDSLTest.swift in Sources */,
 				E963AC3D1968E15400A592DF /* SequenceTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -850,7 +862,7 @@
 				);
 				INFOPLIST_FILE = Specta/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_MODULE_NAME = Specta;
@@ -873,7 +885,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				INFOPLIST_FILE = Specta/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_MODULE_NAME = Specta;

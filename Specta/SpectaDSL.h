@@ -31,12 +31,12 @@ void spt_pending(NSString *name, ...);
 #define  xspecify(...) spt_pending(__VA_ARGS__, nil)
 #define   pending(...) spt_pending(__VA_ARGS__, nil)
 
-void  beforeAll(id block);
-void   afterAll(id block);
-void beforeEach(id block);
-void  afterEach(id block);
-void     before(id block);
-void      after(id block);
+void  beforeAll(void (^block)());
+void   afterAll(void (^block)());
+void beforeEach(void (^block)());
+void  afterEach(void (^block)());
+void     before(void (^block)());
+void      after(void (^block)());
 
 void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data));
 void    sharedExamples(NSString *name, void (^block)(NSDictionary *data));
@@ -57,23 +57,9 @@ void waitUntil(void (^block)(DoneCallback done));
 @end \
 @implementation name##Spec \
 - (void)spec { \
-  const char *specFileName = file; \
-  @try { \
-    [self spt_setCurrentTestSuiteWithFileName:(file) lineNumber:(line)];
+  [[self class] spt_setCurrentTestSuiteFileName:(@(file)) lineNumber:(line)];
 
 #define _SPTSpecEnd \
-    [self spt_unsetCurrentTestSuite]; \
-  } @catch(NSException *exception) { \
-    fprintf(stderr, "%s: An exception has occured outside of tests, aborting.\n\n%s (%s) \n", specFileName, [[exception name] UTF8String], [[exception reason] UTF8String]); \
-    if ([exception respondsToSelector:@selector(callStackSymbols)]) { \
-      NSArray *callStackSymbols = [exception callStackSymbols]; \
-      if (callStackSymbols) { \
-        NSString *callStack = [NSString stringWithFormat:@"\n  Call Stack:\n    %@\n", [callStackSymbols componentsJoinedByString:@"\n    "]]; \
-        fprintf(stderr, "%s", [callStack UTF8String]); \
-      } \
-    } \
-    exit(1); \
-  } \
 } \
 @end
 

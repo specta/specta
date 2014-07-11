@@ -39,7 +39,7 @@ static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
 
 @end
 
-static void runExampleBlock(id block, NSString *name) {
+static void runExampleBlock(void (^block)(), NSString *name) {
   if (!SPTIsBlock(block)) {
     return;
   }

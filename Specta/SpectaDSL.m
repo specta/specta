@@ -67,31 +67,31 @@ void spt_pending(NSString *name, ...) {
   spt_example(name, NO, nil);
 }
 
-void beforeAll(id block) {
+void beforeAll(void (^block)()) {
   SPTReturnUnlessBlockOrNil(block);
   [SPTCurrentGroup addBeforeAllBlock:block];
 }
 
-void afterAll(id block) {
+void afterAll(void (^block)()) {
   SPTReturnUnlessBlockOrNil(block);
   [SPTCurrentGroup addAfterAllBlock:block];
 }
 
-void beforeEach(id block) {
+void beforeEach(void (^block)()) {
   SPTReturnUnlessBlockOrNil(block);
   [SPTCurrentGroup addBeforeEachBlock:block];
 }
 
-void afterEach(id block) {
+void afterEach(void (^block)()) {
   SPTReturnUnlessBlockOrNil(block);
   [SPTCurrentGroup addAfterEachBlock:block];
 }
 
-void before(id block) {
+void before(void (^block)()) {
   beforeEach(block);
 }
 
-void after(id block) {
+void after(void (^block)()) {
   afterEach(block);
 }
 
@@ -149,8 +149,10 @@ void setAsyncSpecTimeout(NSTimeInterval timeout) {
 
 void waitUntil(void (^block)(DoneCallback done)) {
   __block uint32_t complete = 0;
-  block(^{
-    OSAtomicOr32Barrier(1, &complete);
+  dispatch_async(dispatch_get_main_queue(), ^{
+    block(^{
+      OSAtomicOr32Barrier(1, &complete);
+    });
   });
   NSTimeInterval timeout = asyncSpecTimeout;
   NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
