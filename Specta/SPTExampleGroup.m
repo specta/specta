@@ -34,8 +34,8 @@ static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
 
 @interface NSObject (SpectaGlobalBeforeAfterEach)
 
-+ (void)beforeEach;
-+ (void)afterEach;
++ (void)spt_beforeEach;
++ (void)spt_afterEach;
 
 @end
 
@@ -181,11 +181,11 @@ static void runExampleBlock(void (^block)(), NSString *name) {
   static NSArray *globalBeforeEachClasses;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    globalBeforeEachClasses = ClassesWithClassMethod(@selector(beforeEach));
+    globalBeforeEachClasses = ClassesWithClassMethod(@selector(spt_beforeEach));
   });
 
   for (Class class in globalBeforeEachClasses) {
-    [class beforeEach];
+    [class spt_beforeEach];
   }
 }
 
@@ -193,11 +193,11 @@ static void runExampleBlock(void (^block)(), NSString *name) {
   static NSArray *globalAfterEachClasses;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
-    globalAfterEachClasses = ClassesWithClassMethod(@selector(afterEach));
+    globalAfterEachClasses = ClassesWithClassMethod(@selector(spt_afterEach));
   });
 
   for (Class class in globalAfterEachClasses) {
-    [class afterEach];
+    [class spt_afterEach];
   }
 }
 

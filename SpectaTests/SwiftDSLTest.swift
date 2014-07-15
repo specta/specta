@@ -5,36 +5,36 @@ class SwiftDSLTest: SPTSpec {
   override func spec() {
     self.specBegin()
 
-    describe("swift dsl") {
+    spt_describe("swift dsl") {
       var foo: Bool = false
       var bar: Bool = false
 
-      beforeAll {
+      spt_beforeAll {
         bar = true
       }
 
-      beforeEach {
+      spt_beforeEach {
         foo = true
       }
 
-      it("works") {
+      spt_it("works") {
         XCTAssertEqual(foo, true, "foo is true")
         XCTAssertEqual(bar, true, "bar is true")
       }
 
-      it("really works") {
-        waitUntil { (done: DoneCallback!) in
+      spt_it("really works") {
+        spt_waitUntil { (done: DoneCallback!) in
           XCTAssertEqual(foo, true, "foo is true")
           XCTAssertEqual(bar, true, "bar is true")
           done()
         }
       }
 
-      afterEach {
+      spt_afterEach {
         XCTAssertEqual(foo, true, "foo is true")
       }
 
-      afterAll {
+      spt_afterAll {
         XCTAssertEqual(bar, true, "bar is true")
       }
     }

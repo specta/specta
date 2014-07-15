@@ -9,98 +9,63 @@
 
 static NSTimeInterval asyncSpecTimeout = 10.0;
 
-void spt_describe(NSString *name, BOOL focused, void (^block)()) {
+static void spt_defineItBlock(NSString *name, BOOL focused, void (^block)()) {
+  SPTReturnUnlessBlockOrNil(block);
+  [SPTCurrentGroup addExampleWithName:name block:block focused:focused];
+}
+
+static void spt_defineDescribeBlock(NSString *name, BOOL focused, void (^block)()) {
   if (block) {
     [SPTGroupStack addObject:[SPTCurrentGroup addExampleGroupWithName:name focused:focused]];
     block();
     [SPTGroupStack removeLastObject];
   } else {
-    spt_example(name, focused, nil);
+    spt_defineItBlock(name, focused, nil);
   }
 }
 
-void describe(NSString *name, void (^block)()) {
-  spt_describe(name, NO, block);
+void spt_describe(NSString *name, void (^block)()) {
+  spt_defineDescribeBlock(name, NO, block);
 }
 
-void fdescribe(NSString *name, void (^block)()) {
-  spt_describe(name, YES, block);
+void spt_fdescribe(NSString *name, void (^block)()) {
+  spt_defineDescribeBlock(name, YES, block);
 }
 
-void context(NSString *name, void (^block)()) {
-  spt_describe(name, NO, block);
-}
-void fcontext(NSString *name, void (^block)()) {
-  spt_describe(name, YES, block);
+void spt_it(NSString *name, void (^block)()) {
+  spt_defineItBlock(name, NO, block);
 }
 
-void spt_example(NSString *name, BOOL focused, void (^block)()) {
-  SPTReturnUnlessBlockOrNil(block);
-  [SPTCurrentGroup addExampleWithName:name block:block focused:focused];
-}
-
-void example(NSString *name, void (^block)()) {
-  spt_example(name, NO, block);
-}
-
-void fexample(NSString *name, void (^block)()) {
-  spt_example(name, YES, block);
-}
-
-void it(NSString *name, void (^block)()) {
-  spt_example(name, NO, block);
-}
-
-void fit(NSString *name, void (^block)()) {
-  spt_example(name, YES, block);
-}
-
-void specify(NSString *name, void (^block)()) {
-  spt_example(name, NO, block);
-}
-
-void fspecify(NSString *name, void (^block)()) {
-  spt_example(name, YES, block);
+void spt_fit(NSString *name, void (^block)()) {
+  spt_defineItBlock(name, YES, block);
 }
 
 void spt_pending(NSString *name, ...) {
-  spt_example(name, NO, nil);
+  spt_defineItBlock(name, NO, nil);
 }
 
-void beforeAll(void (^block)()) {
+void spt_beforeAll(void (^block)()) {
   SPTReturnUnlessBlockOrNil(block);
   [SPTCurrentGroup addBeforeAllBlock:block];
 }
 
-void afterAll(void (^block)()) {
+void spt_afterAll(void (^block)()) {
   SPTReturnUnlessBlockOrNil(block);
   [SPTCurrentGroup addAfterAllBlock:block];
 }
 
-void beforeEach(void (^block)()) {
+void spt_beforeEach(void (^block)()) {
   SPTReturnUnlessBlockOrNil(block);
   [SPTCurrentGroup addBeforeEachBlock:block];
 }
 
-void afterEach(void (^block)()) {
+void spt_afterEach(void (^block)()) {
   SPTReturnUnlessBlockOrNil(block);
   [SPTCurrentGroup addAfterEachBlock:block];
 }
 
-void before(void (^block)()) {
-  beforeEach(block);
-}
-
-void after(void (^block)()) {
-  afterEach(block);
-}
-
-void sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data)) {
+void spt_sharedExamplesFor(NSString *name, void (^block)(NSDictionary *data)) {
   [SPTSharedExampleGroups addSharedExampleGroupWithName:name block:block exampleGroup:SPTCurrentGroup];
-}
-
-void sharedExamples(NSString *name, void (^block)(NSDictionary *data)) {
-  sharedExamplesFor(name, block);
 }
 
 void spt_itShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSString *name, id dictionaryOrBlock) {
@@ -143,11 +108,7 @@ void spt_itShouldBehaveLike(const char *fileName, NSUInteger lineNumber, NSStrin
   }
 }
 
-void setAsyncSpecTimeout(NSTimeInterval timeout) {
-  asyncSpecTimeout = timeout;
-}
-
-void waitUntil(void (^block)(DoneCallback done)) {
+void spt_waitUntil(void (^block)(DoneCallback done)) {
   __block uint32_t complete = 0;
   dispatch_async(dispatch_get_main_queue(), ^{
     block(^{
@@ -165,4 +126,8 @@ void waitUntil(void (^block)(DoneCallback done)) {
     SPTTestSuite *testSuite = [[currentSpec class] spt_testSuite];
     [currentSpec recordFailureWithDescription:message inFile:testSuite.fileName atLine:testSuite.lineNumber expected:YES];
   }
+}
+
+void spt_setAsyncSpecTimeout(NSTimeInterval timeout) {
+  asyncSpecTimeout = timeout;
 }
