@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
     framework. Expecta and OCMock are recommended.
   }
 
-  s.source_files = 'src/**/*.{h,m}'
+  s.source_files = 'Specta/**/*.{h,m}'
 
   s.frameworks = 'Foundation', 'XCTest'
 
