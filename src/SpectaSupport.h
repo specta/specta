@@ -39,8 +39,3 @@
 } \
 @end
 
-#undef _XCTRegisterFailure
-#define _XCTRegisterFailure(condition, format...) \
-({ \
-_XCTFailureHandler((id)self, YES, __FILE__, __LINE__, condition, @"" format); \
-})
