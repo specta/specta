@@ -2,13 +2,14 @@
 
 @implementation SPTExample
 
-- (id)initWithName:(NSString *)name block:(SPTVoidBlock)block {
+- (id)initWithName:(NSString *)name callSite:(SPTCallSite *)callSite focused:(BOOL)focused block:(SPTVoidBlock)block {
   self = [super init];
   if (self) {
     self.name = name;
+    self.callSite = callSite;
     self.block = block;
+    self.focused = focused;
     self.pending = block == nil;
-    self.focused = NO;
   }
   return self;
 }

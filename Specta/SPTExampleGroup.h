@@ -2,9 +2,8 @@
 #import <XCTest/XCTest.h>
 #import "SpectaTypes.h"
 
-@class
-  SPTExample
-;
+@class SPTExample;
+@class SPTCallSite;
 
 @interface SPTExampleGroup : NSObject
 
@@ -24,11 +23,8 @@
 
 - (id)initWithName:(NSString *)name parent:(SPTExampleGroup *)parent root:(SPTExampleGroup *)root;
 
-- (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name;
-- (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name  focused:(BOOL)focused;
-
-- (SPTExample *)addExampleWithName:(NSString *)name block:(id)block;
-- (SPTExample *)addExampleWithName:(NSString *)name block:(id)block focused:(BOOL)focused;
+- (SPTExampleGroup *)addExampleGroupWithName:(NSString *)name focused:(BOOL)focused;
+- (SPTExample *)addExampleWithName:(NSString *)name callSite:(SPTCallSite *)callSite focused:(BOOL)focused block:(SPTVoidBlock)block;
 
 - (void)addBeforeAllBlock:(SPTVoidBlock)block;
 - (void)addAfterAllBlock:(SPTVoidBlock)block;

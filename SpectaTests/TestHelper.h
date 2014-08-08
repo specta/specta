@@ -1,5 +1,6 @@
 #import <XCTest/XCTest.h>
 #import <Specta/Specta.h>
+#import "SpectaShorthands.h"
 
 @interface XCTestObservationCenter
 
