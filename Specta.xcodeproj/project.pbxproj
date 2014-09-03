@@ -286,6 +286,10 @@
 		E963AC051968E15400A592DF /* TestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestHelper.h; sourceTree = "<group>"; };
 		E963AC061968E15400A592DF /* TestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestHelper.m; sourceTree = "<group>"; };
 		E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnexpectedExceptionTest.m; sourceTree = "<group>"; };
+		E9BBA71919A2519200A0FCF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9BBA71A19A2519200A0FCF7 /* Fuuubar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fuuubar.h; sourceTree = "<group>"; };
+		E9BBA72319A2519200A0FCF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9BBA72419A2519200A0FCF7 /* FuuubarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuuubarTests.swift; sourceTree = "<group>"; };
 		E9BC94F619759A9E00C2AD52 /* SpectaDSL+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SpectaDSL+Swift.swift"; sourceTree = "<group>"; };
 		E9BDA79019797F8E0012C202 /* SpectaShorthands.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpectaShorthands.h; sourceTree = "<group>"; };
 		E9C534F5196A71B60017D4B9 /* SPTSpec+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SPTSpec+Swift.swift"; sourceTree = "<group>"; };
@@ -333,6 +337,8 @@
 			children = (
 				E9536CDA1968D30B003D1FBA /* Specta */,
 				E9536CE71968D30B003D1FBA /* SpectaTests */,
+				E9BBA71719A2519200A0FCF7 /* Fuuubar */,
+				E9BBA72119A2519200A0FCF7 /* FuuubarTests */,
 				E9536CD91968D30B003D1FBA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -428,6 +434,40 @@
 				E9D4AD1C1968ED03004E66AD /* SwiftDSLTest.swift */,
 			);
 			path = SpectaTests;
+			sourceTree = "<group>";
+		};
+		E9BBA71719A2519200A0FCF7 /* Fuuubar */ = {
+			isa = PBXGroup;
+			children = (
+				E9BBA71A19A2519200A0FCF7 /* Fuuubar.h */,
+				E9BBA71819A2519200A0FCF7 /* Supporting Files */,
+			);
+			path = Fuuubar;
+			sourceTree = "<group>";
+		};
+		E9BBA71819A2519200A0FCF7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9BBA71919A2519200A0FCF7 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E9BBA72119A2519200A0FCF7 /* FuuubarTests */ = {
+			isa = PBXGroup;
+			children = (
+				E9BBA72419A2519200A0FCF7 /* FuuubarTests.swift */,
+				E9BBA72219A2519200A0FCF7 /* Supporting Files */,
+			);
+			path = FuuubarTests;
+			sourceTree = "<group>";
+		};
+		E9BBA72219A2519200A0FCF7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9BBA72319A2519200A0FCF7 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

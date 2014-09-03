@@ -1,109 +1,109 @@
 import Foundation
 
-func specBegin(file: String = __FILE__, line: Int = __LINE__) {
-  (NSThread.currentThread().threadDictionary["SPTCurrentSpec"] as SPTSpec).dynamicType.spt_setCurrentTestSuiteFileName(file, lineNumber: line)
+public func specBegin(file: String = __FILE__, line: Int = __LINE__) {
+  (NSThread.currentThread().threadDictionary["SPTCurrentSpec"] as SPTSpec).dynamicType.spt_setCurrentTestSuiteFileName(file, lineNumber: UInt(line))
 }
 
-func describe(name: String, closure: (() -> ())? = nil) {
+public func describe(name: String, closure: (() -> ())? = nil) {
   spt_describe(name, closure)
 }
 
-func fdescribe(name: String, closure: (() -> ())? = nil) {
+public func fdescribe(name: String, closure: (() -> ())? = nil) {
   spt_fdescribe(name, closure)
 }
 
-func context(name: String, closure: (() -> ())? = nil) {
+public func context(name: String, closure: (() -> ())? = nil) {
   spt_describe(name, closure)
 }
 
-func fcontext(name: String, closure: (() -> ())? = nil) {
+public func fcontext(name: String, closure: (() -> ())? = nil) {
   spt_fdescribe(name, closure)
 }
 
-func it(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
-  spt_it_(name, file, line, closure)
+public func it(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+  spt_it_(name, file, UInt(line), closure)
 }
 
-func fit(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
-  spt_fit_(name, file, line, closure)
+public func fit(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+  spt_fit_(name, file, UInt(line), closure)
 }
 
-func example(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
-  spt_it_(name, file, line, closure)
+public func example(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+  spt_it_(name, file, UInt(line), closure)
 }
 
-func fexample(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
-  spt_fit_(name, file, line, closure)
+public func fexample(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+  spt_fit_(name, file, UInt(line), closure)
 }
 
-func specify(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
-  spt_it_(name, file, line, closure)
+public func specify(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+  spt_it_(name, file, UInt(line), closure)
 }
 
-func fspecify(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
-  spt_fit_(name, file, line, closure)
+public func fspecify(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+  spt_fit_(name, file, UInt(line), closure)
 }
 
-func pending(name: String, file: String = __FILE__, line: Int = __LINE__) {
-  spt_it_(name, file, line, nil)
+public func pending(name: String, file: String = __FILE__, line: Int = __LINE__) {
+  spt_it_(name, file, UInt(line), nil)
 }
 
-func xdescribe(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
-  spt_it_(name, file, line, nil)
+public func xdescribe(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+  spt_it_(name, file, UInt(line), nil)
 }
 
-func xcontext(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
-  spt_it_(name, file, line, nil)
+public func xcontext(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+  spt_it_(name, file, UInt(line), nil)
 }
 
-func xexample(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
-  spt_it_(name, file, line, nil)
+public func xexample(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+  spt_it_(name, file, UInt(line), nil)
 }
 
-func xit(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
-  spt_it_(name, file, line, nil)
+public func xit(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+  spt_it_(name, file, UInt(line), nil)
 }
 
-func xspecify(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
-  spt_it_(name, file, line, nil)
+public func xspecify(name: String, closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+  spt_it_(name, file, UInt(line), nil)
 }
 
-func beforeAll(closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+public func beforeAll(closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
   spt_beforeAll(closure) // TODO: add file & line
 }
 
-func afterAll(closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+public func afterAll(closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
   spt_afterAll(closure) // TODO: add file & line
 }
 
-func before(closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+public func before(closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
   spt_beforeEach(closure) // TODO: add file & line
 }
 
-func after(closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+public func after(closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
   spt_afterEach(closure) // TODO: add file & line
 }
 
-func beforeEach(closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+public func beforeEach(closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
   spt_beforeEach(closure) // TODO: add file & line
 }
 
-func afterEach(closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
+public func afterEach(closure: (() -> ()), file: String = __FILE__, line: Int = __LINE__) {
   spt_afterEach(closure) // TODO: add file & line
 }
 
-func sharedExamplesFor(name: String, closure: (Dictionary<String, AnyObject>) -> ()) {
+public func sharedExamplesFor(name: String, closure: (Dictionary<String, AnyObject>) -> ()) {
   let block = { (data: NSDictionary!) -> () in
     closure(data as Dictionary<String, AnyObject>)
   }
-  spt_sharedExamplesFor(name, block)
+//TODO  spt_sharedExamplesFor(name, block)
 }
 
-func sharedExamples(name: String, closure: (Dictionary<String, AnyObject>) -> ()) {
+public func sharedExamples(name: String, closure: (Dictionary<String, AnyObject>) -> ()) {
   sharedExamplesFor(name, closure)
 }
 
-func itShouldBehaveLike(name: String, closure: @auto_closure () -> Dictionary<String, AnyObject>, file: String = __FILE__, line: Int = __LINE__) {
+public func itShouldBehaveLike(name: String, closure: @autoclosure () -> Dictionary<String, AnyObject>, file: String = __FILE__, line: Int = __LINE__) {
   let block = { () -> NSDictionary in
     let dict = closure()
     var nsdict = NSMutableDictionary.dictionary()
@@ -112,13 +112,13 @@ func itShouldBehaveLike(name: String, closure: @auto_closure () -> Dictionary<St
     }
     return nsdict
   }
-  spt_itShouldBehaveLike_block(file, line, name, block)
+//TODO  spt_itShouldBehaveLike_block(file, UInt(line), name, block)
 }
 
-func itBehavesLike(name: String, closure: @auto_closure () -> Dictionary<String, AnyObject>, file: String = __FILE__, line: Int = __LINE__) {
+public func itBehavesLike(name: String, closure: @autoclosure () -> Dictionary<String, AnyObject>, file: String = __FILE__, line: Int = __LINE__) {
   itShouldBehaveLike(name, closure, file: file, line: line)
 }
 
-func waitUntil(closure: (done: DoneCallback!) -> ()) {
+public func waitUntil(closure: (done: DoneCallback!) -> ()) {
   spt_waitUntil(closure)
 }

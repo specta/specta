@@ -5,11 +5,11 @@ class SwiftDSLTestSharedExamples: SPTSharedExampleGroups {
   override class func defineSharedExampleGroups() {
     sharedExamplesFor("swift shared") { (data: Dictionary<String, AnyObject>) in
       it("can read data") {
-        XCTAssertEqualObjects(data["foo"] as NSString, "bar", "data[foo] is bar")
+        XCTAssertEqual(data["foo"] as NSString, "bar", "data[foo] is bar")
       }
 
       it("can really read data") {
-        XCTAssertEqualObjects(data["bar"] as NSNumber, 123, "data[bar] is 123")
+        XCTAssertEqual(data["bar"] as NSNumber, 123, "data[bar] is 123")
       }
     }
   }

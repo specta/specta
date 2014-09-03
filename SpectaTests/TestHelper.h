@@ -13,11 +13,11 @@
 
 XCTestSuiteRun *RunSpecClass(Class testClass);
 
-#define assertTrue(expression)        SPTAssertTrue((expression), @"")
-#define assertFalse(expression)       SPTAssertFalse((expression), @"")
-#define assertNil(a1)                 SPTAssertNil((a1), @"")
-#define assertNotNil(a1)              SPTAssertNil((a1), @"")
-#define assertEqual(a1, a2)           SPTAssert((a1) == (a2), @"")
-#define assertEqualObjects(a1, a2)    SPTAssertEqualObjects((a1), (a2), @"")
-#define assertNotEqual(a1, a2)        SPTAssert((a1) != (a2), @"")
-#define assertNotEqualObjects(a1, a2) SPTAssertNotEqualObjects((a1), (a2), @"")
+#define assertTrue(expr)            SPTAssertTrue((expr), @"expected %@ to be true", @(expr))
+#define assertFalse(expr)           SPTAssertFalse((expr), @"expected %@ to be false", @(expr))
+#define assertNil(a)                SPTAssertNil((a), @"expected %@ to be nil", a)
+#define assertNotNil(a)             SPTAssertNil((a), @"expected %@ not to be nil", a)
+#define assertEqual(a, b)           SPTAssert((a) == (b), @"expected %@ to equal %@", @(a), @(b))
+#define assertEqualObjects(a, b)    SPTAssertEqualObjects((a), (b), @"expected %@ to equal %@", (a), (b))
+#define assertNotEqual(a, b)        SPTAssert((a) != (b), @"expected %@ not to equal %@", @(a), @(b))
+#define assertNotEqualObjects(a, b) SPTAssertNotEqualObjects((a), (b), @"expected %@ not to equal %@", (a), (b))
