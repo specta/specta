@@ -1,18 +1,23 @@
 # Specta
 
-A light-weight TDD / BDD framework for Objective-C & Cocoa.
+A light-weight TDD / BDD framework for Objective-C & Swift.
 
 ## WHAT'S NEW IN 0.3
 
 ## BREAKING CHANGES IN 0.3
 
-* `^AsyncBlock` is replaced by `waitUntil`. See the example for usage.
+* All Obj-C global functions are now prefixed with `spt_`. This is to
+  provide unprefixed versions functions of the same name for Swift. It
+  is recommended to add shorthands to your Obj-C test helper header. The
+  rest of this document assumes that shorthands are used.
+* `^AsyncBlock` is replaced by `waitUntil`. See example for usage.
 
 ## FEATURES
 
+* Support for both Objective-C & Swift.
 * RSpec-like BDD DSL
-* Super quick and easy to set up
-* Runs on top of XCTest
+* Quick and easy set up
+* Built on top of XCTest
 * Excellent Xcode integration
 
 ## SCREENSHOT
@@ -44,7 +49,7 @@ or
 2. Run `rake` in project root to build.
 3. Add a "Cocoa/Cocoa Touch Unit Testing Bundle" target if you don't already have one.
 4. Copy and add all header files in `products` folder to the Test target in your Xcode project.
-5. For **OS X projects**, copy and add `libSpecta-macosx.a` in `products` folder to the Test target in your Xcode project.  
+5. For **OS X projects**, copy and add `libSpecta-macosx.a` in `products` folder to the Test target in your Xcode project.
    For **iOS projects**, copy and add `libSpecta-ios-universal.a` in `products` folder to the Test target in your Xcode project.
 6. Add `-ObjC` and `-all_load` to the "Other Linker Flags" build setting for the Spec/Test target in your Xcode project.
 7. Add the following to your test code.
