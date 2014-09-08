@@ -10,4 +10,4 @@ extern NSString * const SPTCurrentSpecKey;
 #define SPTReturnUnlessBlockOrNil(block) if ((block) && !SPTIsBlock((block))) return;
 #define SPTIsBlock(obj) [(obj) isKindOfClass:NSClassFromString(@"NSBlock")]
 
-BOOL spt_isTestCaseClass(Class aClass);
+BOOL spt_isSpecClass(Class aClass);

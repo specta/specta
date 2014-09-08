@@ -2,6 +2,7 @@
 #import "XCTestCase+Specta.h"
 #import "SPTSpec.h"
 #import "SPTExample.h"
+#import "SPTSharedExampleGroups.h"
 #import "XCTest+Private.h"
 
 @interface XCTestCase (xct_allSubclasses)
@@ -19,9 +20,15 @@
 }
 
 + (NSArray *)spt_allSubclasses_swizzle {
-  NSMutableArray *subclasses = [[self spt_allSubclasses_swizzle] mutableCopy]; // call original
-  [subclasses removeObject:[SPTSpec class]];
-  return subclasses;
+  NSArray *subclasses = [self spt_allSubclasses_swizzle]; // call original
+  NSMutableArray *filtered = [NSMutableArray arrayWithCapacity:[subclasses count]];
+  // exclude SPTSpec base class and all subclasses of SPTSharedExampleGroups
+  for (id subclass in subclasses) {
+    if (subclass != [SPTSpec class] && ![subclass isKindOfClass:[SPTSharedExampleGroups class]]) {
+      [filtered addObject:subclass];
+    }
+  }
+  return filtered;
 }
 
 - (void)spt_handleException:(NSException *)exception {

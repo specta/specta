@@ -28,7 +28,7 @@ BOOL initialized = NO;
           klass = classes[i];
           superClass = class_getSuperclass(klass);
           if (superClass == SPTSharedExampleGroupsClass) {
-            [klass defineSharedExampleGroups];
+            [[[klass alloc] init] sharedExampleGroups];
           }
         }
 
@@ -53,21 +53,21 @@ BOOL initialized = NO;
   return globalSharedExampleGroups[name];
 }
 
-+ (void)defineSharedExampleGroups {}
+- (void)sharedExampleGroups {}
 
-+ (void)spt_handleException:(NSException *)exception {
+- (void)spt_handleException:(NSException *)exception {
   [SPTCurrentSpec spt_handleException:exception];
 }
 
-+ (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected {
+- (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected {
   [SPTCurrentSpec recordFailureWithDescription:description inFile:filename atLine:lineNumber expected:expected];
 }
 
-+ (void)_recordUnexpectedFailureWithDescription:(NSString *)description exception:(NSException *)exception {
+- (void)_recordUnexpectedFailureWithDescription:(NSString *)description exception:(NSException *)exception {
   [SPTCurrentSpec _recordUnexpectedFailureWithDescription:description exception:exception];
 }
 
-+ (_XCTestCaseImplementation *)internalImplementation {
+- (_XCTestCaseImplementation *)internalImplementation {
   return [SPTCurrentSpec internalImplementation];
 }
 

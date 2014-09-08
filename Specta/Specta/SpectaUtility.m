@@ -5,7 +5,7 @@
 NSString * const SPTCurrentTestSuiteKey = @"SPTCurrentTestSuite";
 NSString * const SPTCurrentSpecKey = @"SPTCurrentSpec";
 
-BOOL spt_isTestCaseClass(Class aClass) {
+BOOL spt_isSpecClass(Class aClass) {
   Class superclass = class_getSuperclass(aClass);
   while (superclass != Nil) {
     if (superclass == [SPTSpec class]) {

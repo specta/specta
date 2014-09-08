@@ -62,7 +62,7 @@
 
       for (int classIndex = 0; classIndex < numberOfClasses; classIndex++) {
         Class aClass = classes[classIndex];
-        if (spt_isTestCaseClass(aClass)) {
+        if (spt_isSpecClass(aClass)) {
           [specClasses addObject:aClass];
         }
       }

@@ -68,7 +68,7 @@ void setAsyncSpecTimeout(NSTimeInterval timeout);
 @interface name##SharedExampleGroups : SPTSharedExampleGroups \
 @end \
 @implementation name##SharedExampleGroups \
-+ (void)defineSharedExampleGroups {
+- (void)sharedExampleGroups {
 
 #define _SPTSharedExampleGroupsEnd \
 } \
