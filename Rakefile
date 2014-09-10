@@ -1,41 +1,56 @@
 require 'tmpdir'
 
+WORKSPACE = 'Specta.xcworkspace'
+CONFIGURATION = 'Release'
+
 def execute(command, stdout=nil)
   puts "Running #{command}..."
   command += " > #{stdout}" if stdout
   system(command) or raise "** BUILD FAILED **"
 end
 
-def xcodebuild(target, sdk, configuration='Release')
-  "xcodebuild -target #{target} -sdk #{sdk} -configuration #{configuration}"
+def build(scheme, sdk)
+  execute "xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} -sdk #{sdk} -configuration #{CONFIGURATION} SYMROOT=build"
+end
+
+def clean(scheme)
+  execute "xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} clean"
 end
 
 desc 'clean'
 task :clean do |t|
   puts '=== CLEAN ==='
-  execute "xcodebuild -alltargets clean"
+  clean('Specta')
+  clean('Specta-iOS')
 end
 
 desc 'build'
 task :build => :clean do |t|
   puts "=== BUILD ==="
-  configuration = 'Release'
-  execute xcodebuild('Specta-OSX', 'macosx', configuration)
-  execute xcodebuild('Specta-iOS', 'iphonesimulator', configuration)
-  execute xcodebuild('Specta-iOS', 'iphoneos', configuration)
-  macosx_binary = "build/#{configuration}/libSpecta-OSX.a"
-  iphoneos_binary = "build/#{configuration}-iphoneos/libSpecta-ios.a"
-  iphonesimulator_binary = "build/#{configuration}-iphonesimulator/libSpecta-ios.a"
-  universal_binary = "build/libSpecta-ios-universal.a"
-  puts "=== GENERATE UNIVERSAL iOS BINARY (Device/Simulator) ==="
-  execute "lipo -create '#{iphoneos_binary}' '#{iphonesimulator_binary}' -output '#{universal_binary}'"
+  build('Specta', 'macosx')
+  build('Specta-iOS', 'iphonesimulator')
+  build('Specta-iOS', 'iphoneos')
+
+  macosx_binary = "Specta/build/#{CONFIGURATION}/Specta.framework"
+  iphoneos_binary = "Specta/build/#{CONFIGURATION}-iphoneos/Specta.framework"
+  iphonesimulator_binary = "Specta/build/#{CONFIGURATION}-iphonesimulator/Specta.framework"
+  universal_binary = "Specta/build/#{CONFIGURATION}-ios-universal/Specta.framework"
+
+  puts "\n=== GENERATE UNIVERSAL iOS BINARY (Device/Simulator) ==="
+  execute "yes | rm -rf '#{universal_binary}'"
+  execute "mkdir -p 'Specta/build/#{CONFIGURATION}-ios-universal'"
+  execute "cp -a '#{iphoneos_binary}' '#{universal_binary}'"
+  execute "lipo -create '#{iphoneos_binary}'/Specta '#{iphonesimulator_binary}'/Specta -output '#{universal_binary}'/Specta"
+
+  puts "\n=== CODESIGN ==="
+  execute "/usr/bin/codesign --force --sign 'iPhone Developer' --resource-rules='#{universal_binary}'/ResourceRules.plist '#{universal_binary}'"
+
   puts "\n=== COPY PRODUCTS ==="
-  execute "yes | rm -f products/*.h products/*.a products/LICENSE products/README.md"
-  execute "cp #{macosx_binary} products/libSpecta-macosx.a"
-  execute "mv #{universal_binary} products/"
-  execute "cp build/#{configuration}/*.h products/"
-  execute "cp LICENSE products/"
-  execute "cp README.md products/"
+  execute "yes | rm -rf Products"
+  execute "mkdir -p Products/ios"
+  execute "mkdir -p Products/osx"
+  execute "mv #{macosx_binary} Products/osx"
+  execute "mv #{universal_binary} Products/ios"
   puts "\n** BUILD SUCCEEDED **"
 end
 

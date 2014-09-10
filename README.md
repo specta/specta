@@ -6,10 +6,6 @@ A light-weight TDD / BDD framework for Objective-C & Swift.
 
 ## BREAKING CHANGES IN 0.3
 
-* All Obj-C global functions are now prefixed with `spt_`. This is to
-  provide unprefixed versions functions of the same name for Swift. It
-  is recommended to add shorthands to your Obj-C test helper header. The
-  rest of this document assumes that shorthands are used.
 * `^AsyncBlock` is replaced by `waitUntil`. See example for usage.
 
 ## FEATURES
@@ -48,14 +44,14 @@ or
 1. Clone from Github.
 2. Run `rake` in project root to build.
 3. Add a "Cocoa/Cocoa Touch Unit Testing Bundle" target if you don't already have one.
-4. Copy and add all header files in `products` folder to the Test target in your Xcode project.
-5. For **OS X projects**, copy and add `libSpecta-macosx.a` in `products` folder to the Test target in your Xcode project.
-   For **iOS projects**, copy and add `libSpecta-ios-universal.a` in `products` folder to the Test target in your Xcode project.
-6. Add `-ObjC` and `-all_load` to the "Other Linker Flags" build setting for the Spec/Test target in your Xcode project.
+4. Copy and add all header files in `Products` folder to the Test target in your Xcode project.
+5. For **OS X projects**, copy and add `Specta.framework` in `Products/osx` folder to the test target in your Xcode project.
+   For **iOS projects**, copy and add `Specta.framework` in `Products/ios` folder to the test target in your Xcode project.
+6. Add `-ObjC` and `-all_load` to the "Other Linker Flags" build setting for the test target in your Xcode project.
 7. Add the following to your test code.
 
 ```objective-c
-#import "Specta.h"
+#import <Specta/Specta.h>
 ```
 
 Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](http://github.com/specta/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
@@ -63,7 +59,7 @@ Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work
 ## EXAMPLE
 
 ```objective-c
-#import "Specta.h"
+#import <Specta/Specta.h>
 
 SharedExamplesBegin(MySharedExamples)
 // Global shared examples are shared across all spec files.
