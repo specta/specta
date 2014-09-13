@@ -19,7 +19,7 @@
 }
 
 - (void)compile {
-  self.compiledExamples = [self.rootGroup compileExamplesWithNameStack:@[]];
+  self.compiledExamples = [self.rootGroup compileExamplesWithStack:@[]];
   for (SPTCompiledExample *example in self.compiledExamples) {
     if (example.focused) {
       self.hasFocusedExamples = YES;

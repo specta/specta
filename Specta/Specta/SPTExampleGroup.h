@@ -31,6 +31,6 @@
 - (void)addBeforeEachBlock:(SPTVoidBlock)block;
 - (void)addAfterEachBlock:(SPTVoidBlock)block;
 
-- (NSArray *)compileExamplesWithNameStack:(NSArray *)nameStack;
+- (NSArray *)compileExamplesWithStack:(NSArray *)stack;
 
 @end

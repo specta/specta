@@ -100,9 +100,9 @@
       do {
         i++;
         if (i == 1) {
-          sel = NSSelectorFromString([NSString stringWithFormat:@"test_%@", example.underscoreName]);
+          sel = NSSelectorFromString([NSString stringWithFormat:@"test_%@", example.testCaseName]);
         } else {
-          sel = NSSelectorFromString([NSString stringWithFormat:@"test_%@_%u", example.underscoreName, i]);
+          sel = NSSelectorFromString([NSString stringWithFormat:@"test_%@_%u", example.testCaseName, i]);
         }
       } while([self instancesRespondToSelector:sel]);
 

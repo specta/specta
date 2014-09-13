@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+
 extern NSString * const SPTCurrentTestSuiteKey;
 extern NSString * const SPTCurrentSpecKey;
 
@@ -11,3 +12,5 @@ extern NSString * const SPTCurrentSpecKey;
 #define SPTIsBlock(obj) [(obj) isKindOfClass:NSClassFromString(@"NSBlock")]
 
 BOOL spt_isSpecClass(Class aClass);
+NSString *spt_underscorize(NSString *string);
+NSArray *spt_map(NSArray *array, id (^block)(id obj, NSUInteger idx));

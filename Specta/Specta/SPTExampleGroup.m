@@ -252,19 +252,28 @@ static void runExampleBlock(void (^block)(), NSString *name) {
   return NO;
 }
 
-- (NSArray *)compileExamplesWithNameStack:(NSArray *)nameStack {
+- (NSArray *)compileExamplesWithStack:(NSArray *)stack {
   BOOL groupIsFocusedOrHasFocusedAncestor = [self isFocusedOrHasFocusedAncestor];
 
   NSArray *compiled = @[];
+
   for(id child in self.children) {
     if ([child isKindOfClass:[SPTExampleGroup class]]) {
       SPTExampleGroup *group = child;
-      NSArray *newNameStack = [nameStack arrayByAddingObject:group.name];
-      compiled = [compiled arrayByAddingObjectsFromArray:[group compileExamplesWithNameStack:newNameStack]];
+      NSArray *newStack = [stack arrayByAddingObject:group];
+      compiled = [compiled arrayByAddingObjectsFromArray:[group compileExamplesWithStack:newStack]];
+
     } else if ([child isKindOfClass:[SPTExample class]]) {
       SPTExample *example = child;
-      NSArray *newNameStack = [nameStack arrayByAddingObject:example.name];
-      NSString *compiledName = [newNameStack componentsJoinedByString:@" "];
+      NSArray *newStack = [stack arrayByAddingObject:example];
+
+      NSString *compiledName = [spt_map(newStack, ^id(id obj, NSUInteger idx) {
+        return [obj name];
+      }) componentsJoinedByString:@" "];
+
+      NSString *testCaseName = [spt_map(newStack, ^id(id obj, NSUInteger idx) {
+        return spt_underscorize([obj name]);
+      }) componentsJoinedByString:@"__"];
 
       SPTSpecBlock compiledBlock = example.pending ? nil : ^(SPTSpec *spec) {
         @synchronized(self.root) {
@@ -284,7 +293,7 @@ static void runExampleBlock(void (^block)(), NSString *name) {
           }
         }
       };
-      SPTCompiledExample *compiledExample = [[SPTCompiledExample alloc] initWithName:compiledName block:compiledBlock pending:example.pending focused:(groupIsFocusedOrHasFocusedAncestor || example.focused)];
+      SPTCompiledExample *compiledExample = [[SPTCompiledExample alloc] initWithName:compiledName testCaseName:testCaseName block:compiledBlock pending:example.pending focused:(groupIsFocusedOrHasFocusedAncestor || example.focused)];
       compiled = [compiled arrayByAddingObject:compiledExample];
     }
   }
