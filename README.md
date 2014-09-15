@@ -4,6 +4,9 @@ A light-weight TDD / BDD framework for Objective-C & Swift.
 
 ## WHAT'S NEW IN 0.3
 
+* Xcode 6 support.
+* Tests are shuffled by default. (Set environment variable `SPECTA_NO_SHUFFLE` with value `1` to disable this feature.)
+
 ## BREAKING CHANGES IN 0.3
 
 * `^AsyncBlock` is replaced by `waitUntil`. See example for usage.
@@ -143,6 +146,8 @@ SpecEnd
 * Do `#define SPT_CEDAR_SYNTAX` before importing Specta if you prefer to write `SPEC_BEGIN` and `SPEC_END` instead of `SpecBegin` and `SpecEnd`.
 * Prepend `f` to your `describe`, `context`, `example`, `it`, and `specify` to set focus on examples or groups. When specs are focused, all unfocused specs are skipped.
 * To use original XCTest reporter, set an environment variable named `SPECTA_REPORTER_CLASS` to `SPTXCTestReporter` in your test scheme.
+* Set an environment variable `SPECTA_NO_SHUFFLE` with value `1` to disable test shuffling.
+* Set an environment variable `SPECTA_SEED` to specify the random seed for test shuffling.
 
 ## CONTRIBUTION GUIDELINES
 

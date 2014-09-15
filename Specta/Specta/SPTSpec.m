@@ -116,11 +116,11 @@
 
 + (void)spt_setCurrentTestSuite {
   SPTTestSuite *testSuite = [self spt_testSuite];
-  [[NSThread currentThread] threadDictionary][SPTCurrentTestSuiteKey] = testSuite;
+  [[NSThread currentThread] threadDictionary][spt_kCurrentTestSuiteKey] = testSuite;
 }
 
 + (void)spt_unsetCurrentTestSuite {
-  [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentTestSuiteKey];
+  [[[NSThread currentThread] threadDictionary] removeObjectForKey:spt_kCurrentTestSuiteKey];
 }
 
 + (void)spt_setCurrentTestSuiteFileName:(NSString *)fileName lineNumber:(NSUInteger)lineNumber {
@@ -132,7 +132,7 @@
 - (void)spec {}
 
 - (void)spt_runExample:(SPTCompiledExample *)example {
-  [[NSThread currentThread] threadDictionary][SPTCurrentSpecKey] = self;
+  [[NSThread currentThread] threadDictionary][spt_kCurrentSpecKey] = self;
 
   if (example.pending) {
     self.spt_pending = YES;
@@ -145,7 +145,7 @@
     }
   }
 
-  [[[NSThread currentThread] threadDictionary] removeObjectForKey:SPTCurrentSpecKey];
+  [[[NSThread currentThread] threadDictionary] removeObjectForKey:spt_kCurrentSpecKey];
 }
 
 #pragma mark - XCTestCase overrides
@@ -192,7 +192,7 @@
     [invocations addObject:inv];
   }
 
-  return invocations;
+  return spt_shuffle(invocations);
 }
 
 - (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected {

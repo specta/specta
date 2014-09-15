@@ -3,6 +3,7 @@
 #import "SPTSpec.h"
 #import "SPTExample.h"
 #import "SPTSharedExampleGroups.h"
+#import "SpectaUtility.h"
 #import "XCTest+Private.h"
 
 @interface XCTestCase (xct_allSubclasses)
@@ -28,7 +29,7 @@
       [filtered addObject:subclass];
     }
   }
-  return filtered;
+  return spt_shuffle(filtered);
 }
 
 - (void)spt_handleException:(NSException *)exception {
