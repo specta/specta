@@ -4,8 +4,8 @@ A light-weight TDD / BDD framework for Objective-C.
 
 ## WHAT'S NEW IN 0.3
 
-* Xcode 6 support.
-* Tests are shuffled by default. (Set environment variable `SPECTA_NO_SHUFFLE` with value `1` to disable this feature.)
+* Xcode 6 / iOS 8 support.
+* Option to shuffle tests. (Set environment variable `SPECTA_SHUFFLE` with value `1` to enable this feature.)
 
 ## BREAKING CHANGES IN 0.3
 
@@ -149,6 +149,10 @@ SpecEnd
 * To use original XCTest reporter, set an environment variable named `SPECTA_REPORTER_CLASS` to `SPTXCTestReporter` in your test scheme.
 * Set an environment variable `SPECTA_NO_SHUFFLE` with value `1` to disable test shuffling.
 * Set an environment variable `SPECTA_SEED` to specify the random seed for test shuffling.
+
+## RUNNING TESTS IN COMMAND LINE
+
+* Use Facebook's [xctool](https://github.com/facebook/xctool/).
 
 ## CONTRIBUTION GUIDELINES
 

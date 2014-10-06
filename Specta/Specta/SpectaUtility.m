@@ -50,7 +50,7 @@ NSArray *spt_map(NSArray *array, id (^block)(id obj, NSUInteger idx)) {
 }
 
 NSArray *spt_shuffle(NSArray *array) {
-  if ([[[[NSProcessInfo processInfo] environment] objectForKey:@"SPECTA_NO_SHUFFLE"] isEqualToString:@"1"]) {
+  if (![[[[NSProcessInfo processInfo] environment] objectForKey:@"SPECTA_SHUFFLE"] isEqualToString:@"1"]) {
     return array;
   }
   spt_seed();
