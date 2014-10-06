@@ -2,12 +2,12 @@
 
 A light-weight TDD / BDD framework for Objective-C.
 
-## WHAT'S NEW IN 0.3
+## WHAT'S NEW IN 0.3.0 beta 1
 
 * Xcode 6 / iOS 8 support.
 * Option to shuffle tests. (Set environment variable `SPECTA_SHUFFLE` with value `1` to enable this feature.)
 
-## BREAKING CHANGES IN 0.3
+## BREAKING CHANGES IN 0.3.0 beta 1
 
 * `^AsyncBlock` is replaced by `waitUntil`. See example for usage.
 
@@ -33,8 +33,8 @@ target :MyApp do
 end
 
 target :MyAppTests do
-  pod 'Specta',      '~> 0.2.1'
-  # pod 'Expecta',     '~> 0.2.3'   # expecta matchers
+  pod 'Specta',      '~> 0.3.0.beta1'
+  # pod 'Expecta',     '~> 0.3.1'   # expecta matchers
   # pod 'OCMock',      '~> 2.2.1'   # OCMock
   # pod 'OCHamcrest',  '~> 3.0.0'   # hamcrest matchers
   # pod 'OCMockito',   '~> 1.0.0'   # OCMock
