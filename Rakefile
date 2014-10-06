@@ -1,7 +1,11 @@
 require 'tmpdir'
+require 'pathname'
 
 WORKSPACE = 'Specta.xcworkspace'
 CONFIGURATION = 'Release'
+
+NO_COLOR= "\033[0m"
+GREEN_COLOR = "\033[32;01m"
 
 def execute(command, stdout=nil)
   puts "Running #{command}..."
@@ -9,48 +13,81 @@ def execute(command, stdout=nil)
   system(command) or raise "** BUILD FAILED **"
 end
 
-def build(scheme, sdk)
+def build(scheme, sdk, product)
   execute "xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} -sdk #{sdk} -configuration #{CONFIGURATION} SYMROOT=build"
+  build_dir = "#{CONFIGURATION}#{sdk == 'macosx' ? '' : "-#{sdk}"}"
+  "Specta/build/#{build_dir}/#{product}"
+end
+
+def build_framework(scheme, sdk)
+  build(scheme, sdk, 'Specta.framework')
+end
+
+def build_static_lib(scheme, sdk)
+  build(scheme, sdk, 'libSpecta.a')
+end
+
+def lipo(bin1, bin2, output)
+  execute "lipo -create '#{bin1}' '#{bin2}' -output '#{output}'"
 end
 
 def clean(scheme)
   execute "xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} clean"
 end
 
+def puts_green(str)
+  puts "#{GREEN_COLOR}#{str}#{NO_COLOR}"
+end
+
 desc 'clean'
 task :clean do |t|
-  puts '=== CLEAN ==='
+  puts_green '=== CLEAN ==='
   clean('Specta')
   clean('Specta-iOS')
 end
 
 desc 'build'
 task :build => :clean do |t|
-  puts "=== BUILD ==="
-  build('Specta', 'macosx')
-  build('Specta-iOS', 'iphonesimulator')
-  build('Specta-iOS', 'iphoneos')
+  puts_green "=== BUILD ==="
 
-  macosx_binary = "Specta/build/#{CONFIGURATION}/Specta.framework"
-  iphoneos_binary = "Specta/build/#{CONFIGURATION}-iphoneos/Specta.framework"
-  iphonesimulator_binary = "Specta/build/#{CONFIGURATION}-iphonesimulator/Specta.framework"
-  universal_binary = "Specta/build/#{CONFIGURATION}-ios-universal/Specta.framework"
+  osx_framework     = build_framework('Specta', 'macosx')
+  ios_sim_framework = build_framework('Specta-iOS', 'iphonesimulator')
+  ios_framework     = build_framework('Specta-iOS', 'iphoneos')
 
-  puts "\n=== GENERATE UNIVERSAL iOS BINARY (Device/Simulator) ==="
-  execute "yes | rm -rf '#{universal_binary}'"
-  execute "mkdir -p 'Specta/build/#{CONFIGURATION}-ios-universal'"
-  execute "cp -a '#{iphoneos_binary}' '#{universal_binary}'"
-  execute "lipo -create '#{iphoneos_binary}'/Specta '#{iphonesimulator_binary}'/Specta -output '#{universal_binary}'/Specta"
+  osx_static_lib     = build_static_lib('libSpecta', 'macosx')
+  ios_sim_static_lib = build_static_lib('libSpecta-iOS', 'iphonesimulator')
+  ios_static_lib     = build_static_lib('libSpecta-iOS', 'iphoneos')
 
-  puts "\n=== CODESIGN ==="
-  execute "/usr/bin/codesign --force --sign 'iPhone Developer' --resource-rules='#{universal_binary}'/ResourceRules.plist '#{universal_binary}'"
+  osx_build_path = Pathname.new(osx_framework).parent.to_s
+  ios_build_path = Pathname.new(ios_framework).parent.to_s
+  ios_univ_build_path = "Specta/build/#{CONFIGURATION}-ios-universal"
 
-  puts "\n=== COPY PRODUCTS ==="
+  puts_green "\n=== GENERATE UNIVERSAL iOS BINARY (Device/Simulator) ==="
+  execute "mkdir -p '#{ios_univ_build_path}'"
+  execute "cp -a '#{ios_framework}' '#{ios_univ_build_path}'"
+  execute "cp -a '#{ios_static_lib}' '#{ios_univ_build_path}'"
+
+  ios_framework_name = Pathname.new(ios_framework).basename.to_s
+  ios_static_lib_name = Pathname.new(ios_static_lib).basename.to_s
+
+  ios_univ_framework  = File.join(ios_univ_build_path, ios_framework_name)
+  ios_univ_static_lib = File.join(ios_univ_build_path, ios_static_lib_name)
+
+  lipo("#{ios_framework}/Specta", "#{ios_sim_framework}/Specta", "#{ios_univ_framework}/Specta")
+  lipo(ios_static_lib, ios_sim_static_lib, ios_univ_static_lib)
+
+  puts_green "\n=== CODESIGN iOS FRAMEWORK ==="
+  execute "/usr/bin/codesign --force --sign 'iPhone Developer' --resource-rules='#{ios_univ_framework}'/ResourceRules.plist '#{ios_univ_framework}'"
+
+  puts_green "\n=== COPY PRODUCTS ==="
   execute "yes | rm -rf Products"
   execute "mkdir -p Products/ios"
   execute "mkdir -p Products/osx"
-  execute "mv #{macosx_binary} Products/osx"
-  execute "mv #{universal_binary} Products/ios"
+  execute "cp -a #{osx_framework} Products/osx"
+  execute "cp -a #{osx_static_lib} Products/osx"
+  execute "cp -a #{ios_univ_framework} Products/ios"
+  execute "cp -a #{ios_univ_static_lib} Products/ios"
+  execute "cp -a #{osx_build_path}/usr/local/include/* Products"
   puts "\n** BUILD SUCCEEDED **"
 end
 

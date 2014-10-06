@@ -1,6 +1,6 @@
 # Specta
 
-A light-weight TDD / BDD framework for Objective-C & Swift.
+A light-weight TDD / BDD framework for Objective-C.
 
 ## WHAT'S NEW IN 0.3
 
@@ -13,7 +13,7 @@ A light-weight TDD / BDD framework for Objective-C & Swift.
 
 ## FEATURES
 
-* Support for both Objective-C & Swift.
+* Support for both Objective-C.
 * RSpec-like BDD DSL
 * Quick and easy set up
 * Built on top of XCTest
@@ -42,7 +42,7 @@ target :MyAppTests do
 end
 ```
 
-or
+or:
 
 1. Clone from Github.
 2. Run `rake` in project root to build.
@@ -50,11 +50,12 @@ or
 4. Copy and add all header files in `Products` folder to the Test target in your Xcode project.
 5. For **OS X projects**, copy and add `Specta.framework` in `Products/osx` folder to the test target in your Xcode project.
    For **iOS projects**, copy and add `Specta.framework` in `Products/ios` folder to the test target in your Xcode project.
+   You can alternatively use `libSpecta.a`, if you prefer to add it as a static library for your project. (iOS 7 and below require this)
 6. Add `-ObjC` and `-all_load` to the "Other Linker Flags" build setting for the test target in your Xcode project.
 7. Add the following to your test code.
 
 ```objective-c
-#import <Specta/Specta.h>
+#import <Specta/Specta.h> // #import "Specta.h" if you're using cocoapods or libSpecta.a
 ```
 
 Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](http://github.com/specta/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
@@ -62,7 +63,7 @@ Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work
 ## EXAMPLE
 
 ```objective-c
-#import <Specta/Specta.h>
+#import <Specta/Specta.h> // #import "Specta.h" if you're using cocoapods or libSpecta.a
 
 SharedExamplesBegin(MySharedExamples)
 // Global shared examples are shared across all spec files.
