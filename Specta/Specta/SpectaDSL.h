@@ -53,8 +53,12 @@ void setAsyncSpecTimeout(NSTimeInterval timeout);
 
 // ----------------------------------------------------------------------------
 
+#ifndef SPT_SUBCLASS
+#define SPT_SUBCLASS SPTSpec
+#endif
+
 #define _SPTSpecBegin(name, file, line) \
-@interface name##Spec : SPTSpec \
+@interface name##Spec : SPT_SUBCLASS \
 @end \
 @implementation name##Spec \
 - (void)spec { \

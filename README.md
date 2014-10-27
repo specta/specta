@@ -154,6 +154,14 @@ SpecEnd
 
 * Use Facebook's [xctool](https://github.com/facebook/xctool/).
 
+## INJECTING A CUSTOM BASE SPEC CLASS
+
+The base class for all specs is `SPTSpec`. If you would like to use your own base class, for example to inject a global `setUp`/`tearDown` behavior, your base class should extend `SPTSpec`.
+
+In the precompiled header for your test target, define the SPT_SUBCLASS macro to point to your base class (in this case `MyBaseSpec`)
+
+    #define SPT_SUBCLASS MyBaseSpec
+
 ## CONTRIBUTION GUIDELINES
 
 * Please use only spaces and indent 2 spaces at a time.
