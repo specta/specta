@@ -33,7 +33,7 @@ target :MyApp do
 end
 
 target :MyAppTests do
-  pod 'Specta',      '~> 0.3.0.beta1'
+  pod 'Specta', :git => 'https://github.com/specta/specta.git'
   # pod 'Expecta',     '~> 0.3.1'   # expecta matchers
   # pod 'OCMock',      '~> 2.2.1'   # OCMock
   # pod 'OCHamcrest',  '~> 3.0.0'   # hamcrest matchers
