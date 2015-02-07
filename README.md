@@ -2,6 +2,9 @@
 
 A light-weight TDD / BDD framework for Objective-C.
 
+### Status
+[![Build Status](https://travis-ci.org/paweldudek/specta.png)](https://travis-ci.org/paweldudek/specta)
+
 ## WHAT'S NEW IN 0.3.0 beta 1
 
 * Xcode 6 / iOS 8 support.
