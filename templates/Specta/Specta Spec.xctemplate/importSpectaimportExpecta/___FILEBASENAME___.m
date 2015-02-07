@@ -6,6 +6,9 @@
 //___COPYRIGHT___
 //
 
+#import <Specta/Specta.h>
+#import <Expecta/Expecta.h>
+
 #import "___VARIABLE_specClass:identifier___.h"
 
 SpecBegin(___VARIABLE_specClass:identifier___)
