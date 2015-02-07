@@ -13,6 +13,10 @@ def execute(command, stdout=nil)
   system(command) or raise "** BUILD FAILED **"
 end
 
+def test(scheme)
+  execute "xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} -configuration #{CONFIGURATION} test SYMROOT=build | xcpretty -c && exit ${PIPESTATUS[0]}"
+end
+
 def build(scheme, sdk, product)
   execute "xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} -sdk #{sdk} -configuration #{CONFIGURATION} SYMROOT=build"
   build_dir = "#{CONFIGURATION}#{sdk == 'macosx' ? '' : "-#{sdk}"}"
@@ -112,6 +116,16 @@ namespace 'templates' do
 
   desc "Remove and re-install Specta templates"
   task :reinstall => [:uninstall, :install]
+end
+
+namespace 'specs' do
+  task :ios => :clean do |t|
+    test("Specta-iOS")
+  end
+
+  task :osx => :clean do |t|
+    test("Specta")
+  end
 end
 
 task :default => [:build]
