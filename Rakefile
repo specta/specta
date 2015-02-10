@@ -43,6 +43,11 @@ def puts_green(str)
   puts "#{GREEN_COLOR}#{str}#{NO_COLOR}"
 end
 
+desc 'Run tests'
+task :test do |t|
+  execute "xcodebuild test -workspace Specta.xcworkspace -scheme Specta"
+end
+
 desc 'clean'
 task :clean do |t|
   puts_green '=== CLEAN ==='
@@ -97,7 +102,7 @@ end
 
 namespace 'templates' do
   install_directory = File.expand_path("~/Library/Developer/Xcode/Templates/File Templates/Specta")
-  templates_directory = File.expand_path("../templates/Specta", __FILE__)
+  templates_directory = File.expand_path("../misc/Specta", __FILE__)
 
   desc "Uninstall Specta templates"
   task :uninstall do

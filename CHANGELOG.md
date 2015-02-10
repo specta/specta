@@ -1,4 +1,16 @@
-V0.2.1
+v0.3.2
+======
+
+* Objective-C++ support
+
+v0.3.1
+======
+
+* Xcode 6 / iOS 8 support.
+* Option to shuffle tests. (Set environment variable `SPECTA_SHUFFLE` with value `1` to enable this feature.)
+* BREAKING: `^AsyncBlock` is replaced by `waitUntil`. See example in the README for usage.
+
+v0.2.1
 ======
 
 * Workaround for Xcode truncating console output when tests run too quickly. [petejkim]
