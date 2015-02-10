@@ -14,7 +14,7 @@ A light-weight TDD / BDD framework for Objective-C.
 
 ## SCREENSHOT
 
-![Specta Screenshot](http://github.com/specta/specta/raw/master/misc/specta_screenshot.jpg)
+![Specta Screenshot](https://raw.githubusercontent.com/specta/specta/master/misc/specta_screenshot.jpg)
 
 ## SETUP
 
