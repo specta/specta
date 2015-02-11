@@ -24,6 +24,14 @@ static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
       Class aClass = classes[classIndex];
 
       if (class_conformsToProtocol(aClass, @protocol(SPTExcludeGlobalBeforeAfterEach)) == NO) {
+        // If you're seeing a crash here then your probably have to blacklist crashing class from global before/after hooks.
+        // Specta supports blacklisting specific Classes from being treated as before/after helper classes
+        // to add an new class to the list add the following lines to a project initialiser ( e.g. App Delegate callbacks )
+        //
+        //  Class myClass = NSClassFromString(@"MyClass");
+        //  class_addProtocol(myClass, @protocol(SPTExcludeGlobalBeforeAfterEach));
+        //
+        //  You can also create a category for that class which implements SPTExcludeGlobalBeforeAfterEach.
         Method globalMethod = class_getClassMethod(aClass, classMethodSelector);
         if (globalMethod) {
           [classesWithClassMethod addObject:aClass];
