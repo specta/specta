@@ -1,3 +1,7 @@
+Upcoming
+======
+* Makes it easy to skip the beforeAll/afterAll functions for specific classes
+
 v0.3.2
 ======
 
