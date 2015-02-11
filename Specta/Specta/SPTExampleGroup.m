@@ -4,11 +4,16 @@
 #import "SPTSpec.h"
 #import "SpectaUtility.h"
 #import "XCTest+Private.h"
+#import "SPTExcludeGlobalBeforeAfterEach.h"
 #import <libkern/OSAtomic.h>
 #import <objc/runtime.h>
 
 static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
   NSMutableArray *classesWithClassMethod = [[NSMutableArray alloc] init];
+
+  //TODO: need a better place for this
+  Class accessbilitySafeCategoryClass = NSClassFromString(@"UIAccessibilitySafeCategory__NSObject");
+  class_addProtocol(accessbilitySafeCategoryClass, @protocol(SPTExcludeGlobalBeforeAfterEach));
 
   int numberOfClasses = objc_getClassList(NULL, 0);
   if (numberOfClasses > 0) {
@@ -18,7 +23,7 @@ static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
     for(int classIndex = 0; classIndex < numberOfClasses; classIndex++) {
       Class aClass = classes[classIndex];
 
-      if (strcmp("UIAccessibilitySafeCategory__NSObject", class_getName(aClass))) {
+      if (class_conformsToProtocol(aClass, @protocol(SPTExcludeGlobalBeforeAfterEach)) == NO) {
         Method globalMethod = class_getClassMethod(aClass, classMethodSelector);
         if (globalMethod) {
           [classesWithClassMethod addObject:aClass];

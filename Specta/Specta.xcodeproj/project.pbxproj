@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B27A96FD931E25BE3F7E615E /* SPTExcludeGlobalBeforeAfterEach.h in Headers */ = {isa = PBXBuildFile; fileRef = B27A9A666AF7370DC4D7F211 /* SPTExcludeGlobalBeforeAfterEach.h */; };
 		E917141D19DF0A3100921712 /* SpectaDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AB9B1968E13800A592DF /* SpectaDSL.m */; };
 		E917141E19DF0A3100921712 /* SpectaDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AB9B1968E13800A592DF /* SpectaDSL.m */; };
 		E917141F19DF0A3500921712 /* SpectaUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AB9E1968E13800A592DF /* SpectaUtility.m */; };
@@ -260,6 +261,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B27A9A666AF7370DC4D7F211 /* SPTExcludeGlobalBeforeAfterEach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTExcludeGlobalBeforeAfterEach.h; sourceTree = "<group>"; };
 		E91713F119DF07BB00921712 /* libSpecta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpecta.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E917140919DF07D700921712 /* libSpecta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpecta.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9288BE619BE182900DE96FA /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -435,6 +437,7 @@
 				E963ABAD1968E13800A592DF /* XCTest+Private.h */,
 				E963ABAE1968E13800A592DF /* XCTestCase+Specta.h */,
 				E963ABAF1968E13800A592DF /* XCTestCase+Specta.m */,
+				B27A9A666AF7370DC4D7F211 /* SPTExcludeGlobalBeforeAfterEach.h */,
 			);
 			path = Specta;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				E963ABC41968E13800A592DF /* SPTCompiledExample.h in Headers */,
 				E963ABB41968E13800A592DF /* Specta.h in Headers */,
 				E963ABBA1968E13800A592DF /* SpectaTypes.h in Headers */,
+				B27A96FD931E25BE3F7E615E /* SPTExcludeGlobalBeforeAfterEach.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
