@@ -1,6 +1,7 @@
 Upcoming
 ======
 * Makes it easy to skip the beforeAll/afterAll functions for specific classes
+* All failures now call back on the main thread [neonacho]
 
 v0.3.2
 ======
