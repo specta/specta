@@ -35,6 +35,10 @@ def lipo(bin1, bin2, output)
   execute "xcrun lipo -create '#{bin1}' '#{bin2}' -output '#{output}'"
 end
 
+def code_signing_identity
+  ENV['SPT_CODE_SIGNING_IDENTITY'] || 'iPhone Developer'
+end
+
 def clean(scheme)
   execute "xcrun xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} clean"
 end
@@ -86,7 +90,7 @@ task :build => :clean do |t|
   lipo(ios_static_lib, ios_sim_static_lib, ios_univ_static_lib)
 
   puts_green "\n=== CODESIGN iOS FRAMEWORK ==="
-  execute "xcrun codesign --force --sign 'iPhone Developer' --resource-rules='#{ios_univ_framework}'/ResourceRules.plist '#{ios_univ_framework}'"
+  execute "xcrun codesign --force --sign \"#{code_signing_identity}\" --resource-rules='#{ios_univ_framework}'/ResourceRules.plist '#{ios_univ_framework}'"
 
   puts_green "\n=== COPY PRODUCTS ==="
   execute "yes | rm -rf Products"
