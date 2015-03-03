@@ -14,11 +14,11 @@ def execute(command, stdout=nil)
 end
 
 def test(scheme)
-  execute "xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} -configuration #{CONFIGURATION} test SYMROOT=build | xcpretty -c && exit ${PIPESTATUS[0]}"
+  execute "xcrun xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} -configuration #{CONFIGURATION} test SYMROOT=build | xcpretty -c && exit ${PIPESTATUS[0]}"
 end
 
 def build(scheme, sdk, product)
-  execute "xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} -sdk #{sdk} -configuration #{CONFIGURATION} SYMROOT=build"
+  execute "xcrun xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} -sdk #{sdk} -configuration #{CONFIGURATION} SYMROOT=build"
   build_dir = "#{CONFIGURATION}#{sdk == 'macosx' ? '' : "-#{sdk}"}"
   "Specta/build/#{build_dir}/#{product}"
 end
@@ -32,11 +32,11 @@ def build_static_lib(scheme, sdk)
 end
 
 def lipo(bin1, bin2, output)
-  execute "lipo -create '#{bin1}' '#{bin2}' -output '#{output}'"
+  execute "xcrun lipo -create '#{bin1}' '#{bin2}' -output '#{output}'"
 end
 
 def clean(scheme)
-  execute "xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} clean"
+  execute "xcrun xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} clean"
 end
 
 def puts_green(str)
@@ -45,7 +45,7 @@ end
 
 desc 'Run tests'
 task :test do |t|
-  execute "xcodebuild test -workspace Specta.xcworkspace -scheme Specta"
+  execute "xcrun xcodebuild test -workspace Specta.xcworkspace -scheme Specta"
 end
 
 desc 'clean'
@@ -86,7 +86,7 @@ task :build => :clean do |t|
   lipo(ios_static_lib, ios_sim_static_lib, ios_univ_static_lib)
 
   puts_green "\n=== CODESIGN iOS FRAMEWORK ==="
-  execute "/usr/bin/codesign --force --sign 'iPhone Developer' --resource-rules='#{ios_univ_framework}'/ResourceRules.plist '#{ios_univ_framework}'"
+  execute "xcrun codesign --force --sign 'iPhone Developer' --resource-rules='#{ios_univ_framework}'/ResourceRules.plist '#{ios_univ_framework}'"
 
   puts_green "\n=== COPY PRODUCTS ==="
   execute "yes | rm -rf Products"
