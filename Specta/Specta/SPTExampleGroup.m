@@ -273,7 +273,7 @@ typedef NS_ENUM(NSInteger, SPTExampleGroupOrder) {
 
 - (void)runAfterAllHooks:(NSString *)compiledName {
   for (SPTExampleGroup *group in [self exampleGroupStackInOrder:SPTExampleGroupOrderInnermostFirst]) {
-    if (group.ranExampleCount + group.pendingExampleCount == group.exampleCount) {
+    if (group.ranExampleCount == group.exampleCount) {
       for (id afterAllBlock in group.afterAllArray) {
         runExampleBlock(afterAllBlock, [NSString stringWithFormat:@"%@ - after all block", compiledName]);
       }
@@ -321,7 +321,9 @@ typedef NS_ENUM(NSInteger, SPTExampleGroupOrder) {
       // Otherwise, run the example and all before and after hooks.
       SPTSpecBlock compiledBlock = example.pending ? ^(SPTSpec *spec){
         @synchronized(self.root) {
+          [self resetRanExampleCountIfNeeded];
           [self runBeforeAllHooks:compiledName];
+          [self incrementRanExampleCount];
           [self runAfterAllHooks:compiledName];
         }
       } : ^(SPTSpec *spec) {
