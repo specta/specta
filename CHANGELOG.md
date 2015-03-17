@@ -1,6 +1,6 @@
 v0.4
 ======
-* Makes it easy to skip the beforeAll/afterAll functions for specific classes
+* Makes it easy to skip the beforeEach/afterEach functions for specific classes
 * All failures now call back on the main thread [neonacho + J-Rojas]
 * ENV var to control signing [jmoody]
 * Run Xcode command line tools with xcrun [jmoody]
