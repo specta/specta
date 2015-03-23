@@ -20,22 +20,37 @@ A light-weight TDD / BDD framework for Objective-C.
 
 Use [CocoaPods](http://github.com/CocoaPods/CocoaPods) or [Set up manually](#setting-up-manually)
 
-```ruby
-target :MyApp do
-  # your app dependencies
-end
+### Cocoapods
 
-target :MyAppTests do
-  pod 'Specta', '~> 0.4'
-  # pod 'Expecta',     '~> 0.3'   # expecta matchers
-  # pod 'OCMock',      '~> 2.2'   # OCMock
-  # pod 'OCHamcrest',  '~> 3.0'   # hamcrest matchers
-  # pod 'OCMockito',   '~> 1.0'   # OCMock
-  # pod 'LRMocky',     '~> 0.9'   # LRMocky
-end
-```
+1. Add Specta to your project's `Podfile`:
 
-Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](http://github.com/specta/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
+	```ruby
+	target :MyApp do
+	  # your app dependencies
+	end
+
+	target :MyAppTests do
+	  pod 'Specta', '~> 0.4'
+	  # pod 'Expecta',     '~> 0.3'   # expecta matchers
+	  # pod 'OCMock',      '~> 2.2'   # OCMock
+	  # pod 'OCHamcrest',  '~> 3.0'   # hamcrest matchers
+	  # pod 'OCMockito',   '~> 1.0'   # OCMock
+	  # pod 'LRMocky',     '~> 0.9'   # LRMocky
+	end
+	```
+
+2. Run `pod update` or `pod install` in your project directory.
+
+### SETTING UP MANUALLY
+
+1. Clone from Github.
+2. Run `rake` in project root to build.
+3. Add a "Cocoa/Cocoa Touch Unit Testing Bundle" target if you don't already have one.
+4. Copy and add all header files in `Products` folder to the Test target in your Xcode project.
+5. For **OS X projects**, copy and add `Specta.framework` in `Products/osx` folder to the test target in your Xcode project.
+   For **iOS projects**, copy and add `Specta.framework` in `Products/ios` folder to the test target in your Xcode project.
+   You can alternatively use `libSpecta.a`, if you prefer to add it as a static library for your project. (iOS 7 and below require this)
+6. Add `-ObjC` and `-all_load` to the "Other Linker Flags" build setting for the test target in your Xcode project.
 
 ## EXAMPLE
 
@@ -130,16 +145,7 @@ SpecEnd
 * Set an environment variable `SPECTA_NO_SHUFFLE` with value `1` to disable test shuffling.
 * Set an environment variable `SPECTA_SEED` to specify the random seed for test shuffling.
 
-## SETTING UP MANUALLY
-
-1. Clone from Github.
-2. Run `rake` in project root to build.
-3. Add a "Cocoa/Cocoa Touch Unit Testing Bundle" target if you don't already have one.
-4. Copy and add all header files in `Products` folder to the Test target in your Xcode project.
-5. For **OS X projects**, copy and add `Specta.framework` in `Products/osx` folder to the test target in your Xcode project.
-   For **iOS projects**, copy and add `Specta.framework` in `Products/ios` folder to the test target in your Xcode project.
-   You can alternatively use `libSpecta.a`, if you prefer to add it as a static library for your project. (iOS 7 and below require this)
-6. Add `-ObjC` and `-all_load` to the "Other Linker Flags" build setting for the test target in your Xcode project.
+Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](http://github.com/specta/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
 
 ## RUNNING TESTS IN COMMAND LINE
 
