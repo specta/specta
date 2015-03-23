@@ -20,7 +20,7 @@ A light-weight TDD / BDD framework for Objective-C.
 
 Use [CocoaPods](http://github.com/CocoaPods/CocoaPods) or [Set up manually](#setting-up-manually)
 
-### Cocoapods
+### CocoaPods
 
 1. Add Specta to your project's `Podfile`:
 
