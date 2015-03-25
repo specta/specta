@@ -18,7 +18,7 @@ A light-weight TDD / BDD framework for Objective-C.
 
 ## SETUP
 
-Use [CocoaPods](http://github.com/CocoaPods/CocoaPods) or [Set up manually](#setting-up-manually)
+Use [CocoaPods](http://github.com/CocoaPods/CocoaPods), [Carthage](https://github.com/carthage/carthage) or [Set up manually](#setting-up-manually)
 
 ### CocoaPods
 
@@ -40,6 +40,18 @@ Use [CocoaPods](http://github.com/CocoaPods/CocoaPods) or [Set up manually](#set
 	```
 
 2. Run `pod update` or `pod install` in your project directory.
+
+### Carthage
+
+1. Add Specta to your project's `Cartfile.private`
+
+    ```
+    github "specta/specta" ~> 0.4
+    ```
+
+2. Run `carthage update` in your project directory
+3. Drag the appropriate `Specta.framework` for your platform (located in Carthage/Build/) into your application’s Xcode project, and add it to your test target(s).
+4. If you are building for iOS, a new `Run Script Phase` must be added to copy the framework. The instructions can be found on [Carthage's getting started instructions](https://github.com/carthage/carthage#getting-started)
 
 ### SETTING UP MANUALLY
 
