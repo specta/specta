@@ -3,8 +3,8 @@
  */
 #import <Foundation/Foundation.h>
 
-// This protocol is used for blacklisting classes for global beforeEach and afterEach blocks.
-// If you do not want a class to participate in those just add this protocol to a category and it will be
-// excluded.
+// This protocol was used for blacklisting classes for global beforeEach and afterEach blocks.
+// Now, instead, classes are whitelisted by implementing the SPTGlobalBeforeAfterEach protocol.
+__deprecated_msg("Please whitelist classes instead with the SPTGlobalBeforeAfterEach protocol")
 @protocol SPTExcludeGlobalBeforeAfterEach <NSObject>
 @end

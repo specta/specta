@@ -1,3 +1,8 @@
+Upcoming
+=======
+
+* BREAKING: Whitelist classes for inclusion in global beforeEach and afterEach hooks, instead of blacklisting for exclusion. See `SPTGlobalBeforeAfterEach` [wasnotrice]
+
 v0.4
 ======
 * Makes it easy to skip the beforeEach/afterEach functions for specific classes

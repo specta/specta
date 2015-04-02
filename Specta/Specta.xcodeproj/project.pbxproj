@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		078CBC441ACCFC94000BC9FF /* SPTGlobalBeforeAfterEach.h in Headers */ = {isa = PBXBuildFile; fileRef = 078CBC431ACCFC94000BC9FF /* SPTGlobalBeforeAfterEach.h */; };
 		B27A96FD931E25BE3F7E615E /* SPTExcludeGlobalBeforeAfterEach.h in Headers */ = {isa = PBXBuildFile; fileRef = B27A9A666AF7370DC4D7F211 /* SPTExcludeGlobalBeforeAfterEach.h */; };
 		D0D022261AB8B983000DC090 /* PendingSpecTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D022251AB8B983000DC090 /* PendingSpecTest5.m */; };
 		D0D022271AB8B983000DC090 /* PendingSpecTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D022251AB8B983000DC090 /* PendingSpecTest5.m */; };
@@ -263,6 +264,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		078CBC431ACCFC94000BC9FF /* SPTGlobalBeforeAfterEach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTGlobalBeforeAfterEach.h; sourceTree = "<group>"; };
 		B27A9A666AF7370DC4D7F211 /* SPTExcludeGlobalBeforeAfterEach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTExcludeGlobalBeforeAfterEach.h; sourceTree = "<group>"; };
 		D0D022251AB8B983000DC090 /* PendingSpecTest5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest5.m; sourceTree = "<group>"; };
 		E91713F119DF07BB00921712 /* libSpecta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpecta.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -441,6 +443,7 @@
 				E963ABAE1968E13800A592DF /* XCTestCase+Specta.h */,
 				E963ABAF1968E13800A592DF /* XCTestCase+Specta.m */,
 				B27A9A666AF7370DC4D7F211 /* SPTExcludeGlobalBeforeAfterEach.h */,
+				078CBC431ACCFC94000BC9FF /* SPTGlobalBeforeAfterEach.h */,
 			);
 			path = Specta;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				E963ABB41968E13800A592DF /* Specta.h in Headers */,
 				E963ABBA1968E13800A592DF /* SpectaTypes.h in Headers */,
 				B27A96FD931E25BE3F7E615E /* SPTExcludeGlobalBeforeAfterEach.h in Headers */,
+				078CBC441ACCFC94000BC9FF /* SPTGlobalBeforeAfterEach.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
