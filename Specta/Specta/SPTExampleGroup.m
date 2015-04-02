@@ -19,7 +19,7 @@ static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
     for(int classIndex = 0; classIndex < numberOfClasses; classIndex++) {
       Class aClass = classes[classIndex];
 
-      if (class_conformsToProtocol(aClass, @protocol(SPTGlobalBeforeAfterEach)) == YES) {
+      if (class_conformsToProtocol(aClass, @protocol(SPTGlobalBeforeAfterEach))) {
         Method globalMethod = class_getClassMethod(aClass, classMethodSelector);
         if (globalMethod) {
           [classesWithClassMethod addObject:aClass];
