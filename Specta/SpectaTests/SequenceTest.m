@@ -1,8 +1,9 @@
 #import "TestHelper.h"
+#import "SPTIncludeGlobalBeforeAfterEach.h"
 
 static NSMutableArray *sequence = nil;
 
-@interface SequenceTestHelper : NSObject
+@interface SequenceTestHelper : NSObject <SPTIncludeGlobalBeforeAfterEach>
 @end
 
 @implementation SequenceTestHelper

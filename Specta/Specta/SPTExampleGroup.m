@@ -4,16 +4,12 @@
 #import "SPTSpec.h"
 #import "SpectaUtility.h"
 #import "XCTest+Private.h"
-#import "SPTExcludeGlobalBeforeAfterEach.h"
+#import "SPTIncludeGlobalBeforeAfterEach.h"
 #import <libkern/OSAtomic.h>
 #import <objc/runtime.h>
 
 static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
   NSMutableArray *classesWithClassMethod = [[NSMutableArray alloc] init];
-
-  //TODO: need a better place for this
-  Class accessbilitySafeCategoryClass = NSClassFromString(@"UIAccessibilitySafeCategory__NSObject");
-  class_addProtocol(accessbilitySafeCategoryClass, @protocol(SPTExcludeGlobalBeforeAfterEach));
 
   int numberOfClasses = objc_getClassList(NULL, 0);
   if (numberOfClasses > 0) {
@@ -23,15 +19,7 @@ static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
     for(int classIndex = 0; classIndex < numberOfClasses; classIndex++) {
       Class aClass = classes[classIndex];
 
-      if (class_conformsToProtocol(aClass, @protocol(SPTExcludeGlobalBeforeAfterEach)) == NO) {
-        // If you're seeing a crash here then your probably have to blacklist crashing class from global before/after hooks.
-        // Specta supports blacklisting specific Classes from being treated as before/after helper classes
-        // to add an new class to the list add the following lines to a project initialiser ( e.g. App Delegate callbacks )
-        //
-        //  Class myClass = NSClassFromString(@"MyClass");
-        //  class_addProtocol(myClass, @protocol(SPTExcludeGlobalBeforeAfterEach));
-        //
-        //  You can also create a category for that class which implements SPTExcludeGlobalBeforeAfterEach.
+      if (class_conformsToProtocol(aClass, @protocol(SPTIncludeGlobalBeforeAfterEach)) == YES) {
         Method globalMethod = class_getClassMethod(aClass, classMethodSelector);
         if (globalMethod) {
           [classesWithClassMethod addObject:aClass];
@@ -44,13 +32,6 @@ static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
 
   return classesWithClassMethod;
 }
-
-@interface NSObject (SpectaGlobalBeforeAfterEach)
-
-+ (void)beforeEach;
-+ (void)afterEach;
-
-@end
 
 static void runExampleBlock(void (^block)(), NSString *name) {
   if (!SPTIsBlock(block)) {
@@ -65,7 +46,7 @@ typedef NS_ENUM(NSInteger, SPTExampleGroupOrder) {
   SPTExampleGroupOrderInnermostFirst
 };
 
-@interface SPTExampleGroup ()
+@interface SPTExampleGroup () <SPTIncludeGlobalBeforeAfterEach>
 
 - (void)incrementExampleCount;
 - (void)incrementPendingExampleCount;
