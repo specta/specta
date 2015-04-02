@@ -1,11 +1,11 @@
-Upcoming
+v0.5.0
 =======
 
 * BREAKING: Whitelist classes for inclusion in global beforeEach and afterEach hooks, instead of blacklisting for exclusion. See `SPTGlobalBeforeAfterEach` [wasnotrice]
 
-v0.4
+v0.4.0
 ======
-* Makes it easy to skip the beforeEach/afterEach functions for specific classes
+* Makes it easy to skip the beforeEach/afterEach functions for specific classes [paweldudek]
 * All failures now call back on the main thread [neonacho + J-Rojas]
 * ENV var to control signing [jmoody]
 * Run Xcode command line tools with xcrun [jmoody]

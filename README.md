@@ -30,7 +30,7 @@ Use [CocoaPods](http://github.com/CocoaPods/CocoaPods), [Carthage](https://githu
 	end
 
 	target :MyAppTests do
-	  pod 'Specta', '~> 0.4'
+	  pod 'Specta', '~> 0.5'
 	  # pod 'Expecta',     '~> 0.3'   # expecta matchers
 	  # pod 'OCMock',      '~> 2.2'   # OCMock
 	  # pod 'OCHamcrest',  '~> 3.0'   # hamcrest matchers
@@ -46,7 +46,7 @@ Use [CocoaPods](http://github.com/CocoaPods/CocoaPods), [Carthage](https://githu
 1. Add Specta to your project's `Cartfile.private`
 
     ```
-    github "specta/specta" ~> 0.4
+    github "specta/specta" ~> 0.5
     ```
 
 2. Run `carthage update` in your project directory
