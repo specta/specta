@@ -4,7 +4,7 @@
 #import "SPTSpec.h"
 #import "SpectaUtility.h"
 #import "XCTest+Private.h"
-#import "SPTIncludeGlobalBeforeAfterEach.h"
+#import "SPTGlobalBeforeAfterEach.h"
 #import <libkern/OSAtomic.h>
 #import <objc/runtime.h>
 
@@ -19,7 +19,7 @@ static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
     for(int classIndex = 0; classIndex < numberOfClasses; classIndex++) {
       Class aClass = classes[classIndex];
 
-      if (class_conformsToProtocol(aClass, @protocol(SPTIncludeGlobalBeforeAfterEach)) == YES) {
+      if (class_conformsToProtocol(aClass, @protocol(SPTGlobalBeforeAfterEach)) == YES) {
         Method globalMethod = class_getClassMethod(aClass, classMethodSelector);
         if (globalMethod) {
           [classesWithClassMethod addObject:aClass];
@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, SPTExampleGroupOrder) {
   SPTExampleGroupOrderInnermostFirst
 };
 
-@interface SPTExampleGroup () <SPTIncludeGlobalBeforeAfterEach>
+@interface SPTExampleGroup () <SPTGlobalBeforeAfterEach>
 
 - (void)incrementExampleCount;
 - (void)incrementPendingExampleCount;
