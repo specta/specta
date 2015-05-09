@@ -1,3 +1,8 @@
+v1.0.0
+======
+
+* Minor cleanup to prepare for the first non-breakable release!
+
 v0.5.0
 =======
 
