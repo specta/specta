@@ -64,6 +64,32 @@ Use [CocoaPods](http://github.com/CocoaPods/CocoaPods), [Carthage](https://githu
    For **iOS projects**, copy and add `Specta.framework` in `Products/ios` folder to the test target in your Xcode project.
    You can alternatively use `libSpecta.a`, if you prefer to add it as a static library for your project. (iOS 7 and below require this)
 6. Add `-ObjC` and `-all_load` to the "Other Linker Flags" build setting for the test target in your Xcode project.
+7. If you encounter such linking issues with your project:
+
+    ```
+    Undefined symbols for architecture x86_64:
+      "_llvm_gcda_emit_arcs", referenced from:
+          ___llvm_gcov_writeout in Specta(SPTSpec.o)
+          ___llvm_gcov_writeout in Specta(SpectaDSL.o)
+          ___llvm_gcov_writeout in Specta(SPTCallSite.o)
+          ___llvm_gcov_writeout in Specta(SPTSharedExampleGroups.o)
+          ___llvm_gcov_writeout in Specta(SPTTestSuite.o)
+          ___llvm_gcov_writeout in Specta(SpectaUtility.o)
+          ___llvm_gcov_writeout in Specta(SPTExampleGroup.o)
+          ...
+      "_llvm_gcda_emit_function", referenced from:
+          ___llvm_gcov_writeout in Specta(SPTSpec.o)
+          ___llvm_gcov_writeout in Specta(SpectaDSL.o)
+          ___llvm_gcov_writeout in Specta(SPTCallSite.o)
+          ___llvm_gcov_writeout in Specta(SPTSharedExampleGroups.o)
+          ___llvm_gcov_writeout in Specta(SPTTestSuite.o)
+          ___llvm_gcov_writeout in Specta(SpectaUtility.o)
+          ___llvm_gcov_writeout in Specta(SPTExampleGroup.o)
+          ...
+    ld: symbol(s) not found for architecture x86_64
+    clang: error: linker command failed with exit code 1 (use -v to see invocation)
+    ```
+make sure your target's "Generate Test Coverage Files" and "Instrument Program Flow" build settings are set to "Yes" for "Debug" configuration.
 
 ## EXAMPLE
 
