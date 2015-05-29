@@ -1,3 +1,8 @@
+v1.0.1
+======
+
+* Made the framework iOS7 to fix a bug in generating Carthage compatible frameworks [hyperspacemark]
+
 v1.0.0
 ======
 
