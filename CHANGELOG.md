@@ -1,3 +1,9 @@
+v1.0.2
+======
+
+* Added a `waitUntilTimeout` function allowing you to run a block with a specific timeout [eunikolsky]
+* Support for Xcode 7 [coverback]
+
 v1.0.1
 ======
 
