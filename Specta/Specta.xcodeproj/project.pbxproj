@@ -280,7 +280,7 @@
 		E963AB971968E13800A592DF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E963AB991968E13800A592DF /* Specta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Specta.h; sourceTree = "<group>"; };
 		E963AB9A1968E13800A592DF /* SpectaDSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpectaDSL.h; sourceTree = "<group>"; };
-		E963AB9B1968E13800A592DF /* SpectaDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpectaDSL.m; sourceTree = "<group>"; };
+		E963AB9B1968E13800A592DF /* SpectaDSL.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = SpectaDSL.m; sourceTree = "<group>"; };
 		E963AB9C1968E13800A592DF /* SpectaTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpectaTypes.h; sourceTree = "<group>"; };
 		E963AB9D1968E13800A592DF /* SpectaUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpectaUtility.h; sourceTree = "<group>"; };
 		E963AB9E1968E13800A592DF /* SpectaUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpectaUtility.m; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 		E963ABE41968E15400A592DF /* AsyncSpecTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTest.m; sourceTree = "<group>"; };
 		E963ABE51968E15400A592DF /* AsyncSpecTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTest2.m; sourceTree = "<group>"; };
 		E963ABE61968E15400A592DF /* AsyncSpecTest3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTest3.m; sourceTree = "<group>"; };
-		E963ABE71968E15400A592DF /* AsyncSpecTimeoutTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTimeoutTest.m; sourceTree = "<group>"; };
+		E963ABE71968E15400A592DF /* AsyncSpecTimeoutTest.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = AsyncSpecTimeoutTest.m; sourceTree = "<group>"; };
 		E963ABE81968E15400A592DF /* CompilationTest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompilationTest1.m; sourceTree = "<group>"; };
 		E963ABE91968E15400A592DF /* CompilationTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompilationTest2.m; sourceTree = "<group>"; };
 		E963ABEA1968E15400A592DF /* CompilationTest3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompilationTest3.m; sourceTree = "<group>"; };
