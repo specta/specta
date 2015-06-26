@@ -6,6 +6,14 @@
 #import <objc/runtime.h>
 #import "XCTest+Private.h"
 
+@interface SPTSpec()
+@property (nonatomic) NSMutableArray *checkerObjs;
+@end
+
+@implementation SPTCheckerObj
+
+@end
+
 @implementation SPTSpec
 
 + (void)initialize {
@@ -141,12 +149,29 @@
 
   if ([self spt_shouldRunExample:example]) {
     self.spt_pending = example.pending;
-    example.block(self);
+    self.checkerObjs = [NSMutableArray array];
+    @autoreleasepool {
+      example.block(self);
+    }
+    for (SPTCheckerObj *checkObj in self.checkerObjs) {
+      checkObj.checkBlock(checkObj.obj);
+    }
   } else if (!example.pending) {
     self.spt_skipped = YES;
   }
 
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:spt_kCurrentSpecKey];
+}
+
+- (void)spt_checkThis:(id)obj {
+  SPTCheckerObj *checkObj = [SPTCheckerObj new];
+  checkObj.obj = obj;
+  checkObj.checkBlock = ^(id checkingObj) {
+    XCTAssertNil(checkingObj);
+  };
+  @synchronized(self.checkerObjs) {
+    [self.checkerObjs addObject:checkObj];
+  }
 }
 
 #pragma mark - XCTestCase overrides
