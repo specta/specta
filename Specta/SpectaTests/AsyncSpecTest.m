@@ -35,6 +35,16 @@ describe(@"group", ^{
     });
   });
 
+  it(@"example 1", ^{
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Async"];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      assertEqualObjects(foo, @"foo");
+      [expectation fulfill];
+    });
+    [self waitForExpectationsWithTimeout:10 handler:nil];
+  });
+
+
   it(@"assert on background queue", ^{
     waitUntil(^(DoneCallback done) {
       dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -55,7 +65,7 @@ SpecEnd
   bar = @"not bar";
   XCTestRun *result = RunSpec(_AsyncSpecTestSpec);
   assertEqual([result unexpectedExceptionCount], 0);
-  assertEqual([result failureCount], 3);
+  assertEqual([result failureCount], 4);
   assertFalse([result hasSucceeded]);
   foo = @"foo";
   bar = @"bar";
