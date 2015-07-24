@@ -1,3 +1,8 @@
+v1.0.3
+======
+
+* Fixed a retain cycle with example groups [dhardiman]
+
 v1.0.2
 ======
 
