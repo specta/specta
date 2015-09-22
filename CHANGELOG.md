@@ -1,3 +1,10 @@
+v1.0.4
+======
+
+* Podspec Fix for `framework_search_paths`  [wessmith]
+* disables bitcode - [guidomb]
+* makes specta compatible with xctool / xcode 7 [extrememan]
+
 v1.0.3
 ======
 
@@ -133,4 +140,3 @@ v0.1.0
 ======
 
 * First Release [petejkim]
-
