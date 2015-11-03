@@ -13,8 +13,8 @@ def execute(command, stdout=nil)
   system(command) or raise "** BUILD FAILED **"
 end
 
-def test(scheme)
-  execute "xcrun xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} -configuration #{CONFIGURATION} test SYMROOT=build | xcpretty -c && exit ${PIPESTATUS[0]}"
+def test(scheme, sdk)
+  execute "xcrun xcodebuild -sdk #{sdk} -workspace #{WORKSPACE} -scheme #{scheme} -configuration #{CONFIGURATION} test SYMROOT=build | xcpretty -c && exit ${PIPESTATUS[0]}"
 end
 
 def build(scheme, sdk, product)
@@ -129,11 +129,11 @@ end
 
 namespace 'specs' do
   task :ios => :clean do |t|
-    test("Specta-iOS")
+    test("Specta-iOS", "iphonesimulator")
   end
 
   task :osx => :clean do |t|
-    test("Specta")
+    test("Specta", "macosx")
   end
 end
 
