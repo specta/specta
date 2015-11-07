@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'Specta'
-  s.version  = '1.0.4'
+  s.version  = '1.0.5'
   s.license  = 'MIT'
   s.summary  = 'A light-weight TDD / BDD framework.'
   s.homepage = 'http://github.com/specta/specta'
@@ -11,8 +11,10 @@ Pod::Spec.new do |s|
   s.source_files = 'Specta/Specta/**/*.{h,m}'
 
   s.frameworks = 'Foundation', 'XCTest'
-  s.requires_arc    = true
+
   s.ios.deployment_target = '6.0'
   s.osx.deployment_target = '10.8'
+  s.tvos.deployment_target = '9.0'
+
   s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
 end
