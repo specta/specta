@@ -19,7 +19,7 @@ A light-weight TDD / BDD framework for Objective-C.
 
 ## SETUP
 
-Use [CocoaPods](http://github.com/CocoaPods/CocoaPods), [Carthage](https://github.com/carthage/carthage) or [Set up manually](#setting-up-manually)
+Use [CocoaPods](https://github.com/CocoaPods/CocoaPods), [Carthage](https://github.com/carthage/carthage) or [Set up manually](#setting-up-manually)
 
 ### CocoaPods
 
@@ -159,7 +159,7 @@ SpecEnd
 * Set an environment variable `SPECTA_NO_SHUFFLE` with value `1` to disable test shuffling.
 * Set an environment variable `SPECTA_SEED` to specify the random seed for test shuffling.
 
-Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](http://github.com/specta/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
+Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](https://github.com/specta/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
 
 ## RUNNING TESTS IN COMMAND LINE
 
@@ -173,4 +173,4 @@ Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work
 
 ## LICENSE
 
-Copyright (c) 2012-2015 [Specta Team](https://github.com/specta?tab=members). This software is licensed under the [MIT License](http://github.com/specta/specta/raw/master/LICENSE).
+Copyright (c) 2012-2015 [Specta Team](https://github.com/orgs/specta/people). This software is licensed under the [MIT License](http://github.com/specta/specta/raw/master/LICENSE).
