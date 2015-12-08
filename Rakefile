@@ -14,7 +14,7 @@ def execute(command, stdout=nil)
 end
 
 def test(scheme, sdk)
-  execute "xcrun xcodebuild -sdk #{sdk} -workspace #{WORKSPACE} -scheme #{scheme} -configuration #{CONFIGURATION} test SYMROOT=build | xcpretty -c && exit ${PIPESTATUS[0]}"
+  execute "xcrun xcodebuild -sdk #{sdk} -workspace #{WORKSPACE} -scheme #{scheme} -configuration #{CONFIGURATION} test SYMROOT=build GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty -c && exit ${PIPESTATUS[0]}"
 end
 
 def build(scheme, sdk, product)
@@ -49,7 +49,7 @@ end
 
 desc 'Run tests'
 task :test do |t|
-  execute "xcrun xcodebuild test -workspace Specta.xcworkspace -scheme Specta"
+  execute "xcrun xcodebuild test -workspace Specta.xcworkspace -scheme Specta GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES"
 end
 
 desc 'clean'
