@@ -145,6 +145,7 @@
     example.block(self);
   } else if (!example.pending) {
     self.spt_skipped = YES;
+    NSLog(@"Skipping Test");
   }
 
   [[[NSThread currentThread] threadDictionary] removeObjectForKey:spt_kCurrentSpecKey];
