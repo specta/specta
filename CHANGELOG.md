@@ -1,3 +1,7 @@
+Master
+
+* Log out when skipping a not-focused spec [orta]
+
 v1.0.5
 ======
 * Disables bitcode - [guidomb/timbodeit]
