@@ -159,7 +159,7 @@ SpecEnd
 * Set an environment variable `SPECTA_NO_SHUFFLE` with value `1` to disable test shuffling.
 * Set an environment variable `SPECTA_SEED` to specify the random seed for test shuffling.
 
-Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](https://github.com/specta/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/jonreid/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
+Standard XCTest matchers such as `XCTAssertEqualObjects` and `XCTAssertNil` work, but you probably want to add a nicer matcher framework - [Expecta](https://github.com/specta/expecta/) to your setup. Or if you really prefer, [OCHamcrest](https://github.com/hamcrest/OCHamcrest) works fine too. Also, add a mocking framework: [OCMock](http://ocmock.org/).
 
 ## RUNNING TESTS IN COMMAND LINE
 
