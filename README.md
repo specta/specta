@@ -3,7 +3,7 @@
 A light-weight TDD / BDD framework for Objective-C.
 
 ### Status
-[![Build Status](https://travis-ci.org/specta/specta.png)](https://travis-ci.org/specta/specta)
+[![Build Status](https://travis-ci.org/specta/specta.svg)](https://travis-ci.org/specta/specta)
 [![Coverage Status](https://coveralls.io/repos/specta/specta/badge.svg)](https://coveralls.io/r/specta/specta)
 
 ## FEATURES
