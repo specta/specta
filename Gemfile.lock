@@ -40,3 +40,6 @@ DEPENDENCIES
   rake
   slather
   xcpretty
+
+BUNDLED WITH
+   1.11.2
