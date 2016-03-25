@@ -8,7 +8,10 @@ NO_COLOR= "\033[0m"
 GREEN_COLOR = "\033[32;01m"
 
 def code_sign_identity
-  ENV['CODE_SIGN_IDENTITY'] || 'iPhone Developer'
+  ENV['CODE_SIGN_IDENTITY'] ||
+    # Legacy support.
+    ENV["SPT_CODE_SIGNING_IDENTITY"] ||
+   'iPhone Developer'
 end
 
 def execute(command, stdout=nil)
