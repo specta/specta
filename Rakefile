@@ -7,6 +7,13 @@ CONFIGURATION = 'Release'
 NO_COLOR= "\033[0m"
 GREEN_COLOR = "\033[32;01m"
 
+def code_sign_identity
+  ENV['CODE_SIGN_IDENTITY'] ||
+    # Legacy support.
+    ENV["SPT_CODE_SIGNING_IDENTITY"] ||
+   'iPhone Developer'
+end
+
 def execute(command, stdout=nil)
   puts "Running #{command}..."
   command += " > #{stdout}" if stdout
@@ -33,10 +40,6 @@ end
 
 def lipo(bin1, bin2, output)
   execute "xcrun lipo -create '#{bin1}' '#{bin2}' -output '#{output}'"
-end
-
-def code_signing_identity
-  ENV['SPT_CODE_SIGNING_IDENTITY'] || 'iPhone Developer'
 end
 
 def clean(scheme)
@@ -90,7 +93,7 @@ task :build => :clean do |t|
   lipo(ios_static_lib, ios_sim_static_lib, ios_univ_static_lib)
 
   puts_green "\n=== CODESIGN iOS FRAMEWORK ==="
-  execute "xcrun codesign --force --sign \"#{code_signing_identity}\" --resource-rules='#{ios_univ_framework}'/ResourceRules.plist '#{ios_univ_framework}'"
+  execute "xcrun codesign --force --sign \"#{code_sign_identity}\" --resource-rules='#{ios_univ_framework}'/ResourceRules.plist '#{ios_univ_framework}'"
 
   puts_green "\n=== COPY PRODUCTS ==="
   execute "yes | rm -rf Products"
