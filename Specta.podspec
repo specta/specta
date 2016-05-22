@@ -17,4 +17,5 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
 
   s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
+  s.user_target_xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '$(PLATFORM_DIR)/Developer/Library/Frameworks' }
 end
