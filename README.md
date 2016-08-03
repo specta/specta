@@ -136,7 +136,7 @@ target :MyApp do
 # your app dependencies
 
   target :MyAppTests do
-    inherit! search_paths
+    inherit! :search_paths
 
     pod 'Specta', '~> 1.0'
     # pod 'Expecta',     '~> 1.0'   # expecta matchers
