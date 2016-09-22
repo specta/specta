@@ -22,7 +22,7 @@
 
 #define RunSpec(TestClass) RunSpecClass([TestClass class])
 
-XCTestSuiteRun *RunSpecClass(Class testClass);
+XCTestRun *RunSpecClass(Class testClass);
 
 #define assertTrue(expression)        XCTAssertTrue((expression), @"")
 #define assertFalse(expression)       XCTAssertFalse((expression), @"")

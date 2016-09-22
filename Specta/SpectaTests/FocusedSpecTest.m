@@ -68,7 +68,7 @@ SpecEnd
 
 - (void)test_focused_specs_are_run_exclusively {
   [_FocusedSpecTestSpec spt_setDisabled:NO];
-  XCTestSuiteRun *result = RunSpec(_FocusedSpecTestSpec);
+  XCTestRun *result = RunSpec(_FocusedSpecTestSpec);
   [_FocusedSpecTestSpec spt_setDisabled:YES];
 
   assertEqual([result testCaseCount], 3);
