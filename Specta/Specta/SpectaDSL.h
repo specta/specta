@@ -25,6 +25,8 @@ OBJC_EXTERN void fexample(NSString *name, void (^block)());
 OBJC_EXTERN void specify(NSString *name, void (^block)());
 OBJC_EXTERN void fspecify(NSString *name, void (^block)());
 
+OBJC_EXTERN void check_dealloc(id obj);
+
 #define   pending(...) spt_pending_(__VA_ARGS__, nil)
 #define xdescribe(...) spt_pending_(__VA_ARGS__, nil)
 #define  xcontext(...) spt_pending_(__VA_ARGS__, nil)
@@ -88,3 +90,5 @@ OBJC_EXTERN void spt_fit_(NSString *name, NSString *fileName, NSUInteger lineNum
 OBJC_EXTERN void spt_pending_(NSString *name, ...);
 OBJC_EXTERN void spt_itShouldBehaveLike_(NSString *fileName, NSUInteger lineNumber, NSString *name, id dictionaryOrBlock);
 OBJC_EXTERN void spt_itShouldBehaveLike_block(NSString *fileName, NSUInteger lineNumber, NSString *name, NSDictionary *(^block)());
+
+OBJC_EXTERN void spt_check_dealloc_(id obj);

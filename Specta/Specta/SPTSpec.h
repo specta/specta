@@ -6,6 +6,14 @@
 , SPTCompiledExample
 ;
 
+typedef void (^CheckingBlock)(id obj);
+
+@interface SPTCheckerObj: NSObject
+
+@property (nonatomic, weak) id obj;
+@property (nonatomic, strong) CheckingBlock checkBlock;
+@end
+
 @interface SPTSpec : XCTestCase
 
 @property (strong) XCTestCaseRun *spt_run;
@@ -24,5 +32,5 @@
 - (void)spec;
 - (BOOL)spt_shouldRunExample:(SPTCompiledExample *)example;
 - (void)spt_runExample:(SPTCompiledExample *)example;
-
+- (void)spt_checkThis:(id)obj;
 @end

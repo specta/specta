@@ -187,3 +187,7 @@ void waitUntilTimeout(NSTimeInterval timeout, void (^block)(DoneCallback done)) 
 void setAsyncSpecTimeout(NSTimeInterval timeout) {
   asyncSpecTimeout = timeout;
 }
+
+void spt_check_dealloc_(id obj) {
+  [SPTCurrentSpec spt_checkThis:obj];
+}

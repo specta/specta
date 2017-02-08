@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		078CBC441ACCFC94000BC9FF /* SPTGlobalBeforeAfterEach.h in Headers */ = {isa = PBXBuildFile; fileRef = 078CBC431ACCFC94000BC9FF /* SPTGlobalBeforeAfterEach.h */; };
 		B27A96FD931E25BE3F7E615E /* SPTExcludeGlobalBeforeAfterEach.h in Headers */ = {isa = PBXBuildFile; fileRef = B27A9A666AF7370DC4D7F211 /* SPTExcludeGlobalBeforeAfterEach.h */; };
+		B973399D1B3DF2A400948716 /* SPTCheckDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = B973399C1B3DF2A400948716 /* SPTCheckDealloc.m */; };
 		D0D022261AB8B983000DC090 /* PendingSpecTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D022251AB8B983000DC090 /* PendingSpecTest5.m */; };
 		D0D022271AB8B983000DC090 /* PendingSpecTest5.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D022251AB8B983000DC090 /* PendingSpecTest5.m */; };
 		E917141D19DF0A3100921712 /* SpectaDSL.m in Sources */ = {isa = PBXBuildFile; fileRef = E963AB9B1968E13800A592DF /* SpectaDSL.m */; };
@@ -266,6 +267,7 @@
 /* Begin PBXFileReference section */
 		078CBC431ACCFC94000BC9FF /* SPTGlobalBeforeAfterEach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTGlobalBeforeAfterEach.h; sourceTree = "<group>"; };
 		B27A9A666AF7370DC4D7F211 /* SPTExcludeGlobalBeforeAfterEach.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPTExcludeGlobalBeforeAfterEach.h; sourceTree = "<group>"; };
+		B973399C1B3DF2A400948716 /* SPTCheckDealloc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPTCheckDealloc.m; sourceTree = "<group>"; };
 		D0D022251AB8B983000DC090 /* PendingSpecTest5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingSpecTest5.m; sourceTree = "<group>"; };
 		E91713F119DF07BB00921712 /* libSpecta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpecta.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E917140919DF07D700921712 /* libSpecta.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpecta.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -490,6 +492,7 @@
 				E982173119C758AB0056C9BF /* SharedExamplesTest6.m */,
 				E963AC041968E15400A592DF /* SpectaUtilityTest.m */,
 				E963AC071968E15400A592DF /* UnexpectedExceptionTest.m */,
+				B973399C1B3DF2A400948716 /* SPTCheckDealloc.m */,
 			);
 			path = SpectaTests;
 			sourceTree = "<group>";
@@ -844,6 +847,7 @@
 				E963AC221968E15400A592DF /* DSLTest2.m in Sources */,
 				E982173219C758AB0056C9BF /* SharedExamplesTest6.m in Sources */,
 				E963AC261968E15400A592DF /* DSLTest4.m in Sources */,
+				B973399D1B3DF2A400948716 /* SPTCheckDealloc.m in Sources */,
 				E963AC321968E15400A592DF /* PassingSpecTest.m in Sources */,
 				E963AC3E1968E15400A592DF /* SharedExamplesTest1.m in Sources */,
 				E963AC361968E15400A592DF /* PendingSpecTest2.m in Sources */,
