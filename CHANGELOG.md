@@ -1,5 +1,11 @@
 Master
 
+v1.0.7
+======
+
+* Xcode9 compatability improvements - [shockdesign]
+* SpectaDSL: dictionary objects' life time bug fix. - [mkimi-lightricks]
+
 v1.0.6
 ======
 

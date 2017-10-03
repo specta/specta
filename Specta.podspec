@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'Specta'
-  s.version  = '1.0.6'
+  s.version  = '1.0.7'
   s.license  = 'MIT'
   s.summary  = 'A light-weight TDD / BDD framework.'
   s.homepage = 'http://github.com/specta/specta'
