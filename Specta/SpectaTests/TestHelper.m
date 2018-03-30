@@ -1,7 +1,12 @@
 #import "TestHelper.h"
 
-XCTestSuiteRun *RunSpecClass(Class testClass) {
-  __block XCTestSuiteRun *result;
+@interface TestSuitable : NSObject
+- (XCTestRun *)run;
+@end
+
+
+XCTestRun *RunSpecClass(Class testClass) {
+  __block XCTestRun *result;
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 90000 || __MAC_OS_X_VERSION_MAX_ALLOWED >= 101100
   XCTestObservationCenter *observationCenter = [XCTestObservationCenter sharedTestObservationCenter];
@@ -9,7 +14,15 @@ XCTestSuiteRun *RunSpecClass(Class testClass) {
   XCTestObservationCenter *observationCenter = [XCTestObservationCenter sharedObservationCenter];
 #endif
   [observationCenter _suspendObservationForBlock:^{
-    result = (id)[(XCTestSuite *)[XCTestSuite testSuiteForTestCaseClass:testClass] run];
+      id suite = [XCTestSuite testSuiteForTestCaseClass:testClass];
+      // Xcode 8 support
+      if ([suite respondsToSelector:@selector(runTest)]) {
+          [suite runTest];
+          result = [suite testRun];
+      // Xcode 7 support
+      } else if ([suite respondsToSelector:@selector(run)]) {
+          result = [(TestSuitable *)suite run];
+      }
   }];
 
   return result;

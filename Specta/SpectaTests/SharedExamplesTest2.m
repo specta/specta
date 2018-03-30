@@ -53,7 +53,7 @@ SharedExamplesEnd
 - (void)testSharedExamples {
   foo = @"Not Foo";
   items = [[NSMutableArray alloc] init];
-  XCTestSuiteRun *result = RunSpec(_SharedExamplesTest2Spec);
+  XCTestRun *result = RunSpec(_SharedExamplesTest2Spec);
   assertEqual([result testCaseCount], 4);
   assertEqual([result unexpectedExceptionCount], 0);
   assertEqual([result failureCount], 1);
