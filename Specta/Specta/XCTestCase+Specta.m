@@ -38,7 +38,7 @@
 }
 
 - (void)spt_dequeueFailures {
-  void(^dequeueFailures)() = ^() {
+  void(^dequeueFailures)(void) = ^() {
     [self spt_dequeueFailures];
   };
 

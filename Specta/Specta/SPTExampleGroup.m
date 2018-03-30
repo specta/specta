@@ -33,7 +33,7 @@ static NSArray *ClassesWithClassMethod(SEL classMethodSelector) {
   return classesWithClassMethod;
 }
 
-static void runExampleBlock(void (^block)(), NSString *name) {
+static void runExampleBlock(void (^block)(void), NSString *name) {
   if (!SPTIsBlock(block)) {
     return;
   }
