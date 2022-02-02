@@ -185,7 +185,7 @@ void waitUntilTimeout(NSTimeInterval timeout, void (^block)(DoneCallback done)) 
     });
   });
   NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
-  while (!atomic_fetch_and(&complete, false) && [timeoutDate timeIntervalSinceNow] > 0) {
+  while (!complete && [timeoutDate timeIntervalSinceNow] > 0) {
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.01]];
   }
   if (!complete) {
