@@ -59,8 +59,8 @@ BOOL initialized = NO;
   [SPTCurrentSpec spt_handleException:exception];
 }
 
-- (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected {
-  [SPTCurrentSpec recordFailureWithDescription:description inFile:filename atLine:lineNumber expected:expected];
+- (void)recordIssue:(XCTIssue *)issue {
+    [SPTCurrentSpec recordIssue:issue];
 }
 
 - (void)_recordUnexpectedFailureWithDescription:(NSString *)description exception:(NSException *)exception {

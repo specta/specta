@@ -58,7 +58,17 @@
     id line = [exception userInfo][@"line"];
     id file = [exception userInfo][@"file"];
     if ([line isKindOfClass:[NSNumber class]] && [file isKindOfClass:[NSString class]]) {
-      [self recordFailureWithDescription:description inFile:file atLine:[line unsignedIntegerValue] expected:YES];
+      XCTSourceCodeLocation *location = [[XCTSourceCodeLocation alloc] initWithFilePath:file
+                                                                             lineNumber:[line unsignedIntegerValue]];
+      XCTSourceCodeContext *context = [[XCTSourceCodeContext alloc] initWithLocation:location];
+      XCTIssue *issue = [[XCTIssue alloc] initWithType:XCTIssueTypeAssertionFailure
+                                    compactDescription:description
+                                   detailedDescription:@""
+                                     sourceCodeContext:context
+                                       associatedError:nil
+                                           attachments:@[]];
+      [self recordIssue:issue];
+
       return;
     }
   }

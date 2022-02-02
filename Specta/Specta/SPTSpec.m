@@ -198,9 +198,10 @@
   return spt_shuffle(invocations);
 }
 
-- (void)recordFailureWithDescription:(NSString *)description inFile:(NSString *)filename atLine:(NSUInteger)lineNumber expected:(BOOL)expected {
-  SPTSpec *currentSpec = SPTCurrentSpec;
-  [currentSpec.spt_run recordFailureWithDescription:description inFile:filename atLine:lineNumber expected:expected];
+- (void)recordIssue:(XCTIssue *)issue
+{
+    SPTSpec *currentSpec = SPTCurrentSpec;
+    [currentSpec.spt_run recordIssue:issue];
 }
 
 - (void)performTest:(XCTestRun *)run {

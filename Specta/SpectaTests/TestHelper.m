@@ -9,7 +9,9 @@ XCTestSuiteRun *RunSpecClass(Class testClass) {
   XCTestObservationCenter *observationCenter = [XCTestObservationCenter sharedObservationCenter];
 #endif
   [observationCenter _suspendObservationForBlock:^{
-    result = (id)[(XCTestSuite *)[XCTestSuite testSuiteForTestCaseClass:testClass] run];
+    XCTestSuite *testSuite = [XCTestSuite testSuiteForTestCaseClass:testClass];
+    [testSuite runTest];
+    result = (XCTestSuiteRun *)testSuite.testRun;
   }];
 
   return result;
