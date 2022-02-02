@@ -25,7 +25,7 @@ SpecEnd
 - (void)testFailingSpec {
   foo = @"not foo";
   bar = @"not bar";
-  XCTestSuiteRun *result = RunSpec(_FailingSpecTestSpec);
+  XCTestRun *result = RunSpec(_FailingSpecTestSpec);
   assertEqual([result unexpectedExceptionCount], 0);
   assertEqual([result failureCount], 2);
   assertFalse([result hasSucceeded]);

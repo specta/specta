@@ -21,7 +21,7 @@ SpecEnd
 
 - (void)testSharedExamplesFailingIfCalledInsideAnItBlock {
   shouldInvokeItShouldBehaveLike = YES;
-  XCTestSuiteRun *result = RunSpec(_SharedExamplesTest5Spec);
+  XCTestRun *result = RunSpec(_SharedExamplesTest5Spec);
   assertEqual([result testCaseCount], 1);
   assertEqual([result unexpectedExceptionCount], 1);
   assertEqual([result failureCount], 0);

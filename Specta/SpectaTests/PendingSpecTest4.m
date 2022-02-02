@@ -18,7 +18,7 @@ SpecEnd
 @implementation PendingSpecTest4
 
 - (void)testPendingSpec {
-  XCTestSuiteRun *result = RunSpec(_PendingSpecTest4Spec);
+  XCTestRun *result = RunSpec(_PendingSpecTest4Spec);
   assertEqual([result testCaseCount], 1);
   assertEqual([result unexpectedExceptionCount], 0);
   assertEqual([result failureCount], 0);
