@@ -10,9 +10,11 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 30
     steps:
-    - uses: actions/checkout@v2
-    - run: |
-        gem i slather
-        bundle exec rake specs:ios
-        bundle exec rake specs:osx
-        slather
+      - uses: actions/checkout@v2
+      - run: bundle
+
+      - name: Test iOS
+        run: bundle exec rake specs:ios
+
+      - name: Test macOS
+        run: bundle exec rake specs:osx
