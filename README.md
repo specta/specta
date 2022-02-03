@@ -138,7 +138,7 @@ target :MyApp do
   target :MyAppTests do
     inherit! :search_paths
 
-    pod 'Specta', '~> 1.0'
+    pod 'Specta', '~> 2.0'
     # pod 'Expecta',     '~> 1.0'   # expecta matchers
     # pod 'OCMock',      '~> 2.2'   # OCMock
     # pod 'OCHamcrest',  '~> 3.0'   # hamcrest matchers
@@ -155,7 +155,7 @@ end
 1. Add Specta to your project's `Cartfile.private`
 
     ```
-    github "specta/specta" ~> 1.0
+    github "specta/specta" ~> 2.0
     ```
 
 2. Run `carthage update` in your project directory
@@ -164,7 +164,7 @@ end
 
 ### SETTING UP MANUALLY
 
-1. Clone from Github.
+1. Clone from GitHub.
 2. Run `rake` in project root to build.
 3. Add a "Cocoa/Cocoa Touch Unit Testing Bundle" target if you don't already have one.
 4. Copy and add all header files in `Products` folder to the Test target in your Xcode project.
@@ -176,4 +176,4 @@ end
 
 ## LICENSE
 
-Copyright (c) 2012-2016 [Specta Team](https://github.com/orgs/specta/people). This software is licensed under the [MIT License](http://github.com/specta/specta/raw/master/LICENSE).
+Copyright (c) 2012-2022 [Specta Team](https://github.com/orgs/specta/people). This software is licensed under the [MIT License](http://github.com/specta/specta/raw/master/LICENSE).

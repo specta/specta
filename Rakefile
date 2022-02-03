@@ -139,7 +139,7 @@ end
 
 namespace 'specs' do
   task :ios => :clean do |t|
-    test("Specta-iOS", "iphonesimulator")
+    test("Specta-iOS", "iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 12'")
   end
 
   task :osx => :clean do |t|
