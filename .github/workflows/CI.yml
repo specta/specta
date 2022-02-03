@@ -12,6 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: |
-        gem i slather --no-rdoc
+        gem i slather
         bundle exec rake specs:ios
         bundle exec rake specs:osx
+        slather
