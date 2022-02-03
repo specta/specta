@@ -7,6 +7,7 @@
 #import "SPTSpec.h"
 #import "SPTCallSite.h"
 #import <libkern/OSAtomic.h>
+#import <stdatomic.h>
 
 static NSTimeInterval asyncSpecTimeout = 10.0;
 
@@ -75,7 +76,15 @@ void spt_itShouldBehaveLike_(NSString *fileName, NSUInteger lineNumber, NSString
   } else {
     SPTSpec *currentSpec = SPTCurrentSpec;
     if (currentSpec) {
-      [currentSpec recordFailureWithDescription:@"itShouldBehaveLike should not be invoked inside an example block!" inFile:fileName atLine:lineNumber expected:NO];
+      XCTSourceCodeLocation *location = [[XCTSourceCodeLocation alloc] initWithFilePath:fileName lineNumber:lineNumber];
+      XCTSourceCodeContext *context = [[XCTSourceCodeContext alloc] initWithLocation:location];
+      XCTIssue *issue = [[XCTIssue alloc] initWithType:XCTIssueTypeUncaughtException
+                                    compactDescription:@"itShouldBehaveLike should not be invoked inside an example block!"
+                                   detailedDescription:@""
+                                     sourceCodeContext:context
+                                       associatedError:nil
+                                           attachments:@[]];
+      [currentSpec recordIssue:issue];
     } else {
       it(name, ^{
         [SPTCurrentSpec recordFailureWithDescription:[NSString stringWithFormat:@"Shared example group \"%@\" does not exist.", name] inFile:fileName atLine:lineNumber expected:NO];
@@ -169,10 +178,10 @@ void waitUntil(void (^block)(DoneCallback done)) {
 }
 
 void waitUntilTimeout(NSTimeInterval timeout, void (^block)(DoneCallback done)) {
-  __block uint32_t complete = 0;
+  __block atomic_bool complete = false;
   dispatch_async(dispatch_get_main_queue(), ^{
     block(^{
-      OSAtomicOr32Barrier(1, &complete);
+      atomic_fetch_or(&complete, true);
     });
   });
   NSDate *timeoutDate = [NSDate dateWithTimeIntervalSinceNow:timeout];
@@ -183,7 +192,17 @@ void waitUntilTimeout(NSTimeInterval timeout, void (^block)(DoneCallback done)) 
     NSString *message = [NSString stringWithFormat:@"failed to invoke done() callback before timeout (%f seconds)", timeout];
     SPTSpec *currentSpec = SPTCurrentSpec;
     SPTTestSuite *testSuite = [[currentSpec class] spt_testSuite];
-    [currentSpec recordFailureWithDescription:message inFile:testSuite.fileName atLine:testSuite.lineNumber expected:YES];
+
+    XCTSourceCodeLocation *location = [[XCTSourceCodeLocation alloc] initWithFilePath:testSuite.fileName
+                                                                           lineNumber:testSuite.lineNumber];
+    XCTSourceCodeContext *context = [[XCTSourceCodeContext alloc] initWithLocation:location];
+    XCTIssue *issue = [[XCTIssue alloc] initWithType:XCTIssueTypeThrownError
+                                  compactDescription:message
+                                 detailedDescription:@""
+                                   sourceCodeContext:context
+                                     associatedError:nil
+                                         attachments:@[]];
+    [currentSpec recordIssue:issue];
   }
 }
 

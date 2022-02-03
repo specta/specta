@@ -20,7 +20,7 @@ SpecEnd
 
 - (void)testSharedExamplesFailingIfNonexistent {
   shouldInvokeItBehavesLike = YES;
-  XCTestSuiteRun *result = RunSpec(_SharedExamplesTest6Spec);
+  XCTestRun *result = RunSpec(_SharedExamplesTest6Spec);
   assertEqual([result testCaseCount], 1);
   assertEqual([result unexpectedExceptionCount], 1);
   assertEqual([result failureCount], 0);

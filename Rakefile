@@ -25,7 +25,14 @@ def test(scheme, sdk)
 end
 
 def build(scheme, sdk, product)
-  execute "xcrun xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} -sdk #{sdk} -configuration #{CONFIGURATION} SYMROOT=build"
+  # iphonesimulator and iphoneos have the same architectures (arm64) and can't be in the same fat output file
+  # ref: https://github.com/CocoaPods/cocoapods-packager/issues/259#issuecomment-765108928
+  excluded_archs = ""
+  if sdk == 'iphonesimulator'
+    excluded_archs = "arm64"
+  end
+
+  execute "xcrun xcodebuild -workspace #{WORKSPACE} -scheme #{scheme} -sdk #{sdk} -configuration #{CONFIGURATION} SYMROOT=build EXCLUDED_ARCHS=\"#{excluded_archs}\""
   build_dir = "#{CONFIGURATION}#{sdk == 'macosx' ? '' : "-#{sdk}"}"
   "Specta/build/#{build_dir}/#{product}"
 end
@@ -93,7 +100,7 @@ task :build => :clean do |t|
   lipo(ios_static_lib, ios_sim_static_lib, ios_univ_static_lib)
 
   puts_green "\n=== CODESIGN iOS FRAMEWORK ==="
-  execute "xcrun codesign --force --sign \"#{code_sign_identity}\" --resource-rules='#{ios_univ_framework}'/ResourceRules.plist '#{ios_univ_framework}'"
+  execute "xcrun codesign --force --sign \"#{code_sign_identity}\" '#{ios_univ_framework}'"
 
   puts_green "\n=== COPY PRODUCTS ==="
   execute "yes | rm -rf Products"
