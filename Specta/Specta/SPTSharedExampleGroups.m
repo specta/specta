@@ -4,37 +4,17 @@
 #import "SpectaUtility.h"
 #import <objc/runtime.h>
 
-NSMutableDictionary *globalSharedExampleGroups = nil;
-BOOL initialized = NO;
+static const NSMutableDictionary *globalSharedExampleGroups = nil;
 
 @implementation SPTSharedExampleGroups
 
 + (void)initialize {
   Class SPTSharedExampleGroupsClass = [SPTSharedExampleGroups class];
   if ([self class] == SPTSharedExampleGroupsClass) {
-    if (!initialized) {
-      initialized = YES;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
       globalSharedExampleGroups = [[NSMutableDictionary alloc] init];
-
-      Class *classes = NULL;
-      int numClasses = objc_getClassList(NULL, 0);
-
-      if (numClasses > 0) {
-        classes = (Class *)malloc(sizeof(Class) * numClasses);
-        numClasses = objc_getClassList(classes, numClasses);
-
-        Class klass, superClass;
-        for(uint i = 0; i < numClasses; i++) {
-          klass = classes[i];
-          superClass = class_getSuperclass(klass);
-          if (superClass == SPTSharedExampleGroupsClass) {
-            [[[klass alloc] init] sharedExampleGroups];
-          }
-        }
-
-        free(classes);
-      }
-    }
+    });
   }
 }
 
